@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Forge Room workbench view">
+  <defs>
+    <linearGradient id="forge-view" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#201914" />
+      <stop offset="100%" stop-color="#463528" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#forge-view)" />
+  <rect x="58" y="70" width="1484" height="760" rx="24" fill="rgba(12,8,6,0.74)" stroke="rgba(255,214,156,0.18)" stroke-width="6" />
+  <rect x="104" y="124" width="496" height="270" rx="16" fill="rgba(255,255,255,0.04)" />
+  <rect x="624" y="124" width="416" height="270" rx="16" fill="rgba(255,255,255,0.04)" />
+  <rect x="1064" y="124" width="430" height="270" rx="16" fill="rgba(255,255,255,0.04)" />
+  <rect x="104" y="420" width="936" height="340" rx="16" fill="rgba(255,255,255,0.04)" />
+  <rect x="1064" y="420" width="430" height="340" rx="16" fill="rgba(255,255,255,0.04)" />
+  <text x="122" y="108" fill="#f3ddc3" font-family="Georgia, serif" font-size="30">Forge Workbench</text>
+</svg>

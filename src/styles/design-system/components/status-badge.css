@@ -1,0 +1,75 @@
+.ds-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  padding: var(--space-0-5) var(--space-2-5);
+  border-radius: var(--radius-badge);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-semibold);
+}
+
+.ds-status-badge__dot {
+  width: var(--size-dot-sm);
+  height: var(--size-dot-sm);
+  border-radius: var(--radius-full);
+}
+
+.ds-status-badge--success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.ds-status-badge--success .ds-status-badge__dot {
+  background: var(--color-success);
+  box-shadow: var(--glow-success);
+}
+
+.ds-status-badge--error {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.ds-status-badge--error .ds-status-badge__dot {
+  background: var(--color-error);
+}
+
+.ds-status-badge--warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.ds-status-badge--warning .ds-status-badge__dot {
+  background: var(--color-warning);
+  animation: pulse var(--duration-pulse) ease-in-out infinite;
+}
+
+.ds-status-badge--neutral {
+  background: var(--hover-overlay);
+  color: var(--text-muted);
+}
+
+.ds-status-badge--neutral .ds-status-badge__dot {
+  background: var(--text-muted);
+}
+
+.ds-credit-badge {
+  font-size: var(--text-2xs);
+  padding: var(--space-0-5) var(--space-2);
+  border-radius: var(--radius-badge);
+  font-weight: var(--font-semibold);
+}
+
+.ds-credit-badge--low {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.ds-credit-badge--mid {
+  background: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+.ds-credit-badge--high {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}

@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+logs/
+archives/
+config/
+data/
+/commands/
+screenshots/
+tmp/
+temp/
+.vite/
+protocol/
+*.min.js
+*.tsbuildinfo
+package-lock.json

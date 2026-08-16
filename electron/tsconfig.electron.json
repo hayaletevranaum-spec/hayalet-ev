@@ -1,0 +1,63 @@
+{
+  "extends": "../src/tsconfig.json",
+  "compilerOptions": {
+    // === Electron-specific overrides ===
+    // (shared base config'den miras alınan strict flaglar tekrar yazılmaz)
+
+    // Node types (Electron main process)
+    "types": ["node"],
+
+    // lib: ESNext + DOM — DOM tipleri src/types paylaşımlı dosyaları için gerekli
+    // Runtime güvencesi types:["node"] ile sağlanıyor (Node API'leri kısıtlı)
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+    // JS dosyaları için tip kontrolü — base'de false, burada aktif
+    "checkJs": true,
+
+    // Electron'da declaration gerekmez
+    "declaration": false,
+    "declarationMap": false,
+
+    // Source map (base'de tanımlı değil)
+    "sourceMap": true,
+
+    // .ts uzantılı import'lara izin (esbuild bundler için)
+    "allowImportingTsExtensions": true,
+
+    // Build cache
+    "tsBuildInfoFile": "./tsconfig.electron.tsbuildinfo",
+
+    // === Path Aliases (electron-specific) ===
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["src/*"],
+      "@electron/*": ["electron/*"],
+      "@electron/types": ["electron/types/index.ts"],
+      "@shared/*": ["src/types/*"],
+      "@theme-source/*": ["shared/themes/*"],
+      "@mcp/*": ["mcp-server/*"],
+      "@timeouts": ["shared/timeouts.ts"],
+      "@limits": ["shared/limits.ts"],
+      "@slots": ["shared/slots.ts"],
+      "@ui-constants": ["shared/ui-constants.ts"]
+    }
+  },
+  "include": ["**/*.js", "**/*.ts", "../src/types/**/*.ts"],
+  "exclude": [
+    "../node_modules",
+    "../dist",
+    "../build",
+    "../mcp-server",
+    "../src/js",
+    "../.rovo",
+    "../logs",
+    "../commands",
+    "../data",
+    "../config",
+    "../screenshots",
+    "../tmp",
+    "../temp",
+    "../.vite",
+    "../scripts"
+  ]
+}

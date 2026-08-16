@@ -1,0 +1,33 @@
+:root {
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  --glow-cyan-md: 0 0 20px rgba(34, 211, 238, 0.4);
+  --glow-cyan-lg: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(34, 211, 238, 0.2);
+  --glow-success: 0 0 15px rgba(52, 211, 153, 0.5);
+  --glow-error: 0 0 15px rgba(248, 113, 113, 0.5);
+
+  --glass-blur: blur(20px);
+
+  --shadow-3d-inset:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.05), inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-3d-inset-connected:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.08), inset -2px -2px 4px rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(34, 197, 94, 0.2), 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  --shadow-logo-text:
+    0 1px 0 rgba(255, 255, 255, 0.05), 0 2px 1px rgba(0, 0, 0, 0.3), 0 3px 3px rgba(0, 0, 0, 0.2),
+    0 5px 8px rgba(0, 0, 0, 0.15);
+  --shadow-logo-text-hover:
+    0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25),
+    0 8px 12px rgba(0, 0, 0, 0.2), 0 0 20px rgba(34, 211, 238, 0.3);
+
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-dropdown: 0 20px 40px -8px rgba(0, 0, 0, 0.5);
+  --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  --shadow-toast: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-surface: 0 18px 42px -24px rgba(0, 0, 0, 0.55);
+  --shadow-surface-hover: 0 24px 54px -24px rgba(0, 0, 0, 0.65);
+  --shadow-floating: 0 30px 60px -24px rgba(0, 0, 0, 0.6);
+}

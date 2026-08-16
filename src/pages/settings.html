@@ -1,0 +1,2019 @@
+<!doctype html>
+<html lang="und" data-theme="obsidian">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section
+        class="page page-settings settings-page is-hidden"
+        id="page-settings"
+        aria-labelledby="page-settings-title"
+        aria-hidden="true"
+      >
+        <h2
+          class="visually-hidden"
+          id="page-settings-title"
+          data-shell-i18n-text="settingsHub.openButton"
+        ></h2>
+        <div
+          class="settings-hub-shell settings-page__shell"
+          aria-label=""
+          data-shell-i18n-aria-label="settingsHub.ariaLabel"
+        >
+          <div
+            class="settings-scene"
+            id="settings-scene-root"
+            aria-label=""
+            data-shell-i18n-aria-label="settingsHub.scene.ariaLabel"
+            aria-hidden="true"
+            hidden
+          >
+            <div class="settings-scene__surface scene-shell__surface">
+              <img
+                class="settings-scene__background scene-shell__cover-image"
+                id="settings-scene-background"
+                alt=""
+              />
+
+              <div
+                class="settings-scene__room-view scene-shell__room-layer"
+                id="settings-scene-room-view"
+                aria-hidden="false"
+              >
+                <div class="settings-scene__hotspots" id="settings-scene-hotspots"></div>
+                <div
+                  class="settings-scene__characters entrance-scene__characters"
+                  id="settings-scene-characters"
+                ></div>
+                <div class="entrance-scene__editor-host" id="settings-scene-editor-host"></div>
+              </div>
+
+              <div
+                class="settings-scene__panel-view scene-shell__view"
+                id="settings-scene-panel-view"
+                aria-hidden="true"
+              >
+                <img
+                  class="settings-scene__panel-art scene-shell__cover-image"
+                  id="settings-scene-panel-art"
+                  alt=""
+                />
+                <div class="settings-scene__panel-shade scene-shell__panel-shade"></div>
+                <div class="settings-scene__panel-slot" id="settings-scene-panel-slot"></div>
+              </div>
+            </div>
+          </div>
+          <div class="settings-hub-layout">
+            <div class="settings-hub-nav workspace-tool-bar">
+              <div class="workspace-tool-bar__start">
+                <h1
+                  class="workspace-tool-bar__title"
+                  data-shell-i18n-text="settingsHub.openButton"
+                ></h1>
+              </div>
+              <div
+                class="settings-hub-tabs workspace-tool-bar__center"
+                role="tablist"
+                aria-label=""
+                data-shell-i18n-aria-label="settingsHub.ariaLabel"
+              >
+                <button
+                  class="settings-hub-tab is-active"
+                  id="settings-tab-accounts"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="settings-panel-accounts"
+                  data-settings-panel="accounts"
+                >
+                  <span class="settings-hub-tab__index">01</span>
+                  <span
+                    class="settings-hub-tab__label"
+                    data-shell-i18n-text="settingsHub.nav.accounts"
+                  ></span>
+                </button>
+                <button
+                  class="settings-hub-tab"
+                  id="settings-tab-capture"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="settings-panel-capture"
+                  data-settings-panel="capture"
+                >
+                  <span class="settings-hub-tab__index">02</span>
+                  <span
+                    class="settings-hub-tab__label"
+                    data-shell-i18n-text="settingsHub.nav.capture"
+                  ></span>
+                </button>
+                <button
+                  class="settings-hub-tab"
+                  id="settings-tab-theme"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="settings-panel-theme"
+                  data-settings-panel="theme"
+                >
+                  <span class="settings-hub-tab__index">03</span>
+                  <span
+                    class="settings-hub-tab__label"
+                    data-shell-i18n-text="settingsHub.nav.theme"
+                  ></span>
+                </button>
+                <button
+                  class="settings-hub-tab"
+                  id="settings-tab-backup"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="backup-overlay"
+                  data-settings-panel="backup"
+                >
+                  <span class="settings-hub-tab__index">04</span>
+                  <span
+                    class="settings-hub-tab__label"
+                    data-shell-i18n-text="settingsHub.nav.backup"
+                  ></span>
+                </button>
+                <button
+                  class="settings-hub-tab"
+                  id="settings-tab-rooms"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="rooms-overlay"
+                  data-settings-panel="rooms"
+                >
+                  <span class="settings-hub-tab__index">05</span>
+                  <span
+                    class="settings-hub-tab__label"
+                    data-shell-i18n-text="settingsHub.nav.rooms"
+                  ></span>
+                </button>
+                <button
+                  class="settings-hub-tab"
+                  id="settings-tab-live-log"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="live-log-overlay"
+                  data-settings-panel="live-log"
+                >
+                  <span class="settings-hub-tab__index">06</span>
+                  <span
+                    class="settings-hub-tab__label"
+                    data-shell-i18n-text="settingsHub.nav.liveLog"
+                  ></span>
+                </button>
+                <button
+                  class="settings-hub-tab"
+                  id="settings-tab-languages"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="settings-panel-languages"
+                  data-settings-panel="languages"
+                >
+                  <span class="settings-hub-tab__index">07</span>
+                  <span
+                    class="settings-hub-tab__label"
+                    data-shell-i18n-text="settingsHub.nav.languages"
+                  ></span>
+                </button>
+              </div>
+              <div class="workspace-tool-bar__end">
+                <button
+                  class="btn btn-ghost btn-sm settings-hub-close"
+                  id="settings-hub-close"
+                  data-shell-i18n-text="common.close"
+                ></button>
+              </div>
+            </div>
+
+            <div class="settings-hub-panels">
+              <section
+                class="settings-hub-panel is-hidden"
+                id="settings-panel-capture"
+                role="tabpanel"
+                aria-labelledby="settings-tab-capture"
+                data-settings-panel="capture"
+                aria-hidden="true"
+                hidden
+              >
+                <div
+                  class="settings-panel-shell scene-shell__framed-shell settings-panel-shell--capture"
+                >
+                  <div
+                    class="settings-panel-head scene-shell__framed-shell-head settings-panel-head--workbench"
+                  >
+                    <div class="settings-panel-copy">
+                      <span
+                        class="settings-panel-kicker"
+                        data-shell-i18n-text="settingsHub.nav.capture"
+                      ></span>
+                      <h3
+                        class="settings-panel-title"
+                        data-shell-i18n-text="settingsHub.capture.title"
+                      ></h3>
+                      <p
+                        class="settings-panel-summary"
+                        data-shell-i18n-text="settingsHub.capture.subtitle"
+                      ></p>
+                    </div>
+                  </div>
+
+                  <div class="settings-panel-scroll settings-panel-scroll--capture">
+                    <section
+                      class="settings-capture-report"
+                      aria-label=""
+                      data-i18n-aria-label="capture.overview.ariaLabel"
+                    >
+                      <div class="settings-capture-report-head">
+                        <div class="settings-capture-overview">
+                          <article
+                            class="settings-capture-overview-card"
+                            data-capture-summary="host"
+                          >
+                            <span
+                              class="settings-capture-stat-label"
+                              data-i18n-text="capture.overview.host"
+                            ></span>
+                            <strong id="capture-summary-host">--</strong>
+                            <p class="settings-capture-note" id="capture-summary-host-note"></p>
+                          </article>
+                          <article
+                            class="settings-capture-overview-card"
+                            data-capture-summary="android"
+                          >
+                            <span
+                              class="settings-capture-stat-label"
+                              data-i18n-text="capture.overview.android"
+                            ></span>
+                            <strong id="capture-summary-android">--</strong>
+                            <p class="settings-capture-note" id="capture-summary-android-note"></p>
+                          </article>
+                          <article
+                            class="settings-capture-overview-card"
+                            data-capture-summary="runtime"
+                          >
+                            <span
+                              class="settings-capture-stat-label"
+                              data-i18n-text="capture.overview.runtime"
+                            ></span>
+                            <strong id="capture-summary-runtime">--</strong>
+                            <p class="settings-capture-note" id="capture-summary-runtime-note"></p>
+                          </article>
+                          <article
+                            class="settings-capture-overview-card"
+                            data-capture-summary="operation"
+                          >
+                            <span
+                              class="settings-capture-stat-label"
+                              data-i18n-text="capture.overview.operation"
+                            ></span>
+                            <strong id="capture-summary-operation">--</strong>
+                            <p
+                              class="settings-capture-note"
+                              id="capture-summary-operation-note"
+                            ></p>
+                          </article>
+                        </div>
+
+                        <section
+                          class="settings-capture-progress"
+                          id="capture-android-progress-shell"
+                          aria-live="polite"
+                        >
+                          <div class="settings-capture-progress-header">
+                            <strong id="capture-android-progress-title"></strong>
+                            <span
+                              class="settings-capture-note"
+                              id="capture-android-progress-percent"
+                            ></span>
+                          </div>
+                          <div
+                            class="settings-capture-progress-bar"
+                            role="progressbar"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            aria-valuenow="0"
+                          >
+                            <span id="capture-android-progress-bar"></span>
+                          </div>
+                          <p
+                            class="settings-capture-note settings-capture-note--status"
+                            id="capture-android-progress-message"
+                          ></p>
+                          <ul
+                            class="settings-capture-progress-details"
+                            id="capture-android-progress-details"
+                          ></ul>
+                          <div
+                            class="settings-capture-actions settings-capture-actions--progress is-hidden"
+                            id="capture-android-progress-actions"
+                          >
+                            <button
+                              id="capture-android-progress-confirm-btn"
+                              class="btn btn-primary btn-sm"
+                              type="button"
+                              data-i18n-text="capture.android.progress.confirm"
+                            ></button>
+                            <button
+                              id="capture-android-progress-cancel-btn"
+                              class="btn btn-secondary btn-sm"
+                              type="button"
+                              data-i18n-text="capture.android.progress.cancel"
+                            ></button>
+                          </div>
+                        </section>
+                      </div>
+
+                      <div class="settings-capture-report-body">
+                        <section
+                          class="settings-capture-report-section settings-capture-report-section--infrastructure"
+                        >
+                          <section class="settings-capture-report-group">
+                            <header class="settings-capture-section-header">
+                              <span
+                                class="settings-capture-report-title"
+                                data-i18n-text="capture.dependencies.title"
+                              ></span>
+                              <p
+                                class="settings-capture-note"
+                                data-i18n-text="capture.dependencies.subtitle"
+                              ></p>
+                            </header>
+                            <div class="settings-capture-report-summary">
+                              <span
+                                class="settings-capture-stat-label"
+                                data-i18n-text="capture.dependencies.summaryLabel"
+                              ></span>
+                              <p
+                                class="settings-capture-note"
+                                id="capture-host-dependencies-summary"
+                              ></p>
+                            </div>
+                            <div
+                              id="capture-host-dependencies-list"
+                              class="settings-capture-device-list"
+                            ></div>
+                            <div class="settings-capture-actions">
+                              <button
+                                id="capture-host-dependencies-prepare-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="capture.dependencies.actions.prepare"
+                              ></button>
+                              <button
+                                id="capture-host-dependencies-refresh-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="capture.dependencies.actions.refresh"
+                              ></button>
+                            </div>
+                          </section>
+
+                          <section class="settings-capture-report-group">
+                            <header class="settings-capture-section-header">
+                              <span
+                                class="settings-capture-report-title"
+                                data-i18n-text="capture.android.title"
+                              ></span>
+                              <p
+                                class="settings-capture-note"
+                                data-i18n-text="capture.android.subtitle"
+                              ></p>
+                            </header>
+
+                            <div class="settings-capture-status-grid">
+                              <article class="settings-capture-stat-card">
+                                <span
+                                  class="settings-capture-stat-label"
+                                  data-i18n-text="capture.android.hostStatus"
+                                ></span>
+                                <strong id="capture-android-host-status">--</strong>
+                              </article>
+                              <article class="settings-capture-stat-card">
+                                <span
+                                  class="settings-capture-stat-label"
+                                  data-i18n-text="capture.android.deviceCount"
+                                ></span>
+                                <strong id="capture-android-device-count">--</strong>
+                              </article>
+                              <article class="settings-capture-stat-card">
+                                <span
+                                  class="settings-capture-stat-label"
+                                  data-i18n-text="capture.android.activeDevice"
+                                ></span>
+                                <strong id="capture-android-active-device">--</strong>
+                              </article>
+                              <article class="settings-capture-stat-card">
+                                <span
+                                  class="settings-capture-stat-label"
+                                  data-i18n-text="capture.android.companionStatus"
+                                ></span>
+                                <strong id="capture-android-companion-status">--</strong>
+                              </article>
+                            </div>
+
+                            <div class="settings-capture-preview-card">
+                              <div class="settings-capture-preview-copy">
+                                <span
+                                  class="settings-capture-stat-label"
+                                  data-i18n-text="capture.android.previewTitle"
+                                ></span>
+                                <strong id="capture-android-preview-status">--</strong>
+                              </div>
+                              <p
+                                class="settings-capture-note"
+                                id="capture-android-preview-note"
+                              ></p>
+                            </div>
+
+                            <section class="settings-capture-subsection">
+                              <span
+                                class="settings-capture-stat-label"
+                                data-i18n-text="capture.android.detailsSummary"
+                              ></span>
+                              <div
+                                class="settings-capture-status-grid settings-capture-status-grid--detail"
+                              >
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.bridgeStatus"
+                                  ></span>
+                                  <strong id="capture-android-bridge-status">--</strong>
+                                </article>
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.permissions"
+                                  ></span>
+                                  <strong id="capture-android-permissions">--</strong>
+                                </article>
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.reverseStatus"
+                                  ></span>
+                                  <strong id="capture-android-reverse-status">--</strong>
+                                </article>
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.expectedVersion"
+                                  ></span>
+                                  <strong id="capture-android-expected-version">--</strong>
+                                </article>
+                              </div>
+                            </section>
+
+                            <section class="settings-capture-subsection">
+                              <span
+                                class="settings-capture-stat-label"
+                                data-i18n-text="capture.android.scrcpy.available"
+                              ></span>
+                              <div
+                                class="settings-capture-status-grid settings-capture-status-grid--detail"
+                              >
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.scrcpy.available"
+                                  ></span>
+                                  <strong id="capture-scrcpy-available">--</strong>
+                                </article>
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.scrcpy.version"
+                                  ></span>
+                                  <strong id="capture-scrcpy-version">--</strong>
+                                </article>
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.scrcpy.mode"
+                                  ></span>
+                                  <strong id="capture-scrcpy-mode">--</strong>
+                                </article>
+                                <article class="settings-capture-stat-card">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.scrcpy.device"
+                                  ></span>
+                                  <strong id="capture-scrcpy-device">--</strong>
+                                </article>
+                              </div>
+                              <div class="settings-capture-diagnostics">
+                                <div class="settings-capture-section-header">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.scrcpy.diagnostics"
+                                  ></span>
+                                  <strong id="capture-scrcpy-feedback">--</strong>
+                                </div>
+                                <div
+                                  class="settings-capture-command-row is-hidden"
+                                  id="capture-scrcpy-setup-command-row"
+                                >
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.scrcpy.setupCommand"
+                                  ></span>
+                                  <code id="capture-scrcpy-setup-command"></code>
+                                </div>
+                                <div class="settings-capture-log-header">
+                                  <span
+                                    class="settings-capture-stat-label"
+                                    data-i18n-text="capture.android.scrcpy.logs"
+                                  ></span>
+                                  <span
+                                    class="settings-capture-note"
+                                    id="capture-scrcpy-log-count"
+                                  ></span>
+                                </div>
+                                <p
+                                  class="settings-capture-note settings-capture-log-empty"
+                                  id="capture-scrcpy-log-empty"
+                                  data-i18n-text="capture.android.scrcpy.logsEmpty"
+                                ></p>
+                                <ul
+                                  class="settings-capture-log-list"
+                                  id="capture-scrcpy-log-list"
+                                  role="log"
+                                  aria-live="polite"
+                                ></ul>
+                              </div>
+                            </section>
+
+                            <section class="settings-capture-device-list-shell">
+                              <div class="settings-capture-section-header">
+                                <span
+                                  class="settings-capture-stat-label"
+                                  data-i18n-text="capture.android.deviceList.title"
+                                ></span>
+                                <p
+                                  class="settings-capture-note"
+                                  data-i18n-text="capture.android.deviceList.subtitle"
+                                ></p>
+                              </div>
+                              <div
+                                id="capture-android-device-list"
+                                class="settings-capture-device-list"
+                              ></div>
+                            </section>
+
+                            <div class="settings-capture-actions">
+                              <button
+                                id="capture-android-scan-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="capture.android.actions.scan"
+                              ></button>
+                              <button
+                                id="capture-android-install-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="capture.android.actions.install"
+                              ></button>
+                              <button
+                                id="capture-android-open-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="capture.android.actions.open"
+                              ></button>
+                              <button
+                                id="capture-android-refresh-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="capture.android.actions.refresh"
+                              ></button>
+                            </div>
+
+                            <div class="settings-capture-connect-row">
+                              <label
+                                class="settings-capture-profile-row"
+                                for="capture-android-connect-address"
+                              >
+                                <span data-i18n-text="capture.android.connectAddress"></span>
+                                <span class="settings-capture-profile-input">
+                                  <input
+                                    id="capture-android-connect-address"
+                                    class="input input-sm"
+                                    type="text"
+                                    placeholder="192.168.0.15:5555"
+                                  />
+                                </span>
+                              </label>
+                              <button
+                                id="capture-android-connect-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="capture.android.actions.connect"
+                              ></button>
+                            </div>
+
+                            <div class="settings-capture-feedback-stack">
+                              <p
+                                class="settings-capture-note settings-capture-note--status"
+                                id="capture-android-pairing-hint"
+                              ></p>
+                              <p
+                                class="settings-capture-note settings-capture-note--status"
+                                id="capture-android-feedback"
+                              ></p>
+                            </div>
+                          </section>
+                        </section>
+
+                        <section
+                          class="settings-capture-report-section settings-capture-report-section--runtime"
+                        >
+                          <header class="settings-capture-section-header">
+                            <span
+                              class="settings-capture-report-title"
+                              data-i18n-text="capture.transcript.title"
+                            ></span>
+                            <p
+                              class="settings-capture-note"
+                              data-i18n-text="capture.transcript.subtitle"
+                            ></p>
+                          </header>
+                          <section
+                            class="user-profile-inline__runtime-panel settings-capture-runtime-panel"
+                            aria-labelledby="app-transcript-runtime-label"
+                          >
+                            <div class="settings-capture-section-header">
+                              <label
+                                class="form-label"
+                                id="app-transcript-runtime-label"
+                                for="app-transcript-runtime-ensure-btn"
+                                data-i18n-text="user.transcriptRuntime.label"
+                              ></label>
+                              <p
+                                class="settings-capture-note"
+                                id="app-transcript-runtime-hint"
+                                data-i18n-text="user.transcriptRuntime.hint"
+                              ></p>
+                            </div>
+                            <div class="user-profile-inline__runtime-meta">
+                              <article class="user-profile-inline__runtime-stat">
+                                <span
+                                  id="app-transcript-runtime-status-label"
+                                  data-i18n-text="user.transcriptRuntime.statusLabel"
+                                ></span>
+                                <strong id="app-transcript-runtime-status-value">--</strong>
+                              </article>
+                              <article class="user-profile-inline__runtime-stat">
+                                <span
+                                  id="app-transcript-runtime-active-language-label"
+                                  data-i18n-text="user.transcriptRuntime.activeLanguageLabel"
+                                ></span>
+                                <strong id="app-transcript-runtime-active-language">--</strong>
+                              </article>
+                              <article class="user-profile-inline__runtime-stat">
+                                <span
+                                  id="app-transcript-runtime-active-model-label"
+                                  data-i18n-text="user.transcriptRuntime.activeModelLabel"
+                                ></span>
+                                <strong id="app-transcript-runtime-active-model">--</strong>
+                              </article>
+                            </div>
+                            <div class="user-profile-inline__runtime-actions">
+                              <button
+                                id="app-transcript-runtime-ensure-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="user.transcriptRuntime.actions.prepare"
+                              ></button>
+                              <button
+                                id="app-transcript-runtime-refresh-btn"
+                                class="btn btn-secondary btn-sm"
+                                type="button"
+                                data-i18n-text="user.transcriptRuntime.actions.refresh"
+                              ></button>
+                            </div>
+                            <section class="settings-capture-subsection">
+                              <span
+                                class="settings-capture-stat-label"
+                                data-i18n-text="capture.transcript.modelsSummary"
+                              ></span>
+                              <div
+                                class="user-profile-inline__runtime-models"
+                                id="app-transcript-runtime-models"
+                              ></div>
+                            </section>
+                            <p
+                              class="settings-capture-note user-profile-inline__runtime-feedback"
+                              id="app-transcript-runtime-feedback"
+                            ></p>
+                          </section>
+                        </section>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="settings-hub-panel is-hidden"
+                id="settings-panel-theme"
+                role="tabpanel"
+                aria-labelledby="settings-tab-theme"
+                data-settings-panel="theme"
+                aria-hidden="true"
+                hidden
+              >
+                <div
+                  class="settings-panel-shell scene-shell__framed-shell settings-panel-shell--theme"
+                >
+                  <div class="settings-panel-head scene-shell__framed-shell-head">
+                    <div class="settings-panel-copy">
+                      <span
+                        class="settings-panel-kicker"
+                        data-shell-i18n-text="settingsHub.nav.theme"
+                      ></span>
+                      <h3
+                        class="settings-panel-title"
+                        data-shell-i18n-text="theme.selectTitle"
+                      ></h3>
+                    </div>
+                  </div>
+                  <div class="settings-panel-scroll settings-panel-scroll--theme">
+                    <div class="settings-theme-workbench">
+                      <section
+                        class="glass-panel ds-surface-card ds-surface-card--stack settings-appearance-card settings-theme-column"
+                      >
+                        <div class="ds-surface-card__header settings-theme-card-head">
+                          <div>
+                            <h4
+                              class="settings-theme-section-title"
+                              data-shell-i18n-text="theme.classicSettingsTitle"
+                            ></h4>
+                            <p class="settings-theme-section-hint" id="theme-mode-hint"></p>
+                          </div>
+                        </div>
+                        <div class="ds-surface-card__body settings-appearance-card__body">
+                          <div
+                            class="settings-theme-grid settings-theme-grid--compact"
+                            id="theme-settings-list"
+                          ></div>
+
+                          <div class="settings-theme-stack">
+                            <div class="settings-theme-form-grid">
+                              <div class="settings-theme-field settings-theme-field--wide">
+                                <label
+                                  class="form-label"
+                                  for="theme-behavior-select"
+                                  data-shell-i18n-text="theme.mode.label"
+                                ></label>
+                                <select id="theme-behavior-select" class="select select-sm">
+                                  <option
+                                    value="manual"
+                                    data-shell-i18n-text="theme.mode.options.manual"
+                                  ></option>
+                                  <option
+                                    value="system"
+                                    data-shell-i18n-text="theme.mode.options.system"
+                                  ></option>
+                                  <option
+                                    value="schedule"
+                                    data-shell-i18n-text="theme.mode.options.schedule"
+                                  ></option>
+                                </select>
+                              </div>
+                              <div class="settings-theme-field">
+                                <label
+                                  class="form-label"
+                                  for="theme-light-select"
+                                  data-shell-i18n-text="theme.lightThemeLabel"
+                                ></label>
+                                <select id="theme-light-select" class="select select-sm"></select>
+                              </div>
+                              <div class="settings-theme-field">
+                                <label
+                                  class="form-label"
+                                  for="theme-dark-select"
+                                  data-shell-i18n-text="theme.darkThemeLabel"
+                                ></label>
+                                <select id="theme-dark-select" class="select select-sm"></select>
+                              </div>
+                              <div class="settings-theme-field" data-theme-schedule-field hidden>
+                                <label
+                                  class="form-label"
+                                  for="theme-day-start"
+                                  data-shell-i18n-text="theme.dayStartLabel"
+                                ></label>
+                                <input
+                                  id="theme-day-start"
+                                  class="input input-sm"
+                                  type="time"
+                                  value="07:00"
+                                />
+                              </div>
+                              <div class="settings-theme-field" data-theme-schedule-field hidden>
+                                <label
+                                  class="form-label"
+                                  for="theme-night-start"
+                                  data-shell-i18n-text="theme.nightStartLabel"
+                                ></label>
+                                <input
+                                  id="theme-night-start"
+                                  class="input input-sm"
+                                  type="time"
+                                  value="19:00"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="settings-theme-divider"></div>
+
+                            <div class="settings-theme-form-grid">
+                              <div class="settings-theme-field">
+                                <label
+                                  class="form-label"
+                                  for="theme-motion-select"
+                                  data-shell-i18n-text="theme.motionLabel"
+                                ></label>
+                                <select id="theme-motion-select" class="select select-sm">
+                                  <option
+                                    value="full"
+                                    data-shell-i18n-text="theme.motion.options.full"
+                                  ></option>
+                                  <option
+                                    value="reduced"
+                                    data-shell-i18n-text="theme.motion.options.reduced"
+                                  ></option>
+                                  <option
+                                    value="off"
+                                    data-shell-i18n-text="theme.motion.options.off"
+                                  ></option>
+                                </select>
+                              </div>
+                              <div class="settings-theme-field">
+                                <label
+                                  class="form-label"
+                                  for="theme-text-scale-select"
+                                  data-shell-i18n-text="theme.textScaleLabel"
+                                ></label>
+                                <select id="theme-text-scale-select" class="select select-sm">
+                                  <option
+                                    value="sm"
+                                    data-shell-i18n-text="theme.textScale.options.sm"
+                                  ></option>
+                                  <option
+                                    value="md"
+                                    data-shell-i18n-text="theme.textScale.options.md"
+                                  ></option>
+                                  <option
+                                    value="lg"
+                                    data-shell-i18n-text="theme.textScale.options.lg"
+                                  ></option>
+                                </select>
+                              </div>
+                              <div class="settings-theme-field">
+                                <label
+                                  class="form-label"
+                                  for="theme-ui-scale-select"
+                                  data-shell-i18n-text="theme.appScaleLabel"
+                                ></label>
+                                <select id="theme-ui-scale-select" class="select select-sm">
+                                  <option value="85">85%</option>
+                                  <option value="90">90%</option>
+                                  <option value="95">95%</option>
+                                  <option value="100">100%</option>
+                                  <option value="105">105%</option>
+                                  <option value="110">110%</option>
+                                </select>
+                              </div>
+                              <div class="settings-theme-field settings-theme-field--wide">
+                                <label
+                                  class="form-label"
+                                  for="theme-surface-select"
+                                  data-shell-i18n-text="theme.surfaceLabel"
+                                ></label>
+                                <select id="theme-surface-select" class="select select-sm">
+                                  <option
+                                    value="glass"
+                                    data-shell-i18n-text="theme.surface.options.glass"
+                                  ></option>
+                                  <option
+                                    value="soft"
+                                    data-shell-i18n-text="theme.surface.options.soft"
+                                  ></option>
+                                  <option
+                                    value="solid"
+                                    data-shell-i18n-text="theme.surface.options.solid"
+                                  ></option>
+                                </select>
+                              </div>
+                              <div class="settings-theme-toggle-row settings-theme-field--wide">
+                                <div class="settings-theme-toggle-copy">
+                                  <span
+                                    class="form-label"
+                                    data-shell-i18n-text="theme.contrastLabel"
+                                  ></span>
+                                </div>
+                                <label class="ds-mcp-switch">
+                                  <input
+                                    id="theme-contrast-toggle"
+                                    type="checkbox"
+                                    class="ds-mcp-switch__input"
+                                  />
+                                  <span class="ds-mcp-switch__slider"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section
+                        class="glass-panel ds-surface-card ds-surface-card--stack settings-appearance-card settings-theme-column"
+                      >
+                        <div class="ds-surface-card__header settings-theme-card-head">
+                          <div>
+                            <h4
+                              class="settings-theme-section-title"
+                              data-shell-i18n-text="theme.scene.title"
+                            ></h4>
+                            <p
+                              class="settings-theme-section-hint"
+                              data-shell-i18n-text="theme.scene.hint"
+                            ></p>
+                          </div>
+                        </div>
+                        <div class="ds-surface-card__body settings-appearance-card__body">
+                          <div class="settings-theme-current">
+                            <span class="settings-theme-current__icon" aria-hidden="true">🎭</span>
+                            <div class="settings-theme-current__copy">
+                              <span
+                                class="settings-theme-current__label"
+                                data-shell-i18n-text="theme.scene.activeLabel"
+                              ></span>
+                              <strong id="scene-theme-current-name"></strong>
+                              <small id="scene-theme-current-meta"></small>
+                            </div>
+                          </div>
+
+                          <div class="settings-theme-stack">
+                            <div class="settings-theme-form-grid">
+                              <div class="settings-theme-field">
+                                <label
+                                  class="form-label"
+                                  for="scene-ui-scale-select"
+                                  data-shell-i18n-text="theme.scene.scaleLabel"
+                                ></label>
+                                <select id="scene-ui-scale-select" class="select select-sm">
+                                  <option value="85">85%</option>
+                                  <option value="90">90%</option>
+                                  <option value="95">95%</option>
+                                  <option value="100">100%</option>
+                                  <option value="105">105%</option>
+                                  <option value="110">110%</option>
+                                </select>
+                              </div>
+                              <div class="settings-theme-field">
+                                <label
+                                  class="form-label"
+                                  for="scene-theme-conflict-select"
+                                  data-shell-i18n-text="theme.scene.importBehaviorLabel"
+                                ></label>
+                                <select id="scene-theme-conflict-select" class="select select-sm">
+                                  <option
+                                    value="rename"
+                                    data-shell-i18n-text="theme.scene.importBehavior.options.rename"
+                                  ></option>
+                                  <option
+                                    value="reject"
+                                    data-shell-i18n-text="theme.scene.importBehavior.options.reject"
+                                  ></option>
+                                  <option
+                                    value="replace"
+                                    data-shell-i18n-text="theme.scene.importBehavior.options.replace"
+                                  ></option>
+                                </select>
+                              </div>
+                              <div class="settings-theme-field settings-theme-field--wide">
+                                <div class="settings-scene-theme-actions">
+                                  <button
+                                    class="btn btn-secondary btn-sm"
+                                    id="scene-theme-import"
+                                    data-shell-i18n-text="theme.scene.actions.import"
+                                  ></button>
+                                  <button
+                                    class="btn btn-ghost btn-sm"
+                                    id="scene-theme-refresh"
+                                    data-shell-i18n-text="theme.scene.actions.refresh"
+                                  ></button>
+                                  <button
+                                    class="btn btn-ghost btn-sm"
+                                    id="scene-theme-export"
+                                    data-shell-i18n-text="theme.scene.actions.export"
+                                  ></button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="settings-theme-toggle-row settings-theme-field--wide">
+                              <div class="settings-theme-toggle-copy">
+                                <span
+                                  class="form-label"
+                                  data-shell-i18n-text="theme.scene.selectedLabel"
+                                ></span>
+                                <p
+                                  class="settings-theme-section-hint"
+                                  id="scene-theme-selection-hint"
+                                ></p>
+                              </div>
+                              <button
+                                class="btn btn-primary btn-sm"
+                                id="scene-theme-apply"
+                                data-shell-i18n-text="theme.scene.actions.apply"
+                              ></button>
+                            </div>
+
+                            <div
+                              class="settings-theme-grid settings-theme-grid--compact"
+                              id="scene-theme-settings-list"
+                            ></div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="settings-hub-panel is-active"
+                id="settings-panel-accounts"
+                role="tabpanel"
+                aria-labelledby="settings-tab-accounts"
+                data-settings-panel="accounts"
+                aria-hidden="false"
+              >
+                <div
+                  class="settings-panel-shell scene-shell__framed-shell settings-panel-shell--accounts"
+                >
+                  <div
+                    class="settings-panel-head scene-shell__framed-shell-head settings-panel-head--workbench"
+                  >
+                    <div class="settings-panel-copy">
+                      <span
+                        class="settings-panel-kicker"
+                        data-shell-i18n-text="settingsHub.nav.accounts"
+                      ></span>
+                      <h3
+                        class="settings-panel-title"
+                        data-shell-i18n-text="settingsHub.accounts.title"
+                      ></h3>
+                    </div>
+                  </div>
+
+                  <div class="settings-panel-scroll settings-panel-scroll--accounts">
+                    <div class="settings-accounts-grid">
+                      <section class="settings-accounts-column">
+                        <div
+                          class="entrance-panel glass-panel ds-surface-card ds-surface-card--stack"
+                          data-panel="user"
+                        >
+                          <div class="entrance-panel__header ds-surface-card__header">
+                            <span
+                              class="entrance-panel__title ds-panel-title"
+                              data-i18n-text="panels.user"
+                            ></span>
+                          </div>
+                          <div class="entrance-panel__content">
+                            <div class="user-settings-column">
+                              <div class="user-avatar-row user-profile-inline">
+                                <div
+                                  class="user-avatar-wrapper"
+                                  id="user-avatar-edit-btn"
+                                  title=""
+                                  role="button"
+                                  tabindex="0"
+                                  aria-label=""
+                                  data-i18n-title="user.changeAvatarTitle"
+                                  data-i18n-aria-label="user.changeAvatarTitle"
+                                >
+                                  <div class="avatar-placeholder img-cover" id="user-avatar"></div>
+                                  <div class="user-edit-overlay">📷</div>
+                                </div>
+                                <div
+                                  class="user-profile-inline__field user-profile-inline__field--nickname"
+                                >
+                                  <input
+                                    type="text"
+                                    id="user-nickname-input"
+                                    class="input input-sm"
+                                    placeholder=""
+                                    data-i18n-placeholder="user.nicknamePlaceholder"
+                                  />
+                                </div>
+                                <div
+                                  class="user-profile-inline__field user-profile-inline__field--language"
+                                >
+                                  <div class="user-profile-inline__setting">
+                                    <label
+                                      class="form-label"
+                                      id="app-language-label"
+                                      for="app-language-select"
+                                      data-i18n-text="user.language.label"
+                                    ></label>
+                                    <select
+                                      id="app-language-select"
+                                      class="select select-sm"
+                                    ></select>
+                                  </div>
+                                </div>
+                              </div>
+                              <section class="us1-slot-panel__section">
+                                <div class="us1-slot-panel__grid">
+                                  <div class="us1-slot-panel__field us1-slot-panel__field--wide">
+                                    <label
+                                      class="form-label"
+                                      for="us1-communication-system-select"
+                                      data-i18n-text="us1.communicationSystem.label"
+                                    ></label>
+                                    <select
+                                      id="us1-communication-system-select"
+                                      class="select select-sm"
+                                    >
+                                      <option
+                                        value="mail"
+                                        data-i18n-text="us1.communicationSystem.options.mail"
+                                      ></option>
+                                      <option
+                                        value="relay-e2ee"
+                                        data-i18n-text="us1.communicationSystem.options.relay"
+                                      ></option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="us1-slot-panel__status-block">
+                                  <span
+                                    class="form-label"
+                                    data-i18n-text="us1.mailAccount.verifiedLabel"
+                                  ></span>
+                                  <div
+                                    class="us1-slot-panel__status"
+                                    id="us1-mail-verified-email"
+                                  ></div>
+                                  <div
+                                    class="us1-slot-panel__hint"
+                                    id="us1-mail-account-status"
+                                  ></div>
+                                </div>
+                                <div class="us1-slot-panel__grid">
+                                  <label
+                                    class="us1-slot-panel__checkbox us1-slot-panel__field--wide"
+                                  >
+                                    <input id="us1-relay-enabled-check" type="checkbox" />
+                                    <span data-i18n-text="us1.relay.enabledLabel"></span>
+                                  </label>
+                                  <div class="us1-slot-panel__field us1-slot-panel__field--wide">
+                                    <label
+                                      class="form-label"
+                                      for="us1-relay-base-url-input"
+                                      data-i18n-text="us1.relay.baseUrlLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-relay-base-url-input"
+                                      class="input input-sm"
+                                      type="url"
+                                      placeholder=""
+                                      data-i18n-placeholder="us1.relay.baseUrlPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__actions us1-slot-panel__field--wide">
+                                    <button
+                                      id="us1-relay-test-btn"
+                                      class="btn btn-secondary btn-sm"
+                                      data-i18n-text="us1.relay.actions.test"
+                                    ></button>
+                                    <button
+                                      id="us1-relay-reset-trust-btn"
+                                      class="btn btn-secondary btn-sm"
+                                      data-i18n-text="us1.relay.actions.resetTrust"
+                                    ></button>
+                                  </div>
+                                  <div class="us1-slot-panel__field us1-slot-panel__field--wide">
+                                    <span
+                                      class="form-label"
+                                      data-i18n-text="us1.relay.statusLabel"
+                                    ></span>
+                                    <div class="us1-slot-panel__hint" id="us1-relay-status"></div>
+                                  </div>
+                                  <div class="us1-slot-panel__field us1-slot-panel__field--wide">
+                                    <span
+                                      class="form-label"
+                                      data-i18n-text="us1.relay.fingerprintLabel"
+                                    ></span>
+                                    <div
+                                      class="us1-slot-panel__hint"
+                                      id="us1-relay-fingerprint"
+                                    ></div>
+                                  </div>
+                                  <div class="us1-slot-panel__field us1-slot-panel__field--wide">
+                                    <span
+                                      class="form-label"
+                                      data-i18n-text="us1.relay.serverFingerprintLabel"
+                                    ></span>
+                                    <div
+                                      class="us1-slot-panel__hint"
+                                      id="us1-relay-server-fingerprint"
+                                    ></div>
+                                  </div>
+                                </div>
+                                <div class="us1-slot-panel__grid">
+                                  <div
+                                    class="us1-slot-panel__mail-meta us1-slot-panel__field--wide"
+                                  >
+                                    <label
+                                      class="form-label us1-slot-panel__mail-meta-label us1-slot-panel__mail-meta-label--provider"
+                                      for="us1-mail-provider-select"
+                                      data-i18n-text="us1.mailAccount.providerLabel"
+                                    ></label>
+                                    <label
+                                      class="form-label us1-slot-panel__mail-meta-label us1-slot-panel__mail-meta-label--helper"
+                                      data-us1-mail-gmail-helper
+                                      data-i18n-text="us1.mailAccount.gmailHelperTitle"
+                                    ></label>
+                                    <select
+                                      id="us1-mail-provider-select"
+                                      class="select select-sm us1-slot-panel__mail-meta-control us1-slot-panel__mail-meta-control--provider"
+                                    >
+                                      <option
+                                        value="gmail"
+                                        data-i18n-text="us1.mailAccount.providers.gmail"
+                                      ></option>
+                                      <option
+                                        value="custom-imap-smtp"
+                                        data-i18n-text="us1.mailAccount.providers.custom"
+                                      ></option>
+                                    </select>
+                                    <button
+                                      class="btn btn-secondary btn-sm us1-slot-panel__gmail-action us1-slot-panel__mail-meta-control us1-slot-panel__mail-meta-control--helper"
+                                      id="us1-mail-gmail-open-security"
+                                      type="button"
+                                      data-us1-mail-gmail-helper
+                                      data-i18n-text="us1.mailAccount.gmailHelperStep1"
+                                    ></button>
+                                  </div>
+                                  <div
+                                    class="us1-slot-panel__grid us1-slot-panel__gmail-panel us1-slot-panel__field--wide"
+                                    data-us1-mail-gmail-helper
+                                  >
+                                    <div class="us1-slot-panel__field us1-slot-panel__field--wide">
+                                      <label
+                                        class="form-label"
+                                        data-i18n-text="us1.mailAccount.gmailEmailLabel"
+                                      ></label>
+                                      <input
+                                        id="us1-mail-gmail-email-easy"
+                                        class="input input-sm"
+                                        type="email"
+                                        data-i18n-placeholder="us1.mailAccount.gmailEmailPlaceholder"
+                                      />
+                                    </div>
+                                    <div class="us1-slot-panel__field us1-slot-panel__field--wide">
+                                      <label
+                                        class="form-label"
+                                        data-i18n-text="us1.mailAccount.gmailPasswordLabel"
+                                      ></label>
+                                      <input
+                                        id="us1-mail-gmail-password-easy"
+                                        class="input input-sm"
+                                        type="password"
+                                        data-i18n-placeholder="us1.mailAccount.gmailPasswordPlaceholder"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="us1-slot-panel__field us1-slot-panel__field--wide"
+                                    data-us1-mail-manual-fields
+                                  >
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-email-input"
+                                      data-i18n-text="us1.mailAccount.emailLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-email-input"
+                                      class="input input-sm"
+                                      type="email"
+                                      autocomplete="email"
+                                      data-i18n-placeholder="us1.mailAccount.emailPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-manual-fields>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-auth-type-select"
+                                      data-i18n-text="us1.mailAccount.authTypeLabel"
+                                    ></label>
+                                    <select id="us1-mail-auth-type-select" class="select select-sm">
+                                      <option
+                                        value="password"
+                                        data-i18n-text="us1.mailAccount.authTypes.password"
+                                      ></option>
+                                      <option
+                                        value="oauth2"
+                                        data-i18n-text="us1.mailAccount.authTypes.oauth2"
+                                      ></option>
+                                    </select>
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-password>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-password-input"
+                                      data-i18n-text="us1.mailAccount.passwordLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-password-input"
+                                      class="input input-sm"
+                                      type="password"
+                                      autocomplete="current-password"
+                                      data-i18n-placeholder="us1.mailAccount.passwordPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-oauth>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-access-token-input"
+                                      data-i18n-text="us1.mailAccount.accessTokenLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-access-token-input"
+                                      class="input input-sm"
+                                      type="password"
+                                      data-i18n-placeholder="us1.mailAccount.accessTokenPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-oauth>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-refresh-token-input"
+                                      data-i18n-text="us1.mailAccount.refreshTokenLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-refresh-token-input"
+                                      class="input input-sm"
+                                      type="password"
+                                      data-i18n-placeholder="us1.mailAccount.refreshTokenPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-oauth>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-client-id-input"
+                                      data-i18n-text="us1.mailAccount.clientIdLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-client-id-input"
+                                      class="input input-sm"
+                                      type="text"
+                                      data-i18n-placeholder="us1.mailAccount.clientIdPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-oauth>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-client-secret-input"
+                                      data-i18n-text="us1.mailAccount.clientSecretLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-client-secret-input"
+                                      class="input input-sm"
+                                      type="password"
+                                      data-i18n-placeholder="us1.mailAccount.clientSecretPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-custom>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-imap-host-input"
+                                      data-i18n-text="us1.mailAccount.imapHostLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-imap-host-input"
+                                      class="input input-sm"
+                                      type="text"
+                                      data-i18n-placeholder="us1.mailAccount.imapHostPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-custom>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-imap-port-input"
+                                      data-i18n-text="us1.mailAccount.imapPortLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-imap-port-input"
+                                      class="input input-sm"
+                                      type="number"
+                                      inputmode="numeric"
+                                    />
+                                  </div>
+                                  <label class="us1-slot-panel__checkbox" data-us1-mail-custom>
+                                    <input id="us1-mail-imap-secure-check" type="checkbox" />
+                                    <span data-i18n-text="us1.mailAccount.imapSecureLabel"></span>
+                                  </label>
+                                  <div class="us1-slot-panel__field" data-us1-mail-custom>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-smtp-host-input"
+                                      data-i18n-text="us1.mailAccount.smtpHostLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-smtp-host-input"
+                                      class="input input-sm"
+                                      type="text"
+                                      data-i18n-placeholder="us1.mailAccount.smtpHostPlaceholder"
+                                    />
+                                  </div>
+                                  <div class="us1-slot-panel__field" data-us1-mail-custom>
+                                    <label
+                                      class="form-label"
+                                      for="us1-mail-smtp-port-input"
+                                      data-i18n-text="us1.mailAccount.smtpPortLabel"
+                                    ></label>
+                                    <input
+                                      id="us1-mail-smtp-port-input"
+                                      class="input input-sm"
+                                      type="number"
+                                      inputmode="numeric"
+                                    />
+                                  </div>
+                                  <label class="us1-slot-panel__checkbox" data-us1-mail-custom>
+                                    <input id="us1-mail-smtp-secure-check" type="checkbox" />
+                                    <span data-i18n-text="us1.mailAccount.smtpSecureLabel"></span>
+                                  </label>
+                                </div>
+                                <div class="us1-slot-panel__actions">
+                                  <button
+                                    class="btn btn-primary btn-sm"
+                                    id="us1-mail-verify-btn"
+                                    type="button"
+                                    data-i18n-text="us1.mailAccount.actions.connect"
+                                  ></button>
+                                  <button
+                                    class="btn btn-ghost btn-sm"
+                                    id="us1-mail-delete-btn"
+                                    data-i18n-text="us1.mailAccount.actions.delete"
+                                  ></button>
+                                </div>
+                              </section>
+
+                              <div class="gdrive-status-row">
+                                <label
+                                  class="form-label"
+                                  data-i18n-text="user.googleDrive.label"
+                                ></label>
+                                <span
+                                  class="status-dot"
+                                  id="gdrive-status-dot"
+                                  title=""
+                                  data-i18n-title="user.googleDrive.statusTitle"
+                                ></span>
+                              </div>
+                              <input
+                                type="text"
+                                id="gdrive-client-id"
+                                class="input input-sm"
+                                placeholder=""
+                                data-i18n-placeholder="user.googleDrive.clientIdPlaceholder"
+                              />
+                              <input
+                                type="text"
+                                id="gdrive-client-secret"
+                                class="input input-sm"
+                                placeholder=""
+                                data-i18n-placeholder="user.googleDrive.clientSecretPlaceholder"
+                              />
+                              <input
+                                type="text"
+                                id="gdrive-auth-code"
+                                class="input input-sm"
+                                placeholder=""
+                                data-i18n-placeholder="user.googleDrive.authCodePlaceholder"
+                              />
+                              <div class="btn-group-inline">
+                                <button
+                                  class="btn btn-secondary btn-sm"
+                                  id="gdrive-start-auth"
+                                  data-i18n-text="user.googleDrive.startAuth"
+                                ></button>
+                                <button
+                                  class="btn btn-primary btn-sm"
+                                  id="gdrive-connect-btn"
+                                  data-i18n-text="user.googleDrive.connect"
+                                ></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="settings-accounts-column">
+                        <div
+                          class="entrance-panel glass-panel ds-surface-card ds-surface-card--stack"
+                          data-panel="accounts"
+                        >
+                          <div class="entrance-panel__header ds-surface-card__header">
+                            <span
+                              class="entrance-panel__title ds-panel-title"
+                              data-i18n-text="panels.accounts"
+                            ></span>
+                          </div>
+                          <div class="entrance-panel__content">
+                            <div class="accounts-container">
+                              <div class="account-list-pane">
+                                <div class="account-list-header">
+                                  <span
+                                    class="account-list-title"
+                                    data-i18n-text="accounts.listTitle"
+                                  ></span>
+                                </div>
+                                <div class="account-list" id="account-list"></div>
+                              </div>
+                              <div class="account-form">
+                                <div class="account-form-header">
+                                  <span
+                                    id="account-form-title"
+                                    data-i18n-text="accounts.form.createTitle"
+                                  ></span>
+                                  <span id="account-status-msg" class="form-hint"></span>
+                                </div>
+                                <div class="account-form-body">
+                                  <div class="account-form-grid">
+                                    <div class="account-form-field">
+                                      <label
+                                        class="form-label"
+                                        for="new-account-kind"
+                                        data-i18n-text="accounts.form.kindLabel"
+                                      ></label>
+                                      <select id="new-account-kind" class="select select-sm">
+                                        <option
+                                          value="ai-provider"
+                                          data-i18n-text="accounts.form.kindOptions.aiProvider"
+                                        ></option>
+                                        <option
+                                          value="remote-email"
+                                          data-i18n-text="accounts.form.kindOptions.remoteEmail"
+                                        ></option>
+                                      </select>
+                                    </div>
+                                    <div class="account-form-field" data-account-kind="ai-provider">
+                                      <label
+                                        class="form-label"
+                                        for="new-account-provider"
+                                        data-i18n-text="accounts.form.providerLabel"
+                                      ></label>
+                                      <select id="new-account-provider" class="select select-sm">
+                                        <option value="chatgpt">ChatGPT</option>
+                                        <option value="gemini">Gemini</option>
+                                        <option value="grok">Grok</option>
+                                        <option value="llm">LLM</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="account-kind-note is-hidden"
+                                    id="account-kind-note"
+                                  ></div>
+                                  <input
+                                    type="text"
+                                    id="new-account-email"
+                                    class="input input-sm"
+                                    placeholder=""
+                                    data-i18n-placeholder="accounts.form.emailPlaceholder"
+                                  />
+                                  <input
+                                    type="text"
+                                    id="new-account-nickname"
+                                    class="input input-sm"
+                                    placeholder=""
+                                    data-i18n-placeholder="accounts.form.nicknamePlaceholder"
+                                    data-account-kind="ai-provider"
+                                  />
+                                  <div
+                                    class="account-remote-note"
+                                    id="remote-account-mail-status"
+                                    data-account-kind="remote-email"
+                                  ></div>
+                                  <div
+                                    class="account-form-avatar-row"
+                                    data-account-kind="ai-provider"
+                                  >
+                                    <div
+                                      class="avatar-preview-box"
+                                      id="new-account-avatar-preview"
+                                    ></div>
+                                    <button
+                                      class="btn btn-ghost btn-sm"
+                                      id="new-account-avatar-browse"
+                                      data-i18n-text="accounts.form.avatarButton"
+                                    ></button>
+                                  </div>
+                                  <div class="account-form-actions">
+                                    <button
+                                      class="btn btn-primary btn-sm"
+                                      id="settings-create-account"
+                                      data-i18n-text="accounts.form.createAction"
+                                    ></button>
+                                    <button
+                                      class="btn btn-secondary btn-sm is-hidden"
+                                      id="settings-sync-remote-accounts"
+                                      data-i18n-text="accounts.form.remoteSyncAction"
+                                    ></button>
+                                    <button
+                                      class="btn btn-danger btn-sm is-hidden"
+                                      id="settings-cancel-edit"
+                                      data-i18n-text="accounts.form.cancelAction"
+                                    ></button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="settings-hub-panel is-hidden"
+                id="backup-overlay"
+                role="tabpanel"
+                aria-labelledby="settings-tab-backup"
+                data-settings-panel="backup"
+                aria-hidden="true"
+                hidden
+              >
+                <div
+                  class="settings-panel-shell scene-shell__framed-shell settings-panel-shell--backup"
+                >
+                  <div
+                    class="settings-panel-head scene-shell__framed-shell-head settings-panel-head--workbench"
+                  >
+                    <div class="settings-panel-copy">
+                      <span
+                        class="settings-panel-kicker"
+                        data-shell-i18n-text="settingsHub.nav.backup"
+                      ></span>
+                      <h3 class="settings-panel-title" data-shell-i18n-text="backup.title"></h3>
+                    </div>
+                    <div class="room-manager-toolbar">
+                      <button
+                        class="btn btn-primary btn-sm"
+                        id="backup-overlay-create"
+                        data-shell-i18n-text="backup.createButton"
+                      ></button>
+                      <button
+                        class="btn btn-ghost btn-sm"
+                        id="backup-overlay-select"
+                        data-shell-i18n-text="backup.selectButton"
+                      ></button>
+                      <button
+                        class="btn btn-ghost btn-sm"
+                        id="backup-overlay-open-folder"
+                        data-shell-i18n-text="backup.openFolderButton"
+                      ></button>
+                      <button
+                        class="btn btn-ghost btn-sm"
+                        id="backup-overlay-refresh"
+                        data-shell-i18n-text="common.refresh"
+                      ></button>
+                      <button
+                        class="btn btn-danger btn-sm"
+                        id="backup-overlay-restore"
+                        data-shell-i18n-text="backup.restoreButton"
+                      ></button>
+                    </div>
+                  </div>
+
+                  <div
+                    class="settings-panel-scroll settings-panel-scroll--manager room-manager-body"
+                  >
+                    <div class="room-manager-summary" id="backup-overlay-summary"></div>
+                    <div class="room-manager-grid">
+                      <section
+                        class="room-manager-section backup-layout-section backup-layout-section--scopes"
+                      >
+                        <div class="room-manager-section-head">
+                          <div
+                            class="room-manager-section-title"
+                            data-shell-i18n-text="backup.scopeSectionTitle"
+                          ></div>
+                          <div
+                            class="room-manager-section-note"
+                            data-shell-i18n-text="backup.scopeSectionNote"
+                          ></div>
+                        </div>
+                        <div class="room-manager-section-body">
+                          <div id="backup-overlay-scopes"></div>
+                        </div>
+                      </section>
+                      <section
+                        class="room-manager-section backup-layout-section backup-layout-section--list"
+                      >
+                        <div class="room-manager-section-head">
+                          <div
+                            class="room-manager-section-title"
+                            data-shell-i18n-text="backup.listSectionTitle"
+                          ></div>
+                          <div
+                            class="room-manager-section-note"
+                            data-shell-i18n-text="backup.listSectionNote"
+                          ></div>
+                        </div>
+                        <div class="room-manager-section-body">
+                          <div class="backup-overlay-list" id="backup-overlay-list"></div>
+                        </div>
+                      </section>
+                      <section
+                        class="room-manager-section backup-layout-section backup-layout-section--preview"
+                      >
+                        <div class="room-manager-section-head">
+                          <div
+                            class="room-manager-section-title"
+                            data-shell-i18n-text="backup.previewSectionTitle"
+                          ></div>
+                          <div
+                            class="room-manager-section-note"
+                            data-shell-i18n-text="backup.previewSectionNote"
+                          ></div>
+                        </div>
+                        <div class="room-manager-section-body">
+                          <div class="backup-overlay-preview" id="backup-overlay-preview"></div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="settings-hub-panel is-hidden"
+                id="rooms-overlay"
+                role="tabpanel"
+                aria-labelledby="settings-tab-rooms"
+                data-settings-panel="rooms"
+                aria-hidden="true"
+                hidden
+              >
+                <div
+                  class="settings-panel-shell scene-shell__framed-shell settings-panel-shell--rooms"
+                >
+                  <div
+                    class="settings-panel-head scene-shell__framed-shell-head settings-panel-head--workbench"
+                  >
+                    <div class="settings-panel-copy">
+                      <span
+                        class="settings-panel-kicker"
+                        data-shell-i18n-text="settingsHub.nav.rooms"
+                      ></span>
+                      <h3 class="settings-panel-title" data-shell-i18n-text="rooms.title"></h3>
+                    </div>
+                    <div class="room-manager-toolbar">
+                      <button
+                        class="btn btn-primary btn-sm"
+                        id="rooms-overlay-import"
+                        data-shell-i18n-text="rooms.importButton"
+                      ></button>
+                      <button
+                        class="btn btn-ghost btn-sm"
+                        id="rooms-overlay-refresh"
+                        data-shell-i18n-text="common.refresh"
+                      ></button>
+                    </div>
+                  </div>
+
+                  <div
+                    class="settings-panel-scroll settings-panel-scroll--manager room-manager-body"
+                  >
+                    <div class="room-manager-summary" id="rooms-overlay-summary"></div>
+                    <div class="room-manager-grid room-manager-grid--single">
+                      <section class="room-manager-section">
+                        <div class="room-manager-section-head">
+                          <div
+                            class="room-manager-section-title"
+                            data-shell-i18n-text="rooms.listSectionTitle"
+                          ></div>
+                          <div
+                            class="room-manager-section-note"
+                            data-shell-i18n-text="rooms.listSectionNote"
+                          ></div>
+                        </div>
+                        <div class="room-manager-section-body">
+                          <div class="room-manager-list" id="rooms-list"></div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="settings-hub-panel settings-hub-panel--live-log is-hidden"
+                id="live-log-overlay"
+                role="tabpanel"
+                aria-labelledby="settings-tab-live-log"
+                data-settings-panel="live-log"
+                aria-hidden="true"
+                hidden
+              >
+                <div
+                  class="settings-panel-shell scene-shell__framed-shell settings-panel-shell--live-log"
+                >
+                  <div
+                    class="settings-panel-head scene-shell__framed-shell-head settings-panel-head--workbench"
+                  >
+                    <div class="settings-panel-copy">
+                      <span
+                        class="settings-panel-kicker"
+                        data-shell-i18n-text="settingsHub.nav.liveLog"
+                      ></span>
+                      <h3
+                        class="settings-panel-title"
+                        data-shell-i18n-text="reportModal.title"
+                      ></h3>
+                    </div>
+                  </div>
+
+                  <div class="settings-panel-scroll settings-panel-scroll--live-log">
+                    <div class="live-log-shell">
+                      <div class="live-log-toolbar">
+                        <div class="live-log-app-tabs" id="live-log-app-tabs">
+                          <button
+                            class="btn btn-ghost btn-sm is-active"
+                            type="button"
+                            data-app="app"
+                          >
+                            App
+                          </button>
+                          <button class="btn btn-ghost btn-sm" type="button" data-app="mcp-server">
+                            MCP Server
+                          </button>
+                          <button class="btn btn-ghost btn-sm" type="button" data-app="ghost-agent">
+                            Ghost Agent
+                          </button>
+                          <button
+                            class="btn btn-ghost btn-sm"
+                            type="button"
+                            data-app="android-companion"
+                          >
+                            Android Companion
+                          </button>
+                        </div>
+                        <label class="live-log-control">
+                          <span data-i18n-text="liveLog.sessionLabel"></span>
+                          <select id="live-log-session-select" class="select select-sm"></select>
+                        </label>
+                        <label class="live-log-control">
+                          <span data-i18n-text="liveLog.levelLabel"></span>
+                          <select id="live-log-level-select" class="select select-sm">
+                            <option value="all" data-i18n-text="liveLog.levels.all"></option>
+                            <option value="error" data-i18n-text="liveLog.levels.error"></option>
+                            <option
+                              value="warning"
+                              data-i18n-text="liveLog.levels.warning"
+                            ></option>
+                            <option value="info" data-i18n-text="liveLog.levels.info"></option>
+                            <option
+                              value="success"
+                              data-i18n-text="liveLog.levels.success"
+                            ></option>
+                            <option value="debug" data-i18n-text="liveLog.levels.debug"></option>
+                          </select>
+                        </label>
+                        <label class="live-log-control live-log-control-search">
+                          <span data-i18n-text="liveLog.searchLabel"></span>
+                          <input
+                            class="input input-sm"
+                            id="live-log-search"
+                            type="search"
+                            data-i18n-placeholder="liveLog.searchPlaceholder"
+                          />
+                        </label>
+                        <div class="live-log-header-actions">
+                          <div class="live-log-metrics" id="live-log-metrics"></div>
+                          <button
+                            class="btn btn-ghost btn-sm"
+                            id="live-log-pause"
+                            type="button"
+                          ></button>
+                          <button
+                            class="btn btn-danger btn-sm"
+                            id="live-log-delete-inactive"
+                            type="button"
+                          ></button>
+                          <button
+                            class="btn btn-ghost btn-sm"
+                            id="live-log-clear"
+                            type="button"
+                            data-i18n-text="liveLog.clear"
+                            data-i18n-title="liveLog.clearTitle"
+                          ></button>
+                        </div>
+                      </div>
+                      <div class="live-log-body">
+                        <div class="live-log-content" id="live-log-content"></div>
+                        <div class="live-log-detail">
+                          <div
+                            class="live-log-detail-title"
+                            data-i18n-text="liveLog.detailTitle"
+                          ></div>
+                          <div class="live-log-detail-message" id="live-log-message"></div>
+                          <div class="live-log-detail-meta" id="live-log-meta"></div>
+                          <pre class="live-log-detail-context" id="live-log-context"></pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="settings-hub-panel settings-hub-panel--languages is-hidden"
+                id="settings-panel-languages"
+                role="tabpanel"
+                aria-labelledby="settings-tab-languages"
+                data-settings-panel="languages"
+                aria-hidden="true"
+                hidden
+              >
+                <div
+                  class="settings-panel-shell scene-shell__framed-shell settings-panel-shell--languages"
+                >
+                  <div
+                    class="settings-panel-head scene-shell__framed-shell-head settings-panel-head--workbench"
+                  >
+                    <div class="settings-panel-copy">
+                      <span
+                        class="settings-panel-kicker"
+                        data-shell-i18n-text="settingsHub.nav.languages"
+                      ></span>
+                      <h3
+                        class="settings-panel-title"
+                        data-shell-i18n-text="languagesEditor.title"
+                      ></h3>
+                    </div>
+                  </div>
+
+                  <div class="settings-panel-scroll settings-panel-scroll--languages">
+                    <div class="language-editor-shell" id="language-editor-shell">
+                      <section
+                        class="language-editor-toolbar"
+                        id="language-editor-toolbar"
+                      ></section>
+                      <section
+                        class="language-editor-summary"
+                        id="language-editor-summary"
+                      ></section>
+                      <div class="language-editor-workbench">
+                        <aside class="language-editor-sidebar">
+                          <section
+                            class="language-editor-filters"
+                            id="language-editor-filters"
+                          ></section>
+                          <section
+                            class="language-editor-categories"
+                            id="language-editor-categories"
+                          ></section>
+                        </aside>
+                        <section class="language-editor-main">
+                          <div
+                            class="language-editor-main-head"
+                            id="language-editor-main-head"
+                          ></div>
+                          <div
+                            class="language-editor-entry-list"
+                            id="language-editor-entry-list"
+                          ></div>
+                        </section>
+                        <aside class="language-editor-meta" id="language-editor-meta"></aside>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/js/pages/settings/app.ts"></script>
+  </body>
+</html>

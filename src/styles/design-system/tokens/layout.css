@@ -1,0 +1,121 @@
+:root {
+  --layout-app-height: 100vh;
+  /* NOTE: App-wide zoom shrinks fixed CSS heights physically, so viewport-sized shells need inverse compensation. */
+  --layout-app-height-zoom-compensated: calc(
+    var(--layout-app-height) / max(var(--app-ui-scale-factor, 1), 0.01)
+  );
+  --layout-page-height: calc(var(--layout-app-height-zoom-compensated) - var(--topbar-height));
+  --layout-offscreen-offset: -99999px;
+  --avatar-image: none;
+  --layout-room-manager-modal-w: min(1080px, calc(100vw - 3rem));
+  --layout-room-runtime-panel-min-h: 32rem;
+  --layout-room-chip-min-h: 2rem;
+  --layout-room-runtime-event-min-h: 1.5rem;
+  --layout-room-runtime-webview-min-h: 24rem;
+  --layout-room-section-min-h: 26rem;
+  --layout-room-list-min-h: 12rem;
+  --layout-room-manager-card-col-identity-min-w: 11rem;
+  --layout-room-manager-card-col-topic-min-w: 14rem;
+
+  --layout-archives-bottom-h: clamp(240px, 36vh, 320px);
+  --layout-toast-min-w: min(28rem, calc(100vw - var(--space-8)));
+  --layout-splash-shell-w: min(var(--splash-max-w), calc(100vw - var(--space-12)));
+  --layout-splash-min-h: 300px;
+  --layout-splash-min-h-sm: 260px;
+  --layout-modal-document-w: 900px;
+  --layout-modal-dialog-w: 480px;
+  --layout-modal-field-min-h: 100px;
+  --layout-ui-mode-dropdown-min-w: min(11.25rem, calc(100vw - var(--space-6)));
+
+  --layout-live-log-max-w: 1500px;
+  --layout-live-log-search-min: min(150px, calc(100vw - var(--space-10)));
+  --layout-live-log-search-max: min(190px, calc(100vw - var(--space-10)));
+  --layout-live-log-detail-min: min(300px, calc(100vw - var(--space-10)));
+  --layout-markdown-code-max-h: 320px;
+  --layout-markdown-code-collapsed-max-h: 180px;
+  --layout-markdown-result-max-h: 200px;
+  --layout-markdown-chip-max-w: 220px;
+  --layout-dropdown-max-h: 280px;
+  --layout-workspace-url-min-w: min(240px, calc(100vw - var(--space-10)));
+  --layout-chat-empty-max-w: 420px;
+  --layout-toast-max-w: 400px;
+  --layout-modal-default-w: 500px;
+  --layout-modal-default-wide-w: 800px;
+  --layout-topbar-slot-gap: 5px;
+  --layout-topbar-relay-gap: 3px;
+  --layout-topbar-relay-line-w: 28px;
+  --layout-workspace-sidebar-max-w: min(38vw, 560px);
+  --layout-settings-hub-max-w: 1440px;
+  --layout-settings-capture-input-max-w: 22rem;
+  --layout-settings-capture-connect-basis: 18rem;
+  --layout-settings-capture-preview-side-min-w: 10rem;
+  --layout-settings-capture-command-label-min-w: 6rem;
+  --layout-settings-capture-log-max-h: min(10rem, 28vh);
+  --layout-settings-account-language-max-w: 20rem;
+  --layout-settings-account-hint-max-w: 22rem;
+  --layout-settings-account-runtime-panel-max-w: 34rem;
+  --layout-assistant-runtime-stack-max-w: 460px;
+  --layout-assistant-session-controls-max-w: 24rem;
+  --layout-message-virtual-scroll-h: 400px;
+  --layout-analyze-capture-side-min-w: 14rem;
+  --layout-analyze-capture-preview-min-h: 12rem;
+  --layout-analyze-capture-preview-max-h: 18rem;
+  --layout-analyze-operation-column-min-w: 22rem;
+  --layout-analyze-operation-label-min-w: 8.5rem;
+  --layout-analyze-operation-value-min-w: 12rem;
+
+  --layout-modal-compact-w: 420px;
+  --layout-modal-character-w: 860px;
+  --layout-modal-character-wide-w: 1200px;
+  --layout-modal-character-wide-max-h: 960px;
+  --layout-modal-memory-w: 960px;
+  --layout-modal-vw-lg: 96vw;
+  --layout-modal-vh-lg: min(80vh, calc(var(--layout-app-height) - var(--space-12)));
+  --layout-modal-vh-xl: min(85vh, calc(var(--layout-app-height) - var(--space-8)));
+  --layout-character-panel-inline-max: 26rem;
+  --layout-character-profile-list-max-h: 15rem;
+  --layout-character-profile-list-max-h-compact: 12rem;
+
+  --layout-panel-sidebar-w: 260px;
+  --layout-panel-compose-h: clamp(160px, 28vh, 200px);
+  --layout-panel-compose-files-w: 250px;
+  --layout-panel-compose-user-w: clamp(120px, 20vw, 170px);
+  --layout-panel-test-ratio: 34%;
+  --layout-panel-test-min: min(280px, calc(100vw - var(--space-8)));
+  --layout-action-flex-min: 10rem;
+  --layout-action-flex-min-lg: 11rem;
+  --layout-toolbar-item-flex-min: 12rem;
+  --layout-archives-card-min-w-sm: 18rem;
+  --layout-panel-rail-max: 160px;
+  --layout-panel-status-max: 260px;
+  --layout-panel-indicator-max: 320px;
+  --layout-panel-card-min-h: 180px;
+  --layout-panel-list-max-h: 260px;
+  --layout-panel-scroll-vh-sm: 50vh;
+  --layout-opencode-model-settings-w: 1180px;
+  --layout-opencode-model-settings-min-h: 860px;
+  --layout-opencode-model-settings-list-max-h: 680px;
+  --layout-whisper-dock-compose-min-w: var(--size-panel-compact);
+  --layout-whisper-dock-compose-max-w: var(--size-panel-wide);
+  --layout-whisper-dock-textarea-min-h: calc(var(--layout-modal-field-min-h) + var(--space-2));
+  --layout-whisper-dock-chip-max-w: var(--layout-archives-card-min-w-sm);
+  --layout-whisper-dock-empty-min-h: calc(
+    var(--layout-panel-card-min-h) - var(--size-control-3xl) - var(--space-3)
+  );
+  --layout-character-active-w: 42%;
+  --layout-panel-item-h: 300px;
+  --layout-data-label-w-sm: 72px;
+  --layout-logo-text-max-w: 92px;
+  --layout-server-workspace-columns: minmax(0, 1.25fr) minmax(360px, 1fr);
+  --layout-server-command-tab-min-w: clamp(72px, 10vw, 88px);
+  --layout-server-command-list-min-h: 180px;
+  --layout-server-command-guide-min-h: 160px;
+  --layout-server-command-guide-max-h: 280px;
+  --layout-server-workspace-stack-min-h: 420px;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --layout-app-height: 100dvh;
+  }
+}

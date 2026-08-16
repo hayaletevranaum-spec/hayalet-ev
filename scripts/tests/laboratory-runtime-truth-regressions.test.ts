@@ -1,0 +1,16 @@
+import "./laboratory-audio-runtime-regressions.test.ts";
+import "./laboratory-selection-runtime-regressions-part1.test.ts";
+import "./laboratory-selection-runtime-regressions-part2.test.ts";
+import "./laboratory-waveform-runtime-regressions.test.ts";
+import "./laboratory-store-runtime-regressions-part1.test.ts";
+import "./laboratory-store-runtime-regressions-part2.test.ts";
+import "./laboratory-controller-runtime-regressions-part1.test.ts";
+import "./laboratory-controller-runtime-regressions-part2.test.ts";
+import "./laboratory-controller-runtime-regressions-part3.test.ts";
+import "./laboratory-suggestion-runtime-regressions.test.ts";
+import "./laboratory-execution-runtime-regressions-part1.test.ts";
+import "./laboratory-execution-runtime-regressions-part2.test.ts";
+import "./laboratory-execution-runtime-regressions-part3.test.ts";
+import "./laboratory-execution-runtime-regressions-part4.test.ts";
+import "./laboratory-execution-runtime-regressions-part5.test.ts";
+import "./laboratory-workspace-runtime-regressions.test.ts";

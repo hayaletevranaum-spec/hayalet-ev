@@ -1,0 +1,1674 @@
+@import "./tokens.css";
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ─────────────────────────────────────────
+   APP SHELL — üç bölgeli ana iskelet
+───────────────────────────────────────── */
+.pattern-room-app-shell {
+  display: grid;
+  grid-template-columns:
+    var(--pattern-px-260)
+    minmax(0, 1fr)
+    minmax(var(--pattern-px-260), var(--pattern-px-320));
+  height: 100dvh;
+  min-height: 0;
+  background:
+    radial-gradient(ellipse at 18% 0%, var(--pattern-accent-amber-alpha-06), transparent 42%),
+    var(--pattern-gradient-body-depth), var(--pattern-surface);
+}
+
+/* ─────────────────────────────────────────
+   SOL RAY (NAV RAIL) — koyu deri panel
+───────────────────────────────────────── */
+.pattern-room-workspace-rail {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: var(--pattern-px-18);
+  overflow: auto;
+  padding: var(--pattern-px-20) var(--pattern-px-16);
+  border-right: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  background:
+    linear-gradient(180deg, var(--pattern-accent-amber-alpha-06), transparent 28%),
+    var(--pattern-surface-depth-alpha-96);
+  box-shadow: var(--pattern-px-18) 0 var(--pattern-px-48) var(--pattern-black-alpha-24);
+}
+
+/* ─────────────────────────────────────────
+   BRAND LOGO — PR rozeti + başlık
+───────────────────────────────────────── */
+.pattern-room-workspace-brand {
+  display: flex;
+  gap: var(--pattern-px-12);
+  align-items: center;
+  min-height: var(--pattern-px-56);
+  padding: var(--pattern-px-8);
+}
+
+.pattern-room-workspace-brand .pattern-room-kicker {
+  margin: 0 0 var(--pattern-px-4);
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+}
+
+.pattern-room-workspace-brand strong {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-warm);
+  font-size: var(--pattern-rem-0-88);
+  letter-spacing: var(--pattern-em-0-04);
+}
+
+/* Metal rozet — köşeli, pirinç kenarlık */
+.pattern-room-workspace-brand-mark {
+  display: grid;
+  width: var(--pattern-px-44);
+  height: var(--pattern-px-44);
+  flex: 0 0 auto;
+  place-items: center;
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-42);
+  border-radius: var(--pattern-px-4);
+  background: var(--pattern-gradient-amber-card-sheen), var(--pattern-surface-inset-alpha-78);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-accent-amber);
+  font-size: var(--pattern-rem-0-78);
+  font-weight: 900;
+  box-shadow:
+    inset 0 0 0 var(--pattern-px-1) var(--pattern-white-alpha-04),
+    0 var(--pattern-px-2) var(--pattern-px-8) var(--pattern-black-alpha-32);
+}
+
+/* ─────────────────────────────────────────
+   DURUM GÖSTERGESI — "Yerel vaka aktif"
+───────────────────────────────────────── */
+.pattern-room-workspace-status {
+  display: flex;
+  gap: var(--pattern-px-8);
+  align-items: center;
+  padding: var(--pattern-px-8) var(--pattern-px-10);
+  border: var(--pattern-px-1) solid var(--pattern-success-alpha-46);
+  border-radius: var(--pattern-px-999);
+  color: var(--pattern-success);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+  letter-spacing: var(--pattern-em-0-04);
+}
+
+/* Canlı nokta — pulsar efekti */
+.pattern-room-workspace-status-dot {
+  width: var(--pattern-px-7);
+  height: var(--pattern-px-7);
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 var(--pattern-px-10) currentColor;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* ─────────────────────────────────────────
+   NAVİGASYON — sol menü öğeleri
+───────────────────────────────────────── */
+.pattern-room-workspace-navigation {
+  display: grid;
+  gap: var(--pattern-px-4);
+}
+
+.pattern-room-workspace-navigation-label,
+.pattern-room-context-inspector-label {
+  display: block;
+  margin-bottom: var(--pattern-px-8);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 800;
+  letter-spacing: var(--pattern-em-0-08);
+  text-transform: uppercase;
+}
+
+/* Nav butonu — default */
+.pattern-room-workspace-nav-button {
+  display: grid;
+  grid-template-columns: var(--pattern-px-34) minmax(0, 1fr);
+  gap: var(--pattern-px-10);
+  align-items: center;
+  min-height: var(--pattern-px-54);
+  padding: var(--pattern-px-8) var(--pattern-px-10);
+  border: var(--pattern-px-1) solid transparent;
+  border-radius: var(--pattern-px-6);
+  background: transparent;
+  color: var(--pattern-text-muted);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 140ms,
+    background 140ms,
+    color 140ms,
+    box-shadow 140ms;
+}
+
+.pattern-room-workspace-nav-button:hover,
+.pattern-room-workspace-nav-button:focus-visible {
+  border-color: var(--pattern-accent-amber-alpha-18);
+  background: var(--pattern-accent-amber-alpha-06);
+  color: var(--pattern-text);
+  outline: none;
+}
+
+/* Nav butonu — aktif */
+.pattern-room-workspace-nav-button.active {
+  border-color: var(--pattern-accent-amber-alpha-38);
+  background: var(--pattern-gradient-amber-card-sheen), var(--pattern-accent-amber-deep-alpha-08);
+  color: var(--pattern-text-warm);
+  box-shadow: inset var(--pattern-px-3) 0 0 var(--pattern-accent-amber);
+}
+
+/* Nav ikon kutusu */
+.pattern-room-workspace-nav-icon {
+  display: grid;
+  width: var(--pattern-px-32);
+  height: var(--pattern-px-32);
+  place-items: center;
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-18);
+  border-radius: var(--pattern-px-4);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-accent-amber);
+  font-weight: 900;
+  font-size: var(--pattern-rem-0-88);
+}
+
+/* Nav metin kopyası */
+.pattern-room-workspace-nav-copy {
+  display: grid;
+  min-width: 0;
+  gap: var(--pattern-px-2);
+}
+
+.pattern-room-workspace-nav-copy strong,
+.pattern-room-workspace-nav-copy small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pattern-room-workspace-nav-copy strong {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-82);
+  font-weight: 700;
+}
+
+.pattern-room-workspace-nav-copy small {
+  color: var(--pattern-text-subtle);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+}
+
+/* ─────────────────────────────────────────
+   VAKA KARTI — sol altta sabit
+───────────────────────────────────────── */
+.pattern-room-workspace-case-card {
+  display: grid;
+  gap: var(--pattern-px-8);
+  margin-top: auto;
+  padding: var(--pattern-px-14);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-22);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-gradient-report-sheen), var(--pattern-surface-inset-alpha-62);
+  box-shadow: inset 0 0 0 var(--pattern-px-1) var(--pattern-white-alpha-03);
+}
+
+.pattern-room-workspace-case-card .pattern-room-kicker {
+  margin: 0;
+  color: var(--pattern-accent-amber);
+}
+
+.pattern-room-workspace-case-subject {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-warm);
+  font-size: var(--pattern-rem-0-88);
+  line-height: 1.35;
+}
+
+.pattern-room-workspace-case-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pattern-px-6);
+}
+
+.pattern-room-workspace-case-metrics span,
+.pattern-room-source-status,
+.pattern-room-report-section-count,
+.pattern-room-board-lane-count {
+  display: inline-flex;
+  width: fit-content;
+  padding: var(--pattern-px-4) var(--pattern-px-8);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-14);
+  border-radius: var(--pattern-px-999);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+}
+
+/* Klavye ipucu */
+.pattern-room-workspace-keyboard-hint {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  line-height: 1.45;
+}
+
+/* ─────────────────────────────────────────
+   WORKSPACE MAIN AREA
+───────────────────────────────────────── */
+.pattern-room-workspace,
+.pattern-room-workspace-outlet {
+  min-width: 0;
+  min-height: 0;
+}
+
+.pattern-room-workspace {
+  overflow: hidden;
+}
+
+.pattern-room-workspace-outlet {
+  height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--pattern-accent-amber-alpha-28) transparent;
+  scrollbar-width: thin;
+}
+
+/* Panel/overview override (workspace modunda) */
+.pattern-room-overview,
+.pattern-room-panel {
+  width: 100%;
+  max-width: var(--pattern-px-1180);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: var(--pattern-px-20) var(--pattern-px-24) var(--pattern-px-28);
+}
+
+/* Yapışkan panel başlığı */
+.pattern-room-panel-header,
+.pattern-room-overview-header {
+  position: sticky;
+  z-index: 12;
+  top: 0;
+  align-items: center;
+  min-height: var(--pattern-px-64);
+  margin-bottom: var(--pattern-px-14);
+  padding: var(--pattern-px-8) 0;
+  background: linear-gradient(180deg, var(--pattern-surface) 72%, transparent);
+  backdrop-filter: blur(var(--pattern-px-12));
+}
+
+.pattern-room-panel-header h1,
+.pattern-room-overview-header h1 {
+  margin: 0;
+  font-size: var(--pattern-rem-1-5);
+  line-height: 1.15;
+}
+
+.pattern-room-panel-header .pattern-room-kicker {
+  margin-bottom: var(--pattern-px-4);
+  font-size: var(--pattern-rem-0-72);
+}
+
+.pattern-room-back {
+  min-width: auto;
+  min-height: var(--pattern-px-38);
+}
+
+/* ─────────────────────────────────────────
+   SECTION HEADER — bölüm başlığı
+───────────────────────────────────────── */
+.pattern-room-workspace-section-header {
+  display: flex;
+  gap: var(--pattern-px-12);
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--pattern-px-42);
+  margin-bottom: var(--pattern-px-12);
+}
+
+.pattern-room-workspace-section-header .pattern-room-kicker {
+  margin: 0;
+}
+
+.pattern-room-workspace-section-header strong {
+  overflow: hidden;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-warm);
+  font-size: var(--pattern-rem-0-88);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────
+   CONTEXT INSPECTOR — sağ kenar panel
+───────────────────────────────────────── */
+.pattern-room-context-inspector {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--pattern-px-14);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-surface-panel-alpha-86);
+  box-shadow: 0 var(--pattern-px-18) var(--pattern-px-48) var(--pattern-black-alpha-24);
+  scrollbar-color: var(--pattern-accent-amber-alpha-22) transparent;
+  scrollbar-width: thin;
+}
+
+/* ─────────────────────────────────────────
+   OVERVIEW AKTİVİTE ÇUBUĞU
+───────────────────────────────────────── */
+.pattern-room-overview {
+  position: relative;
+}
+
+.pattern-room-overview-activity {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--pattern-px-4) var(--pattern-px-14);
+  align-items: center;
+  margin-bottom: var(--pattern-px-12);
+  padding: var(--pattern-px-10) var(--pattern-px-14);
+  border: var(--pattern-px-1) solid var(--pattern-success-alpha-46);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-success-alpha-05);
+}
+
+.pattern-room-overview-activity .pattern-room-kicker {
+  grid-row: span 2;
+  margin: 0;
+}
+
+.pattern-room-overview-activity strong {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-warm);
+}
+
+.pattern-room-overview-activity p {
+  margin: 0;
+  font-size: var(--pattern-rem-0-82);
+  line-height: 1.35;
+}
+
+.pattern-room-office {
+  min-height: min(var(--pattern-px-640), calc(100dvh - var(--pattern-px-210)));
+}
+
+/* ─────────────────────────────────────────
+   ÇALIŞMA ALANI LAYOUT'LARI
+───────────────────────────────────────── */
+.pattern-room-board-workspace,
+.pattern-room-archive-workspace,
+.pattern-room-connections-workspace,
+.pattern-room-review-workspace {
+  display: grid;
+  min-height: min(var(--pattern-px-640), calc(100dvh - var(--pattern-px-110)));
+  gap: var(--pattern-px-14);
+}
+
+.pattern-room-board-workspace {
+  grid-template-columns: minmax(0, 1fr) minmax(var(--pattern-px-292), var(--pattern-px-330));
+}
+
+.pattern-room-board-canvas,
+.pattern-room-archive-browser,
+.pattern-room-review-surface {
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Board sahne — workspace override */
+.pattern-room-board-scene {
+  height: calc(100% - var(--pattern-px-54));
+  min-height: var(--pattern-px-472);
+  overflow: auto;
+  padding: var(--pattern-px-16);
+}
+
+.pattern-room-board-grid {
+  grid-template-columns: repeat(2, minmax(var(--pattern-px-210), 1fr));
+  align-items: start;
+}
+
+.pattern-room-board-lane {
+  min-height: auto;
+  padding: var(--pattern-px-14);
+}
+
+.pattern-room-board-lane-header {
+  position: relative;
+}
+
+.pattern-room-board-lane-count,
+.pattern-room-report-section-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pattern-room-board-pins {
+  gap: var(--pattern-px-8);
+  margin-top: var(--pattern-px-12);
+}
+
+.pattern-room-board-node {
+  display: grid;
+  gap: var(--pattern-px-4);
+  min-height: var(--pattern-px-48);
+  padding-block: var(--pattern-px-9);
+}
+
+.pattern-room-board-node-copy,
+.pattern-room-board-node-meta {
+  display: block;
+}
+
+.pattern-room-board-node-meta {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+}
+
+/* Board detail — workspace override */
+.pattern-room-board-detail {
+  margin: 0;
+  padding: var(--pattern-px-12);
+  border-color: var(--pattern-text-alpha-12);
+  background: var(--pattern-surface-inset-alpha-62);
+  box-shadow: none;
+}
+
+.pattern-room-board-detail h2 {
+  margin-bottom: var(--pattern-px-10);
+  font-size: var(--pattern-rem-1-2);
+}
+
+/* ─────────────────────────────────────────
+   INSPECTOR QUICK TOOLS — single-column authoring
+───────────────────────────────────────── */
+.pattern-room-board-inspector-tools {
+  display: grid;
+  gap: var(--pattern-px-8);
+  margin-top: var(--pattern-px-14);
+  padding-top: var(--pattern-px-14);
+  border-top: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+}
+
+.pattern-room-board-inspector-tools .pattern-room-inline-authoring {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.pattern-room-board-inspector-tools .pattern-room-inline-disclosure,
+.pattern-room-board-inspector-tools .pattern-room-inline-form {
+  min-width: 0;
+  width: 100%;
+}
+
+.pattern-room-board-inspector-tools .pattern-room-inline-summary {
+  min-height: var(--pattern-px-42);
+  padding-inline: var(--pattern-px-10);
+}
+
+.pattern-room-board-inspector-tools .pattern-room-inline-form {
+  grid-template-columns: minmax(0, 1fr);
+  padding: var(--pattern-px-10);
+}
+
+/* ─────────────────────────────────────────
+   ARŞİV WORKSPACE
+───────────────────────────────────────── */
+.pattern-room-archive-workspace {
+  grid-template-columns: minmax(var(--pattern-px-320), 0.88fr) minmax(var(--pattern-px-360), 1.12fr);
+}
+
+.pattern-room-archive-browser {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pattern-room-archive-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(var(--pattern-px-150), 0.46fr);
+  gap: var(--pattern-px-10);
+  margin-bottom: var(--pattern-px-8);
+}
+
+.pattern-room-archive-toolbar-field {
+  display: grid;
+  gap: var(--pattern-px-5);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+}
+
+.pattern-room-archive-result-count {
+  margin: 0 0 var(--pattern-px-8);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-76);
+}
+
+.pattern-room-archive-list {
+  grid-template-columns: 1fr;
+  gap: var(--pattern-px-8);
+  min-height: 0;
+  overflow: auto;
+  padding-right: var(--pattern-px-4);
+}
+
+.pattern-room-archive-card {
+  min-height: 0;
+  padding: var(--pattern-px-12);
+}
+
+.pattern-room-archive-card h3 {
+  margin: var(--pattern-px-8) 0 var(--pattern-px-5);
+}
+
+.pattern-room-archive-card .pattern-room-action-row {
+  margin-top: var(--pattern-px-10);
+}
+
+.pattern-room-archive-card .pattern-room-action-button {
+  min-height: var(--pattern-px-32);
+  padding: var(--pattern-px-5) var(--pattern-px-8);
+  font-size: var(--pattern-rem-0-76);
+}
+
+.pattern-room-archive-preview {
+  display: -webkit-box;
+  margin-bottom: var(--pattern-px-8);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.pattern-room-archive-inspector {
+  display: flex;
+  flex-direction: column;
+}
+
+.pattern-room-archive-inspector .pattern-room-source-detail {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.pattern-room-archive-tools {
+  flex: 0 0 auto;
+  margin-top: var(--pattern-px-10);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-archive-tools-body {
+  display: grid;
+  gap: var(--pattern-px-10);
+  max-height: var(--pattern-px-472);
+  overflow: auto;
+  padding: var(--pattern-px-10);
+  border-top: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+}
+
+.pattern-room-archive-tools-body > * {
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   BAĞLANTILAR WORKSPACE
+───────────────────────────────────────── */
+.pattern-room-connections-workspace {
+  grid-template-columns: minmax(0, 1fr) minmax(var(--pattern-px-292), var(--pattern-px-330));
+}
+
+.pattern-room-connections-workspace .pattern-room-desk-surface {
+  min-height: 0;
+  height: 100%;
+  padding: var(--pattern-px-20);
+  border-radius: var(--pattern-px-8);
+}
+
+.pattern-room-connection-map {
+  display: grid;
+  min-height: 0;
+  gap: var(--pattern-px-14);
+  align-content: start;
+}
+
+.pattern-room-connection-map .pattern-room-claim-objects {
+  position: relative;
+  z-index: 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  height: auto;
+}
+
+/* Bağlantı ekseni — soruşturma sicimi */
+.pattern-room-connection-axis {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 18%;
+  left: 18%;
+  height: var(--pattern-px-2);
+  background: linear-gradient(90deg, var(--pattern-success), var(--pattern-accent-red));
+  box-shadow: 0 0 var(--pattern-px-12) var(--pattern-accent-amber-alpha-22);
+}
+
+.pattern-room-connection-node-index {
+  position: absolute;
+  top: var(--pattern-px-10);
+  right: var(--pattern-px-10);
+  font-family: "IBM Plex Mono", monospace;
+  color: currentColor;
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 900;
+}
+
+.pattern-room-connection-entities,
+.pattern-room-connection-composer {
+  display: grid;
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-connection-composer {
+  margin-top: var(--pattern-px-14);
+  padding-top: var(--pattern-px-14);
+  border-top: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+}
+
+.pattern-room-connection-entity-list {
+  display: grid;
+  gap: var(--pattern-px-6);
+  max-height: var(--pattern-px-260);
+  overflow: auto;
+}
+
+.pattern-room-connection-entity {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--pattern-px-4) var(--pattern-px-8);
+  padding: var(--pattern-px-8);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-white-alpha-05);
+}
+
+.pattern-room-connection-entity .pattern-room-list-eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.pattern-room-connection-scope {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+}
+
+/* ─────────────────────────────────────────
+   RAPOR WORKSPACE
+───────────────────────────────────────── */
+.pattern-room-report-workspace {
+  display: grid;
+  grid-template-columns: var(--pattern-px-238) minmax(0, 1fr);
+  gap: var(--pattern-px-14);
+  min-height: min(var(--pattern-px-640), calc(100dvh - var(--pattern-px-110)));
+}
+
+.pattern-room-report-outline {
+  align-self: start;
+  max-height: calc(100dvh - var(--pattern-px-132));
+  overflow: auto;
+  padding: var(--pattern-px-12);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-surface-panel-alpha-86);
+}
+
+.pattern-room-report-outline-navigation {
+  display: grid;
+  gap: var(--pattern-px-6);
+}
+
+.pattern-room-report-outline-button {
+  display: grid;
+  grid-template-columns: var(--pattern-px-28) minmax(0, 1fr) auto;
+  gap: var(--pattern-px-8);
+  align-items: center;
+  padding: var(--pattern-px-8);
+  border: var(--pattern-px-1) solid transparent;
+  border-radius: var(--pattern-px-6);
+  background: transparent;
+  color: var(--pattern-text-muted);
+  cursor: pointer;
+  text-align: left;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-82);
+  transition:
+    border-color 120ms,
+    background 120ms,
+    color 120ms;
+}
+
+.pattern-room-report-outline-button:hover,
+.pattern-room-report-outline-button:focus-visible,
+.pattern-room-report-outline-button.active {
+  border-color: var(--pattern-accent-amber-alpha-34);
+  background: var(--pattern-accent-amber-alpha-08);
+  color: var(--pattern-text-warm);
+  outline: none;
+}
+
+.pattern-room-report-outline-index {
+  display: grid;
+  width: var(--pattern-px-26);
+  height: var(--pattern-px-26);
+  place-items: center;
+  border-radius: var(--pattern-px-4);
+  background: var(--pattern-accent-amber-alpha-09);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-accent-amber);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 900;
+}
+
+.pattern-room-report-document {
+  min-height: 0;
+  max-height: calc(100dvh - var(--pattern-px-110));
+  overflow: auto;
+  padding: var(--pattern-px-20);
+}
+
+.pattern-room-report-document-header {
+  padding-bottom: var(--pattern-px-14);
+  border-bottom: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+}
+
+.pattern-room-report-list {
+  grid-template-columns: 1fr;
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-report-card {
+  min-height: 0;
+  padding: var(--pattern-px-14);
+  scroll-margin-top: var(--pattern-px-14);
+}
+
+.pattern-room-report-section-header {
+  position: relative;
+}
+
+/* ─────────────────────────────────────────
+   İNCELEME WORKSPACE (10. Adam)
+───────────────────────────────────────── */
+.pattern-room-review-workspace {
+  grid-template-columns: minmax(0, 1fr) minmax(var(--pattern-px-292), var(--pattern-px-330));
+}
+
+.pattern-room-review-surface,
+.pattern-room-review-inspector {
+  max-height: calc(100dvh - var(--pattern-px-110));
+  overflow: auto;
+}
+
+.pattern-room-review-inspector {
+  padding: var(--pattern-px-14);
+}
+
+.pattern-room-review-inspector .pattern-room-device-slots {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--pattern-px-8);
+  margin-top: var(--pattern-px-14);
+}
+
+.pattern-room-review-inspector .pattern-room-role-slot {
+  min-height: 0;
+  padding: var(--pattern-px-10);
+}
+
+.pattern-room-review-inspector .pattern-room-role-slot p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.pattern-room-review-inspector .pattern-room-debate-references,
+.pattern-room-review-inspector .pattern-room-debate-turns {
+  margin-top: var(--pattern-px-14);
+}
+
+.pattern-room-case-review-preview {
+  gap: var(--pattern-px-10);
+  margin: 0;
+  padding: var(--pattern-px-14);
+}
+
+.pattern-room-case-review-preview > h2 {
+  margin-bottom: 0;
+}
+
+.pattern-room-case-review-workspace {
+  display: grid;
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-case-review-workspace-card {
+  min-width: 0;
+  padding: var(--pattern-px-12);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-case-review-runtime {
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-case-review-runtime-workspace {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-case-review-runtime-status {
+  padding: var(--pattern-px-10);
+}
+
+.pattern-room-case-review-parsed,
+.pattern-room-case-review-history {
+  grid-column: 1 / -1;
+}
+
+.pattern-room-case-review-response-text,
+.pattern-room-case-review-preview-text {
+  max-height: var(--pattern-px-238);
+  overflow: auto;
+  margin: var(--pattern-px-8) 0 0;
+  padding: var(--pattern-px-10);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-inset-alpha-78);
+  color: var(--pattern-text-muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-82);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.pattern-room-case-review-response-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pattern-px-8);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+}
+
+.pattern-room-case-review-workspace-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--pattern-px-104), 1fr));
+  gap: var(--pattern-px-6);
+  margin-top: var(--pattern-px-8);
+}
+
+.pattern-room-case-review-workspace-metric {
+  padding: var(--pattern-px-8);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-white-alpha-05);
+}
+
+.pattern-room-case-review-workspace-metric span,
+.pattern-room-case-review-workspace-metric strong {
+  display: block;
+}
+
+.pattern-room-case-review-workspace-metric span {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+  letter-spacing: var(--pattern-em-0-04);
+  text-transform: uppercase;
+}
+
+.pattern-room-case-review-workspace-metric strong {
+  margin-top: var(--pattern-px-2);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-warm);
+  font-size: var(--pattern-rem-1-2);
+}
+
+.pattern-room-case-review-apply-result {
+  margin-top: var(--pattern-px-12);
+  padding-top: var(--pattern-px-10);
+  border-top: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+}
+
+.pattern-room-case-review-result {
+  gap: var(--pattern-px-8);
+  margin-top: var(--pattern-px-8);
+}
+
+.pattern-room-case-review-section,
+.pattern-room-case-review-result-summary,
+.pattern-room-case-review-history-item {
+  padding: var(--pattern-px-10);
+}
+
+.pattern-room-case-review-history-list {
+  max-height: var(--pattern-px-260);
+  overflow: auto;
+}
+
+/* ─────────────────────────────────────────
+   FOCUS OUTLINE — erişilebilirlik
+───────────────────────────────────────── */
+.pattern-room-action-button:focus-visible,
+.pattern-room-inline-input:focus-visible,
+.pattern-room-inline-summary:focus-visible,
+.pattern-room-report-card:focus-visible,
+.pattern-room-panel:focus-visible {
+  outline: var(--pattern-px-2) solid var(--pattern-accent-amber);
+  outline-offset: var(--pattern-px-2);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — geniş ekranlar
+───────────────────────────────────────── */
+@media (--pattern-bp-min-1440) {
+  .pattern-room-overview,
+  .pattern-room-panel {
+    max-width: none;
+  }
+
+  .pattern-room-board-grid {
+    grid-template-columns: repeat(4, minmax(var(--pattern-px-188), 1fr));
+  }
+
+  .pattern-room-archive-workspace {
+    grid-template-columns: minmax(var(--pattern-px-360), 0.72fr) minmax(
+        var(--pattern-px-472),
+        1.28fr
+      );
+  }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — orta ekranlar
+───────────────────────────────────────── */
+@media (--pattern-bp-max-1100) {
+  .pattern-room-app-shell {
+    grid-template-columns: var(--pattern-px-84) minmax(0, 1fr);
+  }
+
+  .pattern-room-workspace-rail {
+    padding-inline: var(--pattern-px-10);
+  }
+
+  .pattern-room-workspace-brand {
+    justify-content: center;
+  }
+
+  .pattern-room-workspace-brand > div,
+  .pattern-room-workspace-nav-copy,
+  .pattern-room-workspace-navigation-label,
+  .pattern-room-workspace-case-card,
+  .pattern-room-workspace-keyboard-hint,
+  .pattern-room-workspace-status span {
+    display: none;
+  }
+
+  .pattern-room-workspace-status,
+  .pattern-room-workspace-nav-button {
+    justify-content: center;
+  }
+
+  .pattern-room-workspace-nav-button {
+    grid-template-columns: var(--pattern-px-34);
+    padding-inline: var(--pattern-px-8);
+  }
+
+  .pattern-room-board-workspace,
+  .pattern-room-connections-workspace,
+  .pattern-room-review-workspace {
+    grid-template-columns: minmax(0, 1fr) minmax(var(--pattern-px-260), var(--pattern-px-292));
+  }
+
+  .pattern-room-archive-workspace {
+    grid-template-columns: minmax(var(--pattern-px-292), 0.82fr) minmax(
+        var(--pattern-px-330),
+        1.18fr
+      );
+  }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — küçük ekranlar
+───────────────────────────────────────── */
+@media (--pattern-bp-max-820) {
+  .pattern-room-app-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .pattern-room-workspace-rail {
+    flex-direction: row;
+    gap: var(--pattern-px-8);
+    align-items: center;
+    overflow-x: auto;
+    padding: var(--pattern-px-8) var(--pattern-px-10);
+    border-right: 0;
+    border-bottom: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  }
+
+  .pattern-room-workspace-brand,
+  .pattern-room-workspace-status {
+    display: none;
+  }
+
+  .pattern-room-workspace-navigation {
+    display: flex;
+    gap: var(--pattern-px-6);
+  }
+
+  .pattern-room-workspace-nav-button {
+    width: var(--pattern-px-48);
+    min-width: var(--pattern-px-48);
+    min-height: var(--pattern-px-44);
+    padding: var(--pattern-px-5);
+  }
+
+  .pattern-room-overview,
+  .pattern-room-panel {
+    width: 100%;
+    padding: var(--pattern-px-12);
+  }
+
+  .pattern-room-board-workspace,
+  .pattern-room-archive-workspace,
+  .pattern-room-connections-workspace,
+  .pattern-room-review-workspace,
+  .pattern-room-report-workspace {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .pattern-room-board-scene,
+  .pattern-room-report-document,
+  .pattern-room-review-surface,
+  .pattern-room-review-inspector {
+    max-height: none;
+  }
+
+  .pattern-room-context-inspector,
+  .pattern-room-report-outline {
+    max-height: var(--pattern-px-472);
+  }
+
+  .pattern-room-report-outline-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pattern-room-case-review-runtime-workspace,
+  .pattern-room-archive-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .pattern-room-office {
+    min-height: auto;
+  }
+}
+
+/* ─────────────────────────────────────────
+   REDUCED MOTION
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ─────────────────────────────────────────
+   WORKSPACE CONTEXT INSPECTOR — kalıcı sağ bölge
+───────────────────────────────────────── */
+.pattern-room-workspace-inspector {
+  position: relative;
+  z-index: 18;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: var(--pattern-px-18);
+  overflow: auto;
+  padding: var(--pattern-px-20) var(--pattern-px-16);
+  border-left: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  background:
+    linear-gradient(180deg, var(--pattern-accent-cyan-alpha-05), transparent 30%),
+    var(--pattern-surface-depth-alpha-96);
+  box-shadow: calc(0 - var(--pattern-px-18)) 0 var(--pattern-px-48) var(--pattern-black-alpha-24);
+  scrollbar-color: var(--pattern-accent-amber-alpha-22) transparent;
+  scrollbar-width: thin;
+}
+
+.pattern-room-workspace-inspector-header {
+  display: grid;
+  gap: var(--pattern-px-8);
+  padding-bottom: var(--pattern-px-16);
+  border-bottom: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+}
+
+.pattern-room-workspace-inspector-header .pattern-room-context-inspector-label {
+  margin: 0;
+}
+
+.pattern-room-workspace-inspector-title,
+.pattern-room-workspace-inspector-subject {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-warm);
+}
+
+.pattern-room-workspace-inspector-title {
+  font-size: var(--pattern-rem-1);
+}
+
+.pattern-room-workspace-inspector-description {
+  margin: 0;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-82);
+  line-height: 1.45;
+}
+
+.pattern-room-workspace-inspector-case {
+  display: grid;
+  gap: var(--pattern-px-10);
+  padding: var(--pattern-px-14);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-18);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-panel-alpha-82);
+}
+
+.pattern-room-workspace-inspector-case .pattern-room-kicker {
+  margin: 0;
+}
+
+.pattern-room-workspace-inspector-subject {
+  font-size: var(--pattern-rem-0-88);
+  line-height: 1.4;
+}
+
+.pattern-room-workspace-inspector-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pattern-px-6);
+}
+
+.pattern-room-workspace-inspector-metrics span {
+  display: inline-flex;
+  width: fit-content;
+  padding: var(--pattern-px-4) var(--pattern-px-8);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-14);
+  border-radius: var(--pattern-px-999);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+}
+
+@media (--pattern-bp-max-1180) {
+  .pattern-room-app-shell {
+    grid-template-columns:
+      var(--pattern-px-238)
+      minmax(0, 1fr)
+      var(--pattern-px-260);
+  }
+}
+
+@media (--pattern-bp-max-960) {
+  .pattern-room-app-shell {
+    grid-template-columns: var(--pattern-px-218) minmax(0, 1fr);
+  }
+
+  .pattern-room-workspace-inspector {
+    display: none;
+  }
+}
+
+/* ─────────────────────────────────────────
+   INVESTIGATION CANVAS — board + graph modes
+───────────────────────────────────────── */
+.pattern-room-investigation-toolbar {
+  display: flex;
+  gap: var(--pattern-px-16);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--pattern-px-14);
+  padding: var(--pattern-px-12) var(--pattern-px-14);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-18);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-panel-alpha-82);
+}
+
+.pattern-room-investigation-toolbar-copy {
+  display: grid;
+  min-width: 0;
+  gap: var(--pattern-px-4);
+}
+
+.pattern-room-investigation-toolbar-copy .pattern-room-kicker,
+.pattern-room-investigation-toolbar-copy p {
+  margin: 0;
+}
+
+.pattern-room-investigation-toolbar-copy strong {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-warm);
+}
+
+.pattern-room-investigation-toolbar-copy p {
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-82);
+}
+
+.pattern-room-investigation-mode-controls {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: var(--pattern-px-4);
+  padding: var(--pattern-px-4);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-14);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-investigation-mode-button {
+  min-height: var(--pattern-px-34);
+  padding: var(--pattern-px-6) var(--pattern-px-12);
+  border: var(--pattern-px-1) solid transparent;
+  border-radius: var(--pattern-px-4);
+  background: transparent;
+  color: var(--pattern-text-subtle);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-76);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pattern-room-investigation-mode-button:hover,
+.pattern-room-investigation-mode-button:focus-visible {
+  color: var(--pattern-text);
+  outline: none;
+}
+
+.pattern-room-investigation-mode-button.active {
+  border-color: var(--pattern-accent-amber-alpha-38);
+  background: var(--pattern-accent-amber-deep-alpha-13);
+  color: var(--pattern-accent-amber);
+  box-shadow: var(--pattern-glow-amber-action);
+}
+
+.pattern-room-investigation-surface {
+  min-width: 0;
+  min-height: 0;
+}
+
+.pattern-room-investigation-mode-surface.pattern-room-panel {
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media (--pattern-bp-max-820) {
+  .pattern-room-investigation-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pattern-room-investigation-mode-controls {
+    width: 100%;
+  }
+
+  .pattern-room-investigation-mode-button {
+    flex: 1 1 0;
+  }
+}
+
+/* ─────────────────────────────────────────
+   PERSISTENT INVESTIGATION INSPECTOR
+───────────────────────────────────────── */
+.pattern-room-workspace-inspector-content {
+  display: grid;
+  min-width: 0;
+  gap: var(--pattern-px-16);
+}
+
+.pattern-room-workspace-inspector-content:empty {
+  display: none;
+}
+
+.pattern-room-investigation-inspector-content {
+  display: grid;
+  min-width: 0;
+  gap: var(--pattern-px-16);
+}
+
+.pattern-room-investigation-inspector-section {
+  display: grid;
+  min-width: 0;
+  gap: var(--pattern-px-10);
+  padding-top: var(--pattern-px-16);
+  border-top: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+}
+
+.pattern-room-investigation-inspector-section .pattern-room-context-inspector-label {
+  margin: 0;
+}
+
+.pattern-room-board-workspace-canvas-only,
+.pattern-room-connections-canvas-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pattern-room-board-workspace-canvas-only .pattern-room-board-canvas,
+.pattern-room-connections-canvas-only .pattern-room-desk-surface {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   WORKSPACE ACTION FEEDBACK — görünür işlem sonucu
+───────────────────────────────────────── */
+.pattern-room-workspace-feedback-slot {
+  position: fixed;
+  z-index: 90;
+  top: var(--pattern-px-104);
+  right: var(--pattern-px-18);
+  width: min(var(--pattern-px-360), calc(100vw - var(--pattern-px-32)));
+  pointer-events: none;
+}
+
+.pattern-room-workspace-feedback {
+  display: grid;
+  grid-template-columns: var(--pattern-px-30) minmax(0, 1fr) var(--pattern-px-30);
+  gap: var(--pattern-px-10);
+  align-items: center;
+  padding: var(--pattern-px-12);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-38);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-depth-alpha-96);
+  box-shadow: 0 var(--pattern-px-12) var(--pattern-px-36) var(--pattern-black-alpha-52);
+  pointer-events: auto;
+}
+
+.pattern-room-workspace-feedback.success {
+  border-color: var(--pattern-success-alpha-46);
+}
+
+.pattern-room-workspace-feedback.error {
+  border-color: var(--pattern-danger-alpha-50);
+}
+
+.pattern-room-workspace-feedback.warning {
+  border-color: var(--pattern-accent-amber-alpha-48);
+}
+
+.pattern-room-workspace-feedback.info {
+  border-color: var(--pattern-text-alpha-18);
+}
+
+.pattern-room-workspace-feedback-icon {
+  display: grid;
+  width: var(--pattern-px-28);
+  height: var(--pattern-px-28);
+  place-items: center;
+  border: var(--pattern-px-1) solid currentColor;
+  border-radius: var(--pattern-px-999);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-accent-amber);
+  font-weight: 900;
+}
+
+.pattern-room-workspace-feedback.success .pattern-room-workspace-feedback-icon {
+  color: var(--pattern-accent-green);
+}
+
+.pattern-room-workspace-feedback.error .pattern-room-workspace-feedback-icon {
+  color: var(--pattern-danger-text);
+}
+
+.pattern-room-workspace-feedback.info .pattern-room-workspace-feedback-icon {
+  color: var(--pattern-accent-cyan);
+}
+
+.pattern-room-workspace-feedback-message {
+  margin: 0;
+  color: var(--pattern-text);
+  font-size: var(--pattern-rem-0-82);
+  line-height: 1.45;
+}
+
+.pattern-room-workspace-feedback-dismiss {
+  width: var(--pattern-px-28);
+  height: var(--pattern-px-28);
+  border: 0;
+  background: transparent;
+  color: var(--pattern-text-subtle);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-1-2);
+  cursor: pointer;
+}
+
+.pattern-room-workspace-feedback-dismiss:hover,
+.pattern-room-workspace-feedback-dismiss:focus-visible {
+  color: var(--pattern-text);
+  outline: var(--pattern-px-1) solid var(--pattern-accent-amber);
+  outline-offset: var(--pattern-px-2);
+}
+
+@media (--pattern-bp-max-820) {
+  .pattern-room-workspace-feedback-slot {
+    top: var(--pattern-px-76);
+    right: var(--pattern-px-10);
+    width: calc(100vw - var(--pattern-px-20));
+  }
+}
+
+/* ─────────────────────────────────────────
+   CASE IDENTITY INSPECTOR
+───────────────────────────────────────── */
+.pattern-room-case-identity-inspector {
+  display: grid;
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-case-identity-inspector h2,
+.pattern-room-case-identity-inspector p {
+  margin: 0;
+}
+
+.pattern-room-case-identity-inspector p {
+  color: var(--pattern-text-muted);
+  font-size: var(--pattern-rem-0-82);
+  line-height: 1.55;
+}
+
+.pattern-room-case-identity-form {
+  display: grid;
+  gap: var(--pattern-px-10);
+  margin-top: var(--pattern-px-4);
+}
+
+.pattern-room-case-identity-field {
+  display: grid;
+  gap: var(--pattern-px-6);
+  min-width: 0;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+}
+
+.pattern-room-case-identity-field textarea {
+  min-height: var(--pattern-px-104);
+  resize: vertical;
+}
+
+.pattern-room-case-identity-submit {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   TRUTHFUL REPORT METRICS
+───────────────────────────────────────── */
+.pattern-room-report-section-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pattern-px-6);
+}
+
+.pattern-room-report-section-metric {
+  display: inline-flex;
+  width: fit-content;
+  padding: var(--pattern-px-4) var(--pattern-px-8);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-14);
+  border-radius: var(--pattern-px-999);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+}
+
+.pattern-room-report-outline-button small {
+  text-align: right;
+  line-height: 1.35;
+}
+
+/* ─────────────────────────────────────────
+   SELECTABLE CONNECTIONS AND EDGE EDITOR
+───────────────────────────────────────── */
+.pattern-room-connection-list {
+  display: grid;
+  gap: var(--pattern-px-8);
+  align-content: start;
+}
+
+.pattern-room-connection-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--pattern-px-6) var(--pattern-px-10);
+  width: 100%;
+  padding: var(--pattern-px-12);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-14);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-panel-alpha-82);
+  color: var(--pattern-text-subtle);
+  text-align: left;
+  cursor: pointer;
+}
+
+.pattern-room-connection-card > :not(.pattern-room-connection-node-index) {
+  grid-column: 2;
+}
+
+.pattern-room-connection-card strong {
+  color: var(--pattern-text-warm);
+}
+
+.pattern-room-connection-card:hover,
+.pattern-room-connection-card:focus-visible,
+.pattern-room-connection-card.active {
+  border-color: var(--pattern-accent-amber-alpha-38);
+  outline: none;
+}
+
+.pattern-room-connection-card.active {
+  box-shadow: var(--pattern-glow-amber-action);
+}
+
+.pattern-room-connection-edge-label,
+.pattern-room-connection-card small {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+}
+
+.pattern-room-connection-edge-label {
+  color: var(--pattern-accent-amber);
+  font-weight: 800;
+}
+
+.pattern-room-connection-empty {
+  margin: 0;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-82);
+  line-height: 1.5;
+}
+
+.pattern-room-connection-detail {
+  display: grid;
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-connection-detail h2,
+.pattern-room-connection-detail p,
+.pattern-room-connection-detail small {
+  margin: 0;
+}
+
+.pattern-room-connection-detail p,
+.pattern-room-connection-detail small {
+  color: var(--pattern-text-subtle);
+  line-height: 1.5;
+}
+
+.pattern-room-connection-edit-form {
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: var(--pattern-px-4);
+  padding: 0;
+}
+
+.pattern-room-connection-edit-form textarea {
+  min-height: var(--pattern-px-88);
+  resize: vertical;
+}

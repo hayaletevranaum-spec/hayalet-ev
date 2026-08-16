@@ -1,0 +1,68 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: var(--border-1) solid var(--border-default);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.accordion-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-elevated);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: left;
+}
+
+.accordion-toggle:hover {
+  background: var(--hover-overlay);
+}
+
+.accordion-toggle:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+}
+
+.accordion-icon {
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+.accordion-title {
+  flex: 1;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.accordion-chevron {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.accordion-toggle[aria-expanded="true"] .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-normal) var(--ease-out);
+}
+
+.accordion-content > * {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.accordion-content.is-expanded,
+.accordion-toggle[aria-expanded="true"] + .accordion-content {
+  grid-template-rows: 1fr;
+}

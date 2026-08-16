@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "sharedSettingsOverlay": true,
+  "sharedToolRegistry": true,
+  "defaultFeatureStage": "process",
+  "allowedSourceKinds": ["video", "image"],
+  "plannedStatusLabels": ["gated", "planned"],
+  "density": {
+    "maxActivePreviewSurfaces": 1,
+    "maxLiveFindingStreams": 1,
+    "collapseControlsWhenInactive": true
+  }
+}

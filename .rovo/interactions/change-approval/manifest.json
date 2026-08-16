@@ -1,0 +1,9 @@
+{
+  "id": "change-approval",
+  "version": 1,
+  "title": "Change Approval",
+  "interactionType": "change-approval",
+  "description": "Structured code-change approval card that preserves `evet` as the canonical approval reply.",
+  "canonicalReply": "evet",
+  "protocol": "../protocol.md"
+}

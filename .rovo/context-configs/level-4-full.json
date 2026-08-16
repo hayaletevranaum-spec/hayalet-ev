@@ -1,0 +1,31 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "output": {
+    "style": "plain",
+    "filePath": ".rovo/context/L4-full.txt",
+    "headerText": "# Hayalet-ev Context - Level 4 (Full)\n# Tam proje (MCP server dahil)\n",
+    "showLineNumbers": true,
+    "removeComments": false,
+    "removeEmptyLines": false
+  },
+  "include": [
+    "AGENTS.md",
+    "package.json",
+    "tsconfig.json",
+    "src/js/**/*.ts",
+    "electron/**/*.ts",
+    "electron/**/*.cjs",
+    "mcp-server/**/*.ts",
+    ".rovo/*.md"
+  ],
+  "ignore": {
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      "**/test-*",
+      "**/*.log",
+      "**/logs/**"
+    ]
+  }
+}

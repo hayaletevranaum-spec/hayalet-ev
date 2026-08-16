@@ -1,0 +1,551 @@
+:root {
+  /* AI: Shared scene scale tokens now live in the design-system token layer so scene pages stop depending on this file's import order. */
+  --scene-hotspot-left: auto;
+  --scene-hotspot-top: auto;
+  --scene-hotspot-width: auto;
+  --scene-hotspot-height: auto;
+  --scene-hotspot-frame-rotate: 0deg;
+  --scene-hotspot-frame-perspective: 0deg;
+  --scene-hotspot-hover-glow-hue: 33deg;
+  --scene-hotspot-hover-glow-alpha: 0.34;
+
+  --scene-hotspot-label-left: auto;
+  --scene-hotspot-label-top: auto;
+  --scene-hotspot-label-width: auto;
+  --scene-hotspot-label-height: clamp(var(--scene-rem-2), 2.8vw, var(--scene-rem-2-8));
+  --scene-hotspot-label-rotate: 0deg;
+  --scene-hotspot-label-frame-perspective: 0deg;
+  --scene-hotspot-label-font-family: var(--font-scene-display);
+  --scene-hotspot-label-font-size: clamp(var(--scene-rem-1), 1.24vw, var(--scene-rem-1-5));
+  --scene-hotspot-label-letter-spacing: clamp(var(--scene-em-0-02), 0.05vw, var(--scene-em-0-05));
+
+  --scene-character-left: auto;
+  --scene-character-bottom: auto;
+  --scene-character-scale: 1;
+  --scene-character-depth: 1;
+  --scene-character-depth-scale: 1;
+
+  --scene-character-body-scale: 1;
+  --scene-character-head-top: 29.5%;
+  --scene-character-head-left: 50%;
+  --scene-character-head-size: 47.5%;
+  --scene-character-avatar-scale: 1.08;
+}
+
+.entrance-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  pointer-events: none;
+}
+
+[data-ui-mode="scene"] .page-entrance {
+  overflow: hidden;
+}
+
+[data-ui-mode="scene"] .entrance-page {
+  overflow: hidden;
+  background: var(--entrance-scene-page-bg);
+}
+
+[data-ui-mode="scene"] .entrance-scene {
+  display: flex;
+}
+
+[data-ui-mode="scene"] .slot-grid {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.entrance-scene__surface {
+  zoom: var(--scene-ui-relative-scale-factor, 1);
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  background: var(--entrance-scene-surface-bg);
+}
+
+.entrance-scene__background {
+  object-position: center 50%;
+}
+
+.entrance-scene__view {
+  z-index: 5;
+}
+
+.entrance-scene__room-layer,
+.entrance-scene__hotspots,
+.entrance-scene__characters {
+  position: absolute;
+  inset: 0;
+}
+
+.entrance-scene__room-layer {
+  z-index: 3;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.entrance-scene__view-background {
+  object-position: center;
+  filter: saturate(1.03) contrast(1.04);
+}
+
+.entrance-scene__view-slot {
+  position: absolute;
+  inset: clamp(var(--scene-rem-2), 11.5vh, var(--scene-rem-7))
+    clamp(var(--scene-rem-1-8), 8.5vw, var(--scene-rem-10))
+    clamp(var(--scene-rem-2), 10vh, var(--scene-rem-7))
+    clamp(var(--scene-rem-1-8), 8.5vw, var(--scene-rem-10));
+  z-index: 2;
+  display: flex;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.entrance-scene__view.is-active .entrance-scene__view-slot {
+  pointer-events: auto;
+}
+
+.entrance-scene__view-slot > .page-whisper {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.entrance-scene__view-slot .whisper-page {
+  flex: 1;
+  min-height: 0;
+  --scene-shell-embedded-shadow-override: var(--entrance-scene-whisper-shadow);
+  overflow: hidden;
+}
+
+.entrance-scene__view-slot .whisper-page__header {
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-1);
+}
+
+.entrance-scene__view-slot .room-shell-hero {
+  gap: var(--space-1-5);
+}
+
+.entrance-scene__view-slot .room-shell-title {
+  font-size: clamp(var(--text-xl), 2.1vw, var(--text-2xl));
+}
+
+.entrance-scene__view-slot .room-shell-subtitle {
+  max-width: 48ch;
+  font-size: var(--text-sm);
+}
+
+.entrance-scene__view-slot #whisper-page-close {
+  display: none;
+}
+
+.entrance-scene__view-slot .whisper-dock {
+  flex: 1;
+  min-height: 0;
+}
+
+.entrance-scene__view-slot .whisper-dock__content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.entrance-scene__view-slot .whisper-dock__content.is-expanded,
+.entrance-scene__view-slot .whisper-dock__toggle[aria-expanded="true"] + .whisper-dock__content {
+  margin-top: var(--space-2);
+}
+
+.entrance-scene__view-slot .whisper-dock__body,
+.entrance-scene__view-slot .whisper-dock__viewer,
+.entrance-scene__view-slot .whisper-dock__composer,
+.entrance-scene__view-slot .whisper-dock__columns {
+  min-height: 0;
+}
+
+.entrance-scene__view-slot .whisper-dock__list {
+  min-height: 0;
+  max-height: none;
+  flex: 1;
+}
+
+.entrance-scene__menu-host {
+  position: absolute;
+  inset: 0;
+}
+
+.entrance-scene__hotspots {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.entrance-scene__menu-host {
+  pointer-events: none;
+}
+
+.entrance-scene__menu-host {
+  z-index: 1100;
+}
+
+.entrance-scene__hotspot-item {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.entrance-scene__characters {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.entrance-scene .entrance-scene__character {
+  pointer-events: none;
+}
+
+.entrance-scene__character {
+  position: absolute;
+  left: var(--scene-character-left);
+  bottom: var(--scene-character-bottom);
+  transform: translateX(-50%) scale(var(--scene-character-scale, 1))
+    scale(var(--scene-character-depth-scale, 1));
+
+  z-index: calc(var(--scene-character-depth, 1) * 10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  filter: var(--entrance-scene-character-filter);
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    opacity var(--duration-normal) var(--ease-out),
+    filter var(--duration-normal) var(--ease-out);
+  cursor: pointer;
+  pointer-events: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: center;
+  appearance: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.entrance-scene .entrance-scene__character-stage {
+  pointer-events: none;
+}
+
+.entrance-scene .entrance-scene__character-head,
+.entrance-scene .entrance-scene__character-label,
+.entrance-scene .entrance-scene__character-anchor-marker {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.entrance-scene__character:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.entrance-scene__character:hover,
+.entrance-scene__character:focus-visible,
+.entrance-scene__character.is-menu-open {
+  transform: translateX(-50%) scale(var(--scene-character-scale, 1))
+    scale(var(--scene-character-depth-scale, 1));
+
+  outline: none;
+}
+
+.entrance-scene__character.is-menu-open .entrance-scene__character-head {
+  box-shadow: var(--entrance-scene-character-head-shadow-menu-open);
+}
+
+.entrance-scene__character.is-selected .entrance-scene__character-head {
+  box-shadow: var(--entrance-scene-character-head-shadow-selected);
+}
+
+.entrance-scene__character.is-inactive {
+  opacity: 0.48;
+  filter: var(--entrance-scene-character-filter-inactive);
+}
+
+.entrance-scene__character.is-connected {
+  opacity: 1;
+  background: transparent;
+  box-shadow: none;
+  filter: var(--entrance-scene-character-filter-connected);
+}
+
+.entrance-scene__character.is-loading {
+  opacity: 1;
+  filter: var(--entrance-scene-character-filter-loading);
+}
+
+.entrance-scene__character.is-thinking .entrance-scene__character-head {
+  box-shadow: var(--entrance-scene-character-head-shadow-thinking);
+}
+
+.entrance-scene__character.is-loading .entrance-scene__character-head {
+  box-shadow: var(--entrance-scene-character-head-shadow-loading);
+}
+
+.entrance-scene__character.is-thinking {
+  opacity: 1;
+  filter: var(--entrance-scene-character-filter-thinking);
+}
+
+.entrance-scene__character:hover,
+.entrance-scene__character:focus-visible,
+.entrance-scene__character.is-menu-open,
+.entrance-scene__character.is-inactive:hover,
+.entrance-scene__character.is-inactive:focus-visible,
+.entrance-scene__character.is-connected:hover,
+.entrance-scene__character.is-connected:focus-visible,
+.entrance-scene__character.is-loading:hover,
+.entrance-scene__character.is-loading:focus-visible,
+.entrance-scene__character.is-thinking:hover,
+.entrance-scene__character.is-thinking:focus-visible {
+  filter: var(--entrance-scene-character-filter-hover);
+}
+
+.entrance-scene__character-stage {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  width: fit-content;
+  height: calc(
+    clamp(var(--scene-rem-13-2), 32vh, var(--scene-rem-19)) * var(--scene-character-body-scale, 1)
+  );
+}
+
+.entrance-scene__character-body {
+  width: auto;
+  height: 100%;
+  display: block;
+}
+
+.entrance-scene__character-head {
+  position: absolute;
+  top: var(--scene-character-head-top, 29.5%);
+  left: var(--scene-character-head-left, 50%);
+  width: var(--scene-character-head-size, 47.5%);
+  aspect-ratio: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border-radius: var(--scene-px-999);
+  overflow: hidden;
+  background: var(--entrance-scene-character-head-bg);
+  color: var(--entrance-scene-character-head-color);
+  font-size: var(--scene-rem-0-6);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--scene-em-0-08);
+}
+
+.entrance-scene__character-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(var(--scene-character-avatar-scale, 1.08));
+}
+
+.entrance-scene__character-head-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: var(--scene-rem-0-6);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--scene-em-0-08);
+}
+
+.entrance-scene__character-label {
+  padding: var(--scene-rem-0-25) var(--scene-rem-0-5);
+  border-radius: var(--radius-full);
+  background: var(--entrance-scene-character-label-bg);
+  color: var(--entrance-scene-character-label-color);
+  font-size: var(--scene-rem-0-6875);
+  font-weight: var(--font-semibold);
+  white-space: nowrap;
+  display: none;
+}
+
+.entrance-scene__character-anchor-marker {
+  display: none;
+  margin-top: calc(var(--space-1) * -1);
+  padding: var(--scene-rem-0-15) var(--scene-rem-0-35);
+  border-radius: var(--radius-full);
+  background: var(--entrance-scene-character-anchor-bg);
+  color: var(--entrance-scene-character-anchor-color);
+  font-size: var(--scene-rem-0-625);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--scene-em-0-04);
+}
+
+@media (--breakpoint-max-768) {
+  .entrance-scene__character-stage {
+    height: calc(
+      clamp(var(--scene-rem-10-25), 25vh, var(--scene-rem-15)) *
+        var(--scene-character-body-scale, 1)
+    );
+  }
+}
+
+.entrance-scene__menu-panel {
+  position: absolute;
+  width: min(var(--scene-rem-21), calc(100vw - var(--scene-rem-2)));
+  display: flex;
+  flex-direction: column;
+  gap: var(--scene-rem-0-8);
+  padding: var(--scene-rem-0-95);
+  border: var(--scene-px-1) solid var(--entrance-scene-menu-border);
+  border-radius: var(--scene-rem-1);
+  background: var(--entrance-scene-menu-bg);
+  box-shadow: var(--entrance-scene-menu-shadow);
+  color: var(--entrance-scene-menu-color);
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.entrance-scene__menu-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scene-rem-0-2);
+}
+
+.entrance-scene__menu-title {
+  margin: 0;
+  font-size: var(--scene-rem-0-95);
+  font-weight: var(--font-semibold);
+}
+
+.entrance-scene__menu-subtitle {
+  margin: 0;
+  color: var(--entrance-scene-menu-text-muted);
+  font-size: var(--scene-rem-0-76);
+}
+
+.entrance-scene__menu-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scene-rem-0-55);
+}
+
+.entrance-scene__menu-section-title {
+  margin: 0;
+  color: var(--entrance-scene-menu-text-strong);
+  font-size: var(--scene-rem-0-7);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--scene-em-0-08);
+  text-transform: uppercase;
+}
+
+.entrance-scene__menu-action-row,
+.entrance-scene__menu-advanced-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--scene-rem-0-45);
+}
+
+.entrance-scene__menu-advanced-actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.entrance-scene__menu-control,
+.entrance-scene__menu-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scene-rem-0-35);
+}
+
+.entrance-scene__menu-button {
+  width: 100%;
+  justify-content: center;
+}
+
+.entrance-scene__menu-field {
+  color: inherit;
+}
+
+.entrance-scene__menu-field--toggle {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scene-rem-0-8);
+  padding: var(--scene-rem-0-55) var(--scene-rem-0-65);
+  border: var(--scene-px-1) solid var(--entrance-scene-menu-field-border);
+  border-radius: var(--scene-rem-0-75);
+  background: var(--entrance-scene-menu-field-bg);
+}
+
+.entrance-scene__menu-field-label {
+  font-size: var(--scene-rem-0-8);
+  line-height: 1.35;
+}
+
+.entrance-scene__menu-select {
+  min-height: var(--scene-rem-2);
+}
+
+.entrance-scene__menu-checkbox {
+  width: var(--scene-rem-1);
+  height: var(--scene-rem-1);
+  margin: 0;
+}
+
+.entrance-scene__menu-reason {
+  margin: 0;
+  color: var(--entrance-scene-menu-text-muted);
+  font-size: var(--scene-rem-0-7);
+  line-height: 1.35;
+}
+
+.entrance-scene__menu-advanced {
+  border-top: var(--scene-px-1) solid var(--entrance-scene-menu-divider-border);
+  padding-top: var(--scene-rem-0-7);
+}
+
+.entrance-scene__menu-advanced-summary {
+  cursor: pointer;
+  color: var(--entrance-scene-menu-text-strong);
+  font-size: var(--scene-rem-0-76);
+  font-weight: var(--font-semibold);
+  list-style: none;
+}
+
+.entrance-scene__menu-advanced-summary::-webkit-details-marker {
+  display: none;
+}
+
+.entrance-scene__menu-advanced-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scene-rem-0-6);
+  margin-top: var(--scene-rem-0-75);
+}
+
+@media (--breakpoint-max-768) {
+  .entrance-scene__menu-panel {
+    width: min(var(--scene-rem-18), calc(100vw - var(--scene-rem-1)));
+    padding: var(--scene-rem-0-85);
+  }
+
+  .entrance-scene__menu-action-row,
+  .entrance-scene__menu-advanced-actions {
+    grid-template-columns: 1fr;
+  }
+}

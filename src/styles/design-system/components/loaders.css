@@ -1,0 +1,87 @@
+.webview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  background: var(--effect-gradient-surface-overlay), var(--bg-panel);
+  border: var(--border-1) solid var(--border-default);
+  border-radius: var(--radius-lg);
+  margin: var(--space-2);
+  z-index: var(--z-elevated);
+  box-shadow: var(--surface-shadow);
+  transition:
+    opacity var(--duration-normal) var(--ease-out),
+    visibility var(--duration-normal) var(--ease-out);
+}
+
+.webview-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.webview-wrapper webview {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.webview-wrapper.webview-content-blocked webview {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.webview-overlay .overlay-icon {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+  border: var(--border-4) solid var(--border-default);
+  border-top-color: var(--color-accent-strong);
+  border-radius: var(--radius-full);
+  opacity: 0.8;
+  transition: var(--transition-normal);
+}
+
+.webview-overlay.is-connecting .overlay-icon {
+  animation: spin var(--duration-pulse) linear infinite;
+}
+
+.webview-overlay.is-error .overlay-icon {
+  border-color: var(--color-error);
+  border-top-color: transparent;
+  animation: pulse var(--duration-flow) ease-in-out infinite;
+}
+
+.webview-overlay.is-empty .overlay-icon,
+.webview-overlay.is-disconnected .overlay-icon {
+  border-color: var(--border-default);
+  border-top-color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.webview-overlay .overlay-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.webview-overlay .overlay-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  text-align: center;
+  max-width: var(--sidebar-width);
+  line-height: var(--leading-normal);
+  margin: 0;
+}
+
+.webview-overlay.is-error .overlay-title {
+  color: var(--color-error);
+}
+
+.webview-overlay.is-connecting .overlay-title {
+  color: var(--color-accent);
+}

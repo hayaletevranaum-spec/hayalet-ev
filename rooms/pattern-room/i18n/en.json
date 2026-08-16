@@ -1,0 +1,229 @@
+{
+  "room": {
+    "name": "Pattern Room",
+    "feature": "Pattern Workbench"
+  },
+  "workspace": {
+    "shell": {
+      "kicker": "Investigation system",
+      "title": "Pattern Room",
+      "status": "Local case active",
+      "navigationLabel": "Workspaces",
+      "caseLabel": "Active case",
+      "sourceMetric": "%count% sources",
+      "evidenceMetric": "%count% evidence",
+      "boardNoteMetric": "%count% board notes",
+      "connectionMetric": "%count% connections",
+      "reviewMetric": "%count% reviews",
+      "keyboardHint": "Use the arrow keys to move between workspaces.",
+      "inspectorLabel": "Context inspector"
+    },
+    "feedback": {
+      "dismiss": "Dismiss notification",
+      "sentToDesk": "Item sent to the working desk.",
+      "alreadyOnDesk": "Item is already on the working desk.",
+      "addedToReview": "Item added to Tenth Man references.",
+      "alreadyInReview": "Item is already in Tenth Man references.",
+      "sourcePinned": "Source pinned to the investigation canvas.",
+      "noteAdded": "Local note added.",
+      "boardItemAdded": "Board item added.",
+      "sourceAdded": "Source added to the archive.",
+      "sourceRemoved": "Source and linked local traces removed.",
+      "boardItemRemoved": "Local board item removed.",
+      "sessionReset": "Local session cleared.",
+      "evidenceAdded": "Evidence note added.",
+      "connectionAdded": "Connection created.",
+      "debateUpdated": "Tenth Man session updated.",
+      "importSucceeded": "Source imported.",
+      "importFailed": "The action could not be completed; check the fields and warnings.",
+      "caseIdentityUpdated": "Case identity updated.",
+      "caseIdentityUnchanged": "There are no case identity changes to save.",
+      "connectionUpdated": "Local connection updated.",
+      "connectionUnchanged": "There are no connection changes to save."
+    },
+    "nav": {
+      "overview": {
+        "label": "Case Hub",
+        "description": "Case overview"
+      },
+      "board": {
+        "label": "Investigation Canvas",
+        "description": "Board and relationship views"
+      },
+      "archive": {
+        "label": "Archive",
+        "description": "Source research"
+      },
+      "connections": {
+        "label": "Graph View",
+        "description": "Open the investigation canvas in graph mode"
+      },
+      "review": {
+        "label": "Case Review",
+        "description": "Tenth Man and AI"
+      },
+      "report": {
+        "label": "Report",
+        "description": "Read-only brief"
+      },
+      "reviewHistory": {
+        "label": "Review History",
+        "description": "Previous sessions"
+      }
+    },
+    "overview": {
+      "activityLabel": "Case activity",
+      "activityTitle": "Investigation desk ready",
+      "activityCopy": "Open every major tool directly from the navigation.",
+      "identityLabel": "Case identity",
+      "identityTitle": "Name the investigation",
+      "identityCopy": "The case name and primary research question flow into every workspace, the report, and the Case Packet preview.",
+      "caseNameLabel": "Case name",
+      "caseNamePlaceholder": "Example: North Corridor Sensor Incident",
+      "researchQuestionLabel": "Primary research question",
+      "researchQuestionPlaceholder": "What question is this investigation trying to answer?",
+      "saveIdentity": "Save Case Identity"
+    },
+    "board": {
+      "canvasLabel": "Board workspace",
+      "inspectorLabel": "Board inspector",
+      "toolsLabel": "Quick authoring tools"
+    },
+    "archive": {
+      "browserLabel": "Source browser",
+      "inspectorLabel": "Source inspector",
+      "toolsLabel": "Archive tools",
+      "searchLabel": "Search archive",
+      "searchPlaceholder": "Search title, type, origin, or content",
+      "filterLabel": "Source type",
+      "allSources": "All sources",
+      "visibleCount": "%visible% / %total% sources",
+      "empty": "No sources match this search."
+    },
+    "connections": {
+      "kicker": "Relationship map",
+      "title": "Connections",
+      "intro": "Compare claims, sources, and evidence on one relationship surface.",
+      "entitiesLabel": "Connectable items",
+      "composerLabel": "New connection"
+    },
+    "report": {
+      "outlineLabel": "Document outline",
+      "documentLabel": "Case report",
+      "jumpLabel": "Jump to %section%"
+    },
+    "review": {
+      "workspaceLabel": "Case review workspace",
+      "debateInspectorLabel": "Tenth Man session"
+    }
+  },
+  "review": {
+    "kicker": "AI case review",
+    "title": "Case Review Preview",
+    "intro": "Inspect the research packet before it is sent to AI. Preparing a preview or receiving a reply never writes data to the board.",
+    "previewEmpty": "The preview has not been prepared yet.",
+    "roleLabel": "Review role",
+    "targetLabel": "Target",
+    "protocolLabel": "Protocol",
+    "roles": {
+      "AI0": "AI0 — Researcher",
+      "AI1": "AI1 — Advocate",
+      "AI2": "AI2 — Tenth Man",
+      "US1": "US1 — Arbiter"
+    },
+    "actions": {
+      "prepare": "Prepare Preview",
+      "send": "Send Review",
+      "cancel": "Cancel",
+      "retry": "Retry",
+      "resend": "Resend",
+      "applyAll": "Apply to Board",
+      "applyOpenQuestions": "Add Open Questions Only",
+      "applyEvidenceSuggestions": "Retain Evidence Candidates Only"
+    },
+    "apply": {
+      "reviewPrefix": "AI Review",
+      "evidenceSuggestionLabel": "Evidence Suggestion",
+      "openQuestionLabel": "Open Question",
+      "userAppliedSuggestion": "User-applied AI suggestion; not independently verified."
+    },
+    "statuses": {
+      "idle": "Review not started",
+      "running": "Review Running",
+      "waiting": "Waiting AI",
+      "ready": "Review Ready",
+      "error": "Reply Error",
+      "cancelled": "Cancelled",
+      "timeout": "Reply Timed Out",
+      "applied": "Review Applied"
+    },
+    "messages": {
+      "confirmDispatch": "Send the case review for the %role% role?",
+      "dispatched": "Sent to the %role% role.",
+      "dispatchFailed": "Dispatch failed.",
+      "controlFailed": "The review action could not be sent.",
+      "applyFailed": "The review could not be applied to the board.",
+      "applied": "The selected review action was completed. Evidence suggestions remain candidates until linked to a real source and excerpt.",
+      "noResult": "There is no ready review result to apply.",
+      "historyEmpty": "No review history yet.",
+      "resultEmpty": "The AI reply is not ready yet.",
+      "fallbackWarning": "The reply did not fully follow the expected heading format; its raw content was parsed cautiously."
+    },
+    "sections": {
+      "observation": "Observation",
+      "evidence": "Evidence",
+      "analysis": "Analysis",
+      "counterArgument": "Counter Argument",
+      "missingInformation": "Missing Information",
+      "openQuestions": "Open Questions",
+      "confidenceNotes": "Confidence Notes"
+    },
+    "result": {
+      "title": "Structured Review",
+      "summary": "Summary",
+      "warnings": "Warnings",
+      "confidence": "Confidence",
+      "missingEvidence": "Missing Evidence",
+      "suggestedConnections": "Suggested Connections",
+      "openQuestions": "Open Questions"
+    },
+    "workspace": {
+      "request": "Sent request",
+      "response": "Received response",
+      "parsed": "Parsed sections",
+      "applyPreview": "Apply preview",
+      "applyResult": "Apply result",
+      "history": "Review history",
+      "responseEmpty": "The AI response has not arrived yet.",
+      "applyEmpty": "No review result has been applied.",
+      "boardNotes": "Board notes",
+      "skipped": "Skipped",
+      "evidenceCandidates": "Evidence candidates"
+    },
+    "history": {
+      "title": "Review History",
+      "timestamp": "Timestamp",
+      "role": "Role",
+      "packetHash": "Packet hash",
+      "responseHash": "Response hash",
+      "state": "State"
+    },
+    "candidates": {
+      "title": "Evidence candidates",
+      "intro": "AI suggestions remain candidates here. Promotion requires a real source and an excerpt selected from that source.",
+      "empty": "There are no pending evidence candidates.",
+      "badge": "AI evidence candidate",
+      "provenance": "Session: %session% · Suggestion: %suggestion%",
+      "sourceLabel": "Real source",
+      "sourcePlaceholder": "Select a source",
+      "excerptLabel": "Excerpt selected from source",
+      "excerptPlaceholder": "Paste the passage that actually appears in the selected source.",
+      "promote": "Promote to Evidence",
+      "discard": "Discard Candidate",
+      "promoted": "The candidate was promoted to source-linked evidence.",
+      "promotionFailed": "The evidence candidate could not be promoted.",
+      "discarded": "The evidence candidate was discarded.",
+      "discardFailed": "The evidence candidate could not be discarded."
+    }
+  }
+}

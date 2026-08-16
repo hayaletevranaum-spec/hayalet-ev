@@ -1,0 +1,255 @@
+.scene-shell__surface {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  zoom: var(--scene-ui-relative-scale-factor, 1);
+}
+
+.scene-shell__cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+[data-ui-mode="scene"] .top-bar,
+[data-ui-mode="scene"] .side-nav-overlay {
+  display: none;
+}
+
+[data-ui-mode="scene"] .main-content {
+  height: var(--layout-app-height-zoom-compensated);
+}
+
+[data-ui-mode="scene"] .app-overlay-host__layer[data-overlay-layer="workspace-tool"],
+[data-ui-mode="scene"] .app-overlay-host__layer[data-overlay-layer="assistant-tool"] {
+  padding: var(--space-4);
+}
+
+[data-ui-mode="scene"] .app-overlay-host__layer[data-overlay-layer="status"],
+[data-ui-mode="scene"] .app-overlay-host__layer[data-overlay-layer="scenario"] {
+  inset: 0;
+}
+
+[data-ui-mode="scene"] .page-settings[data-workspace-tool-mode="overlay"],
+[data-ui-mode="scene"] .page-archives[data-workspace-tool-mode="overlay"],
+[data-ui-mode="scene"] .page-whisper[data-workspace-tool-mode="overlay"] {
+  inset: 0;
+}
+
+[data-ui-mode="scene"] .page-settings {
+  inset: 0;
+}
+
+.scene-shell__room-layer,
+.scene-shell__view {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.scene-shell__room-layer {
+  z-index: var(--scene-room-layer-z, 3);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.scene-shell__view {
+  z-index: var(--scene-view-z, 5);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(var(--scene-view-inactive-scale, 1.03));
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.scene-shell__view.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+[data-ui-mode="scene"] .scene-shell__topbar {
+  background: var(--scene-shell-topbar-bg);
+  border: var(--border-1) solid var(--scene-shell-topbar-border);
+  box-shadow: var(--scene-shell-topbar-shadow);
+  backdrop-filter: var(--blur-surface-lg);
+}
+
+[data-ui-mode="scene"] .scene-shell__panel {
+  background: var(--scene-shell-panel-bg);
+  border: var(--border-1) solid var(--scene-shell-panel-border);
+  box-shadow: var(--scene-shell-panel-shadow);
+  backdrop-filter: var(--scene-shell-panel-blur, var(--glass-blur));
+}
+
+[data-ui-mode="scene"] .scene-shell__panel-shade {
+  position: absolute;
+  inset: 0;
+  background: var(--scene-shell-panel-shade-bg-override, var(--scene-shell-panel-shade-bg));
+  pointer-events: none;
+}
+
+[data-ui-mode="scene"] .scene-shell__embedded-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scene-shell-embedded-gap);
+  padding: var(--scene-shell-embedded-padding);
+  border: var(--border-1) solid var(--scene-shell-embedded-border);
+  border-radius: var(--scene-shell-embedded-radius);
+  background: var(--scene-shell-embedded-bg);
+  box-shadow: var(--scene-shell-embedded-shadow-override, var(--scene-shell-embedded-shadow));
+  backdrop-filter: var(--scene-shell-embedded-blur, var(--glass-blur));
+  overflow: hidden;
+}
+
+.scene-shell__framed-shell {
+  border: var(--border-1) solid var(--scene-shell-framed-border);
+  border-radius: calc(var(--radius-xl) + var(--space-0-5));
+  background: var(--scene-shell-framed-bg);
+  box-shadow: var(--scene-shell-framed-shadow);
+}
+
+.scene-shell__framed-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--border-1);
+  background: var(--scene-shell-framed-highlight-bg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.scene-shell__framed-shell-head {
+  border-bottom: var(--border-1) solid var(--scene-shell-framed-header-border);
+  background: var(--scene-shell-framed-header-bg);
+}
+
+.scene-shell__window-controls {
+  position: absolute;
+  top: clamp(var(--scene-rem-0-9), 1.8vw, var(--scene-rem-1-45));
+  right: clamp(var(--scene-rem-0-9), 1.9vw, var(--scene-rem-1-6));
+  z-index: 18;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--scene-rem-0-4);
+  padding: var(--scene-rem-0-38);
+  border: var(--scene-px-1) solid var(--scene-shell-window-controls-border);
+  border-radius: var(--scene-px-999);
+  background: var(--scene-shell-window-controls-bg);
+  box-shadow: var(--scene-shell-window-controls-shadow);
+  backdrop-filter: blur(var(--scene-px-10));
+  pointer-events: auto;
+}
+
+.scene-shell__window-control {
+  width: var(--scene-rem-2-2);
+  height: var(--scene-rem-2-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--scene-px-1) solid var(--scene-shell-window-control-border);
+  border-radius: var(--scene-px-999);
+  background: var(--scene-shell-window-control-bg);
+  color: var(--scene-shell-window-control-color);
+  box-shadow: var(--scene-shell-window-control-shadow);
+  cursor: pointer;
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    background var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.scene-shell__window-control:hover,
+.scene-shell__window-control:focus-visible {
+  transform: translateY(var(--scene-px-neg-1));
+  border-color: var(--scene-shell-window-control-hover-border);
+  background: var(--scene-shell-window-control-hover-bg);
+  box-shadow: var(--scene-shell-window-control-hover-shadow);
+  outline: none;
+}
+
+.scene-shell__window-control--close {
+  color: var(--scene-shell-window-control-close-color);
+}
+
+.workspace-tool-scene-chrome {
+  position: absolute;
+  inset: 0;
+  z-index: 18;
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+[data-ui-mode="scene"]
+  .page-archives[data-workspace-tool-mode="overlay"]
+  .workspace-tool-scene-chrome,
+[data-ui-mode="scene"]
+  .page-whisper[data-workspace-tool-mode="overlay"]
+  .workspace-tool-scene-chrome {
+  display: block;
+}
+
+.workspace-tool-scene-chrome__back {
+  z-index: 18;
+  pointer-events: auto;
+  --scene-clickable-left: clamp(var(--scene-rem-0-45), 1vw, var(--scene-rem-0-85));
+  --scene-clickable-top: calc(50% - clamp(var(--scene-rem-1-5), 4vh, var(--scene-rem-2)));
+  --scene-clickable-width: clamp(var(--scene-rem-4-5), 9vw, var(--scene-rem-7));
+  --scene-clickable-height: clamp(var(--scene-rem-3), 8vh, var(--scene-rem-4-5));
+  --scene-clickable-frame-rotate: 0deg;
+  --scene-clickable-frame-perspective: 0deg;
+  --scene-clickable-hover-glow-hue: 33deg;
+  --scene-clickable-hover-glow-alpha: 0.34;
+  --scene-clickable-label-left: clamp(var(--scene-rem-3), 5.2vw, var(--scene-rem-4-5));
+  --scene-clickable-label-top: clamp(var(--scene-rem-0-7), 1vh, var(--scene-rem-0-95));
+  --scene-clickable-label-width: clamp(var(--scene-rem-4-5), 8vw, var(--scene-rem-7));
+  --scene-clickable-label-height: clamp(var(--scene-rem-2), 4vh, var(--scene-rem-2-6));
+  --scene-clickable-label-font-size: clamp(var(--scene-rem-0-72), 0.92vw, var(--scene-rem-0-95));
+  --scene-clickable-label-letter-spacing: 0.08em;
+}
+
+.scene-shell__ui-mode {
+  position: relative;
+  display: inline-flex;
+}
+
+.scene-shell__ui-mode-menu {
+  top: calc(100% + var(--scene-rem-0-35));
+  right: 0;
+  min-width: var(--scene-rem-10);
+  padding: var(--scene-rem-0-35) 0;
+  border: var(--scene-px-1) solid var(--scene-shell-window-menu-border);
+  border-radius: var(--scene-rem-0-7);
+  background: var(--scene-shell-window-menu-bg);
+  box-shadow: var(--scene-shell-window-menu-shadow);
+}
+
+.scene-shell__ui-mode-menu .ui-mode-option {
+  align-items: center;
+  padding: var(--scene-rem-0-4) var(--scene-rem-0-8);
+  color: var(--scene-shell-window-menu-text);
+}
+
+.scene-shell__ui-mode-menu .ui-mode-option:hover {
+  background: var(--scene-shell-window-menu-hover-bg);
+  color: var(--scene-shell-window-menu-hover-text);
+}
+
+.scene-shell__ui-mode-menu .theme-dropdown-icon {
+  font-size: var(--scene-rem-0-8);
+}
+
+.scene-shell__ui-mode-menu .theme-dropdown-copy strong {
+  font-family: var(--font-scene-sans);
+  font-size: var(--scene-rem-0-7);
+}

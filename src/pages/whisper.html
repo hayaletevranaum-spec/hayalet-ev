@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="und" data-theme="obsidian">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/whisper.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section class="page page-whisper" id="page-whisper" aria-labelledby="page-whisper-title">
+        <h2
+          class="visually-hidden"
+          id="page-whisper-title"
+          data-shell-i18n-text="entrance.panels.whisper"
+        ></h2>
+
+        <div class="whisper-page room-shell scene-shell__embedded-page">
+          <div class="whisper-page__header workspace-tool-bar">
+            <div class="workspace-tool-bar__start">
+              <h1
+                class="workspace-tool-bar__title"
+                data-shell-i18n-text="entrance.panels.whisper"
+              ></h1>
+            </div>
+            <div class="workspace-tool-bar__center" aria-hidden="true"></div>
+            <div class="workspace-tool-bar__end">
+              <button
+                class="btn btn-ghost btn-sm"
+                id="whisper-page-close"
+                type="button"
+                data-shell-i18n-text="common.close"
+              ></button>
+            </div>
+          </div>
+
+          <section class="whisper-dock accordion" id="whisper-dock">
+            <button
+              class="accordion-toggle whisper-dock__toggle"
+              id="whisper-dock-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="whisper-dock-content"
+            >
+              <div class="whisper-dock__toggle-copy">
+                <span class="whisper-dock__eyebrow" data-i18n-text="whisper.toggleEyebrow"></span>
+                <span class="whisper-dock__title" data-i18n-text="entrance.panels.whisper"></span>
+              </div>
+              <div class="whisper-dock__summary" id="whisper-dock-summary" aria-live="polite">
+                <span class="whisper-dock__summary-chip" id="whisper-dock-selected-count"></span>
+                <span class="whisper-dock__summary-chip" id="whisper-dock-pending-count"></span>
+                <span
+                  class="whisper-dock__summary-chip whisper-dock__summary-chip--accent"
+                  id="whisper-dock-ready-count"
+                ></span>
+              </div>
+              <span class="accordion-chevron whisper-dock__chevron" aria-hidden="true">⌄</span>
+            </button>
+
+            <div class="accordion-content whisper-dock__content" id="whisper-dock-content">
+              <div class="whisper-dock__body">
+                <section class="whisper-dock__composer ds-surface-card ds-surface-card--stack">
+                  <div class="whisper-dock__section-head">
+                    <span
+                      class="whisper-dock__section-eyebrow"
+                      data-i18n-text="whisper.composeEyebrow"
+                    ></span>
+                    <h3
+                      class="whisper-dock__section-title"
+                      data-i18n-text="whisper.composeTitle"
+                    ></h3>
+                    <p class="whisper-dock__section-note" data-i18n-text="whisper.composeNote"></p>
+                  </div>
+
+                  <div class="whisper-dock__form-grid">
+                    <label
+                      class="whisper-dock__field-label"
+                      for="whisper-add-account"
+                      data-i18n-text="whisper.accountLabel"
+                    ></label>
+                    <select id="whisper-add-account" class="select"></select>
+
+                    <label
+                      class="whisper-dock__field-label"
+                      for="whisper-add-text"
+                      data-i18n-text="whisper.messageLabel"
+                    ></label>
+                    <textarea
+                      id="whisper-add-text"
+                      class="whisper-dock__textarea input"
+                      rows="4"
+                      placeholder=""
+                      data-i18n-placeholder="whisper.messagePlaceholder"
+                    ></textarea>
+
+                    <label
+                      class="whisper-dock__field-label"
+                      for="whisper-add-when"
+                      data-i18n-text="whisper.timeLabel"
+                    ></label>
+                    <input id="whisper-add-when" type="datetime-local" class="input" />
+                  </div>
+
+                  <div class="whisper-dock__form-actions">
+                    <button
+                      id="whisper-add-btn"
+                      class="btn btn-primary"
+                      data-i18n-text="whisper.addButton"
+                    ></button>
+                    <button
+                      id="whisper-refresh-btn"
+                      class="btn btn-ghost"
+                      type="button"
+                      data-i18n-text="whisper.refreshButton"
+                    ></button>
+                  </div>
+
+                  <div
+                    id="whisper-add-feedback"
+                    class="whisper-dock__feedback"
+                    role="status"
+                    aria-live="polite"
+                  ></div>
+                </section>
+
+                <section class="whisper-dock__viewer ds-surface-card ds-surface-card--stack">
+                  <div class="whisper-dock__section-head whisper-dock__section-head--viewer">
+                    <div class="whisper-dock__section-copy">
+                      <span
+                        class="whisper-dock__section-eyebrow"
+                        data-i18n-text="whisper.viewerEyebrow"
+                      ></span>
+                      <h3
+                        class="whisper-dock__section-title"
+                        data-i18n-text="whisper.viewerTitle"
+                      ></h3>
+                    </div>
+                    <p class="whisper-dock__section-note" data-i18n-text="whisper.viewerNote"></p>
+                  </div>
+
+                  <div
+                    class="whisper-dock__filters"
+                    id="whisper-slot-filters"
+                    role="group"
+                    aria-label=""
+                    data-i18n-aria-label="whisper.filtersLabel"
+                  ></div>
+
+                  <div class="whisper-dock__columns">
+                    <section class="whisper-dock__lane whisper-dock__lane--pending">
+                      <div class="whisper-dock__lane-head">
+                        <h4
+                          class="whisper-dock__lane-title"
+                          data-i18n-text="whisper.pendingTitle"
+                        ></h4>
+                        <span
+                          class="whisper-dock__lane-count"
+                          id="whisper-pending-count-meta"
+                        ></span>
+                      </div>
+                      <div
+                        class="whisper-dock__list"
+                        id="whisper-pending-list"
+                        aria-live="polite"
+                      ></div>
+                    </section>
+
+                    <section class="whisper-dock__lane whisper-dock__lane--done">
+                      <div class="whisper-dock__lane-head">
+                        <h4
+                          class="whisper-dock__lane-title"
+                          data-i18n-text="whisper.doneTitle"
+                        ></h4>
+                        <span class="whisper-dock__lane-count" id="whisper-done-count-meta"></span>
+                      </div>
+                      <div
+                        class="whisper-dock__list"
+                        id="whisper-done-list"
+                        aria-live="polite"
+                      ></div>
+                    </section>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/js/pages/whisper/app.ts"></script>
+  </body>
+</html>

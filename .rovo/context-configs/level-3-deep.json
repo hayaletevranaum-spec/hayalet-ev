@@ -1,0 +1,26 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "output": {
+    "style": "plain",
+    "filePath": ".rovo/context/L3-deep.txt",
+    "headerText": "# Hayalet-ev Context - Level 3 (Deep)\n# Tüm uygulama kodu\n",
+    "showLineNumbers": true,
+    "removeComments": false,
+    "removeEmptyLines": false
+  },
+  "include": [
+    "AGENTS.md",
+    "package.json",
+    "src/js/**/*.ts",
+    "electron/**/*.ts",
+    "electron/**/*.cjs"
+  ],
+  "ignore": {
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      "**/test-*"
+    ]
+  }
+}

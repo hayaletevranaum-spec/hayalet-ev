@@ -1,0 +1,276 @@
+<section class="page page-analyze is-hidden" id="page-analyze" aria-labelledby="page-analyze-title">
+  <h2
+    class="visually-hidden"
+    id="page-analyze-title"
+    data-shell-i18n-text="sideNav.analyzeLabel"
+  ></h2>
+  <div class="analyze-room">
+    <div
+      class="analyze-scene"
+      id="analyze-scene-root"
+      data-shell-i18n-aria-label="app.analyze.page.sceneAriaLabel"
+      hidden
+    >
+      <div class="analyze-scene__surface scene-shell__surface">
+        <img
+          class="analyze-scene__background scene-shell__cover-image"
+          id="analyze-scene-background"
+          alt=""
+        />
+
+        <div class="analyze-scene__room-layer scene-shell__room-layer">
+          <div class="analyze-scene__hotspots" id="analyze-scene-hotspots"></div>
+          <div
+            class="analyze-scene__characters entrance-scene__characters"
+            id="analyze-scene-characters"
+          ></div>
+        </div>
+
+        <div class="entrance-scene__editor-host" id="analyze-scene-editor-host"></div>
+
+        <div
+          class="analyze-scene__table-view scene-shell__view"
+          id="analyze-scene-table-view"
+          aria-hidden="true"
+        >
+          <img
+            class="analyze-scene__panel-art scene-shell__cover-image"
+            id="analyze-scene-table-art"
+            alt=""
+          />
+          <div class="analyze-scene__panel-shade scene-shell__panel-shade"></div>
+          <div class="analyze-scene__panel-slot" id="analyze-scene-panel-slot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="analyze-wrapper scene-shell__panel">
+      <div class="conversation-grid">
+        <div class="conv-card glass-panel ds-surface-card ds-surface-card--stack" id="card-ai1">
+          <div class="conv-header ds-surface-card__header">
+            <div class="identity">
+              <div class="avatar-circle" id="avatar-ai1">N</div>
+              <div>
+                <div class="name" id="name-ai1">AI1</div>
+                <div
+                  class="identity-status"
+                  id="status-ai1"
+                  data-shell-i18n-text="app.analyze.page.connectedStatus"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="conv-body"
+            id="messages-ai1"
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions text"
+          >
+            <div
+              class="message-placeholder"
+              data-shell-i18n-text="app.analyze.page.noMessages"
+            ></div>
+          </div>
+        </div>
+
+        <div class="conv-card glass-panel ds-surface-card ds-surface-card--stack" id="card-ai2">
+          <div class="conv-header ds-surface-card__header">
+            <div class="identity">
+              <div class="avatar-circle" id="avatar-ai2">G</div>
+              <div>
+                <div class="name" id="name-ai2">AI2</div>
+                <div
+                  class="identity-status"
+                  id="status-ai2"
+                  data-shell-i18n-text="app.analyze.page.connectedStatus"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="conv-body"
+            id="messages-ai2"
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions text"
+          >
+            <div
+              class="message-placeholder"
+              data-shell-i18n-text="app.analyze.page.noMessages"
+            ></div>
+          </div>
+        </div>
+
+        <div
+          class="conv-card glass-panel ds-surface-card ds-surface-card--stack is-hidden"
+          id="card-us1"
+        >
+          <div class="conv-header ds-surface-card__header">
+            <div class="identity">
+              <div class="avatar-circle" id="avatar-us1">US</div>
+              <div>
+                <div class="name" id="name-us1">US1</div>
+                <div
+                  class="identity-status"
+                  id="status-us1"
+                  data-shell-i18n-text="app.analyze.page.disconnectedStatus"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="conv-body"
+            id="messages-us1"
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions text"
+          >
+            <div
+              class="message-placeholder"
+              data-shell-i18n-text="app.analyze.page.noMessages"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="compose-row">
+        <div class="compose-area">
+          <div class="compose-user-header">
+            <div class="identity compose-user-header__identity">
+              <div class="avatar-circle compose-user-header__avatar" id="avatar-user-compose">
+                U
+              </div>
+              <div class="compose-user-meta">
+                <div
+                  class="name"
+                  id="name-user-compose"
+                  data-shell-i18n-text="app.analyze.page.userLabel"
+                ></div>
+                <div
+                  class="identity-status"
+                  id="compose-android-status"
+                  data-shell-i18n-text="app.analyze.page.captureSessionStates.idle"
+                ></div>
+              </div>
+            </div>
+            <button
+              class="btn btn-secondary btn-sm"
+              id="capture-import-btn"
+              type="button"
+              aria-controls="android-camera-panel"
+              aria-expanded="false"
+              data-shell-i18n-text="app.analyze.page.captureImportButton"
+            ></button>
+          </div>
+
+          <div class="compose-input-row">
+            <div class="compose-textarea-stack">
+              <textarea
+                class="form-input large"
+                id="compose-input"
+                aria-label=""
+                placeholder=""
+                data-shell-i18n-aria-label="app.analyze.page.composePlaceholder"
+                data-shell-i18n-placeholder="app.analyze.page.composePlaceholder"
+                spellcheck="false"
+              ></textarea>
+              <div class="compose-dictation-controls">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-icon dictation-trigger compose-dictation-btn"
+                  id="compose-dictation-btn"
+                  title=""
+                  aria-label=""
+                ></button>
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm compose-ambient-btn"
+                  id="compose-ambient-btn"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="compose-actions">
+            <button
+              class="btn btn-primary btn-sm compose-start-action"
+              id="compose-start-btn"
+              data-shell-i18n-text="app.analyze.page.startChatButton"
+            ></button>
+            <button
+              class="btn btn-danger btn-sm compose-start-action"
+              id="compose-stop-btn"
+              data-shell-i18n-text="app.analyze.page.stopChatButton"
+            ></button>
+            <div class="send-controls">
+              <label class="ds-choice-chip ds-choice-chip--segmented"
+                ><input type="checkbox" id="send-ai1" checked />
+                <span id="send-ai1-label">AI1</span></label
+              >
+              <label class="ds-choice-chip ds-choice-chip--segmented">
+                <input type="checkbox" id="send-ai2" checked />
+                <span id="send-ai2-label">AI2</span></label
+              >
+              <label class="ds-choice-chip ds-choice-chip--segmented">
+                <input type="checkbox" id="send-us1" />
+                <span id="send-us1-label">US1</span>
+              </label>
+              <label class="ds-choice-chip ds-choice-chip--segmented">
+                <input type="checkbox" id="send-cross" />
+                <span data-shell-i18n-text="app.analyze.page.crossLabel"></span>
+              </label>
+            </div>
+            <button class="btn btn-primary btn-sm" id="compose-send-btn">
+              <span class="btn-text" data-shell-i18n-text="app.analyze.page.sendButton"></span>
+            </button>
+            <button
+              class="btn btn-secondary btn-sm"
+              id="upload-add-btn"
+              data-shell-i18n-text="app.analyze.page.addFileButton"
+            ></button>
+          </div>
+        </div>
+
+        <div
+          class="compose-camera-panel glass-panel ds-surface-card"
+          id="android-camera-panel"
+          hidden
+        >
+          <div class="compose-camera-panel__viewport">
+            <video
+              class="compose-camera-panel__video"
+              id="android-camera-feed"
+              autoplay
+              muted
+              playsinline
+              hidden
+            ></video>
+            <img alt="" class="compose-camera-panel__video" id="android-camera-frame" hidden />
+            <div
+              class="compose-camera-panel__placeholder"
+              id="android-camera-placeholder"
+              data-shell-i18n-text="app.analyze.page.cameraPanel.waiting"
+            ></div>
+          </div>
+          <div
+            class="compose-camera-panel__status"
+            id="android-camera-status"
+            role="status"
+            aria-live="polite"
+            data-shell-i18n-text="app.analyze.page.cameraPanel.closed"
+          ></div>
+        </div>
+
+        <div class="compose-files glass-panel ds-surface-card">
+          <div
+            class="file-box"
+            id="upload-list"
+            data-shell-i18n-text="app.analyze.page.noFiles"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

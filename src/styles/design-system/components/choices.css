@@ -1,0 +1,76 @@
+.ds-choice-chip {
+  --ds-choice-hover-translate: var(--size-motion-lift-sm);
+
+  --ds-choice-gap: var(--space-1-5);
+  --ds-choice-min-h: var(--size-choice-pill);
+  --ds-choice-pad-x: var(--space-2-5);
+  --ds-choice-radius: var(--radius-full);
+  --ds-choice-border: color-mix(in srgb, var(--border-default) 88%, transparent);
+  --ds-choice-border-hover: var(--border-strong);
+  --ds-choice-border-active: var(--color-accent);
+  --ds-choice-bg: var(--bg-muted);
+  --ds-choice-bg-hover: var(--bg-surface-3);
+  --ds-choice-bg-active: var(--color-accent-soft);
+  --ds-choice-text: var(--text-secondary);
+  --ds-choice-text-hover: var(--text-primary);
+  --ds-choice-text-active: var(--color-accent);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-choice-gap);
+  min-height: var(--ds-choice-min-h);
+  padding: 0 var(--ds-choice-pad-x);
+  border: var(--border-1) solid var(--ds-choice-border);
+  border-radius: var(--ds-choice-radius);
+  background: var(--ds-choice-bg);
+  color: var(--ds-choice-text);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-none);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.ds-choice-chip:hover {
+  background: var(--ds-choice-bg-hover);
+  border-color: var(--ds-choice-border-hover);
+  color: var(--ds-choice-text-hover);
+  transform: translateY(var(--ds-choice-hover-translate));
+}
+
+.ds-choice-chip:focus-within {
+  box-shadow: var(--focus-ring);
+}
+
+.ds-choice-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.ds-choice-chip:has(input:checked) {
+  background: var(--ds-choice-bg-active);
+  border-color: var(--ds-choice-border-active);
+  color: var(--ds-choice-text-active);
+}
+
+.ds-choice-chip--dense {
+  --ds-choice-min-h: var(--size-choice-pill-sm);
+  --ds-choice-pad-x: var(--space-2);
+
+  font-size: var(--text-2xs);
+}
+
+.ds-choice-chip--segmented {
+  --ds-choice-radius: var(--radius-full);
+}

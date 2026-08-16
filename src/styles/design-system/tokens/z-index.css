@@ -1,0 +1,11 @@
+:root {
+  --z-base: 1;
+  --z-elevated: 10;
+  --z-dropdown: 100;
+  --z-overlay: 1000;
+  --z-modal: 5000;
+  --z-toast: 9000;
+  --z-splash: 9500;
+  --z-livefix: 10000;
+  --z-side-nav: 11000;
+}

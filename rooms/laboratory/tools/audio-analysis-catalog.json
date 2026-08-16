@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "sharedTooling": true,
+  "modules": [
+    {
+      "id": "signal-health",
+      "status": "implemented",
+      "phase": "v1",
+      "providerIds": ["ffmpeg-signal"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.signal-health.title",
+      "summaryKey": "audioAnalysis.catalog.modules.signal-health.summary"
+    },
+    {
+      "id": "signal-recovery",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-signal-recovery"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.signal-recovery.title",
+      "summaryKey": "audioAnalysis.catalog.modules.signal-recovery.summary"
+    },
+    {
+      "id": "spectral-artifacts",
+      "status": "implemented",
+      "phase": "v1",
+      "providerIds": ["ffmpeg-signal"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.spectral-artifacts.title",
+      "summaryKey": "audioAnalysis.catalog.modules.spectral-artifacts.summary"
+    },
+    {
+      "id": "frequency-shift-reversal",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-frequency-recovery"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.frequency-shift-reversal.title",
+      "summaryKey": "audioAnalysis.catalog.modules.frequency-shift-reversal.summary"
+    },
+    {
+      "id": "band-pass-exploration",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-signal-recovery"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.band-pass-exploration.title",
+      "summaryKey": "audioAnalysis.catalog.modules.band-pass-exploration.summary"
+    },
+    {
+      "id": "spectrogram-guided-recovery",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-signal-recovery"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.spectrogram-guided-recovery.title",
+      "summaryKey": "audioAnalysis.catalog.modules.spectrogram-guided-recovery.summary"
+    },
+    {
+      "id": "hidden-pattern-extraction",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-signal-recovery"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.hidden-pattern-extraction.title",
+      "summaryKey": "audioAnalysis.catalog.modules.hidden-pattern-extraction.summary"
+    },
+    {
+      "id": "phase-recovery-experiment",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-phase-lab"],
+      "toolIds": ["ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.phase-recovery-experiment.title",
+      "summaryKey": "audioAnalysis.catalog.modules.phase-recovery-experiment.summary"
+    },
+    {
+      "id": "transcription",
+      "status": "implemented",
+      "phase": "v1",
+      "providerIds": ["speech-runtime-transcript"],
+      "toolIds": ["transcript-runtime"],
+      "titleKey": "audioAnalysis.catalog.modules.transcription.title",
+      "summaryKey": "audioAnalysis.catalog.modules.transcription.summary"
+    },
+    {
+      "id": "speaker-diarization",
+      "status": "implemented",
+      "phase": "v1",
+      "providerIds": ["speaker-timeline"],
+      "toolIds": ["pyaudioanalysis", "ffmpeg"],
+      "requiredToolIds": ["pyaudioanalysis", "ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.speaker-diarization.title",
+      "summaryKey": "audioAnalysis.catalog.modules.speaker-diarization.summary"
+    },
+    {
+      "id": "prosody",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["prosody-open-smile"],
+      "toolIds": ["opensmile"],
+      "titleKey": "audioAnalysis.catalog.modules.prosody.title",
+      "summaryKey": "audioAnalysis.catalog.modules.prosody.summary"
+    },
+    {
+      "id": "emotion",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["emotion-heuristic"],
+      "toolIds": ["opensmile"],
+      "titleKey": "audioAnalysis.catalog.modules.emotion.title",
+      "summaryKey": "audioAnalysis.catalog.modules.emotion.summary"
+    },
+    {
+      "id": "sound-events",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["sound-event-classifier"],
+      "toolIds": ["yamnet", "ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.sound-events.title",
+      "summaryKey": "audioAnalysis.catalog.modules.sound-events.summary"
+    },
+    {
+      "id": "source-separation",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["source-separation-runner"],
+      "toolIds": ["demucs", "ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.source-separation.title",
+      "summaryKey": "audioAnalysis.catalog.modules.source-separation.summary"
+    },
+    {
+      "id": "music-rhythm-tonal",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["music-rhythm-engine", "music-rhythm-essentia"],
+      "toolIds": ["librosa", "essentia", "ffmpeg"],
+      "requiredToolIds": ["librosa", "ffmpeg"],
+      "titleKey": "audioAnalysis.catalog.modules.music-rhythm-tonal.title",
+      "summaryKey": "audioAnalysis.catalog.modules.music-rhythm-tonal.summary"
+    }
+  ]
+}

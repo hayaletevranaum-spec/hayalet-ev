@@ -1,0 +1,448 @@
+/* Pattern Room V2 final workspace polish.
+ * This file is the last cascade owner for shell geometry, readable typography,
+ * spacing rhythm and vertical scroll ownership. Functional panel contracts stay
+ * in their original stylesheets.
+ */
+
+/* ─────────────────────────────────────────
+   SHELL GEOMETRY
+───────────────────────────────────────── */
+.pattern-room-app-shell {
+  grid-template-columns:
+    var(--pattern-px-238)
+    minmax(0, 1fr)
+    minmax(var(--pattern-px-292), var(--pattern-px-320));
+}
+
+.pattern-room-workspace-rail {
+  gap: var(--pattern-px-16);
+  padding: var(--pattern-px-18) var(--pattern-px-14);
+}
+
+.pattern-room-workspace-inspector {
+  display: flex;
+  gap: var(--pattern-px-16);
+  padding: var(--pattern-px-18) var(--pattern-px-16);
+}
+
+.pattern-room-workspace-inspector-header {
+  gap: var(--pattern-px-6);
+  padding-bottom: var(--pattern-px-14);
+}
+
+.pattern-room-workspace-inspector-case {
+  gap: var(--pattern-px-8);
+  padding: var(--pattern-px-12);
+}
+
+.pattern-room-workspace-outlet {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-padding-top: var(--pattern-px-84);
+}
+
+.pattern-room-overview,
+.pattern-room-panel {
+  max-width: none;
+  padding: var(--pattern-px-20) var(--pattern-px-24) var(--pattern-px-24);
+}
+
+.pattern-room-panel-header,
+.pattern-room-overview-header {
+  min-height: var(--pattern-px-56);
+  margin-bottom: var(--pattern-px-16);
+  padding: var(--pattern-px-8) 0 var(--pattern-px-10);
+}
+
+.pattern-room-investigation-toolbar,
+.pattern-room-review-task-switcher {
+  margin-bottom: var(--pattern-px-16);
+}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY HIERARCHY
+───────────────────────────────────────── */
+.pattern-room-workspace-outlet h1,
+.pattern-room-workspace-outlet h2,
+.pattern-room-workspace-outlet h3,
+.pattern-room-workspace-inspector-content h2,
+.pattern-room-workspace-inspector-content h3 {
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  letter-spacing: normal;
+}
+
+.pattern-room-panel-header h1,
+.pattern-room-overview-header h1 {
+  font-size: var(--pattern-rem-1-5);
+  line-height: 1.2;
+}
+
+.pattern-room-workspace-outlet h2,
+.pattern-room-workspace-inspector-content h2 {
+  font-size: var(--pattern-rem-1-35);
+  line-height: 1.25;
+}
+
+.pattern-room-workspace-outlet h3,
+.pattern-room-workspace-inspector-content h3 {
+  font-size: var(--pattern-rem-1-2);
+  line-height: 1.3;
+}
+
+.pattern-room-panel-title > p,
+.pattern-room-title-block > p,
+.pattern-room-desk-header > p,
+.pattern-room-report-document-header > p,
+.pattern-room-review-task-switcher-copy > p,
+.pattern-room-workspace-inspector-description {
+  font-size: var(--pattern-rem-0-88);
+  line-height: 1.55;
+}
+
+.pattern-room-kicker,
+.pattern-room-list-eyebrow,
+.pattern-room-object-label,
+.pattern-room-workspace-navigation-label,
+.pattern-room-context-inspector-label,
+.pattern-room-workspace-nav-copy small,
+.pattern-room-workspace-keyboard-hint,
+.pattern-room-board-node-meta,
+.pattern-room-archive-toolbar-field,
+.pattern-room-archive-result-count,
+.pattern-room-source-status,
+.pattern-room-report-section-count,
+.pattern-room-board-lane-count,
+.pattern-room-workspace-case-metrics span,
+.pattern-room-workspace-inspector-metrics span {
+  font-size: var(--pattern-rem-0-76);
+}
+
+.pattern-room-workspace-nav-copy strong,
+.pattern-room-investigation-mode-button,
+.pattern-room-action-button,
+.pattern-room-inline-input,
+.pattern-room-inline-summary {
+  font-size: var(--pattern-rem-0-82);
+}
+
+.pattern-room-action-button,
+.pattern-room-back,
+.pattern-room-investigation-mode-button {
+  min-height: var(--pattern-px-38);
+}
+
+.pattern-room-inline-input {
+  min-height: var(--pattern-px-38);
+  padding: var(--pattern-px-8) var(--pattern-px-10);
+  line-height: 1.45;
+}
+
+textarea.pattern-room-inline-input {
+  min-height: var(--pattern-px-84);
+}
+
+/* ─────────────────────────────────────────
+   SPACING RHYTHM
+───────────────────────────────────────── */
+.pattern-room-board-workspace,
+.pattern-room-archive-workspace,
+.pattern-room-connections-workspace,
+.pattern-room-review-workspace,
+.pattern-room-report-workspace {
+  min-height: 0;
+  gap: var(--pattern-px-16);
+}
+
+.pattern-room-board-grid,
+.pattern-room-report-list,
+.pattern-room-case-review-result,
+.pattern-room-case-review-workspace,
+.pattern-room-case-review-runtime-workspace {
+  gap: var(--pattern-px-16);
+}
+
+.pattern-room-board-lane,
+.pattern-room-report-card,
+.pattern-room-report-priority-group,
+.pattern-room-case-review-workspace-card,
+.pattern-room-review-inspector,
+.pattern-room-archive-card {
+  padding: var(--pattern-px-16);
+}
+
+.pattern-room-board-pins,
+.pattern-room-archive-list,
+.pattern-room-report-priority-body,
+.pattern-room-review-disclosure-body,
+.pattern-room-case-review-disclosure-body,
+.pattern-room-case-review-result-group-body {
+  gap: var(--pattern-px-12);
+}
+
+.pattern-room-inline-form,
+.pattern-room-inline-authoring,
+.pattern-room-source-detail,
+.pattern-room-investigation-inspector-content,
+.pattern-room-workspace-inspector-content {
+  gap: var(--pattern-px-12);
+}
+
+.pattern-room-report-document {
+  max-width: var(--pattern-px-920);
+  margin-inline: auto;
+  padding: var(--pattern-px-20);
+}
+
+/* ─────────────────────────────────────────
+   ONE PRIMARY VERTICAL SCROLL OWNER
+───────────────────────────────────────── */
+.pattern-room-board-canvas,
+.pattern-room-board-scene,
+.pattern-room-archive-browser,
+.pattern-room-archive-list,
+.pattern-room-review-surface,
+.pattern-room-review-inspector,
+.pattern-room-report-document,
+.pattern-room-report-list,
+.pattern-room-case-review-history-list {
+  max-height: none;
+  overflow: visible;
+}
+
+.pattern-room-board-scene {
+  height: auto;
+  min-height: 0;
+}
+
+.pattern-room-workspace-inspector-content .pattern-room-source-detail,
+.pattern-room-workspace-inspector-content .pattern-room-archive-tools-body,
+.pattern-room-workspace-inspector-content .pattern-room-report-outline {
+  max-height: none;
+  overflow: visible;
+}
+
+/* Raw request/reply text and the relationship graph remain intentional local
+ * scroll surfaces because they are bounded technical or pan/zoom content.
+ */
+.pattern-room-case-review-response-text,
+.pattern-room-case-review-preview-text {
+  max-height: 42dvh;
+  overflow: auto;
+}
+
+.pattern-room-graph-viewport {
+  overflow: auto;
+}
+
+/* ─────────────────────────────────────────
+   LARGE DESKTOP
+───────────────────────────────────────── */
+@media (--pattern-bp-min-1440) {
+  .pattern-room-app-shell {
+    grid-template-columns:
+      var(--pattern-px-238)
+      minmax(0, 1fr)
+      minmax(var(--pattern-px-320), var(--pattern-px-330));
+  }
+
+  .pattern-room-overview,
+  .pattern-room-panel {
+    padding-inline: var(--pattern-px-28);
+  }
+}
+
+/* ─────────────────────────────────────────
+   MEDIUM DESKTOP
+───────────────────────────────────────── */
+@media (--pattern-bp-max-1180) {
+  .pattern-room-app-shell {
+    grid-template-columns:
+      var(--pattern-px-218)
+      minmax(0, 1fr)
+      var(--pattern-px-292);
+  }
+
+  .pattern-room-workspace-rail {
+    padding-inline: var(--pattern-px-12);
+  }
+
+  .pattern-room-overview,
+  .pattern-room-panel {
+    padding-inline: var(--pattern-px-20);
+  }
+}
+
+/* ─────────────────────────────────────────
+   COMPACT DESKTOP
+───────────────────────────────────────── */
+@media (--pattern-bp-max-1100) {
+  .pattern-room-app-shell {
+    grid-template-columns:
+      var(--pattern-px-84)
+      minmax(0, 1fr)
+      var(--pattern-px-292);
+  }
+
+  .pattern-room-workspace-rail {
+    padding-inline: var(--pattern-px-10);
+  }
+
+  .pattern-room-workspace-brand {
+    justify-content: center;
+  }
+
+  .pattern-room-workspace-brand > div,
+  .pattern-room-workspace-nav-copy,
+  .pattern-room-workspace-navigation-label,
+  .pattern-room-workspace-case-card,
+  .pattern-room-workspace-keyboard-hint,
+  .pattern-room-workspace-status span {
+    display: none;
+  }
+
+  .pattern-room-workspace-status,
+  .pattern-room-workspace-nav-button {
+    justify-content: center;
+  }
+
+  .pattern-room-workspace-nav-button {
+    grid-template-columns: var(--pattern-px-34);
+    padding-inline: var(--pattern-px-8);
+  }
+}
+
+/* ─────────────────────────────────────────
+   TABLET — inspector becomes a bottom detail region
+───────────────────────────────────────── */
+@media (--pattern-bp-max-960) {
+  .pattern-room-app-shell {
+    grid-template-columns: var(--pattern-px-84) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(var(--pattern-px-210), 38dvh);
+  }
+
+  .pattern-room-workspace-rail {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  .pattern-room-workspace {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .pattern-room-workspace-inspector {
+    display: flex;
+    grid-column: 2;
+    grid-row: 2;
+    max-height: none;
+    overflow: auto;
+    padding: var(--pattern-px-14) var(--pattern-px-16);
+    border-top: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+    border-left: 0;
+    box-shadow: 0 calc(0 - var(--pattern-px-12)) var(--pattern-px-32) var(--pattern-black-alpha-24);
+  }
+
+  .pattern-room-workspace-inspector-header {
+    grid-template-columns: minmax(var(--pattern-px-150), 0.4fr) minmax(0, 1fr);
+    gap: var(--pattern-px-6) var(--pattern-px-12);
+    align-items: baseline;
+    padding-bottom: var(--pattern-px-10);
+  }
+
+  .pattern-room-workspace-inspector-header > .pattern-room-context-inspector-label {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .pattern-room-workspace-inspector-case {
+    display: none;
+  }
+
+  .pattern-room-report-document {
+    max-width: none;
+  }
+}
+
+/* ─────────────────────────────────────────
+   MOBILE — horizontal navigation + bottom inspector
+───────────────────────────────────────── */
+@media (--pattern-bp-max-820) {
+  .pattern-room-app-shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows:
+      auto
+      minmax(0, 1fr)
+      minmax(var(--pattern-px-210), 42dvh);
+  }
+
+  .pattern-room-workspace-rail {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: row;
+    gap: var(--pattern-px-8);
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--pattern-px-8) var(--pattern-px-10);
+    border-right: 0;
+    border-bottom: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  }
+
+  .pattern-room-workspace-brand,
+  .pattern-room-workspace-status {
+    display: none;
+  }
+
+  .pattern-room-workspace-navigation {
+    display: flex;
+    gap: var(--pattern-px-6);
+  }
+
+  .pattern-room-workspace-nav-button {
+    width: var(--pattern-px-48);
+    min-width: var(--pattern-px-48);
+    min-height: var(--pattern-px-44);
+    padding: var(--pattern-px-5);
+  }
+
+  .pattern-room-workspace {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .pattern-room-workspace-inspector {
+    grid-column: 1;
+    grid-row: 3;
+    padding: var(--pattern-px-12);
+  }
+
+  .pattern-room-workspace-inspector-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pattern-room-overview,
+  .pattern-room-panel,
+  .pattern-room-report-document,
+  .pattern-room-review-inspector,
+  .pattern-room-board-lane,
+  .pattern-room-report-card,
+  .pattern-room-report-priority-group,
+  .pattern-room-case-review-workspace-card,
+  .pattern-room-archive-card {
+    padding: var(--pattern-px-12);
+  }
+
+  .pattern-room-panel-header,
+  .pattern-room-overview-header {
+    margin-bottom: var(--pattern-px-12);
+  }
+
+  .pattern-room-report-priority-overview,
+  .pattern-room-report-inspector-metrics,
+  .pattern-room-report-outline-navigation,
+  .pattern-room-review-task-buttons,
+  .pattern-room-case-review-runtime-workspace,
+  .pattern-room-archive-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

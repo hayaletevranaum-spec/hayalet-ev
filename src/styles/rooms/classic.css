@@ -1,0 +1,94 @@
+.rooms-classic-list {
+  display: grid;
+  gap: var(--rooms-space-1);
+  margin-top: var(--rooms-space-1);
+}
+
+.rooms-classic-card {
+  display: grid;
+  gap: var(--rooms-space-0-85);
+  padding: var(--rooms-space-1) var(--rooms-space-1-1);
+  border: var(--border-1) solid color-mix(in srgb, var(--border-default) 78%, transparent);
+  border-radius: var(--rooms-space-1-2);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--text-inverse) 8%, transparent),
+      color-mix(in srgb, var(--text-inverse) 2%, transparent)
+    ),
+    color-mix(in srgb, var(--bg-panel) 90%, transparent);
+}
+
+.rooms-classic-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--rooms-space-1);
+  align-items: flex-start;
+}
+
+.rooms-classic-card__title {
+  font-size: var(--rooms-space-1-05);
+  font-weight: 700;
+}
+
+.rooms-classic-card__subtitle {
+  margin-top: var(--rooms-space-0-25);
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.rooms-classic-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rooms-space-0-5);
+}
+
+.rooms-classic-card__feature {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rooms-space-2);
+  padding: var(--rooms-space-0-2) var(--rooms-space-0-75);
+  border-radius: var(--radius-full);
+  border: var(--border-1) solid color-mix(in srgb, var(--border-default) 72%, transparent);
+  background: color-mix(in srgb, var(--text-inverse) 5%, transparent);
+  color: var(--text-secondary);
+  font-size: var(--rooms-space-0-9);
+}
+
+.room-feature-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rooms-space-0-5);
+}
+
+.room-feature-strip--header,
+.room-feature-strip--inline {
+  flex: 1 1 auto;
+}
+
+.room-feature-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-width: auto;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.room-feature-chip__title {
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (--breakpoint-max-980) {
+  .rooms-classic-card__head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .room-feature-chip {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,58 @@
+:root {
+  --font-sans: "IBM Plex Sans", "Aptos", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Monaco, Consolas, monospace;
+  --font-scene-display:
+    "Noto Serif", "Source Serif 4", "IBM Plex Serif", "Georgia", "Times New Roman", serif;
+  --font-scene-inscription:
+    "Noto Serif Display", "Noto Serif", "Source Serif 4", "Palatino Linotype", "Book Antiqua", serif;
+  --font-scene-classic:
+    "IBM Plex Serif", "Source Serif 4", "Noto Serif", "Georgia", "Times New Roman", serif;
+  --font-scene-sans:
+    "Noto Sans", "Source Sans 3", "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-scene-rounded:
+    "Rubik", "Nunito", "Noto Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-scene-condensed:
+    "Noto Sans Condensed", "Roboto Condensed", "Arial Narrow", "Liberation Sans Narrow",
+    "Noto Sans", sans-serif;
+  --font-scene-mono:
+    "Noto Sans Mono", "Cascadia Mono", "DejaVu Sans Mono", "Liberation Mono", "Consolas", monospace;
+
+  --text-2xs: 10px;
+  --text-caption: 13px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+  --text-4xl: 36px;
+  --text-5xl: 56px;
+  --text-micro: 11px;
+
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  --leading-none: 1;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --tracking-tight: 0.01em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.04em;
+  --tracking-hero: -0.03em;
+  --tracking-title: -0.02em;
+  --tracking-tightest: -0.06em;
+  --tracking-meta: 0.05em;
+  --tracking-panel: 0.06em;
+  --tracking-label: 0.08em;
+  --tracking-kicker: 0.1em;
+  --tracking-pill: 0.12em;
+  --tracking-widest: 0.14em;
+  --tracking-overlay: 0.18em;
+  --text-overlay-title-min: 1.35rem;
+  --text-overlay-title-max: 1.8rem;
+}

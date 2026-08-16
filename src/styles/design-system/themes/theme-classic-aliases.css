@@ -1,0 +1,795 @@
+:root {
+  --scene-shell-topbar-shadow-y: clamp(var(--scene-rem-1), 1.8vw, var(--scene-rem-1-4));
+  --scene-shell-topbar-shadow-blur: clamp(var(--scene-rem-2), 3vw, var(--scene-rem-2-8));
+  --scene-shell-topbar-bg:
+    linear-gradient(180deg, rgb(47 29 24 / 0.9), rgb(20 12 10 / 0.88)), rgb(20 12 10 / 0.88);
+  --scene-shell-topbar-border: rgb(255 217 166 / 0.16);
+  --scene-shell-topbar-shadow:
+    0 var(--scene-shell-topbar-shadow-y-override, var(--scene-shell-topbar-shadow-y))
+      var(--scene-shell-topbar-shadow-blur-override, var(--scene-shell-topbar-shadow-blur))
+      rgb(0 0 0 / 0.24),
+    inset 0 0 0 var(--border-1) rgb(255 255 255 / 0.04);
+  --scene-shell-panel-shadow-y: clamp(var(--scene-rem-1), 1.8vw, var(--scene-rem-1-5));
+  --scene-shell-panel-shadow-blur: clamp(
+    calc(var(--scene-rem-2) + var(--scene-rem-0-25)),
+    3.5vw,
+    var(--scene-rem-3)
+  );
+  --scene-shell-panel-bg:
+    linear-gradient(180deg, rgb(28 18 15 / 0.74), rgb(13 9 8 / 0.92)), rgb(10 7 7 / 0.78);
+  --scene-shell-panel-border: rgb(255 221 186 / 0.14);
+  --scene-shell-panel-shadow:
+    0 var(--scene-shell-panel-shadow-y-override, var(--scene-shell-panel-shadow-y))
+      var(--scene-shell-panel-shadow-blur-override, var(--scene-shell-panel-shadow-blur))
+      rgb(0 0 0 / 0.32),
+    inset 0 0 0 var(--border-1) rgb(255 255 255 / 0.03);
+  --scene-shell-panel-viewport-bg:
+    radial-gradient(circle at top, rgb(255 196 115 / 0.08), transparent 30%),
+    linear-gradient(180deg, rgb(15 11 10 / 0.88), rgb(7 6 6 / 1));
+  --scene-shell-screen-bg: rgb(10 7 7 / 0.98);
+  --scene-shell-panel-shade-bg:
+    linear-gradient(90deg, rgb(7 5 5 / 0.58), transparent 18%, transparent 82%, rgb(7 5 5 / 0.58)),
+    radial-gradient(circle at center, transparent 44%, rgb(0 0 0 / 0.22) 100%);
+  --scene-shell-panel-shade-soft-bg:
+    linear-gradient(90deg, rgb(7 5 5 / 0.54), transparent 18%, transparent 82%, rgb(7 5 5 / 0.54)),
+    radial-gradient(circle at center, transparent 44%, rgb(0 0 0 / 0.22) 100%);
+  --scene-shell-embedded-gap: var(--space-3);
+  --scene-shell-embedded-padding: clamp(var(--space-3), 1.6vw, var(--space-5));
+  --scene-shell-embedded-radius: calc(var(--radius-modal) + var(--space-1));
+  --scene-shell-embedded-border: rgb(255 223 188 / 0.12);
+  --scene-shell-embedded-bg:
+    linear-gradient(180deg, rgb(18 11 9 / 0.62), rgb(10 7 6 / 0.76)),
+    radial-gradient(circle at top left, rgb(232 180 97 / 0.08), transparent 36%);
+  --scene-shell-embedded-shadow:
+    0 1.9rem 3rem rgb(0 0 0 / 0.34), inset 0 0 0 var(--border-1) rgb(255 255 255 / 0.03);
+  --scene-shell-framed-border: color-mix(in srgb, var(--color-accent) 18%, var(--border-default));
+  --scene-shell-framed-border-strong: color-mix(
+    in srgb,
+    var(--color-accent) 26%,
+    var(--border-default)
+  );
+  --scene-shell-framed-bg:
+    radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--color-accent) 10%, transparent),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 92%, transparent),
+      color-mix(in srgb, var(--bg-surface-2) 94%, transparent)
+    ),
+    var(--bg-panel-strong);
+  --scene-shell-framed-section-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-accent-soft) 22%, transparent),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 94%, transparent),
+      color-mix(in srgb, var(--bg-surface-2) 96%, transparent)
+    );
+  --scene-shell-framed-section-muted-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-surface-3) 90%, transparent),
+    color-mix(in srgb, var(--bg-surface-2) 86%, transparent)
+  );
+  --scene-shell-framed-shadow:
+    var(--surface-shadow), inset 0 var(--border-1) 0 rgb(255 255 255 / 0.04);
+  --scene-shell-framed-highlight-bg: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-accent) 56%, transparent),
+    transparent
+  );
+  --scene-shell-framed-header-border: color-mix(
+    in srgb,
+    var(--scene-shell-framed-border) 92%,
+    transparent
+  );
+  --scene-shell-framed-header-bg:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-3) 58%, transparent), transparent),
+    transparent;
+  --scene-shell-framed-banner-bg:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-3) 82%, transparent), transparent),
+    rgba(6, 11, 20, 0.58);
+  --scene-shell-window-controls-border: rgb(255 217 166 / 0.18);
+  --scene-shell-window-controls-bg:
+    linear-gradient(180deg, rgb(48 29 24 / 0.9), rgb(20 12 10 / 0.88)), rgb(20 12 10 / 0.88);
+  --scene-shell-window-controls-shadow:
+    0 var(--scene-rem-1) var(--scene-rem-2-6) rgb(0 0 0 / 0.28),
+    inset 0 0 0 var(--scene-px-1) rgb(255 255 255 / 0.04);
+  --scene-shell-window-control-border: rgb(255 218 178 / 0.14);
+  --scene-shell-window-control-bg:
+    linear-gradient(180deg, rgb(255 238 214 / 0.12), rgb(255 219 166 / 0.03)),
+    rgb(255 255 255 / 0.02);
+  --scene-shell-window-control-color: rgb(255 228 198 / 0.92);
+  --scene-shell-window-control-shadow: inset 0 0 0 var(--scene-px-1) rgb(255 255 255 / 0.02);
+  --scene-shell-window-control-hover-border: rgb(255 216 160 / 0.36);
+  --scene-shell-window-control-hover-bg:
+    linear-gradient(180deg, rgb(255 241 221 / 0.18), rgb(255 219 166 / 0.08)),
+    rgb(255 255 255 / 0.04);
+  --scene-shell-window-control-hover-shadow:
+    0 var(--scene-rem-0-6) var(--scene-rem-1-4) rgb(0 0 0 / 0.2),
+    inset 0 0 0 var(--scene-px-1) rgb(255 255 255 / 0.06);
+  --scene-shell-window-control-close-color: rgb(255 210 198 / 0.96);
+  --scene-shell-window-menu-border: rgb(255 217 166 / 0.18);
+  --scene-shell-window-menu-bg:
+    linear-gradient(180deg, rgb(48 29 24 / 0.96), rgb(20 12 10 / 0.92)), rgb(20 12 10 / 0.92);
+  --scene-shell-window-menu-shadow: 0 var(--scene-rem-0-8) var(--scene-rem-2) rgb(0 0 0 / 0.35);
+  --scene-shell-window-menu-text: rgb(255 228 198 / 0.9);
+  --scene-shell-window-menu-hover-bg: rgb(255 255 255 / 0.06);
+  --scene-shell-window-menu-hover-text: rgb(255 240 220 / 1);
+
+  --assistant-topbar-bg: linear-gradient(
+    180deg,
+    rgba(4, 10, 20, 0.96) 0%,
+    rgba(8, 16, 30, 0.92) 100%
+  );
+  --assistant-topbar-border: rgba(56, 189, 248, 0.16);
+  --assistant-topbar-shadow:
+    0 18px 38px -24px rgba(2, 6, 23, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --assistant-chip-bg: rgba(15, 23, 42, 0.68);
+  --assistant-chip-hover: rgba(15, 23, 42, 0.84);
+  --assistant-chip-border: rgba(148, 163, 184, 0.14);
+  --assistant-role-bg: rgba(8, 145, 178, 0.12);
+  --assistant-role-border: rgba(34, 211, 238, 0.16);
+  --assistant-role-text: rgba(165, 243, 252, 0.9);
+  --assistant-pill-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 92%, transparent),
+      var(--bg-surface-2)
+    ),
+    var(--bg-surface-2);
+  --assistant-pill-bg-hover:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 86%, transparent),
+      var(--bg-surface-2)
+    ),
+    var(--bg-surface-2);
+  --assistant-pill-border: color-mix(in srgb, var(--border-default) 88%, transparent);
+  --assistant-pill-border-strong: color-mix(
+    in srgb,
+    var(--color-accent) 34%,
+    var(--border-default)
+  );
+  --assistant-pill-shadow: var(--effect-inset-highlight);
+  --assistant-pill-accent-bg: color-mix(in srgb, var(--color-accent-soft) 82%, transparent);
+  --assistant-pill-accent-bg-hover: color-mix(in srgb, var(--color-accent-soft) 64%, transparent);
+  --assistant-pill-accent-border: color-mix(
+    in srgb,
+    var(--color-accent) 26%,
+    var(--border-default)
+  );
+  --assistant-scene-surface-bg:
+    radial-gradient(
+      circle at 24% 18%,
+      color-mix(in srgb, var(--color-warning) 18%, transparent),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-panel-strong) 96%, transparent),
+      var(--scene-shell-screen-bg)
+    );
+  --assistant-scene-surface-overlay:
+    radial-gradient(
+      circle at center,
+      transparent 56%,
+      color-mix(in srgb, var(--bg-overlay) 76%, transparent) 100%
+    ),
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg-overlay) 36%, transparent));
+  --assistant-scene-character-shadow: drop-shadow(
+    0 var(--assistant-scene-character-shadow-y) var(--assistant-scene-character-shadow-blur)
+      color-mix(in srgb, var(--bg-overlay) 78%, transparent)
+  );
+  --assistant-scene-character-filter-loading: drop-shadow(
+      0 0 var(--assistant-scene-character-loading-glow)
+        color-mix(in srgb, var(--color-warning) 26%, transparent)
+    )
+    drop-shadow(
+      0 var(--assistant-scene-character-loading-shadow-y)
+        var(--assistant-scene-character-loading-shadow-blur)
+        color-mix(in srgb, var(--bg-overlay) 84%, transparent)
+    );
+  --assistant-scene-character-filter-connected: drop-shadow(
+      0 0 var(--assistant-scene-character-connected-glow)
+        color-mix(in srgb, var(--color-info, var(--color-accent)) 20%, transparent)
+    )
+    drop-shadow(
+      0 var(--assistant-scene-character-connected-shadow-y)
+        var(--assistant-scene-character-connected-shadow-blur)
+        color-mix(in srgb, var(--bg-overlay) 88%, transparent)
+    );
+  --assistant-scene-character-head-bg:
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--text-inverse) 96%, var(--color-warning) 4%),
+      color-mix(in srgb, var(--color-warning) 68%, var(--text-inverse) 32%)
+    ),
+    color-mix(in srgb, var(--color-warning) 68%, var(--text-inverse) 32%);
+  --assistant-scene-character-head-shadow:
+    0 0 0 var(--assistant-scene-character-head-ring)
+      color-mix(in srgb, var(--text-inverse) 18%, transparent),
+    0 0 0 var(--assistant-scene-character-head-halo)
+      color-mix(in srgb, var(--color-warning) 12%, transparent);
+  --assistant-scene-character-label-bg: color-mix(in srgb, var(--bg-panel-strong) 82%, transparent);
+  --assistant-scene-character-label-border: color-mix(
+    in srgb,
+    var(--text-inverse) 14%,
+    transparent
+  );
+  --assistant-scene-character-label-color: color-mix(
+    in srgb,
+    var(--text-inverse) 90%,
+    var(--color-warning) 10%
+  );
+  --assistant-scene-character-anchor-bg: color-mix(
+    in srgb,
+    var(--bg-panel-strong) 86%,
+    transparent
+  );
+  --assistant-scene-character-anchor-border: color-mix(
+    in srgb,
+    var(--text-inverse) 10%,
+    transparent
+  );
+  --assistant-scene-character-anchor-color: color-mix(
+    in srgb,
+    var(--text-inverse) 76%,
+    var(--color-warning) 24%
+  );
+  --assistant-scene-container-bg:
+    radial-gradient(
+      circle at 34% 18%,
+      color-mix(in srgb, var(--color-warning) 18%, transparent),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-panel) 96%, transparent),
+      var(--bg-panel-strong)
+    );
+  --workspace-tool-overlay-bg: var(--opencode-shell-layout-bg);
+  --splash-scene-shell-shadow: 0 2rem 5rem color-mix(in srgb, var(--bg-overlay) 88%, transparent);
+  --splash-scene-door-shadow:
+    inset 0 0 0 var(--border-1) color-mix(in srgb, var(--text-inverse) 4%, transparent),
+    0 1.5rem 3rem color-mix(in srgb, var(--bg-overlay) 64%, transparent);
+  --splash-scene-bg:
+    radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--color-warning) 20%, transparent),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-panel) 96%, transparent),
+      color-mix(in srgb, var(--bg-panel-strong) 98%, transparent)
+    );
+  --splash-scene-shell-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-panel) 88%, transparent),
+    color-mix(in srgb, var(--bg-panel-strong) 94%, transparent)
+  );
+  --splash-scene-shell-border: color-mix(in srgb, var(--color-warning) 24%, transparent);
+  --splash-scene-door-border: color-mix(in srgb, var(--color-warning) 16%, transparent);
+  --splash-scene-kicker-color: color-mix(
+    in srgb,
+    var(--text-inverse) 72%,
+    var(--color-warning) 28%
+  );
+  --settings-scene-shell-bg: color-mix(in srgb, var(--bg-panel-strong) 98%, transparent);
+  --settings-scene-surface-bg:
+    radial-gradient(
+      circle at 24% 18%,
+      color-mix(in srgb, var(--color-warning) 20%, transparent),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-panel) 92%, transparent),
+      var(--scene-shell-screen-bg)
+    );
+  --settings-scene-surface-overlay:
+    radial-gradient(
+      circle at center,
+      transparent 54%,
+      color-mix(in srgb, var(--bg-overlay) 76%, transparent) 100%
+    ),
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg-overlay) 40%, transparent));
+  --assistant-title-size: var(--text-base);
+  --assistant-role-font-size: var(--text-2xs);
+  --assistant-status-font-size: var(--text-caption);
+  --assistant-status-inline-font-size: var(--text-xs);
+
+  --opencode-shell-bg:
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--color-accent) 10%, transparent),
+      transparent 36%
+    ),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-2) 54%, transparent), var(--bg-app));
+  --opencode-shell-layout-bg:
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--color-accent) 8%, transparent),
+      transparent 44%
+    ),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-2) 66%, transparent), var(--bg-app));
+  --opencode-shell-sidebar-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-2) 96%, transparent),
+      var(--bg-panel)
+    ),
+    var(--bg-panel);
+  --opencode-shell-sidebar-section-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 92%, transparent),
+      var(--bg-surface-2)
+    ),
+    var(--bg-surface-2);
+  --opencode-shell-session-tab-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 90%, transparent),
+      var(--bg-surface-2)
+    ),
+    var(--bg-surface-2);
+  --opencode-shell-session-tab-active-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-accent-soft) 90%, transparent),
+      color-mix(in srgb, var(--bg-surface-3) 92%, transparent)
+    ),
+    var(--bg-surface-3);
+  --opencode-shell-session-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface) 38%, transparent),
+      var(--bg-surface-2)
+    ),
+    var(--bg-surface-2);
+  --opencode-shell-session-hover-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface) 52%, transparent),
+      var(--bg-surface-3)
+    ),
+    var(--bg-surface-3);
+  --opencode-shell-session-active-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-accent-soft) 86%, transparent),
+      color-mix(in srgb, var(--bg-surface-3) 92%, transparent)
+    ),
+    var(--bg-surface-3);
+  --opencode-shell-session-active-border: color-mix(
+    in srgb,
+    var(--color-accent) 46%,
+    var(--border-default)
+  );
+  --opencode-shell-empty-state-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-surface-2) 82%, transparent),
+    color-mix(in srgb, var(--bg-surface-3) 90%, transparent)
+  );
+  --opencode-shell-chat-empty-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-surface-2) 94%, transparent),
+    color-mix(in srgb, var(--bg-surface-3) 88%, transparent)
+  );
+  --opencode-shell-usage-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 90%, transparent),
+      var(--bg-surface-2)
+    ),
+    var(--bg-surface-2);
+  --opencode-shell-progress-track-bg: color-mix(in srgb, var(--bg-surface-3) 88%, transparent);
+  --opencode-shell-progress-fill-bg: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-accent) 92%, white 8%) 0%,
+    var(--color-accent) 100%
+  );
+
+  --relay-particle-color: var(--color-accent);
+  --relay-track-color: rgba(34, 211, 238, 0.15);
+
+  --app-shell-bg: transparent;
+  --app-shell-surface-blur: none;
+  --app-shell-layout-bg:
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--color-accent) 10%, transparent),
+      transparent 48%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-app) 72%, var(--bg-surface-2)),
+      var(--bg-app)
+    );
+  --app-shell-sidebar-bg: var(--bg-panel);
+  --app-shell-sidebar-section-bg: var(--bg-surface-2);
+  --app-shell-session-tabs-gap: var(--space-2);
+  --app-shell-session-tabs-padding: 0 var(--space-3) var(--space-2);
+  --app-shell-session-tab-bg: var(--bg-muted);
+  --app-shell-session-tab-hover-bg: var(--bg-surface-3);
+  --app-shell-session-tab-active-bg: var(--color-accent-soft);
+  --app-shell-session-tab-active-border: var(--color-accent);
+  --app-shell-session-tab-active-text: var(--color-accent);
+  --app-shell-session-bg: var(--bg-muted);
+  --app-shell-session-hover-bg: var(--bg-surface-3);
+  --app-shell-session-hover-border: var(--border-default);
+  --app-shell-session-active-bg: var(--color-accent-soft);
+  --app-shell-session-active-border: var(--color-accent);
+  --app-shell-empty-state-border: 0 solid transparent;
+  --app-shell-empty-state-bg: transparent;
+  --app-shell-empty-state-shadow: none;
+  --app-shell-empty-state-radius: var(--radius-lg);
+  --app-shell-chat-empty-border: var(--border-1) solid
+    color-mix(in srgb, var(--border-default) 80%, transparent);
+  --app-shell-chat-empty-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-surface-2) 94%, transparent),
+    color-mix(in srgb, var(--bg-surface-3) 88%, transparent)
+  );
+  --app-shell-chat-empty-shadow: var(--effect-inset-highlight), var(--surface-shadow);
+  --app-shell-chat-empty-icon-fit: cover;
+  --app-shell-usage-padding: 0;
+  --app-shell-usage-radius: 0;
+  --app-shell-usage-border: 0 solid transparent;
+  --app-shell-usage-bg: transparent;
+  --app-shell-usage-shadow: none;
+  --app-shell-usage-value-color: var(--color-accent);
+  --app-shell-progress-track-bg: var(--hover-overlay);
+  --app-shell-progress-track-border: 0 solid transparent;
+  --app-shell-progress-fill-bg: var(--accent-gradient);
+  --app-shell-inspector-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 96%, transparent),
+      var(--bg-surface-2)
+    ),
+    var(--bg-surface);
+  --app-webview-host-bg: var(--bg-surface-2);
+
+  --surface-card-bg: var(--bg-panel);
+  --surface-card-border: var(--border-default);
+  --surface-card-radius: var(--radius-card);
+  --surface-card-blur: var(--glass-blur);
+  --surface-card-shadow: var(--surface-shadow);
+  --surface-card-header-padding: var(--space-3) var(--space-4);
+  --surface-card-header-bg: var(--bg-surface-3);
+  --surface-card-header-border: var(--border-default);
+  --surface-card-body-padding: var(--space-3) var(--space-4);
+  --toolbar-surface-bg: var(--bg-panel);
+  --toolbar-surface-border: var(--border-default);
+  --toolbar-surface-radius: var(--radius-card);
+  --toolbar-surface-blur: var(--glass-blur);
+  --toolbar-surface-shadow: var(--surface-shadow);
+  --archives-surface-card-bg: var(--bg-panel);
+  --archives-surface-card-border: var(--border-default);
+  --archives-surface-card-shadow: var(--surface-shadow);
+  --archives-surface-card-header-bg: var(--bg-surface-3);
+  --archives-surface-card-header-border: color-mix(in srgb, var(--border-default) 92%, transparent);
+  --archives-field-bg: var(--bg-input);
+  --archives-field-border-color: var(--border-default);
+  --archives-field-focus-border: var(--color-accent-strong);
+  --archives-field-focus-shadow: 0 0 0 var(--size-focus-ring) var(--color-accent-muted);
+  --archives-choice-border: color-mix(in srgb, var(--border-default) 88%, transparent);
+  --archives-choice-border-hover: var(--border-strong);
+  --archives-choice-border-active: var(--color-accent);
+  --archives-choice-bg: var(--bg-muted);
+  --archives-choice-bg-hover: var(--bg-surface-3);
+  --archives-choice-bg-active: var(--color-accent-soft);
+  --archives-choice-text: var(--text-secondary);
+  --archives-choice-text-hover: var(--text-primary);
+  --archives-choice-text-active: var(--color-accent);
+  --archives-shell-bg:
+    radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--color-accent) 10%, transparent),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--text-inverse) 2%, transparent),
+      transparent 18%
+    );
+  --archives-empty-text: var(--text-muted);
+  --archives-label-text: var(--text-secondary);
+  --archives-meta-text: var(--text-tertiary);
+  --archives-item-bg: color-mix(in srgb, var(--bg-surface-2) 76%, transparent);
+  --archives-item-border: color-mix(in srgb, var(--border-default) 72%, transparent);
+  --archives-item-bg-hover: var(--bg-surface-3);
+  --archives-item-border-hover: var(--border-default);
+  --archives-item-shadow-hover: var(--surface-shadow);
+  --archives-item-bg-active: color-mix(in srgb, var(--color-accent) 16%, var(--bg-surface-3));
+  --archives-item-border-active: color-mix(in srgb, var(--color-accent) 62%, transparent);
+  --archives-item-shadow-active:
+    0 0 0 var(--border-1) color-mix(in srgb, var(--color-accent) 18%, transparent),
+    var(--surface-shadow);
+  --archives-results-hover-bg: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  --archives-section-header-bg: var(--archives-surface-card-header-bg);
+  --archives-tabs-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--text-inverse) 2%, transparent),
+    transparent 80%
+  );
+  --archives-tabs-border: color-mix(in srgb, var(--border-default) 72%, transparent);
+  --archives-tab-text: var(--text-muted);
+  --archives-tab-text-hover: var(--text-primary);
+  --archives-tab-text-active: var(--color-accent);
+  --archives-tab-bg-hover: color-mix(in srgb, var(--text-inverse) 3%, transparent);
+  --archives-tab-border-active: color-mix(in srgb, var(--color-accent) 72%, transparent);
+  --archives-tab-count-bg: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  --archives-tab-count-text: var(--text-secondary);
+  --archives-tab-count-bg-active: var(--accent-gradient);
+  --archives-tab-count-text-active: var(--text-inverse);
+  --archives-icon-muted: var(--text-muted);
+  --archives-icon-strong: var(--text-primary);
+  --analyze-scene-hotspot-hover-shadow:
+    0 0 1.7rem
+      hsl(
+        var(--analyze-scene-hotspot-hover-glow-hue) 72% 70% /
+          var(--analyze-scene-hotspot-hover-glow-alpha)
+      ),
+    0 0 0.45rem
+      hsl(
+        var(--analyze-scene-hotspot-hover-glow-hue) 80% 72% /
+          calc(var(--analyze-scene-hotspot-hover-glow-alpha) * 1.35)
+      );
+  --analyze-scene-hotspot-hover-outer-shadow: 0 0 2.6rem
+    hsl(
+      var(--analyze-scene-hotspot-hover-glow-hue) 70% 65% /
+        calc(var(--analyze-scene-hotspot-hover-glow-alpha) * 0.8)
+    );
+  --analyze-scene-hotspot-label-text-shadow:
+    0 var(--border-1) 0 color-mix(in srgb, var(--text-inverse) 22%, transparent),
+    0 0 0.7rem color-mix(in srgb, var(--color-warning) 16%, transparent),
+    0 var(--border-2) var(--space-2) color-mix(in srgb, var(--bg-overlay) 72%, transparent);
+  --analyze-scene-hotspot-label-active-text-shadow:
+    0 var(--border-1) 0 color-mix(in srgb, var(--text-inverse) 28%, transparent),
+    0 0 1rem color-mix(in srgb, var(--color-warning) 28%, transparent),
+    0 var(--border-2) var(--space-2-5) color-mix(in srgb, var(--bg-overlay) 78%, transparent);
+  --analyze-scene-hotspot-label-bg: color-mix(in srgb, var(--bg-panel-strong) 82%, transparent);
+  --analyze-scene-hotspot-label-bg-active: color-mix(
+    in srgb,
+    var(--bg-panel) 92%,
+    var(--bg-surface-2)
+  );
+  --analyze-scene-hotspot-label-active-ring: color-mix(
+    in srgb,
+    var(--color-accent) 28%,
+    transparent
+  );
+  --analyze-scene-debug-label-shadow:
+    inset 0 0 0 var(--border-1) color-mix(in srgb, var(--text-inverse) 2%, transparent),
+    0 0.4rem 1rem color-mix(in srgb, var(--bg-overlay) 42%, transparent);
+  --analyze-scene-debug-label-hover-shadow:
+    inset 0 0 0 var(--border-1) color-mix(in srgb, var(--text-inverse) 4%, transparent),
+    0 0 0.8rem color-mix(in srgb, var(--color-accent) 18%, transparent),
+    0 0.4rem 1rem color-mix(in srgb, var(--bg-overlay) 42%, transparent);
+  --analyze-scene-surface-bg:
+    radial-gradient(
+      circle at 30% 18%,
+      color-mix(in srgb, var(--color-warning) 16%, transparent),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      var(--bg-panel-strong),
+      color-mix(in srgb, var(--bg-surface-2) 90%, var(--bg-panel))
+    );
+  --analyze-scene-surface-overlay:
+    radial-gradient(
+      circle at center,
+      transparent 58%,
+      color-mix(in srgb, var(--bg-overlay) 48%, transparent) 100%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-overlay) 0%, transparent),
+      color-mix(in srgb, var(--bg-overlay) 28%, transparent)
+    );
+  --analyze-scene-archives-frame-border: color-mix(in srgb, var(--border-default) 84%, transparent);
+  --analyze-scene-archives-frame-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--text-inverse) 2%, transparent),
+      transparent 18%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-panel) 88%, transparent),
+      color-mix(in srgb, var(--bg-panel-strong) 92%, transparent)
+    );
+  --server-scene-room-bg:
+    radial-gradient(
+      circle at 38% 18%,
+      color-mix(in srgb, var(--color-info, var(--color-accent)) 12%, transparent),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 70% 18%,
+      color-mix(in srgb, var(--color-warning) 12%, transparent),
+      transparent 20%
+    ),
+    linear-gradient(
+      180deg,
+      var(--bg-panel-strong),
+      color-mix(in srgb, var(--bg-panel) 92%, var(--bg-surface-2))
+    );
+  --server-scene-activity-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-surface-3) 88%, transparent),
+      color-mix(in srgb, var(--bg-surface-2) 92%, transparent)
+    ),
+    color-mix(in srgb, var(--bg-surface-2) 92%, transparent);
+  --server-scene-activity-error-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-error) 20%, var(--bg-surface-3)),
+      color-mix(in srgb, var(--color-error) 28%, var(--bg-surface-2))
+    ),
+    color-mix(in srgb, var(--color-error-bg) 72%, var(--bg-surface-2));
+  --entrance-scene-page-bg:
+    radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--color-warning) 22%, transparent),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-panel-strong) 96%, transparent),
+      var(--scene-shell-screen-bg)
+    );
+  --entrance-scene-surface-bg: color-mix(
+    in srgb,
+    var(--bg-panel-strong) 94%,
+    var(--color-warning) 6%
+  );
+  --entrance-scene-whisper-shadow:
+    0 var(--scene-rem-1-8) var(--scene-rem-2-8)
+      color-mix(in srgb, var(--bg-overlay) 72%, transparent),
+    inset 0 0 0 var(--scene-px-1) color-mix(in srgb, var(--text-inverse) 3%, transparent);
+  --entrance-scene-character-filter: drop-shadow(
+    0 var(--scene-rem-1) var(--scene-rem-1-5) color-mix(in srgb, var(--bg-overlay) 78%, transparent)
+  );
+  --entrance-scene-character-head-shadow-menu-open:
+    0 0 0 var(--scene-rem-0-18) color-mix(in srgb, var(--color-warning) 44%, transparent),
+    0 0 0 var(--scene-rem-0-5) color-mix(in srgb, var(--color-warning) 22%, transparent);
+  --entrance-scene-character-head-shadow-selected:
+    0 0 0 var(--scene-rem-0-18)
+      color-mix(in srgb, var(--color-info, var(--color-accent)) 48%, transparent),
+    0 0 0 var(--scene-rem-0-52)
+      color-mix(in srgb, var(--color-info, var(--color-accent)) 20%, transparent);
+  --entrance-scene-character-filter-inactive: saturate(0.75) brightness(0.82)
+    drop-shadow(
+      0 var(--scene-rem-0-8) var(--scene-rem-1-2)
+        color-mix(in srgb, var(--bg-overlay) 62%, transparent)
+    );
+  --entrance-scene-character-filter-connected: saturate(1.04) brightness(1.02)
+    drop-shadow(
+      0 var(--scene-rem-1-1) var(--scene-rem-1-7)
+        color-mix(in srgb, var(--bg-overlay) 84%, transparent)
+    );
+  --entrance-scene-character-filter-loading: saturate(1.08) brightness(1.05)
+    drop-shadow(0 0 var(--scene-rem-1) color-mix(in srgb, var(--color-warning) 26%, transparent))
+    drop-shadow(
+      0 var(--scene-rem-1-2) var(--scene-rem-1-8)
+        color-mix(in srgb, var(--bg-overlay) 88%, transparent)
+    );
+  --entrance-scene-character-head-shadow-thinking:
+    0 0 0 var(--scene-rem-0-18)
+      color-mix(in srgb, var(--color-info, var(--color-accent)) 38%, transparent),
+    0 0 0 var(--scene-rem-0-5)
+      color-mix(in srgb, var(--color-info, var(--color-accent)) 18%, transparent);
+  --entrance-scene-character-head-shadow-loading:
+    0 0 0 var(--scene-rem-0-18) color-mix(in srgb, var(--color-warning) 40%, transparent),
+    0 0 0 var(--scene-rem-0-48) color-mix(in srgb, var(--color-warning) 20%, transparent);
+  --entrance-scene-character-filter-thinking: saturate(1.08) brightness(1.06)
+    drop-shadow(
+      0 0 var(--scene-rem-1)
+        color-mix(in srgb, var(--color-info, var(--color-accent)) 22%, transparent)
+    )
+    drop-shadow(
+      0 var(--scene-rem-1-2) var(--scene-rem-1-8)
+        color-mix(in srgb, var(--bg-overlay) 88%, transparent)
+    );
+  --entrance-scene-character-filter-hover: saturate(1.08) brightness(1.05)
+    drop-shadow(0 0 var(--scene-rem-1) color-mix(in srgb, var(--color-warning) 20%, transparent))
+    drop-shadow(
+      0 var(--scene-rem-1-15) var(--scene-rem-1-8)
+        color-mix(in srgb, var(--bg-overlay) 84%, transparent)
+    );
+  --entrance-scene-character-head-bg:
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--text-inverse) 94%, var(--color-warning) 6%),
+      color-mix(in srgb, var(--color-warning) 72%, var(--text-inverse) 28%)
+    ),
+    color-mix(in srgb, var(--color-warning) 72%, var(--text-inverse) 28%);
+  --entrance-scene-character-head-color: color-mix(
+    in srgb,
+    var(--text-primary) 78%,
+    var(--color-warning) 22%
+  );
+  --entrance-scene-character-label-bg: color-mix(in srgb, var(--bg-panel-strong) 84%, transparent);
+  --entrance-scene-character-label-color: color-mix(
+    in srgb,
+    var(--text-inverse) 88%,
+    var(--color-warning) 12%
+  );
+  --entrance-scene-character-anchor-bg: color-mix(in srgb, var(--bg-panel-strong) 88%, transparent);
+  --entrance-scene-character-anchor-color: color-mix(
+    in srgb,
+    var(--text-inverse) 84%,
+    var(--color-warning) 16%
+  );
+  --entrance-scene-menu-border: var(--scene-shell-window-menu-border);
+  --entrance-scene-menu-bg: var(--scene-shell-window-menu-bg);
+  --entrance-scene-menu-shadow:
+    var(--scene-shell-window-menu-shadow),
+    inset 0 0 0 var(--scene-px-1) color-mix(in srgb, var(--text-inverse) 3%, transparent);
+  --entrance-scene-menu-color: var(--scene-shell-window-menu-text);
+  --entrance-scene-menu-text-muted: color-mix(
+    in srgb,
+    var(--entrance-scene-menu-color) 78%,
+    var(--color-warning)
+  );
+  --entrance-scene-menu-text-strong: color-mix(
+    in srgb,
+    var(--entrance-scene-menu-color) 88%,
+    var(--color-warning) 12%
+  );
+  --entrance-scene-menu-field-border: color-mix(
+    in srgb,
+    var(--entrance-scene-menu-color) 10%,
+    transparent
+  );
+  --entrance-scene-menu-field-bg: color-mix(in srgb, var(--text-inverse) 2.5%, transparent);
+  --entrance-scene-menu-divider-border: color-mix(
+    in srgb,
+    var(--entrance-scene-menu-color) 10%,
+    transparent
+  );
+
+  --status-inactive: var(--slate-600);
+  --status-connected: var(--color-success);
+  --status-warning: var(--color-warning);
+  --traffic-status-busy: var(--color-error);
+  --traffic-status-idle: var(--color-success);
+
+  --dot-inactive: var(--status-inactive);
+  --dot-loading: var(--amber-400);
+  --dot-send: var(--cyan-400);
+  --dot-thinking: var(--emerald-400);
+}
+
+:root[data-theme-surface="soft"] {
+  --glass-blur: blur(12px);
+  --surface-card-blur: blur(12px);
+  --toolbar-surface-blur: blur(12px);
+  --app-shell-surface-blur: blur(10px);
+  --bg-glass: color-mix(in srgb, var(--bg-surface-2) 82%, transparent);
+  --bg-input: color-mix(in srgb, var(--bg-surface-2) 74%, transparent);
+}
+
+:root[data-theme-surface="solid"] {
+  --glass-blur: none;
+  --surface-card-blur: none;
+  --toolbar-surface-blur: none;
+  --app-shell-surface-blur: none;
+  --bg-glass: color-mix(in srgb, var(--bg-surface-2) 96%, transparent);
+  --bg-input: color-mix(in srgb, var(--bg-surface-2) 94%, transparent);
+  --surface-card-bg: color-mix(in srgb, var(--bg-surface-2) 96%, transparent);
+  --toolbar-surface-bg: color-mix(in srgb, var(--bg-surface-2) 96%, transparent);
+}

@@ -1,0 +1,27 @@
+/* ── Legend Bar ───────────────────────────────────────────────────── */
+.repair-legendbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--repair-sp-1) var(--repair-sp-3);
+  min-height: var(--repair-px-28);
+  padding: var(--repair-px-4) var(--repair-sp-4);
+  background: var(--repair-bg-strong);
+  border-top: var(--repair-px-1) solid var(--repair-border);
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-10);
+  color: var(--repair-text-dim);
+  user-select: none;
+}
+
+.repair-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--repair-px-4);
+}
+
+.repair-legend-swatch {
+  width: var(--repair-px-8);
+  height: var(--repair-px-8);
+  border-radius: var(--repair-px-2);
+}

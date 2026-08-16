@@ -1,0 +1,165 @@
+<section class="page is-hidden" id="page-server" aria-labelledby="page-server-title">
+  <h2
+    class="visually-hidden"
+    id="page-server-title"
+    data-shell-i18n-text="sideNav.serverLabel"
+  ></h2>
+  <div class="server-room">
+    <div
+      class="server-scene"
+      id="server-scene-root"
+      data-shell-i18n-aria-label="app.server.page.sceneAriaLabel"
+      hidden
+    >
+      <div class="server-scene__surface scene-shell__surface">
+        <img
+          class="server-scene__background scene-shell__cover-image"
+          id="server-scene-background"
+          alt=""
+        />
+
+        <div class="server-scene__room-layer scene-shell__room-layer">
+          <div class="server-scene__hotspots" id="server-scene-hotspots"></div>
+          <div
+            class="server-scene__characters entrance-scene__characters"
+            id="server-scene-characters"
+          ></div>
+        </div>
+
+        <div class="entrance-scene__editor-host" id="server-scene-editor-host"></div>
+
+        <div
+          class="server-scene__screen-view scene-shell__view"
+          id="server-scene-screen-view"
+          aria-hidden="true"
+        >
+          <img
+            class="server-scene__screen-art scene-shell__cover-image"
+            id="server-scene-screen-art"
+            alt=""
+          />
+          <div class="server-scene__screen-shade scene-shell__panel-shade"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="server-workspace">
+      <div class="server-workspace-left">
+        <div class="server-panels">
+          <div
+            class="server-panel scene-shell__panel glass-panel ds-surface-card ds-surface-card--stack server-timeline-panel"
+          >
+            <div
+              class="server-panel-title ds-surface-card__header ds-panel-title"
+              data-shell-i18n-text="app.server.page.timelineTitle"
+            ></div>
+            <div
+              class="server-timeline-meta"
+              id="server-timeline-meta"
+              data-shell-i18n-text="app.server.page.timelineHint"
+            ></div>
+            <div
+              class="log-list server-timeline-list"
+              id="server-command-timeline"
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions text"
+            >
+              <div class="ds-log-empty" data-shell-i18n-text="app.server.page.timelineEmpty"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="server-workspace-right">
+        <div
+          class="server-panel scene-shell__panel glass-panel ds-surface-card ds-surface-card--stack server-command-panel"
+        >
+          <div
+            class="server-panel-title ds-surface-card__header ds-panel-title"
+            data-shell-i18n-text="app.server.page.commandPanelTitle"
+          ></div>
+          <div class="command-manager">
+            <div class="command-toolbar-row">
+              <div class="command-toolbar-group">
+                <label
+                  for="server-command-slot-select"
+                  data-shell-i18n-text="app.server.page.slotLabel"
+                ></label>
+                <select id="server-command-slot-select" class="select">
+                  <option value="ai1">AI1</option>
+                  <option value="ai2">AI2</option>
+                  <option value="ai0">AI0</option>
+                  <option value="us1">US1</option>
+                </select>
+              </div>
+              <div
+                class="command-toolbar-group command-category-tabs"
+                id="server-command-category-tabs"
+              >
+                <button
+                  class="btn btn-secondary btn-sm command-category-tab is-active"
+                  data-category="ai1-ai2"
+                  type="button"
+                >
+                  AI1-AI2
+                </button>
+                <button
+                  class="btn btn-secondary btn-sm command-category-tab"
+                  data-category="ai0"
+                  type="button"
+                >
+                  AI0
+                </button>
+                <button
+                  class="btn btn-secondary btn-sm command-category-tab"
+                  data-category="us1"
+                  type="button"
+                >
+                  US1
+                </button>
+              </div>
+            </div>
+
+            <div class="command-toolbar-row command-run-row">
+              <input
+                id="server-command-test-args"
+                class="input server-command-input server-command-test-args"
+                type="text"
+                aria-label=""
+                placeholder=""
+                data-shell-i18n-aria-label="app.server.page.testArgsPlaceholder"
+                data-shell-i18n-placeholder="app.server.page.testArgsPlaceholder"
+              />
+              <button
+                id="server-command-run"
+                class="btn btn-primary btn-sm server-command-run"
+                type="button"
+                data-shell-i18n-text="app.server.page.runCommandButton"
+              ></button>
+            </div>
+
+            <div class="command-list" id="server-command-list">
+              <div class="ds-log-empty" data-shell-i18n-text="app.server.page.emptyCategory"></div>
+            </div>
+
+            <div class="command-detail">
+              <label
+                for="server-command-detail"
+                data-shell-i18n-text="app.server.page.commandDetailLabel"
+              ></label>
+              <textarea
+                id="server-command-detail"
+                class="form-input guide-text"
+                rows="8"
+                readonly
+                placeholder=""
+                data-shell-i18n-placeholder="app.server.page.commandDetailPlaceholder"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

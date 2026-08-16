@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "scopes": [
+    {
+      "id": "app",
+      "label": "Hayalet-ev App",
+      "category": "application-code",
+      "enabledByDefault": false,
+      "riskLevel": "high",
+      "requiresColdRestore": true,
+      "restartTargets": ["app"],
+      "include": [
+        "src/**",
+        "electron/**",
+        "package.json",
+        "src/tsconfig.json",
+        "electron/tsconfig.electron.json",
+        "vite.config.*"
+      ],
+      "exclude": [
+        "dist/**",
+        "node_modules/**",
+        ".git/**",
+        "coverage/**",
+        "**/*.log",
+        "**/*.tmp"
+      ]
+    },
+    {
+      "id": "mcp-server",
+      "label": "MCP Server",
+      "category": "application-code",
+      "enabledByDefault": false,
+      "riskLevel": "high",
+      "requiresColdRestore": true,
+      "restartTargets": ["mcp-server"],
+      "include": [
+        "mcp-server/**",
+        "mcp-server/tsconfig.mcp.json",
+        "scripts/sync-mcp-dist.mjs"
+      ],
+      "exclude": [
+        "dist/**",
+        "node_modules/**",
+        ".git/**",
+        "**/*.log",
+        "**/*.tmp"
+      ]
+    },
+    {
+      "id": "ghost-agent",
+      "label": "Ghost Agent",
+      "category": "application-code",
+      "enabledByDefault": false,
+      "riskLevel": "high",
+      "requiresColdRestore": true,
+      "restartTargets": ["ghost-agent"],
+      "include": [
+        "ghost-agent/**",
+        "scripts/ghost-agent-wrapper.mjs",
+        "scripts/build-ghost-agent.mjs"
+      ],
+      "exclude": [
+        "dist/**",
+        "node_modules/**",
+        ".git/**",
+        "**/*.log",
+        "**/*.tmp"
+      ]
+    },
+    {
+      "id": "agents-config",
+      "label": "Agents Config",
+      "category": "configuration",
+      "enabledByDefault": true,
+      "riskLevel": "medium",
+      "requiresColdRestore": false,
+      "restartTargets": [],
+      "include": [
+        "AGENTS.md",
+        ".rovo/**"
+      ],
+      "exclude": [
+        ".rovo/**/*.tmp"
+      ]
+    },
+    {
+      "id": "data",
+      "label": "User Data",
+      "category": "user-data",
+      "enabledByDefault": false,
+      "riskLevel": "very-high",
+      "requiresColdRestore": true,
+      "restartTargets": ["app", "mcp-server", "ghost-agent"],
+      "include": [
+        "data/**"
+      ],
+      "exclude": [
+        "data/**/*.lock",
+        "data/**/*.tmp",
+        "data/**/tmp/**"
+      ]
+    },
+    {
+      "id": "logs",
+      "label": "Logs",
+      "category": "diagnostics",
+      "enabledByDefault": false,
+      "riskLevel": "low",
+      "requiresColdRestore": false,
+      "restartTargets": [],
+      "include": [
+        "logs/**"
+      ],
+      "exclude": [
+        "logs/**/tmp/**"
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "id": "safe-config-backup",
+      "label": "Safe Config Backup",
+      "scopeIds": ["agents-config"]
+    },
+    {
+      "id": "user-state-backup",
+      "label": "User State Backup",
+      "scopeIds": ["data"]
+    },
+    {
+      "id": "runtime-stack-backup",
+      "label": "Runtime Stack Backup",
+      "scopeIds": ["app", "mcp-server", "ghost-agent"]
+    },
+    {
+      "id": "debug-snapshot",
+      "label": "Debug Snapshot",
+      "scopeIds": ["agents-config", "logs"]
+    },
+    {
+      "id": "full-snapshot",
+      "label": "Full Snapshot",
+      "scopeIds": ["app", "mcp-server", "ghost-agent", "agents-config", "data"]
+    }
+  ]
+}

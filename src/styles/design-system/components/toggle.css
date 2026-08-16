@@ -1,0 +1,83 @@
+.ds-toggle,
+.ds-mcp-switch {
+  --ds-toggle-track-w: var(--size-toggle-w);
+  --ds-toggle-track-h: var(--size-toggle-h);
+  --ds-toggle-thumb: var(--size-toggle-thumb);
+  --ds-toggle-offset: var(--size-toggle-offset);
+  --ds-toggle-track-bg: var(--color-error);
+  --ds-toggle-track-border: transparent;
+  --ds-toggle-track-active: var(--color-success);
+  --ds-toggle-track-active-border: transparent;
+  --ds-toggle-thumb-bg: var(--text-inverse);
+
+  position: relative;
+  display: inline-block;
+  width: var(--ds-toggle-track-w);
+  height: var(--ds-toggle-track-h);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ds-toggle input,
+.ds-mcp-switch__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.ds-toggle__slider,
+.ds-mcp-switch__slider {
+  position: absolute;
+  inset: 0;
+  background: var(--ds-toggle-track-bg);
+  border: var(--border-1) solid var(--ds-toggle-track-border);
+  border-radius: var(--radius-full);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.ds-toggle__slider::before,
+.ds-mcp-switch__slider::before {
+  content: "";
+  position: absolute;
+  width: var(--ds-toggle-thumb);
+  height: var(--ds-toggle-thumb);
+  left: var(--ds-toggle-offset);
+  bottom: var(--ds-toggle-offset);
+  background: var(--ds-toggle-thumb-bg);
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.ds-toggle input:checked + .ds-toggle__slider,
+.ds-mcp-switch__input:checked + .ds-mcp-switch__slider {
+  background: var(--ds-toggle-track-active);
+  border-color: var(--ds-toggle-track-active-border);
+}
+
+.ds-toggle input:checked + .ds-toggle__slider::before,
+.ds-mcp-switch__input:checked + .ds-mcp-switch__slider::before {
+  transform: translateX(
+    calc(var(--ds-toggle-track-w) - var(--ds-toggle-thumb) - (var(--ds-toggle-offset) * 2))
+  );
+}
+
+.ds-mcp-switch {
+  --ds-toggle-track-w: var(--size-switch-track-lg-w);
+  --ds-toggle-track-h: var(--size-switch-track-lg-h);
+  --ds-toggle-thumb: var(--size-switch-thumb-lg);
+  --ds-toggle-offset: var(--size-switch-offset-lg);
+  --ds-toggle-track-bg: var(--bg-muted);
+  --ds-toggle-track-border: var(--border-default);
+  --ds-toggle-track-active: var(--color-accent-soft);
+  --ds-toggle-track-active-border: var(--color-accent);
+  --ds-toggle-thumb-bg: var(--text-primary);
+}
+
+.ds-mcp-switch--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

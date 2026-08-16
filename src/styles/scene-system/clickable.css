@@ -1,0 +1,243 @@
+.scene-shell__surface {
+  --scene-clickable-frame-radius-flat: 0.8rem 0.8rem 0.34rem 0.34rem;
+  --scene-clickable-frame-radius-upper: 0.68rem 0.68rem 0.28rem 0.28rem;
+  --scene-clickable-frame-radius-left: 0.58rem 0.76rem 0.28rem 0.34rem;
+  --scene-clickable-frame-radius-right: 0.76rem 0.58rem 0.34rem 0.28rem;
+  --scene-clickable-frame-depth: 18rem;
+  --scene-clickable-frame-inset: -0.4rem;
+  --scene-clickable-frame-border: rgb(255 226 192 / 0.14);
+  --scene-clickable-frame-inner-ring: rgb(255 255 255 / 0.03);
+  --scene-clickable-frame-glow: 0 0 1rem
+    hsl(
+      var(--scene-clickable-hover-glow-hue, 33deg) 72% 70% /
+        calc(var(--scene-clickable-hover-glow-alpha, 0.34) * 0.18)
+    );
+  --scene-clickable-hover-shadow:
+    0 0 1.4rem
+      hsl(
+        var(--scene-clickable-hover-glow-hue, 33deg) 72% 70% /
+          calc(var(--scene-clickable-hover-glow-alpha, 0.34) * 0.72)
+      ),
+    0 0 0.45rem
+      hsl(
+        var(--scene-clickable-hover-glow-hue, 33deg) 80% 72% /
+          calc(var(--scene-clickable-hover-glow-alpha, 0.34) * 1.05)
+      );
+  --scene-clickable-hover-outer-shadow: 0 0 2.2rem
+    hsl(
+      var(--scene-clickable-hover-glow-hue, 33deg) 70% 65% /
+        calc(var(--scene-clickable-hover-glow-alpha, 0.34) * 0.58)
+    );
+  --scene-clickable-shadow-y: 14px;
+  --scene-clickable-shadow-blur: 28px;
+  --scene-clickable-lift: -2px;
+  --scene-clickable-label-pad-y: 0.3rem;
+  --scene-clickable-label-pad-x: 0.72rem;
+  --scene-clickable-label-radius: 999px;
+  --scene-clickable-label-border: rgb(255 225 190 / 0.18);
+  --scene-clickable-label-color: rgb(255 238 214 / 0.94);
+  --scene-clickable-label-bg:
+    linear-gradient(180deg, rgb(50 30 24 / 0.92), rgb(18 10 8 / 0.84)), rgb(18 10 8 / 0.84);
+  --scene-clickable-label-bg-active:
+    linear-gradient(180deg, rgb(62 38 30 / 0.96), rgb(24 14 11 / 0.92)), rgb(24 14 11 / 0.92);
+  --scene-clickable-label-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.02), 0 0.55rem 1.1rem rgb(0 0 0 / 0.24);
+  --scene-clickable-label-active-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.05), 0 0 0.9rem rgb(255 209 143 / 0.18),
+    0 0.7rem 1.4rem rgb(0 0 0 / 0.28);
+  --scene-clickable-label-active-ring: rgb(126 201 255 / 0.28);
+}
+
+.scene-shell__surface .scene-clickable__button {
+  position: absolute;
+  left: var(--scene-clickable-left);
+  top: var(--scene-clickable-top);
+  width: var(--scene-clickable-width);
+  height: var(--scene-clickable-height);
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+  transform: translateY(0);
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    filter var(--duration-normal) var(--ease-out);
+}
+
+.scene-shell__surface .scene-clickable__button::before,
+.scene-shell__surface .scene-clickable__button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--scene-clickable-frame-radius-flat);
+  transition:
+    opacity var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+}
+
+.scene-shell__surface .scene-clickable__button::before {
+  border: 1px solid var(--scene-clickable-frame-border);
+  box-shadow:
+    inset 0 0 0 1px var(--scene-clickable-frame-inner-ring),
+    var(--scene-clickable-frame-glow);
+  opacity: 0.42;
+}
+
+.scene-shell__surface .scene-clickable__button::after {
+  inset: var(--scene-clickable-frame-inset);
+  border: 1px solid transparent;
+  opacity: 0;
+}
+
+.scene-shell__surface .scene-clickable__button[data-frame-variant="upper"]::before,
+.scene-shell__surface .scene-clickable__button[data-frame-variant="upper"]::after {
+  border-radius: var(--scene-clickable-frame-radius-upper);
+}
+
+.scene-shell__surface .scene-clickable__button[data-frame-variant="left-angled"]::before,
+.scene-shell__surface .scene-clickable__button[data-frame-variant="left-angled"]::after {
+  border-radius: var(--scene-clickable-frame-radius-left);
+  transform: perspective(var(--scene-clickable-frame-depth))
+    rotateY(var(--scene-clickable-frame-perspective, 0deg))
+    rotate(var(--scene-clickable-frame-rotate, 0deg)) skewY(1deg);
+  transform-origin: left center;
+}
+
+.scene-shell__surface .scene-clickable__button[data-frame-variant="right-angled"]::before,
+.scene-shell__surface .scene-clickable__button[data-frame-variant="right-angled"]::after {
+  border-radius: var(--scene-clickable-frame-radius-right);
+  transform: perspective(var(--scene-clickable-frame-depth))
+    rotateY(var(--scene-clickable-frame-perspective, 0deg))
+    rotate(var(--scene-clickable-frame-rotate, 0deg)) skewY(-1deg);
+  transform-origin: right center;
+}
+
+.scene-shell__surface .scene-clickable__button[data-frame-variant="flat"]::before,
+.scene-shell__surface .scene-clickable__button[data-frame-variant="flat"]::after,
+.scene-shell__surface .scene-clickable__button[data-frame-variant="upper"]::before,
+.scene-shell__surface .scene-clickable__button[data-frame-variant="upper"]::after,
+.scene-shell__surface .scene-clickable__button--back::before,
+.scene-shell__surface .scene-clickable__button--back::after {
+  transform: perspective(var(--scene-clickable-frame-depth))
+    rotateY(var(--scene-clickable-frame-perspective, 0deg))
+    rotate(var(--scene-clickable-frame-rotate, 0deg));
+  transform-origin: center center;
+}
+
+.scene-shell__surface .scene-clickable__button:is(:hover, :focus-visible, .is-selected) {
+  transform: translateY(var(--scene-clickable-lift));
+  filter: drop-shadow(
+    0 var(--scene-clickable-shadow-y) var(--scene-clickable-shadow-blur) rgb(0 0 0 / 0.18)
+  );
+}
+
+.scene-shell__surface .scene-clickable__button:is(:hover, :focus-visible, .is-selected)::before {
+  opacity: 1;
+  border-color: transparent;
+  box-shadow: var(--scene-clickable-hover-shadow);
+}
+
+.scene-shell__surface .scene-clickable__button:is(:hover, :focus-visible, .is-selected)::after {
+  opacity: 1;
+  box-shadow: var(--scene-clickable-hover-outer-shadow);
+}
+
+.scene-shell__surface .scene-clickable__label {
+  position: absolute;
+  left: var(--scene-clickable-label-left);
+  top: var(--scene-clickable-label-top);
+  width: var(--scene-clickable-label-width);
+  height: var(--scene-clickable-label-height, auto);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--scene-clickable-label-pad-y) var(--scene-clickable-label-pad-x);
+  border: 1px solid var(--scene-clickable-label-border);
+  border-radius: var(--scene-clickable-label-radius);
+  background: var(--scene-clickable-label-bg);
+  color: var(--scene-clickable-label-color);
+  font-family: var(--scene-clickable-label-font-family, var(--font-scene-display));
+  font-size: var(--scene-clickable-label-font-size, var(--scene-rem-0-95, 0.95rem));
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--scene-clickable-label-letter-spacing, 0.08em);
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+  text-wrap: balance;
+  box-shadow: var(--scene-clickable-label-shadow);
+  backdrop-filter: blur(6px);
+  opacity: 0.88;
+  pointer-events: none;
+  transform: translateX(-50%) rotate(var(--scene-clickable-label-rotate, 0deg));
+  transition:
+    opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    background var(--duration-normal) var(--ease-out);
+}
+
+.scene-shell__surface .scene-clickable__label[data-clickable="true"] {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.scene-shell__surface
+  .scene-clickable__button:is(:hover, :focus-visible, .is-selected)
+  + .scene-clickable__label,
+.scene-shell__surface
+  .scene-clickable__button:is(:hover, :focus-visible, .is-selected)
+  .scene-clickable__label,
+.scene-shell__surface .scene-clickable__label.is-selected,
+.scene-shell__surface .scene-clickable__label[data-clickable="true"]:is(:hover, :focus-visible) {
+  opacity: 1;
+  background: var(--scene-clickable-label-bg-active);
+  box-shadow:
+    var(--scene-clickable-label-active-shadow),
+    0 0 0 1px var(--scene-clickable-label-active-ring);
+  transform: translateX(-50%) translateY(-1px) rotate(var(--scene-clickable-label-rotate, 0deg));
+}
+
+.scene-shell__surface .scene-clickable__button--back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-2);
+  background:
+    linear-gradient(
+      90deg,
+      hsl(
+        var(--scene-clickable-hover-glow-hue, 33deg) 92% 72% /
+          calc(var(--scene-clickable-hover-glow-alpha, 0.34) * 0.14)
+      ),
+      transparent
+    ),
+    transparent;
+}
+
+.scene-shell__surface .scene-clickable__arrow {
+  margin-left: clamp(0.9rem, 1.6vw, 1.4rem);
+  color: rgb(255 231 196 / 0.92);
+  opacity: 0.76;
+  transition:
+    opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+}
+
+.scene-shell__surface .scene-clickable__button--back .scene-clickable__label {
+  justify-content: flex-start;
+}
+
+.scene-shell__surface
+  .scene-clickable__button--back:is(:hover, :focus-visible)
+  .scene-clickable__arrow {
+  opacity: 1;
+  transform: translateX(var(--scene-clickable-back-arrow-shift, 0.2rem));
+}

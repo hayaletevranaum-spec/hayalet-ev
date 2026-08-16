@@ -1,0 +1,231 @@
+{
+  "title": "Game Room",
+  "subtitle": "Focused table game room for direct matches with live AI slots or the connected US1 remote user.",
+  "features": {
+    "backgammon": "Tavla",
+    "team-tetris": "Team Tetris"
+  },
+  "backgammon": {
+    "heroBadge": "Game Room",
+    "heroTitle": "Tavla Match Table",
+    "heroSubtitle": "Pick AI1, AI2, or US1, choose who starts, and play a turn-based Tavla match with legal move commands.",
+    "topbar": {
+      "featureLabel": "Main Function",
+      "opponentLabel": "Opponent",
+      "starterLabel": "Starter",
+      "starterUser": "User Starts",
+      "starterAi": "AI Starts",
+      "starterRemote": "Remote Starts",
+      "start": "Start Match",
+      "sendInvite": "Send Invite",
+      "reset": "Reset Match",
+      "inviteMessageLabel": "Invite Message",
+      "inviteMessagePlaceholder": "Add an optional note for the protocol or the remote invite mail.",
+      "inviteMessageHintAi": "When AI1 or AI2 is selected, this note is prepended only to the first protocol message.",
+      "inviteMessageHintUs1": "When US1 is selected, this note is sent only in the invite mail."
+    },
+    "board": {
+      "title": "Board",
+      "statusLabel": "Match Status",
+      "turnLabel": "Turn",
+      "resultLabel": "Result",
+      "diceLabel": "Dice",
+      "barLabel": "Bar",
+      "offLabel": "Off",
+      "legalMovesLabel": "Legal Moves",
+      "fallbackMovesLabel": "Fallback Moves",
+      "fallbackMovesHint": "Drag checkers on the board; these buttons stay as a compact fallback.",
+      "moreMoves": "more moves",
+      "noMoves": "No legal moves for this turn.",
+      "dragHint": "Drag a checker to a highlighted point.",
+      "dragActiveHint": "Complete the staged move.",
+      "opponentThinking": "Opponent is choosing a move.",
+      "stageIdle": "Start a match to open the board.",
+      "stageFallback": "Visual board engine is loading.",
+      "passMove": "Pass",
+      "undoStage": "Undo",
+      "targetCount": "targets",
+      "noTargetCount": "no target"
+    },
+    "side": {
+      "title": "Live Opponents",
+      "protocolTitle": "Protocol Rules",
+      "controlsTitle": "How It Works",
+      "commandHint": "AI reply format: ++cmd:SlotBridge({\"action\":\"room.command\",\"payload\":{\"commandName\":\"GameRoomBackgammonAiMove\",\"legalMoveId\":\"move_id\",\"turnToken\":\"token\"}})",
+      "latestMessageHint": "Only the latest assistant message is scanned for commands.",
+      "help1": "1. Choose a connected AI slot and decide who opens the match.",
+      "help2": "2. When it is your turn, choose one legal move.",
+      "help3": "3. Every AI turn receives dice, board state, token, and legal move ids."
+    },
+    "status": {
+      "roomApiUnavailable": "Room API bridge is not connected.",
+      "commandSendFailed": "The command could not be sent to the room host.",
+      "idle": "Choose a ready opponent or respond to an incoming invite."
+    },
+    "results": {
+      "idle": "Ready",
+      "pending": "In Progress",
+      "blocked": "Blocked",
+      "user-win": "User Won",
+      "ai-win": "AI Won",
+      "draw": "Draw"
+    },
+    "turns": {
+      "user": "User",
+      "ai": "Opponent",
+      "idle": "Waiting"
+    },
+    "slotState": {
+      "ready": "Ready",
+      "disconnected": "Disconnected",
+      "assigned": "Assigned",
+      "empty": "No Account"
+    },
+    "invites": {
+      "title": "Invites",
+      "incomingTab": "Incoming",
+      "outgoingTab": "Outgoing",
+      "empty": "No incoming invites right now.",
+      "outgoingEmpty": "No outgoing invites right now.",
+      "accept": "Accept",
+      "reject": "Reject",
+      "cancel": "Cancel Invite",
+      "pendingOutgoing": "Invite sent. Waiting for a reply.",
+      "messageFallback": "No invite message was included.",
+      "starterUser": "You start",
+      "starterRemote": "Remote starts"
+    },
+    "history": {
+      "title": "Match History",
+      "empty": "No completed matches yet.",
+      "win": "You Won",
+      "loss": "You Lost",
+      "draw": "Draw"
+    },
+    "matchup": {
+      "vs": "VS",
+      "turnYours": "Your turn",
+      "turnTheirs": "Opponent playing"
+    }
+  },
+  "teamTetris": {
+    "heroBadge": "Game Room",
+    "heroTitle": "Team Tetris Table",
+    "heroSubtitle": "A four-seat, turn-based deduction Tetris match for the local user, AI1, AI2, and the connected US1 remote user.",
+    "controls": {
+      "featureLabel": "Main Function",
+      "requirementsLabel": "Start Gate",
+      "hiddenPairsLabel": "Hidden Pairs",
+      "hiddenPairsOn": "Hidden until game over",
+      "hiddenPairsOff": "Choose pairs",
+      "partnerLabel": "Choose the local partner",
+      "partnerPreviewTitle": "Pairing Preview",
+      "partnerPending": "Pick one teammate before the match starts.",
+      "partnerHint": "The chosen seat joins USER. The remaining two seats become the other team.",
+      "start": "Start Match",
+      "reset": "Reset Match",
+      "startHint": "The match starts only when AI1, AI2, and US1 are ready. If pairs are visible from the start, the local partner must be selected first.",
+      "requirementReady": "Ready",
+      "requirementWaiting": "Waiting",
+      "awaitingTurn": "Waiting for the local user's turn packet.",
+      "pathHint": "Rotate the piece, then draw the fall and side-shift route you expect to work.",
+      "pathReady": "The visible-board route is ready. After your last planned step, the piece continues straight down on its own.",
+      "rotate": "Rotate CW",
+      "clearPath": "Clear Path",
+      "submitMove": "Submit Move",
+      "rotationLabel": "Current Piece",
+      "rotationShort": "Rot",
+      "pathEmpty": "No path yet",
+      "pathLegend": "Path Rule",
+      "pathRule": "Each downward step may shift left 1, stay, or shift right 1. If the route is blocked early, the piece stays there; if the route ends with open air below, it keeps falling straight down."
+    },
+    "boards": {
+      "teamA": "Team A Board",
+      "teamB": "Team B Board",
+      "privateBoard": "Own Team View",
+      "publicBoard": "Opponent Public View",
+      "empty": "Board is empty",
+      "seedLabel": "Deterministic setup",
+      "beforePartner": "Board Before Partner Piece",
+      "partnerPiece": "Partner Last Piece",
+      "currentPiece": "Your Current Piece",
+      "emptyPiece": "No piece to show.",
+      "noPartnerPiece": "No partner piece has been locked yet.",
+      "publicSummary": "Opponent Snapshot",
+      "publicHint": "The opposing team board only shows the latest public state."
+    },
+    "status": {
+      "roomApiUnavailable": "Room API bridge is not connected.",
+      "commandSendFailed": "The command could not be sent to the room host.",
+      "idle": "Waiting for AI1, AI2, and US1 before Team Tetris can start.",
+      "ready": "All required seats are ready. The Team Tetris opener can be seeded.",
+      "activeFeatureReset": "Leaving the Team Tetris feature resets the active Team Tetris match.",
+      "blocked": "This Team Tetris match is blocked. Reset to recover.",
+      "yourTurn": "Your turn. Rotate the piece, draw the route you expect, and submit the move.",
+      "partnerTurnHidden": "Your teammate is acting, but the hidden pairing keeps their identity concealed for now.",
+      "partnerTurn": "Your teammate is acting on your board.",
+      "opponentTurn": "The opposing team is taking its turn.",
+      "team-a-win": "Team A survived longer and won the match.",
+      "team-b-win": "Team B survived longer and won the match.",
+      "draw": "Both teams topped out together. The match ends in a draw."
+    },
+    "results": {
+      "idle": "Waiting",
+      "pending": "Live",
+      "blocked": "Blocked",
+      "team-a-win": "Team A Wins",
+      "team-b-win": "Team B Wins",
+      "draw": "Draw"
+    },
+    "turns": {
+      "idle": "No active turn",
+      "you": "You",
+      "opponent": "Opponent Pair"
+    },
+    "roles": {
+      "opener": "Opener",
+      "followup": "Follow-Up"
+    },
+    "roster": {
+      "title": "Seat View",
+      "youLabel": "Local Seat",
+      "partnerLabel": "Partner",
+      "partnerUnknown": "Partner hidden",
+      "partnerOpener": "Hidden opener",
+      "partnerFollowup": "Hidden follow-up",
+      "pairStatusTitle": "Pair Status",
+      "hiddenHint": "Pair identities stay hidden until the match ends.",
+      "revealedHint": "Pair identities are now visible for both teams."
+    },
+    "metrics": {
+      "turnLabel": "Acting Seat",
+      "resultLabel": "Match State",
+      "roleLabel": "Local Role",
+      "draftLabel": "Draft Shifts"
+    },
+    "stage": {
+      "positioningLabel": "Stage 1: Position",
+      "routeLabel": "Stage 2: Route",
+      "noPiece": "Waiting for your turn...",
+      "moveLeft": "Left",
+      "moveRight": "Right",
+      "rotateCw": "CW",
+      "rotateCcw": "CCW",
+      "confirmPosition": "Confirm Position",
+      "backToPosition": "Back to Position",
+      "routeTitle": "Route Mode",
+      "routeStraight": "Straight",
+      "routeBendLeft": "Bend Left",
+      "routeBendRight": "Bend Right",
+      "bendRowLabel": "Bend Row"
+    },
+    "validation": {
+      "invalidRotation": "This rotation is not legal for the current piece.",
+      "invalidRowShifts": "The drawn path contains an illegal sideways step.",
+      "spawnCollision": "The piece cannot spawn on the current board.",
+      "horizontalCollision": "The drafted route hits a filled cell on the visible board while shifting sideways.",
+      "downwardCollision": "The drafted route hits a filled cell on the visible board while moving down.",
+      "incompletePath": "If the route ends here, the piece finishes the remaining fall straight down."
+    }
+  }
+}

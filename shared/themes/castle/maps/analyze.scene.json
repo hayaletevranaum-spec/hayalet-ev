@@ -1,0 +1,224 @@
+{
+  "characterRosterPreset": "connected-plus-user",
+  "referenceSize": {
+    "width": 1920,
+    "height": 1080
+  },
+  "objects": [
+    {
+      "id": "door-entrance",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "navigate",
+        "page": "entrance"
+      },
+      "rect": {
+        "leftPx": 842,
+        "topPx": 286,
+        "widthPx": 240,
+        "heightPx": 328
+      },
+      "frame": {
+        "variant": "flat",
+        "rotateDeg": 0,
+        "perspectiveDeg": 0,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "sideNav.entranceLabel",
+        "customText": "Entrance",
+        "centerXPx": 962,
+        "topPx": 244,
+        "widthPx": 280,
+        "heightPx": 42,
+        "rotateDeg": 0,
+        "fontSizePx": 22,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "screen-primary",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "screen",
+        "screen": "primary"
+      },
+      "rect": {
+        "leftPx": 644,
+        "topPx": 654,
+        "widthPx": 632,
+        "heightPx": 246
+      },
+      "frame": {
+        "variant": "flat",
+        "rotateDeg": 0,
+        "perspectiveDeg": 0,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "",
+        "customText": "Open table",
+        "centerXPx": 960,
+        "topPx": 616,
+        "widthPx": 300,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 22,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "screen-archive",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "screen",
+        "screen": "archive"
+      },
+      "rect": {
+        "leftPx": 1540,
+        "topPx": 206,
+        "widthPx": 308,
+        "heightPx": 440
+      },
+      "frame": {
+        "variant": "right-angled",
+        "rotateDeg": 1.5,
+        "perspectiveDeg": -12,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "",
+        "customText": "Open archive",
+        "centerXPx": 1694,
+        "topPx": 164,
+        "widthPx": 260,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 22,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": -8
+      }
+    }
+  ],
+  "backs": [
+    {
+      "id": "back-table",
+      "kind": "back",
+      "viewId": "table",
+      "action": {
+        "type": "back",
+        "target": "room"
+      },
+      "rect": {
+        "leftPx": 0,
+        "topPx": 0,
+        "widthPx": 116,
+        "heightPx": 1080
+      },
+      "glow": {
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "settingsHub.scene.returnRoom",
+        "centerXPx": 58,
+        "topPx": 490,
+        "widthPx": 180,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 18,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "back-archive",
+      "kind": "back",
+      "viewId": "archive",
+      "action": {
+        "type": "back",
+        "target": "room"
+      },
+      "rect": {
+        "leftPx": 0,
+        "topPx": 0,
+        "widthPx": 116,
+        "heightPx": 1080
+      },
+      "glow": {
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "settingsHub.scene.returnRoom",
+        "centerXPx": 58,
+        "topPx": 490,
+        "widthPx": 180,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 18,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    }
+  ],
+  "characters": [
+    {
+      "id": "anchor-user",
+      "kind": "character",
+      "characterKind": "user",
+      "leftPx": 482,
+      "bottomPx": 102,
+      "scale": 0.88,
+      "depth": 2
+    },
+    {
+      "id": "anchor-ai1-primary",
+      "kind": "character",
+      "characterKind": "ai",
+      "preferredSlot": "ai1",
+      "leftPx": 768,
+      "bottomPx": 130,
+      "scale": 0.8,
+      "depth": 3
+    },
+    {
+      "id": "anchor-us1",
+      "kind": "character",
+      "characterKind": "us1",
+      "preferredSlot": "us1",
+      "leftPx": 1046,
+      "bottomPx": 112,
+      "scale": 0.8,
+      "depth": 4
+    },
+    {
+      "id": "anchor-ai2-primary",
+      "kind": "character",
+      "characterKind": "ai",
+      "preferredSlot": "ai2",
+      "leftPx": 1326,
+      "bottomPx": 128,
+      "scale": 0.82,
+      "depth": 5
+    }
+  ]
+}

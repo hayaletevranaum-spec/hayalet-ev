@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hayalet Ev LLM</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #1a1a2e;
+        color: #e0e0e0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      #header {
+        background: #16213e;
+        padding: 10px 16px;
+        border-bottom: 1px solid #0f3460;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      #header h1 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #e94560;
+      }
+      #model-select {
+        background: #0f3460;
+        color: #e0e0e0;
+        border: 1px solid #533483;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      #status {
+        font-size: 12px;
+        color: #888;
+        margin-left: auto;
+      }
+      #messages-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .message {
+        max-width: 80%;
+        padding: 10px 14px;
+        border-radius: 12px;
+        line-height: 1.5;
+        font-size: 14px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .message[data-role="user"] {
+        align-self: flex-end;
+        background: #0f3460;
+        border-bottom-right-radius: 4px;
+      }
+      .message[data-role="assistant"] {
+        align-self: flex-start;
+        background: #16213e;
+        border-bottom-left-radius: 4px;
+      }
+      .message[data-role="system"] {
+        align-self: center;
+        background: transparent;
+        color: #888;
+        font-size: 12px;
+        max-width: 100%;
+        text-align: center;
+      }
+      #input-area {
+        background: #16213e;
+        padding: 12px 16px;
+        border-top: 1px solid #0f3460;
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+      }
+      #input-field {
+        flex: 1;
+        background: #0f3460;
+        color: #e0e0e0;
+        border: 1px solid #533483;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 14px;
+        font-family: inherit;
+        resize: none;
+        min-height: 42px;
+        max-height: 150px;
+        outline: none;
+      }
+      #input-field:focus {
+        border-color: #e94560;
+      }
+      #input-field::placeholder {
+        color: #666;
+      }
+      #send-button,
+      #stop-button {
+        background: #e94560;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      #send-button:hover {
+        background: #c73652;
+      }
+      #send-button:disabled {
+        background: #555;
+        cursor: not-allowed;
+      }
+      #stop-button {
+        background: #555;
+        display: none;
+      }
+      #stop-button:hover {
+        background: #777;
+      }
+      #stop-button.visible {
+        display: inline-block;
+      }
+      #send-button.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Hayalet Ev LLM</h1>
+      <select id="model-select"></select>
+      <span id="status">hazır</span>
+    </div>
+    <div id="messages-container"></div>
+    <div id="input-area">
+      <textarea id="input-field" placeholder="Mesajınızı yazın..." rows="1"></textarea>
+      <button id="send-button" disabled>Gönder</button>
+      <button id="stop-button">Durdur</button>
+    </div>
+    <script>
+      const OLLAMA_URL = "http://localhost:11434";
+      const SESSION_PARAM = "session";
+      const SESSION_STORAGE_PREFIX = "hayalet-ev-llm-session:";
+      const SESSION_INDEX_KEY = "hayalet-ev-llm-session-index";
+      const messagesContainer = document.getElementById("messages-container");
+      const inputField = document.getElementById("input-field");
+      const sendButton = document.getElementById("send-button");
+      const stopButton = document.getElementById("stop-button");
+      const modelSelect = document.getElementById("model-select");
+      const statusEl = document.getElementById("status");
+      let sessionId = "";
+      let sessionMessages = [];
+      let currentAbortController = null;
+      let messageIndex = 0;
+      let modelsReady = false;
+
+      function createSessionId() {
+        if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+          return "llm-" + crypto.randomUUID();
+        }
+        return "llm-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+      }
+
+      function ensureSessionId() {
+        const url = new URL(window.location.href);
+        const current = url.searchParams.get(SESSION_PARAM);
+        const next = current && current.trim() ? current.trim() : createSessionId();
+        if (current !== next) {
+          url.searchParams.set(SESSION_PARAM, next);
+          window.history.replaceState({}, "", url.toString());
+        }
+        document.body.dataset.llmSessionId = next;
+        return next;
+      }
+
+      function getSessionStorageKey() {
+        return SESSION_STORAGE_PREFIX + sessionId;
+      }
+
+      function readJson(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch (_) {
+          return fallback;
+        }
+      }
+
+      function writeJson(key, value) {
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+        } catch (_) {}
+      }
+
+      function rememberSession() {
+        const firstUserMessage = sessionMessages.find(
+          (message) =>
+            message.role === "user" &&
+            typeof message.text === "string" &&
+            message.text.trim() !== ""
+        );
+        const title = firstUserMessage ? firstUserMessage.text.trim().slice(0, 80) : "LLM Session";
+        const index = readJson(SESSION_INDEX_KEY, {});
+        index[sessionId] = {
+          id: sessionId,
+          title,
+          updatedAt: Date.now(),
+        };
+        writeJson(SESSION_INDEX_KEY, index);
+      }
+
+      function persistSession() {
+        writeJson(getSessionStorageKey(), {
+          id: sessionId,
+          model: modelSelect.value,
+          messages: sessionMessages,
+          updatedAt: Date.now(),
+        });
+        rememberSession();
+      }
+
+      function restoreSession() {
+        const stored = readJson(getSessionStorageKey(), null);
+        sessionMessages = Array.isArray(stored?.messages)
+          ? stored.messages.filter((message) => {
+              return (
+                message && typeof message.role === "string" && typeof message.text === "string"
+              );
+            })
+          : [];
+        messagesContainer.innerHTML = "";
+        messageIndex = 0;
+        sessionMessages.forEach((message, index) => {
+          renderMessage(message, index);
+        });
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function updateSendButtonState() {
+        sendButton.disabled =
+          !modelsReady || currentAbortController !== null || inputField.value.trim() === "";
+      }
+
+      async function loadModels() {
+        try {
+          const res = await fetch(OLLAMA_URL + "/api/tags");
+          const data = await res.json();
+          modelSelect.innerHTML = "";
+          if (data.models && data.models.length > 0) {
+            data.models.forEach((m) => {
+              const opt = document.createElement("option");
+              opt.value = m.name;
+              opt.textContent = m.name;
+              modelSelect.appendChild(opt);
+            });
+            if (typeof readJson(getSessionStorageKey(), null)?.model === "string") {
+              modelSelect.value = readJson(getSessionStorageKey(), null).model;
+            }
+            statusEl.textContent = "hazır";
+            modelsReady = true;
+          } else {
+            statusEl.textContent = "model yok";
+            modelsReady = false;
+          }
+          updateSendButtonState();
+        } catch (e) {
+          statusEl.textContent = "bağlantı yok";
+          modelsReady = false;
+          updateSendButtonState();
+          setTimeout(loadModels, 3000);
+        }
+      }
+
+      function createMessage(role, text) {
+        return {
+          id: sessionId + "-" + messageIndex.toString().padStart(4, "0"),
+          role,
+          text,
+          createdAt: Date.now(),
+        };
+      }
+
+      function renderMessage(message, index) {
+        const div = document.createElement("div");
+        div.className = "message";
+        div.setAttribute("data-role", message.role);
+        div.setAttribute("data-message-author-role", message.role);
+        div.setAttribute("data-message-index", String(index));
+        div.setAttribute("data-message-id", message.id || sessionId + "-" + String(index));
+        div.setAttribute("data-llm-session-id", sessionId);
+        div.textContent = message.text;
+        messagesContainer.appendChild(div);
+        messageIndex = Math.max(messageIndex, index + 1);
+        return div;
+      }
+
+      function addMessage(role, text) {
+        const message = createMessage(role, text);
+        sessionMessages.push(message);
+        const div = renderMessage(message, sessionMessages.length - 1);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        persistSession();
+        return div;
+      }
+
+      function updateMessage(div, text) {
+        const index = Number(div.dataset.messageIndex);
+        if (Number.isInteger(index) && sessionMessages[index]) {
+          sessionMessages[index].text = text;
+        }
+        div.textContent = text;
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function setStreaming(isStreaming) {
+        if (isStreaming) {
+          sendButton.classList.add("hidden");
+          stopButton.classList.add("visible");
+          sendButton.disabled = true;
+          inputField.disabled = true;
+          statusEl.textContent = "yanıtlıyor...";
+        } else {
+          sendButton.classList.remove("hidden");
+          stopButton.classList.remove("visible");
+          inputField.disabled = false;
+          statusEl.textContent = "hazır";
+          inputField.focus();
+          updateSendButtonState();
+        }
+      }
+
+      async function sendMessage() {
+        const text = inputField.value.trim();
+        if (!text || currentAbortController) return;
+        if (sendButton.disabled) return;
+        const model = modelSelect.value;
+        if (!model) {
+          addMessage("system", "Model seçilmedi. Lütfen bir model yükleyin.");
+          return;
+        }
+        inputField.value = "";
+        inputField.style.height = "auto";
+        updateSendButtonState();
+        addMessage("user", text);
+        const assistantDiv = addMessage("assistant", "");
+        const chatMessages = sessionMessages
+          .filter((message) => {
+            return (
+              (message.role === "user" || message.role === "assistant") &&
+              message.text.trim() !== ""
+            );
+          })
+          .map((message) => ({ role: message.role, content: message.text }));
+        setStreaming(true);
+        currentAbortController = new AbortController();
+        try {
+          const res = await fetch(OLLAMA_URL + "/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              model: model,
+              messages: chatMessages,
+              stream: true,
+            }),
+            signal: currentAbortController.signal,
+          });
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let fullText = "";
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            const chunk = decoder.decode(value, { stream: true });
+            const lines = chunk.split("\n");
+            for (const line of lines) {
+              if (!line.trim()) continue;
+              try {
+                const json = JSON.parse(line);
+                if (json.message && json.message.content) {
+                  fullText += json.message.content;
+                  updateMessage(assistantDiv, fullText);
+                }
+              } catch (e) {}
+            }
+          }
+          if (!fullText) updateMessage(assistantDiv, "(boş yanıt)");
+        } catch (e) {
+          if (e.name === "AbortError") {
+            updateMessage(assistantDiv, assistantDiv.textContent || "(durduruldu)");
+          } else {
+            updateMessage(assistantDiv, "Hata: " + e.message);
+          }
+        }
+        currentAbortController = null;
+        persistSession();
+        setStreaming(false);
+      }
+
+      function stopStreaming() {
+        if (currentAbortController) {
+          currentAbortController.abort();
+          currentAbortController = null;
+          setStreaming(false);
+        }
+      }
+
+      inputField.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+      inputField.addEventListener("input", () => {
+        inputField.style.height = "auto";
+        inputField.style.height = Math.min(inputField.scrollHeight, 150) + "px";
+        updateSendButtonState();
+      });
+      sendButton.addEventListener("click", sendMessage);
+      stopButton.addEventListener("click", stopStreaming);
+      modelSelect.addEventListener("change", persistSession);
+      sessionId = ensureSessionId();
+      restoreSession();
+      loadModels();
+    </script>
+  </body>
+</html>

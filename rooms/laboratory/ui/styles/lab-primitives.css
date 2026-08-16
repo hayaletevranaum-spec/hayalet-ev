@@ -1,0 +1,495 @@
+/* Laboratory UI component primitives.
+ *
+ * Shared primitive classes:
+ *   .labx-btn (primary/secondary/ghost/icon/danger + xs/sm/md/lg)
+ *   .labx-card (flat/elevated/accent + header/title/eyebrow/body/footer)
+ *   .labx-pill (accent/success/warning/danger/info)
+ *   .labx-badge (default + dot + status variants)
+ *   .labx-input / .labx-select / .labx-textarea
+ *   utility: .lab-mono, .lab-tnum, .lab-eyebrow, .lab-heading, .lab-meta
+ *
+ * Primitives consume tokens from lab-tokens.css.
+ * Existing ad-hoc controls can migrate here in small, selector-safe passes.
+ */
+
+/* Button primitive. */
+
+.labx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lab-space-1_5);
+  min-height: var(--lab-primitives-rem-1-85);
+  padding: var(--lab-space-1) var(--lab-space-3);
+  border: var(--lab-primitives-px-1) solid transparent;
+  border-radius: var(--lab-radius-sm);
+  background: transparent;
+  color: var(--lab-text-default);
+  font-family: inherit;
+  font-size: var(--lab-text-sm);
+  font-weight: var(--lab-weight-medium);
+  letter-spacing: var(--lab-tracking-normal);
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background var(--lab-duration-base) var(--lab-ease-out),
+    border-color var(--lab-duration-base) var(--lab-ease-out),
+    color var(--lab-duration-base) var(--lab-ease-out),
+    box-shadow var(--lab-duration-base) var(--lab-ease-out);
+}
+
+.labx-btn:focus-visible {
+  outline: var(--lab-primitives-px-2) solid var(--lab-accent);
+  outline-offset: var(--lab-primitives-px-2);
+}
+
+.labx-btn:disabled,
+.labx-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Sizes. */
+
+.labx-btn--xs {
+  min-height: var(--lab-primitives-rem-1-5);
+  padding: var(--lab-space-0_5) var(--lab-space-2);
+  font-size: var(--lab-text-xs);
+}
+
+.labx-btn--sm {
+  min-height: var(--lab-primitives-rem-1-7);
+  padding: var(--lab-space-1) var(--lab-space-2_5);
+}
+
+.labx-btn--md {
+  min-height: var(--lab-primitives-rem-1-85);
+  padding: var(--lab-space-1) var(--lab-space-3);
+}
+
+.labx-btn--lg {
+  min-height: var(--lab-primitives-rem-2-25);
+  padding: var(--lab-space-1_5) var(--lab-space-4);
+  font-size: var(--lab-text-base);
+}
+
+/* Variants. */
+
+.labx-btn--primary {
+  background: var(--lab-accent-bg-strong);
+  border-color: var(--lab-border-accent);
+  color: var(--lab-accent-strong);
+}
+
+.labx-btn--primary:hover:not(:disabled),
+.labx-btn--primary:focus-visible:not(:disabled) {
+  background: var(--lab-primitives-color-01);
+  border-color: var(--lab-primitives-color-02);
+  color: var(--lab-text-strong);
+}
+
+.labx-btn--secondary {
+  background: var(--lab-primitives-color-03);
+  border-color: var(--lab-border-default);
+  color: var(--lab-text-soft);
+}
+
+.labx-btn--secondary:hover:not(:disabled),
+.labx-btn--secondary:focus-visible:not(:disabled) {
+  background: var(--lab-primitives-color-04);
+  border-color: var(--lab-border-strong);
+  color: var(--lab-text-default);
+}
+
+.labx-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--lab-text-soft);
+}
+
+.labx-btn--ghost:hover:not(:disabled),
+.labx-btn--ghost:focus-visible:not(:disabled) {
+  background: var(--lab-primitives-color-05);
+  color: var(--lab-text-default);
+}
+
+.labx-btn--icon {
+  width: var(--lab-primitives-rem-1-85);
+  min-height: var(--lab-primitives-rem-1-85);
+  padding: 0;
+  border-radius: var(--lab-radius-sm);
+  background: transparent;
+  color: var(--lab-text-soft);
+}
+
+.labx-btn--icon:hover:not(:disabled),
+.labx-btn--icon:focus-visible:not(:disabled) {
+  background: var(--lab-primitives-color-06);
+  color: var(--lab-text-default);
+}
+
+.labx-btn--danger {
+  background: var(--lab-error-soft);
+  border-color: var(--lab-primitives-color-07);
+  color: var(--lab-error);
+}
+
+.labx-btn--danger:hover:not(:disabled) {
+  background: var(--lab-primitives-color-08);
+  border-color: var(--lab-primitives-color-09);
+}
+
+.labx-btn[data-pressed="true"],
+.labx-btn[aria-pressed="true"] {
+  background: var(--lab-accent-bg);
+  border-color: var(--lab-border-accent);
+  color: var(--lab-accent-strong);
+}
+
+/* Card primitive. */
+
+.labx-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lab-space-2);
+  padding: var(--lab-space-3);
+  border: var(--lab-primitives-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-lg);
+  background: var(--lab-surface-2);
+  box-shadow: var(--lab-shadow-sm);
+}
+
+.labx-card--flat {
+  box-shadow: none;
+  background: var(--lab-surface-1);
+}
+
+.labx-card--elevated {
+  background: var(--lab-surface-3);
+  box-shadow: var(--lab-shadow-md);
+}
+
+.labx-card--accent {
+  border-color: var(--lab-border-accent);
+  background:
+    linear-gradient(180deg, var(--lab-primitives-color-10), transparent 40%), var(--lab-surface-2);
+}
+
+.labx-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lab-space-2);
+}
+
+.labx-card__title {
+  margin: 0;
+  font-size: var(--lab-text-md);
+  font-weight: var(--lab-weight-semibold);
+  color: var(--lab-text-strong);
+  line-height: var(--lab-leading-snug);
+}
+
+.labx-card__eyebrow {
+  font-size: var(--lab-text-xs);
+  font-weight: var(--lab-weight-semibold);
+  letter-spacing: var(--lab-tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--lab-text-dim);
+}
+
+.labx-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lab-space-2);
+}
+
+.labx-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--lab-space-2);
+  padding-top: var(--lab-space-2);
+  border-top: var(--lab-primitives-px-1) solid var(--lab-border-subtle);
+}
+
+/* Pill primitive. */
+
+.labx-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lab-space-1);
+  min-height: var(--lab-primitives-rem-1-4);
+  padding: var(--lab-space-0_5) var(--lab-space-2);
+  border: var(--lab-primitives-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-pill);
+  background: var(--lab-primitives-color-03);
+  color: var(--lab-text-soft);
+  font-size: var(--lab-text-xs);
+  font-weight: var(--lab-weight-medium);
+  letter-spacing: var(--lab-tracking-wide);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.labx-pill--accent {
+  border-color: var(--lab-border-accent);
+  background: var(--lab-accent-bg);
+  color: var(--lab-accent);
+}
+
+.labx-pill--success {
+  border-color: var(--lab-primitives-color-11);
+  background: var(--lab-success-soft);
+  color: var(--lab-success);
+}
+
+.labx-pill--warning {
+  border-color: var(--lab-primitives-color-12);
+  background: var(--lab-warning-soft);
+  color: var(--lab-warning);
+}
+
+.labx-pill--danger {
+  border-color: var(--lab-primitives-color-07);
+  background: var(--lab-error-soft);
+  color: var(--lab-error);
+}
+
+.labx-pill--info {
+  border-color: var(--lab-primitives-color-13);
+  background: var(--lab-info-soft);
+  color: var(--lab-info);
+}
+
+/* Badge primitive. */
+
+.labx-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--lab-primitives-rem-1-2);
+  height: var(--lab-primitives-rem-1-2);
+  padding: 0 var(--lab-space-1);
+  border-radius: var(--lab-radius-pill);
+  background: var(--lab-accent-bg-strong);
+  color: var(--lab-accent);
+  font-size: var(--lab-text-xs);
+  font-weight: var(--lab-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.labx-badge--dot {
+  width: var(--lab-primitives-rem-0-5);
+  min-width: var(--lab-primitives-rem-0-5);
+  height: var(--lab-primitives-rem-0-5);
+  padding: 0;
+}
+
+.labx-badge--success {
+  background: var(--lab-success-soft);
+  color: var(--lab-success);
+}
+
+.labx-badge--warning {
+  background: var(--lab-warning-soft);
+  color: var(--lab-warning);
+}
+
+.labx-badge--danger {
+  background: var(--lab-error-soft);
+  color: var(--lab-error);
+}
+
+/* Form primitives. */
+
+.labx-input,
+.labx-select,
+.labx-textarea {
+  width: 100%;
+  min-height: var(--lab-primitives-rem-1-85);
+  padding: var(--lab-space-1) var(--lab-space-2_5);
+  border: var(--lab-primitives-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-sm);
+  background: var(--lab-surface-1);
+  color: var(--lab-text-default);
+  font-family: inherit;
+  font-size: var(--lab-text-sm);
+  line-height: 1.4;
+  transition:
+    border-color var(--lab-duration-base) var(--lab-ease-out),
+    background var(--lab-duration-base) var(--lab-ease-out),
+    box-shadow var(--lab-duration-base) var(--lab-ease-out);
+  box-sizing: border-box;
+}
+
+.labx-input::placeholder,
+.labx-textarea::placeholder {
+  color: var(--lab-text-dim);
+}
+
+.labx-input:hover:not(:disabled),
+.labx-select:hover:not(:disabled),
+.labx-textarea:hover:not(:disabled) {
+  border-color: var(--lab-border-strong);
+}
+
+.labx-input:focus,
+.labx-select:focus,
+.labx-textarea:focus {
+  outline: none;
+  border-color: var(--lab-accent);
+  box-shadow: 0 0 0 var(--lab-primitives-px-3) var(--lab-accent-soft);
+}
+
+.labx-input:disabled,
+.labx-select:disabled,
+.labx-textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.labx-input--lg,
+.labx-select--lg {
+  min-height: var(--lab-primitives-rem-2-25);
+  font-size: var(--lab-text-base);
+}
+
+.labx-textarea {
+  min-height: var(--lab-primitives-rem-5);
+  line-height: var(--lab-leading-snug);
+  resize: vertical;
+}
+
+/* Typography utilities. */
+
+.lab-mono {
+  font-family: var(--lab-font-mono);
+}
+
+.lab-tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.lab-text-strong {
+  color: var(--lab-text-strong);
+}
+
+.lab-text-soft {
+  color: var(--lab-text-soft);
+}
+
+.lab-text-dim {
+  color: var(--lab-text-dim);
+}
+
+.lab-text-accent {
+  color: var(--lab-accent);
+}
+
+.lab-eyebrow {
+  font-size: var(--lab-text-xs);
+  font-weight: var(--lab-weight-semibold);
+  letter-spacing: var(--lab-tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--lab-text-dim);
+}
+
+.lab-heading {
+  font-size: var(--lab-text-md);
+  font-weight: var(--lab-weight-semibold);
+  color: var(--lab-text-strong);
+  line-height: var(--lab-leading-snug);
+  letter-spacing: var(--lab-tracking-tight);
+}
+
+.lab-meta {
+  font-size: var(--lab-text-xs);
+  color: var(--lab-text-dim);
+  line-height: var(--lab-leading-snug);
+}
+
+/* Global focus ring. */
+
+:where(button, input, select, textarea, [tabindex]):focus-visible {
+  outline: var(--lab-primitives-px-2) solid var(--lab-accent);
+  outline-offset: var(--lab-primitives-px-2);
+}
+
+/* Slim scrollbar utility. */
+
+.labx-scroll-slim,
+.labx-scroll-slim * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lab-primitives-color-14) transparent;
+}
+
+.labx-scroll-slim::-webkit-scrollbar,
+.labx-scroll-slim *::-webkit-scrollbar {
+  width: var(--lab-primitives-px-8);
+  height: var(--lab-primitives-px-8);
+}
+
+.labx-scroll-slim::-webkit-scrollbar-track,
+.labx-scroll-slim *::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.labx-scroll-slim::-webkit-scrollbar-thumb,
+.labx-scroll-slim *::-webkit-scrollbar-thumb {
+  background: var(--lab-primitives-color-04);
+  border-radius: var(--lab-radius-pill);
+}
+
+.labx-scroll-slim::-webkit-scrollbar-thumb:hover,
+.labx-scroll-slim *::-webkit-scrollbar-thumb:hover {
+  background: var(--lab-primitives-color-14);
+}
+
+/* Skeleton placeholder. */
+
+.labx-skeleton-block {
+  display: block;
+  width: 100%;
+  border-radius: var(--lab-radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--lab-primitives-color-03) 0%,
+    var(--lab-primitives-color-04) 50%,
+    var(--lab-primitives-color-03) 100%
+  );
+  background-size: 200% 100%;
+  animation: labx-skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes labx-skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Divider utility. */
+
+.lab-divider {
+  height: var(--lab-primitives-px-1);
+  background: var(--lab-border-default);
+  border: 0;
+  margin: 0;
+}
+
+.lab-divider--subtle {
+  background: var(--lab-border-subtle);
+}
+
+.lab-divider--vertical {
+  width: var(--lab-primitives-px-1);
+  height: auto;
+  align-self: stretch;
+}

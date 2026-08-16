@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "sections": [
+    {
+      "id": "download",
+      "fields": [
+        {
+          "id": "captureMode",
+          "type": "select",
+          "labelKey": "mediaAnalysis.source.youtubeForm.fields.captureMode",
+          "options": [
+            {
+              "value": "video+audio",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.captureMode.videoAudio"
+            },
+            {
+              "value": "audio-only",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.captureMode.audioOnly"
+            },
+            {
+              "value": "video-only",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.captureMode.videoOnly"
+            }
+          ]
+        },
+        {
+          "id": "mergeOutputFormat",
+          "type": "select",
+          "labelKey": "mediaAnalysis.source.youtubeForm.fields.mergeOutputFormat",
+          "options": [
+            {
+              "value": "auto",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.container.auto"
+            },
+            {
+              "value": "mp4",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.container.mp4"
+            },
+            {
+              "value": "mkv",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.container.mkv"
+            },
+            {
+              "value": "webm",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.container.webm"
+            }
+          ]
+        },
+        {
+          "id": "recodeVideo",
+          "type": "select",
+          "labelKey": "mediaAnalysis.source.youtubeForm.fields.recodeVideo",
+          "options": [
+            { "value": "none", "labelKey": "mediaAnalysis.source.youtubeForm.options.recode.none" },
+            { "value": "mp4", "labelKey": "mediaAnalysis.source.youtubeForm.options.recode.mp4" },
+            { "value": "mkv", "labelKey": "mediaAnalysis.source.youtubeForm.options.recode.mkv" },
+            { "value": "webm", "labelKey": "mediaAnalysis.source.youtubeForm.options.recode.webm" }
+          ]
+        },
+        {
+          "id": "audioFormat",
+          "type": "select",
+          "labelKey": "mediaAnalysis.source.youtubeForm.fields.audioFormat",
+          "options": [
+            { "value": "none", "labelKey": "mediaAnalysis.source.youtubeForm.options.audio.none" },
+            { "value": "mp3", "labelKey": "mediaAnalysis.source.youtubeForm.options.audio.mp3" },
+            { "value": "aac", "labelKey": "mediaAnalysis.source.youtubeForm.options.audio.aac" },
+            { "value": "m4a", "labelKey": "mediaAnalysis.source.youtubeForm.options.audio.m4a" },
+            { "value": "opus", "labelKey": "mediaAnalysis.source.youtubeForm.options.audio.opus" },
+            { "value": "wav", "labelKey": "mediaAnalysis.source.youtubeForm.options.audio.wav" },
+            { "value": "flac", "labelKey": "mediaAnalysis.source.youtubeForm.options.audio.flac" }
+          ]
+        },
+        {
+          "id": "audioQuality",
+          "type": "select",
+          "labelKey": "mediaAnalysis.source.youtubeForm.fields.audioQuality",
+          "options": [
+            {
+              "value": "best",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.audioQuality.best"
+            },
+            {
+              "value": "0",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.audioQuality.max"
+            },
+            {
+              "value": "2",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.audioQuality.high"
+            },
+            {
+              "value": "5",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.audioQuality.medium"
+            },
+            {
+              "value": "7",
+              "labelKey": "mediaAnalysis.source.youtubeForm.options.audioQuality.small"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "fields": [
+        {
+          "id": "limitRate",
+          "type": "text",
+          "labelKey": "mediaAnalysis.source.youtubeForm.fields.limitRate",
+          "placeholderKey": "mediaAnalysis.source.youtubeForm.placeholders.limitRate"
+        },
+        {
+          "id": "retries",
+          "type": "number",
+          "labelKey": "mediaAnalysis.source.youtubeForm.fields.retries",
+          "min": 1,
+          "max": 50
+        }
+      ]
+    }
+  ]
+}

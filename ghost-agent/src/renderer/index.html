@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghost Agent</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="shell__topbar">
+        <div class="shell__title">Ghost Agent</div>
+        <div class="shell__topbar-right">
+          <div class="shell__provider-controls">
+            <button class="shell__action-btn" id="ghost-provider-connect-btn">
+              Baslat / Baglan
+            </button>
+            <button class="shell__action-btn" id="ghost-provider-stop-btn">Durdur</button>
+          </div>
+          <div class="shell__meta" id="provider-meta">OpenCode sunucusu hazirlaniyor...</div>
+          <div class="shell__actions">
+            <button class="shell__action-btn shell__action-btn--danger" id="ghost-close-btn">
+              Kapat
+            </button>
+            <button class="shell__action-btn" id="ghost-return-btn">Hayalet Ev'e Gec</button>
+          </div>
+        </div>
+      </header>
+      <section class="shell__content">
+        <div class="shell__frame">
+          <div class="shell__provider-frame" id="provider-frame">
+            <div class="webview-overlay connecting" id="ghost-loading-overlay">
+              <div class="overlay-icon" aria-hidden="true"></div>
+              <div class="overlay-title" id="status-text">Baglaniyor...</div>
+              <div class="overlay-subtitle" id="status-hint">
+                OpenCode sunucusu kontrol ediliyor.
+              </div>
+            </div>
+            <webview
+              id="ghost-provider-view"
+              class="shell__provider-webview"
+              partition="persist:ai0"
+              allowpopups
+              spellcheck="false"
+              webpreferences="spellcheck=false, backgroundThrottling=false, contextIsolation=true, nodeIntegration=false"
+            ></webview>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./index.ts"></script>
+  </body>
+</html>

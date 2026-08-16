@@ -1,0 +1,127 @@
+{
+  "characterRosterPreset": "assistant-only",
+  "referenceSize": {
+    "width": 1920,
+    "height": 1080
+  },
+  "objects": [
+    {
+      "id": "door-entrance",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "navigate",
+        "page": "entrance"
+      },
+      "rect": {
+        "leftPx": 1474,
+        "topPx": 238,
+        "widthPx": 250,
+        "heightPx": 518
+      },
+      "frame": {
+        "variant": "left-angled",
+        "rotateDeg": -1.5,
+        "perspectiveDeg": 10,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "sideNav.entranceLabel",
+        "customText": "Entrance",
+        "centerXPx": 259,
+        "topPx": 712,
+        "widthPx": 260,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 22,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "screen-primary",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "screen",
+        "screen": "primary"
+      },
+      "rect": {
+        "leftPx": 685,
+        "topPx": 386,
+        "widthPx": 346,
+        "heightPx": 194
+      },
+      "frame": {
+        "variant": "flat",
+        "rotateDeg": 0,
+        "perspectiveDeg": 0,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "",
+        "customText": "Open screen",
+        "centerXPx": 1018,
+        "topPx": 500,
+        "widthPx": 260,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 22,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    }
+  ],
+  "backs": [
+    {
+      "id": "back-primary",
+      "kind": "back",
+      "viewId": "primary",
+      "action": {
+        "type": "back",
+        "target": "room"
+      },
+      "rect": {
+        "leftPx": 0,
+        "topPx": 0,
+        "widthPx": 116,
+        "heightPx": 1080
+      },
+      "glow": {
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "settingsHub.scene.returnRoom",
+        "centerXPx": 58,
+        "topPx": 490,
+        "widthPx": 180,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 18,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    }
+  ],
+  "characters": [
+    {
+      "id": "anchor-ai0",
+      "kind": "character",
+      "characterKind": "assistant",
+      "preferredSlot": "ai0",
+      "leftPx": 704,
+      "bottomPx": 108,
+      "scale": 0.66,
+      "depth": 4
+    }
+  ]
+}

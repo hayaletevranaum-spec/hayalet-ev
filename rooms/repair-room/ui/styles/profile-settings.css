@@ -1,0 +1,158 @@
+.repair-profile-manager,
+.repair-profile-manager__header,
+.repair-profile-manager__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--repair-sp-2);
+}
+
+.repair-profile-manager {
+  padding-top: var(--repair-sp-2);
+}
+
+.repair-profile-manager__title {
+  font-size: var(--repair-px-14);
+  font-weight: 600;
+  color: var(--repair-text);
+}
+
+.repair-profile-manager__copy,
+.repair-profile-empty {
+  font-size: var(--repair-px-11);
+  color: var(--repair-text-muted);
+}
+
+.repair-profile-empty {
+  padding: var(--repair-sp-3);
+  border: var(--repair-px-1) dashed var(--repair-border);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-whisper);
+}
+
+.repair-profile-record {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--repair-px-120), 1.2fr) var(--repair-px-120) minmax(var(--repair-px-96), 0.8fr)
+    minmax(var(--repair-px-120), 1fr) auto auto;
+  gap: var(--repair-sp-2);
+  align-items: center;
+  padding: var(--repair-sp-2);
+  border: var(--repair-px-1) solid var(--repair-border);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-faint);
+}
+
+.repair-profile-record--skill {
+  grid-template-columns: minmax(var(--repair-px-180), 1fr) auto auto;
+}
+
+.repair-profile-form {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--repair-px-160), 1fr) var(--repair-px-130) minmax(var(--repair-px-120), 0.8fr)
+    auto;
+  gap: var(--repair-sp-2);
+  align-items: center;
+  padding: var(--repair-sp-2);
+  border: var(--repair-px-1) solid var(--repair-border-strong);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-cyan-panel);
+}
+
+.repair-profile-form--skill {
+  grid-template-columns: minmax(var(--repair-px-200), 1fr) var(--repair-px-120) auto;
+}
+
+.repair-profile-input,
+.repair-profile-select {
+  min-width: 0;
+  height: var(--repair-px-26);
+  padding: 0 var(--repair-sp-2);
+  border: var(--repair-px-1) solid var(--repair-border);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-input-bg);
+  color: var(--repair-text);
+  font: var(--repair-px-11) var(--repair-mono);
+}
+
+.repair-profile-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--repair-sp-1);
+}
+
+.repair-profile-chip,
+.repair-profile-add,
+.repair-profile-remove {
+  height: var(--repair-px-24);
+  padding: 0 var(--repair-sp-2);
+  border: var(--repair-px-1) solid var(--repair-border);
+  border-radius: var(--repair-radius-inner);
+  background: var(--repair-surface-whisper);
+  color: var(--repair-text-muted);
+  font: var(--repair-px-10) var(--repair-mono);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.repair-profile-chip:hover,
+.repair-profile-chip--active,
+.repair-profile-add:hover {
+  border-color: var(--repair-cyan);
+  background: var(--repair-cyan-soft);
+  color: var(--repair-cyan);
+}
+
+.repair-profile-remove:hover {
+  border-color: var(--repair-risk);
+  color: var(--repair-risk);
+}
+
+.repair-profile-preferences {
+  display: flex;
+  flex-direction: column;
+  gap: var(--repair-sp-2);
+  padding-top: var(--repair-sp-2);
+}
+
+.repair-sync-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--repair-sp-3);
+  padding-bottom: var(--repair-sp-1);
+  border-bottom: var(--repair-px-1) solid var(--repair-border-muted);
+  font-size: var(--repair-px-11);
+}
+
+.repair-sync-row__label {
+  color: var(--repair-text-dim);
+}
+
+.repair-sync-row__value {
+  min-width: 0;
+  color: var(--repair-text-muted);
+  font-family: var(--repair-mono);
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repair-profile-preference-row {
+  align-items: center;
+}
+
+.repair-profile-preference-row .repair-profile-select {
+  margin-left: auto;
+  width: var(--repair-px-130);
+}
+
+@media (--repair-bp-max-760) {
+  .repair-profile-record,
+  .repair-profile-record--skill,
+  .repair-profile-form,
+  .repair-profile-form--skill {
+    grid-template-columns: 1fr;
+  }
+}

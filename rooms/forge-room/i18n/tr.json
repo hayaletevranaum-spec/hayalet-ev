@@ -1,0 +1,747 @@
+{
+  "title": "Forge Odası",
+  "subtitle": "Hedeflerin görevlere dönüştüğü, AI rolleri arasında karşılaştırıldığı ve sonraki odaya devir için hazırlandığı yönlendirmeli bir üretim tezgâhı.",
+  "workbench": {
+    "title": "Forge Tezgâhı",
+    "subtitle": "Bir hedef tanımla, görev taslağını incele ve sonraki oda devirini hazırla.",
+    "badges": {
+      "locked": "Kilitli",
+      "monitor": "İzle"
+    },
+    "tabs": {
+      "flow": "Akış",
+      "responses": "Yanıtlar",
+      "output": "Çıktı",
+      "states": {
+        "active": "Şimdi",
+        "monitor": "İzle",
+        "locked": "Kilitli"
+      }
+    },
+    "flow": {
+      "idle": "Boş",
+      "goalDefined": "Hedef Tanımlı",
+      "sessionCreated": "Oturum Açıldı",
+      "draftReady": "Taslak Hazır",
+      "approved": "Onaylandı",
+      "dispatched": "Dağıtıldı",
+      "responsesReady": "Yanıtlar Hazır",
+      "conflict": "Çatışma",
+      "synthesisReady": "Sentez Hazır",
+      "exported": "Dışa Aktarıldı"
+    },
+    "columns": {
+      "planEyebrow": "Sol",
+      "planTitle": "Kontrol Yüzeyi",
+      "responsesEyebrow": "Orta",
+      "responsesTitle": "Yanıt / Karar",
+      "outputEyebrow": "Sağ",
+      "outputTitle": "Çıktı"
+    },
+    "statusBar": {
+      "requiredAction": "Gerekli adım",
+      "startGoal": "Bu çalışmayı başlatmak için hedefi tanımla.",
+      "stage": "Durum {label}",
+      "closeRoom": "Ana sayfaya dön",
+      "stats": {
+        "queue": "KUYRUK {count}",
+        "answers": "YANIT {count}",
+        "decisions": "KARAR {count}",
+        "synthesisOpen": "SENTEZ AÇIK",
+        "synthesisLocked": "SENTEZ KİLİTLİ",
+        "exportSent": "DIŞA AKTARIM GÖNDERİLDİ",
+        "exportReady": "DIŞA AKTARIM HAZIR",
+        "exportLocked": "DIŞA AKTARIM KİLİTLİ"
+      }
+    },
+    "guards": {
+      "requiresSavedGoal": "GEREKLİ: HEDEF",
+      "requiresDraftTasks": "GEREKLİ: TASLAK GÖREVLER",
+      "blockerDraftIssues": "BLOKAJ: TASLAK SORUNLARI",
+      "requiresApprovedPlan": "GEREKLİ: ONAYLI PLAN",
+      "blockerNoQueuedWork": "BLOKAJ: KUYRUKTA İŞ YOK",
+      "requiresResponses": "GEREKLİ: YANITLAR",
+      "blockerOpenDecision": "BLOKAJ: AÇIK KARAR",
+      "blockerOpenDecisions": "BLOKAJ: AÇIK KARARLAR",
+      "stateExportReady": "DURUM: DIŞA AKTARIM HAZIR",
+      "requiresTargetRoom": "GEREKLİ: HEDEF ODA",
+      "requiresSelectedSynthesis": "GEREKLİ: SEÇİLİ SENTEZ",
+      "requiresAcceptanceCriteria": "GEREKLİ: KABUL KRİTERLERİ",
+      "blockerHandoffCheck": "BLOKAJ: DEVİR KONTROLÜ"
+    },
+    "primaryAction": {
+      "saveGoal": "HEDEFİ KAYDET -> BAŞLAT",
+      "saveGoalLocked": "GEREKLİ: HEDEF",
+      "saveGoalRequired": "GEREKLİ: HEDEF",
+      "generateDraft": "Taslak üret",
+      "generateDraftRequired": "SONRAKİ: TASLAK ÜRET",
+      "finishDraft": "Taslağı tamamla",
+      "approveDraft": "Taslağı onayla",
+      "approveDraftRequired": "SONRAKİ: TASLAĞI ONAYLA",
+      "dispatchAssignments": "Dağıtımı başlat",
+      "dispatchAssignmentsRequired": "SONRAKİ: DAĞITIM",
+      "reviewResponseLane": "Yanıt hattını incele",
+      "waitForResponses": "GEREKLİ: YANITLAR",
+      "generateSynthesis": "Sentez üret",
+      "generateSynthesisRequired": "SONRAKİ: SENTEZ ÜRET",
+      "resolveDecision": "Kararı çöz",
+      "resolveDecisionBlocked": "BLOKAJ: AÇIK KARAR",
+      "chooseSynthesis": "Sentezi seç",
+      "chooseSynthesisRequired": "GEREKLİ: SEÇİLİ SENTEZ",
+      "exportHandoff": "Devri dışa aktar",
+      "exportHandoffReady": "SONRAKİ: DEVRİ DIŞA AKTAR",
+      "checkHandoff": "Devri kontrol et",
+      "reviewExport": "Dışa aktarımı incele",
+      "exportComplete": "DIŞA AKTARIM TAMAMLANDI: {label}.",
+      "working": "Bu adım üzerinde çalışılıyor",
+      "workingLocked": "SİSTEM, ADIM TAMAMLANANA KADAR KİLİTLİ."
+    },
+    "stageTower": {
+      "panelTitle": "Forge aşama akışı",
+      "previous": "Önceki",
+      "next": "Sonraki",
+      "savedSessions": "Kayıtlı oturumlar",
+      "loadSelected": "Seçileni yükle",
+      "deleteSelected": "Seçileni sil",
+      "saveGoal": "Hedefi kaydet",
+      "sessionLeadSaved": "Yeni bir kabuk oluştur veya aşağıdaki kayıtlı oturumlardan birini yükle.",
+      "sessionLeadEmpty": "Forge burada başlar. İlk oturumu oluştur ve akışın geri kalanını aç.",
+      "operatorLead": "Bu çalışmayı şekillendirecek kayıtlı gerçekleri seç. Profil düzenleme yalnızca topbarda kalır.",
+      "trackingLeadDraft": "Ön kontrol tamam. İlk taslağı bu aşamadan üret.",
+      "trackingLeadReady": "Taslak çıktıları aktif. Sonraki aşamaya geç.",
+      "trackingLeadMonitor": "Bu aşama, Forge’u dashboard’a çevirmeden canlı akışı görünür tutar.",
+      "draftLeadLocked": "Taslak araçları, önceki aşama ilk taslağı ürettikten sonra açılır.",
+      "primaryAction": {
+        "session": "ADIM 1: OTURUM OLUŞTUR VEYA YÜKLE",
+        "preflight": "ADIM 4: ÖN KONTROLÜ ÇALIŞTIR",
+        "draft": "ADIM 5: İLK TASLAĞI ÜRET"
+      },
+      "status": {
+        "active": "Aktif",
+        "available": "Hazır",
+        "complete": "Tamam",
+        "locked": "Kilitli"
+      },
+      "stages": {
+        "session": {
+          "eyebrow": "OTURUM",
+          "title": "Kayıt",
+          "complete": "Aktif oturum bağlandı",
+          "available": "Kayıtlı oturumlar hazır",
+          "locked": "Başlamak için bir oturum oluştur"
+        },
+        "goal": {
+          "eyebrow": "HEDEF",
+          "title": "Çalışma hedefi",
+          "complete": "Bu çalışma için hedef kaydedildi",
+          "locked": "Oturum kurulumundan sonra hedefi kaydet"
+        },
+        "operator": {
+          "eyebrow": "OPERATÖR",
+          "title": "Operatör",
+          "selected": "{count} bağlam ögesi seçildi",
+          "preferences": "Mod veya risk ayarlandı",
+          "optional": "Opsiyonel çalışma bağlamı ve mod/risk"
+        },
+        "preflight": {
+          "eyebrow": "ÇALIŞMA AYARLARI",
+          "title": "Ön kontrol",
+          "complete": "Ön kontrol ilerleme için hazır",
+          "locked": "Taslak öncesi ön kontrol çalıştır"
+        },
+        "tracking": {
+          "eyebrow": "TAKİP",
+          "title": "Süreç takibi",
+          "complete": "Taslak çıktıları aktif",
+          "locked": "Taslağı buradan üret"
+        },
+        "draft": {
+          "eyebrow": "TASLAK",
+          "title": "Taslak",
+          "complete": "Taslak araçları açıldı",
+          "locked": "Taslak üretimden sonra açılır"
+        }
+      },
+      "registrationPanels": {
+        "session": "Oturum + Hedef",
+        "operator": "Operatör"
+      }
+    },
+    "panels": {
+      "goal": "Kontrol Yüzeyi",
+      "draft": "Taslak Dağılımı",
+      "approved": "Dağıtım Planı",
+      "responses": "Yanıtlar ve Kararlar",
+      "conflicts": "Çatışma Özeti",
+      "synthesis": "Sentez ve Dışa Aktarım",
+      "coordinator": "Koordinatör"
+    },
+    "actions": {
+      "createSession": "Oturum oluştur",
+      "saveSession": "Oturumu kaydet",
+      "loadLatestSession": "Son kaydı yükle",
+      "approveDraft": "Taslağı onayla",
+      "checkHandoff": "Devri kontrol et",
+      "expand": "Aç",
+      "collapse": "Daralt",
+      "markResolved": "Çözüldü olarak işaretle",
+      "leaveOpen": "Açık bırak",
+      "select": "Seç",
+      "selected": "Seçili",
+      "preferSeat": "{seatId} tercih et"
+    },
+    "states": {
+      "emptyGoal": "Henüz bir hedef taslağı yok.",
+      "emptyDraft": "Taslak görevler burada görünecek.",
+      "emptyApproved": "Onaylı görevler burada görünecek.",
+      "emptyResponses": "Yanıtlar burada görünecek.",
+      "emptyConflicts": "Çatışma grupları burada görünecek.",
+      "emptySynthesis": "Sentez çıktıları burada görünecek.",
+      "emptySessions": "Henüz kayıtlı oturum yok."
+    },
+    "common": {
+      "none": "yok"
+    },
+    "defaults": {
+      "newTaskTitle": "Yeni görev",
+      "newTaskSummary": "Bir sonraki üst seviye Forge görevini kısaca tarif et."
+    },
+    "dispatchModes": {
+      "singleOwner": "Tek sahip",
+      "compare": "Karşılaştır"
+    },
+    "roles": {
+      "architect": "Mimar",
+      "challenger": "Meydan Okuyan",
+      "external-perspective": "Dış Perspektif",
+      "coordinator": "Koordinatör"
+    },
+    "goalPanel": {
+      "guide": {
+        "idle": {
+          "title": "PLAN AÇIK",
+          "summary": "SONRAKİ ADIM: HEDEFİ KAYDET"
+        },
+        "sessionCreated": {
+          "title": "PLAN AÇIK",
+          "summary": "SONRAKİ ADIM: HEDEFİ KAYDET"
+        },
+        "goalDefined": {
+          "title": "PLAN HAZIR",
+          "summary": "SONRAKİ ADIM: TASLAK ÜRET"
+        },
+        "draftReady": {
+          "title": "PLAN AKTİF",
+          "summary": "SONRAKİ ADIM: TASLAĞI ONAYLA"
+        },
+        "locked": {
+          "title": "PLAN KİLİTLİ",
+          "summary": "ÜST AKIŞ DÜZENLEMELERİ KAPALI"
+        }
+      },
+      "placeholders": {
+        "goal": "Hedef",
+        "brief": "Özet",
+        "constraints": "Her satıra bir kısıt",
+        "targetRoom": "hedef-oda-id"
+      },
+      "goalBlock": {
+        "eyebrow": "Hedef",
+        "title": "Çalışma hedefini ayarla",
+        "savedHint": "Kaydedilen hedef ilk taslak üretimini ve sonraki devir akışını sürükler.",
+        "draftHint": "Bu hedef hâlâ yerel taslak halinde. Ön kontrol veya taslak üretiminden önce kaydedin.",
+        "emptyHint": "Oda iş üretmeye başlamadan önce problemi, hedef odayı ve kısıtları netleştirin."
+      },
+      "launchChecklist": {
+        "eyebrow": "BAŞLANGIÇ HATTI",
+        "title": "Bu Forge çalışmasını hazırla",
+        "summary": "İlk taslaktan önce hedefi kilitleyin, bir oturum seçin, operatör gerçeklerini netleştirin ve ön kontrol çalıştırın.",
+        "goalTitle": "Hedef detayları",
+        "goalReady": "Kayıtlı hedef taslak üretimi için hazır.",
+        "goalActive": "Taslak hedef üzerinde çalışılıyor. Ön kontrol öncesi hedefi kaydedin.",
+        "goalIdle": "Bu çalışma için hedef oda, özet ve kısıtları tanımlayın.",
+        "sessionTitle": "Oturum seçimi",
+        "sessionReady": "Aktif oturum bu çalışmaya bağlandı.",
+        "sessionActive": "Kayıtlı oturumlar var. Birini açın veya yeni bir çalışma kabuğu oluşturun.",
+        "sessionIdle": "Çalışmaya özel kararların birlikte saklanması için bir oturum oluşturun.",
+        "operatorTitle": "Operatör detayları",
+        "operatorReady": "{selected} çalışma gerçeği, {total} kayıtlı kayıttan seçildi.",
+        "operatorActive": "{total} kayıtlı operatör kaydı var. Bu çalışmayı etkileyecek gerçekleri seçin.",
+        "operatorIdle": "Operatör profili boş. AI kayıtlı araç veya yetenek varsaymayacak.",
+        "preflightTitle": "Ön kontrol kapısı",
+        "preflightReady": "Çalışma bağlamı doğrulandı ve taslak üretimi için hazır.",
+        "preflightWarning": "Ön kontrol uyarı üretmiş durumda. Devam etmeden önce gözden geçirin.",
+        "preflightStale": "Hedef, bağlam veya çalışma ayarları değişti. Başlatmadan önce ön kontrolü yenileyin.",
+        "preflightIdle": "Ön kontrol ancak aktif oturum ve kayıtlı hedef olduğunda açılır.",
+        "statuses": {
+          "ready": "Hazır",
+          "active": "Sürüyor",
+          "idle": "Bekliyor",
+          "warning": "Gözden geçir"
+        }
+      },
+      "actions": {
+        "showDetails": "Hedef detayları",
+        "hideDetails": "Detayları gizle"
+      },
+      "summary": {
+        "targetLabel": "Hedef",
+        "stateLabel": "Durum",
+        "sessionLabel": "Oturum",
+        "draftLabel": "Taslak",
+        "preflightLabel": "ÖN KONTROL",
+        "signatureLabel": "İmza",
+        "briefLabel": "Özet",
+        "constraintsLabel": "Kısıtlar",
+        "filled": "dolu",
+        "notStarted": "başlamadı",
+        "waiting": "beklemede",
+        "constraintCountOne": "{count} madde",
+        "constraintCountOther": "{count} madde",
+        "draftCountOne": "{count} görev",
+        "draftCountOther": "{count} görev"
+      },
+      "fields": {
+        "goal": "Hedef",
+        "targetRoom": "Hedef oda",
+        "brief": "Özet",
+        "constraints": "Kısıtlar"
+      },
+      "operatorProfile": {
+        "eyebrow": "Operatör profili",
+        "label": "Operatör",
+        "manage": "Operatör Profilini Aç",
+        "drawerEyebrow": "PROFİL",
+        "drawerTitle": "OPERATÖR PROFİLİ",
+        "empty": "Tanımlı operatör profili yok. AI önceki bir kapasite varsaymaz.",
+        "emptyShort": "Profil boş",
+        "prepTitle": "Operatör detayları",
+        "readyHint": "{count} seçili gerçek bu çalışmayı şekillendirecek.",
+        "selectHint": "Kayıtlı operatör verisi var ama bağlam seçilmediği için bu çalışma hâlen sıfır varsayımla çalışıyor.",
+        "noSessionHint": "Kayıtlı operatör verileri hazır. Bu çalışmayı etkileyecek gerçekleri seçmek için bir oturum açın.",
+        "selectedLabel": "Seçili",
+        "selectedTruthHint": "Bu çalışmayı sadece seçili alanlar etkiler.",
+        "topbarAction": "Operatör Profili",
+        "managerHint": "Kalıcı operatör kayıtları burada tutulur. Oturum seçimi ana çalışma ekranında kalır.",
+        "addSkill": "Yetenek ekle",
+        "addEquipment": "Ekipman ekle",
+        "editInline": "Düzenle",
+        "remove": "Kaldır",
+        "close": "Kapat",
+        "saved": "Kayıtlı",
+        "autosavePending": "Kapatınca otomatik kaydedilir",
+        "unsaved": "Kaydedilmedi",
+        "commit": "Uygula",
+        "cancel": "İptal",
+        "notesPlaceholder": "Opsiyonel not",
+        "skillLabelPlaceholder": "Yetenek etiketi",
+        "equipmentLabelPlaceholder": "Ekipman etiketi",
+        "brandModelPlaceholder": "Marka / model",
+        "emptySkills": "Henüz kayıtlı yetenek yok.",
+        "emptyEquipment": "Henüz kayıtlı ekipman yok.",
+        "skillLevels": {
+          "none": "yok",
+          "basic": "temel",
+          "intermediate": "orta",
+          "advanced": "ileri"
+        },
+        "equipmentStatus": {
+          "unavailable": "yok",
+          "available": "var",
+          "planned": "temin edilecek"
+        },
+        "modeValues": {
+          "learn_first": "önce öğren",
+          "result_first": "önce sonuç"
+        },
+        "riskValues": {
+          "low": "düşük",
+          "medium": "orta",
+          "high": "yüksek"
+        }
+      },
+      "catalog": {
+        "groups": {
+          "skills": "Yetenekler",
+          "equipment": "Ekipman",
+          "general": "Genel"
+        },
+        "details": {
+          "level": "Seviye",
+          "status": "Durum",
+          "value": "Değer"
+        },
+        "items": {
+          "skillLevel": "Genel seviye",
+          "mode": "Mod",
+          "risk": "Risk"
+        }
+      },
+      "sessionManager": {
+        "eyebrow": "OTURUM YÖNETİMİ",
+        "title": "Oturum yönetimi",
+        "newSession": "Yeni oturum",
+        "saveSession": "Oturum kaydet",
+        "deleteSession": "Oturum sil",
+        "openSavedSession": "Aç",
+        "loadLatest": "Son kaydı yükle",
+        "savedCount": "Kayıtlı",
+        "active": "aktif",
+        "inactive": "açık değil",
+        "activeHint": "Bu aktif oturum, mevcut geçiş için hedefi, çalışma bağlamını ve ön kontrol çıktısını saklar.",
+        "savedHint": "Çalışmaya özel bağlamı seçmeden önce kayıtlı bir oturum açın ya da yeni bir kabuk başlatın.",
+        "emptyHint": "Forge hazırlık durumunu saklayabilsin diye ilk oturumu oluşturun."
+      },
+      "sessionContext": {
+        "eyebrow": "BU ÇALIŞMA İÇİN BAĞLAM",
+        "title": "Bağlam seç",
+        "selectedCount": "{count} aktif",
+        "noneSelected": "0 aktif",
+        "zeroAssumptions": "0 aktif",
+        "requiresSession": "Bu çalışma bağlamını düzenlemek için bir oturum açın veya yükleyin.",
+        "emptySkills": "Kayıtlı yetenek yok. Üst bardaki Operatör Profili’ni kullanın.",
+        "emptyEquipment": "Kayıtlı ekipman yok. Üst bardaki Operatör Profili’ni kullanın.",
+        "emptyPreferences": "Kayıtlı genel tercih yok. Üst bardaki Operatör Profili’ni kullanın."
+      },
+      "preflight": {
+        "eyebrow": "ÖN KONTROL",
+        "title": "Çalışma bağlamını doğrula",
+        "label": "Ön kontrol",
+        "action": "Ön kontrol çalıştır",
+        "updateAction": "Güncelle",
+        "clearAction": "Temizle",
+        "idle": "bekliyor",
+        "running": "çalışıyor",
+        "ready": "hazır",
+        "warning": "gözden geçir",
+        "stale": "eskidi",
+        "aiOffline": "AI0 çevrimdışı",
+        "aiReconnect": "AI0 ön kontrolde yeniden bağlanacak.",
+        "agentTitle": "AI0",
+        "agentSlot": "AI0",
+        "todoTitle": "İşlem akışı",
+        "resultTitle": "Sonuç önizlemesi",
+        "resultIdle": "Henüz ön kontrol sonucu yok. Taslak, ön kontrol raporu olmadan da başlatılabilir.",
+        "resultRunning": "Ön kontrol çalışıyor.",
+        "resultReady": "Ön kontrol bağlamı hazır.",
+        "summaryTitle": "Uyumluluk özeti",
+        "warningsTitle": "Uyarılar",
+        "missingInfoTitle": "Eksik bilgi",
+        "signatureLabel": "Run imzası",
+        "promptSizeLabel": "Prompt",
+        "todoStatus": {
+          "pending": "bekliyor",
+          "active": "çalışıyor",
+          "complete": "tamam",
+          "warning": "uyarı"
+        },
+        "steps": {
+          "operatorContext": "Operatör bağlamını paketle",
+          "constraints": "Run kısıtlarını türet",
+          "ai0Analysis": "AI0 yazılım ön analizini al",
+          "runSignature": "Run imzasını üret",
+          "sessionSave": "Oturuma kaydet"
+        },
+        "requiresSession": "GEREKLİ: AKTİF OTURUM",
+        "requiresSessionHint": "Ön kontrol çalıştırmadan önce bir oturum açın veya yükleyin.",
+        "requiresGoalHint": "Ön kontrolün bu çalışmayı doğrulayabilmesi için önce hedefi kaydedin.",
+        "warningHint": "Ön kontrol uyarıyla tamamlandı. İlerlemeden önce notları gözden geçirin.",
+        "staleHint": "Son ön kontrol çalışmasından sonra bağlam değişti. Başlatmadan önce yenileyin.",
+        "readyHint": "Çalışmaya özel ayarlar hizalı. Taslak üretiminden önce son kapı olarak ön kontrolü kullanın.",
+        "stepReady": "Bağlam hazır",
+        "stepComplete": "Ön kontrol tamam",
+        "stepWarning": "Ön kontrol uyarı verdi"
+      },
+      "runOverrides": {
+        "eyebrow": "OTURUMA ÖZEL",
+        "title": "Çalışma ayarları",
+        "meta": "Sadece bu çalışma için",
+        "requiresSession": "Çalışma ayarlarını düzenlemek için bir oturum açın veya yükleyin.",
+        "architectTitle": "Taslak mimarı",
+        "architectField": "Taslak hattı",
+        "architectHint": "Ön kontrolden sonra ilk taslak dağılımını hangi AI'nin alacağını seçin.",
+        "mode": "Mod",
+        "risk": "Risk toleransı",
+        "preAnalysis": "Ön analiz",
+        "notes": "Çalışma notları",
+        "notesPlaceholder": "Bu çalışma için geçici koşul",
+        "notesPlaceholderLong": "Bu oturum için opsiyonel çalışma notu",
+        "active": "aktif",
+        "inactive": "pasif",
+        "selected": "seçili",
+        "connected": "bağlı",
+        "disconnected": "bağlantı yok",
+        "unassigned": "hesap yok",
+        "addCondition": "+ Koşul ekle",
+        "commitCondition": "Ekle",
+        "cancelCondition": "İptal"
+      }
+    },
+    "draftPanel": {
+      "guide": {
+        "idle": {
+          "title": "GEREKLİ: HEDEF",
+          "summary": "HEDEFİ KAYDET -> BAŞLAT"
+        },
+        "sessionCreated": {
+          "title": "GEREKLİ: HEDEF",
+          "summary": "HEDEFİ KAYDET -> BAŞLAT"
+        },
+        "goalDefined": {
+          "title": "SONRAKİ: TASLAK ÜRET",
+          "summary": "ÜRETİMDEN SONRA TASLAK AÇILIR"
+        },
+        "draftReadyBlocked": {
+          "title": "BLOKAJ: TASLAK SORUNLARI",
+          "summary": "AŞAĞIDAKİ GÖREVLERİ DÜZELT"
+        },
+        "draftReadyOpen": {
+          "title": "SONRAKİ: TASLAĞI ONAYLA",
+          "summary": "NETLEŞTİR, SONRA ONAYLA"
+        },
+        "locked": {
+          "title": "DURUM: REFERANS",
+          "summary": "TASLAK KİLİTLİ"
+        }
+      },
+      "toolbar": {
+        "countOne": "Taslakta {count} görev var",
+        "countOther": "Taslakta {count} görev var",
+        "empty": "Henüz taslak yok"
+      },
+      "empty": {
+        "goalDefined": "Henüz taslak yok. İlk yapının üretimi için hedefi kaydet.",
+        "locked": "Henüz taslak yok. İlk yapının üretimi için hedefi kaydet."
+      },
+      "fields": {
+        "summary": "Özet",
+        "seat": "Koltuk",
+        "role": "Rol",
+        "mode": "Mod",
+        "compareSeat": "Karşılaştırma koltuğu",
+        "persona": "Persona",
+        "checklist": "Kontrol listesi"
+      },
+      "placeholders": {
+        "taskTitle": "Görev başlığı",
+        "taskSummary": "Görev özeti",
+        "checklist": "Kontrol listesi",
+        "rawEditor": "{\"tasks\":[{\"title\":\"Görev başlığı\"}]}"
+      },
+      "actions": {
+        "addTask": "Görev ekle",
+        "toggleRaw": "Gelişmiş / ham",
+        "saveTask": "Görevi kaydet",
+        "remove": "Kaldır",
+        "applyRawDraft": "Ham taslağı uygula"
+      },
+      "rawTitle": "Gelişmiş / ham taslak düzenleme"
+    },
+    "approvedPanel": {
+      "guide": {
+        "approved": {
+          "title": "DAĞITIM HAZIR",
+          "summary": "SONRAKİ ADIM: ATAMALARI DAĞIT"
+        },
+        "dispatched": {
+          "title": "DAĞITIM KİLİTLİ",
+          "summary": "DURUM: İŞ DEVAM EDİYOR"
+        },
+        "referenceOnly": {
+          "title": "DAĞITIM KİLİTLİ",
+          "summary": "DURUM: SADECE REFERANS"
+        },
+        "locked": {
+          "title": "DAĞITIM KİLİTLİ",
+          "summary": "GEREKLİ: ONAYLI TASLAK"
+        }
+      },
+      "toolbar": {
+        "countOne": "{count} onaylı görev",
+        "countOther": "{count} onaylı görev",
+        "empty": "Onaylı görev yok"
+      },
+      "fields": {
+        "mode": "Mod",
+        "seat": "Koltuk",
+        "role": "Rol",
+        "compareSeat": "Karşılaştırma koltuğu",
+        "persona": "Persona",
+        "capsuleSummary": "Kapsül özeti",
+        "capsuleModules": "Kapsül modülleri",
+        "capsuleConstraints": "Kapsül kısıtları"
+      },
+      "meta": {
+        "queuedOne": "kuyrukta {count}",
+        "queuedOther": "kuyrukta {count}",
+        "doneOne": "tamamlanan {count}",
+        "doneOther": "tamamlanan {count}"
+      },
+      "actions": {
+        "saveDispatchSettings": "Dağıtım ayarlarını kaydet",
+        "saveCapsule": "Kapsülü kaydet"
+      },
+      "capsuleHint": {
+        "open": "Gelişmiş kapsül, yalnızca bu görev için kullanılan oturuma özel istem bağlamıdır. Ön kontrole ek olur ve dışa aktarılmaz.",
+        "closed": "Gelişmiş kapsül varsayılan olarak gizlidir. Yalnızca görevin ek istem bağlamına ihtiyacı olduğunda açın."
+      }
+    },
+    "responsesPanel": {
+      "guide": {
+        "savedGoalLocked": {
+          "title": "YANIT ALANI KİLİTLİ",
+          "summary": "GEREKLİ: KAYITLI HEDEF"
+        },
+        "approvedDraftLocked": {
+          "title": "YANIT ALANI KİLİTLİ",
+          "summary": "GEREKLİ: ONAYLI TASLAK"
+        },
+        "dispatchLocked": {
+          "title": "YANIT ALANI KİLİTLİ",
+          "summary": "GEREKLİ: DAĞITIM"
+        },
+        "responseInbound": {
+          "title": "YANIT ALANI AKTİF",
+          "summary": "DURUM: YANIT GELİYOR"
+        },
+        "awaitingResponses": {
+          "title": "YANIT ALANI AKTİF",
+          "summary": "DURUM: YANITLAR BEKLENİYOR"
+        },
+        "reviewResponses": {
+          "title": "YANIT ALANI AKTİF",
+          "summary": "DURUM: YANITLARI İNCELE"
+        },
+        "conflictBlocked": {
+          "title": "YANIT ALANI BLOKLU",
+          "summary": "GEREKLİ: ÇATIŞMA ÇÖZÜMÜ"
+        },
+        "readOnly": {
+          "title": "YANIT ALANI İZLEMEDE",
+          "summary": "DURUM: SALT OKUNUR"
+        },
+        "exportInputs": {
+          "title": "YANIT ALANI ARŞİV",
+          "summary": "DURUM: DIŞA AKTARIM GİRDİSİ"
+        }
+      },
+      "chips": {
+        "tasksOne": "{count} görev",
+        "tasksOther": "{count} görev",
+        "answersOne": "{count} yanıt",
+        "answersOther": "{count} yanıt",
+        "decisionsLeftOne": "{count} karar kaldı",
+        "decisionsLeftOther": "{count} karar kaldı",
+        "responsesOne": "{count} cevap",
+        "responsesOther": "{count} cevap",
+        "queuedOne": "kuyrukta {count}",
+        "queuedOther": "kuyrukta {count}",
+        "artifactsOne": "{count} çıktı",
+        "artifactsOther": "{count} çıktı"
+      },
+      "statuses": {
+        "selected": "seçildi",
+        "rejected": "elenen",
+        "captured": "alındı",
+        "decisionMade": "karar verildi",
+        "decisionNeeded": "karar gerekli",
+        "traceSaved": "iz kaydı var"
+      },
+      "empty": {
+        "approved": "Yanıt toplamaya başlamak için bu görevi Plan alanından gönder.",
+        "waiting": "Atanan koltuğun bu göreve cevap vermesi bekleniyor.",
+        "unsent": "Görev gönderildiği anda burada yanıtlar görünmeye başlar."
+      },
+      "conflict": {
+        "recordedTitle": "KARAR KAYDEDİLDİ",
+        "selectTitle": "BİR YANIT SEÇ",
+        "blockedTitle": "KARAR AKIŞI TIKIYOR",
+        "recordedSummary": "DURUM: TERCİH KAYDEDİLDİ",
+        "blockedSummary": "Buraya dönmek için sonraki adımı kullan.",
+        "currentPick": "Mevcut tercih: {seatId}"
+      }
+    },
+    "synthesisPanel": {
+      "guide": {
+        "locked": {
+          "title": "ÇIKTI KAPISI KİLİTLİ",
+          "summary": "GEREKLİ: YANITLAR"
+        },
+        "ready": {
+          "title": "ÇIKTI KAPISI HAZIR",
+          "summary": "SONRAKİ ADIM: SENTEZ ÜRET"
+        },
+        "blocked": {
+          "title": "ÇIKTI KAPISI BLOKLU",
+          "summary": "GEREKLİ: ÇATIŞMA ÇÖZÜMÜ"
+        },
+        "open": {
+          "title": "ÇIKTI KAPISI AÇIK",
+          "summary": "SONRAKİ ADIM: SENTEZ SEÇ"
+        },
+        "archive": {
+          "title": "ÇIKTI KAPISI ARŞİV",
+          "summary": "DURUM: DIŞA AKTARIM TAMAM"
+        }
+      },
+      "outputStatus": {
+        "shipped": "gönderildi",
+        "ready": "hazır",
+        "needsSelection": "seçim gerek",
+        "needsDecision": "karar gerek",
+        "needsCriteria": "kriter gerek",
+        "blocked": "bloklu"
+      },
+      "chips": {
+        "answersOne": "{count} yanıt",
+        "answersOther": "{count} yanıt",
+        "decisionsLeftOne": "{count} karar kaldı",
+        "decisionsLeftOther": "{count} karar kaldı",
+        "synthesesOne": "{count} sentez",
+        "synthesesOther": "{count} sentez",
+        "criteriaOne": "{count} kriter",
+        "criteriaOther": "{count} kriter",
+        "tasksOne": "{count} görev",
+        "tasksOther": "{count} görev"
+      },
+      "readiness": {
+        "ready": "DURUM: DEVİR HAZIR",
+        "blocked": "BLOKAJ: DEVİR KONTROLÜ",
+        "requiresSelected": "GEREKLİ: SEÇİLİ SENTEZ"
+      },
+      "badges": {
+        "selected": "seçili"
+      },
+      "context": {
+        "title": "Çalışma bağlamı",
+        "pending": "Çalışma imzası bekleniyor"
+      }
+    },
+    "coordinator": {
+      "pending": "Forge mevcut adımı tamamlıyor.",
+      "stats": {
+        "state": "durum {label}",
+        "waiting": "bekleyen {count}",
+        "answers": "yanıt {count}",
+        "decisions": "karar {count}",
+        "handoff": "devir {label}"
+      },
+      "activityTitle": "Akış",
+      "latestPackage": "Son paket: {path}",
+      "handoffStatuses": {
+        "sent": "gönderildi",
+        "ready": "hazır",
+        "locked": "kilitli"
+      }
+    },
+    "validation": {
+      "taskRange": "Taslak dağılımı {min} ile {max} arasında üst seviye görev içermeli.",
+      "taskMissingTitle": "Görev {index} bir başlık içermeli.",
+      "taskMissingSummary": "Görev {index} bir özet içermeli.",
+      "duplicateTitle": "\"{title}\" görev başlığı tekrar ediyor.",
+      "compareSeatRequired": "\"{title}\" karşılaştırma görevi için en az bir karşılaştırma koltuğu seç.",
+      "unknownDependency": "\"{task}\" görevi bilinmeyen \"{dependency}\" görevine bağlı.",
+      "selfDependency": "\"{task}\" görevi kendine bağlı olamaz."
+    }
+  }
+}

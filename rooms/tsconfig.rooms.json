@@ -1,0 +1,47 @@
+{
+  // Phased alignment with src/tsconfig.json — tighten compilerOptions incrementally (see eslint roomTsContractRules).
+  "extends": "../src/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["node"],
+    "allowJs": false,
+    "checkJs": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "noImplicitOverride": true,
+    "allowUnreachableCode": false,
+    "tsBuildInfoFile": "./tsconfig.rooms.tsbuildinfo"
+  },
+  "include": ["**/*.ts", "**/*.d.ts"],
+  "exclude": [
+    "../node_modules",
+    "../dist",
+    "../build",
+    "../data",
+    "../config",
+    "../.rovo",
+    "../logs",
+    "../screenshots",
+    "../tmp",
+    "../temp",
+    "../.vite",
+    "../scripts"
+  ]
+}

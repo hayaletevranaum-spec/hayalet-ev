@@ -1,0 +1,676 @@
+<section
+  class="page page-assistant is-hidden"
+  id="page-assistant"
+  aria-labelledby="page-assistant-title"
+>
+  <h2
+    class="visually-hidden"
+    id="page-assistant-title"
+    data-shell-i18n-text="sideNav.assistantLabel"
+  ></h2>
+  <div class="assistant-container">
+    <div
+      class="assistant-scene"
+      id="assistant-scene-root"
+      data-shell-i18n-aria-label="assistant.page.sceneAriaLabel"
+      hidden
+    >
+      <div class="assistant-scene__surface scene-shell__surface">
+        <img
+          class="assistant-scene__background scene-shell__cover-image"
+          id="assistant-scene-background"
+          alt=""
+        />
+
+        <div class="assistant-scene__room-layer scene-shell__room-layer">
+          <div class="assistant-scene__hotspots" id="assistant-scene-hotspots"></div>
+
+          <div
+            class="assistant-scene__characters entrance-scene__characters"
+            id="assistant-scene-characters"
+          ></div>
+        </div>
+
+        <div class="entrance-scene__editor-host" id="assistant-scene-editor-host"></div>
+
+        <div
+          class="assistant-scene__screen-view scene-shell__view"
+          id="assistant-scene-screen-view"
+          aria-hidden="true"
+        >
+          <img
+            class="assistant-scene__screen-art scene-shell__cover-image"
+            id="assistant-scene-screen-art"
+            alt=""
+          />
+          <div class="assistant-scene__screen-shade scene-shell__panel-shade"></div>
+        </div>
+      </div>
+    </div>
+    <div class="assistant-topbar scene-shell__topbar">
+      <div class="assistant-topbar-primary assistant-primary-panel">
+        <div class="assistant-identity-card">
+          <div
+            class="slot-avatar-wrapper assistant-avatar-shell assistant-identity-action"
+            id="assistant-avatar-action"
+            role="button"
+            tabindex="0"
+            title=""
+            aria-label=""
+            data-shell-i18n-title="assistant.page.avatarUpdateTitle"
+            data-shell-i18n-aria-label="assistant.page.avatarUpdateTitle"
+          >
+            <div
+              class="avatar-placeholder img-cover"
+              id="ai0-avatar"
+              data-assistant-avatar-target
+            ></div>
+            <span class="slot-status-dot" id="assistant-identity-status-dot"></span>
+          </div>
+
+          <div class="slot-info assistant-slot-info">
+            <div class="assistant-identity-row">
+              <span
+                class="slot-nickname assistant-identity-text-action"
+                id="assistant-nickname"
+                role="button"
+                tabindex="0"
+                title=""
+                aria-label=""
+                data-shell-i18n-title="assistant.page.nicknameUpdateTitle"
+                data-shell-i18n-aria-label="assistant.page.nicknameUpdateTitle"
+              >
+                Assistant
+              </span>
+              <div class="assistant-identity-actions">
+                <button
+                  class="btn btn-ghost btn-icon btn-sm assistant-identity-tool-btn"
+                  id="assistant-memory-btn"
+                  title=""
+                  type="button"
+                  aria-label=""
+                  data-shell-i18n-title="assistant.memoryOverlay.title"
+                  data-shell-i18n-aria-label="assistant.memoryOverlay.title"
+                >
+                  🧠
+                </button>
+                <button
+                  class="btn btn-ghost btn-icon btn-sm assistant-identity-tool-btn"
+                  id="assistant-character-btn"
+                  title=""
+                  type="button"
+                  aria-label=""
+                  data-shell-i18n-title="assistant.characterOverlay.title"
+                  data-shell-i18n-aria-label="assistant.characterOverlay.title"
+                >
+                  🎭
+                </button>
+              </div>
+            </div>
+
+            <div class="assistant-provider-meta">
+              <select
+                id="assistant-provider-select"
+                class="select-compact assistant-provider-select"
+              ></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="assistant-command-rail">
+          <div class="assistant-connect-actions">
+            <button
+              class="btn btn-sm btn-primary assistant-connect-btn"
+              id="assistant-connect-btn"
+              data-shell-i18n-text="assistant.buttonStates.idle"
+            ></button>
+          </div>
+        </div>
+
+        <div class="assistant-session-controls">
+          <label
+            class="ds-choice-chip ds-choice-chip--segmented ds-choice-chip--dense"
+            for="assistant-resume-last-session"
+            title=""
+            data-shell-i18n-title="assistant.page.resumeLastSessionTitle"
+          >
+            <input type="checkbox" id="assistant-resume-last-session" />
+            <span data-shell-i18n-text="assistant.page.resumeLastSessionLabel"></span>
+          </label>
+          <label
+            class="ds-choice-chip ds-choice-chip--segmented ds-choice-chip--dense"
+            for="assistant-keep-servers-on-close"
+            title=""
+            data-shell-i18n-title="assistant.page.keepServersOnCloseTitle"
+          >
+            <input type="checkbox" id="assistant-keep-servers-on-close" />
+            <span data-shell-i18n-text="assistant.page.keepServersOnCloseLabel"></span>
+          </label>
+          <label
+            class="ds-choice-chip ds-choice-chip--segmented ds-choice-chip--dense"
+            for="assistant-catch-commands-check"
+            title=""
+            data-shell-i18n-title="assistant.page.catchCommandsTitle"
+          >
+            <input type="checkbox" id="assistant-catch-commands-check" />
+            <span data-shell-i18n-text="assistant.page.catchCommandsLabel"></span>
+          </label>
+          <label
+            class="ds-choice-chip ds-choice-chip--segmented ds-choice-chip--dense"
+            for="assistant-offline-mode-check"
+            title=""
+            data-shell-i18n-title="assistant.page.offlineModeTitle"
+          >
+            <input type="checkbox" id="assistant-offline-mode-check" />
+            <span data-shell-i18n-text="assistant.page.offlineModeLabel"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="assistant-opencode-panel">
+        <div class="assistant-chip-row">
+          <div class="assistant-runtime-stack assistant-topbar-chip">
+            <div class="assistant-status-extended assistant-runtime-stack__row">
+              <span class="status-dot" id="assistant-status-dot"></span>
+              <div class="status-info">
+                <span
+                  id="assistant-status-text"
+                  class="assistant-status-text"
+                  data-shell-i18n-text="assistant.connectionUi.disconnectedTitle"
+                ></span>
+                <small id="assistant-status-details" role="status" aria-live="polite"></small>
+              </div>
+            </div>
+
+            <div
+              class="assistant-opencode-indicator assistant-runtime-stack__row"
+              id="assistant-opencode-indicator"
+              title=""
+            >
+              <span
+                class="status-dot assistant-opencode-indicator-dot is-loading"
+                id="assistant-opencode-indicator-dot"
+              ></span>
+              <div class="status-info assistant-opencode-indicator-info">
+                <span
+                  class="assistant-opencode-indicator-text"
+                  id="assistant-opencode-indicator-text"
+                  role="status"
+                  aria-live="polite"
+                  data-shell-i18n-text="assistant.opencodeDoctor.loading.checkingUpdates"
+                ></span>
+              </div>
+              <button
+                class="btn btn-ghost btn-icon btn-sm assistant-opencode-action-btn"
+                id="assistant-opencode-action-btn"
+                title=""
+                type="button"
+                aria-label=""
+                data-shell-i18n-title="assistant.opencodeDoctor.actionInProgress"
+                data-shell-i18n-aria-label="assistant.opencodeDoctor.checkUpdatesAriaLabel"
+              >
+                ↻
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="assistant-opencode-actions">
+          <div class="assistant-opencode-action-row">
+            <button
+              class="btn btn-ghost btn-icon btn-sm"
+              id="assistant-opencode-settings-btn"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="assistant.opencodeDoctor.settingsModal.title"
+              data-shell-i18n-aria-label="assistant.opencodeDoctor.settingsModal.title"
+            >
+              ⚙️
+            </button>
+
+            <button
+              class="btn btn-ghost btn-icon btn-sm"
+              id="ai0-test-btn"
+              title=""
+              aria-label=""
+              disabled
+              data-shell-i18n-title="assistant.connectionUi.testButtonReady"
+              data-shell-i18n-aria-label="assistant.connectionUi.testButtonReady"
+            >
+              🧪
+            </button>
+
+            <button
+              class="btn btn-ghost btn-icon btn-sm"
+              id="assistant-devtools-btn"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="assistant.page.devtoolsTitle"
+              data-shell-i18n-aria-label="assistant.page.devtoolsTitle"
+            >
+              🔧
+            </button>
+          </div>
+        </div>
+
+        <div id="assistant-url-display" class="assistant-url-display">-</div>
+      </div>
+    </div>
+
+    <div class="modal is-hidden" id="memory-overlay">
+      <div class="modal-content memory-modal">
+        <div class="modal-header">
+          <div class="memory-header-left">
+            <h2 class="modal-title">
+              <span aria-hidden="true">🧠</span>
+              <span data-shell-i18n-text="assistant.memoryOverlay.title"></span>
+            </h2>
+            <div class="memory-stats-bar" id="memory-stats-bar">
+              <span class="memory-stat-chip" id="mem-stat-total"></span>
+              <span class="memory-stat-chip pinned" id="mem-stat-pinned">📌 —</span>
+              <span class="memory-stat-chip" id="mem-stat-importance">⭐ —</span>
+              <span class="memory-stat-chip" id="mem-stat-updated">🕒 —</span>
+            </div>
+          </div>
+          <button
+            class="modal-close"
+            id="memory-overlay-close"
+            aria-label=""
+            data-shell-i18n-aria-label="common.closeAriaLabel"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="memory-body">
+          <div class="memory-filter-panel">
+            <div class="memory-panel-section">
+              <div
+                class="memory-section-title"
+                data-shell-i18n-text="assistant.memoryOverlay.filterSectionTitle"
+              ></div>
+              <div class="memory-filter-group">
+                <label
+                  class="memory-filter-label"
+                  data-shell-i18n-text="assistant.memoryOverlay.namespaceLabel"
+                ></label>
+                <select id="mem-filter-namespace" class="select select-sm">
+                  <option
+                    value=""
+                    data-shell-i18n-text="assistant.memoryOverlay.allOption"
+                  ></option>
+                  <option
+                    value="global"
+                    data-shell-i18n-text="assistant.memoryOverlay.namespaces.global"
+                  ></option>
+                  <option
+                    value="policy"
+                    data-shell-i18n-text="assistant.memoryOverlay.namespaces.policy"
+                  ></option>
+                </select>
+              </div>
+              <div class="memory-filter-group">
+                <label
+                  class="memory-filter-label"
+                  data-shell-i18n-text="assistant.memoryOverlay.providerLabel"
+                ></label>
+                <select id="mem-filter-provider" class="select select-sm">
+                  <option
+                    value=""
+                    data-shell-i18n-text="assistant.memoryOverlay.allOption"
+                  ></option>
+                </select>
+              </div>
+              <div class="memory-filter-group">
+                <label
+                  class="memory-filter-label"
+                  data-shell-i18n-text="assistant.memoryOverlay.tagsLabel"
+                ></label>
+                <div class="memory-tag-cloud" id="mem-tag-cloud"></div>
+              </div>
+            </div>
+
+            <div class="memory-panel-section">
+              <div
+                class="memory-section-title"
+                data-shell-i18n-text="assistant.memoryOverlay.newRecordTitle"
+              ></div>
+              <div class="memory-new-form" id="memory-new-form">
+                <textarea
+                  id="mem-new-content"
+                  class="memory-textarea input"
+                  placeholder=""
+                  data-shell-i18n-placeholder="assistant.memoryOverlay.contentPlaceholder"
+                  rows="3"
+                ></textarea>
+                <input
+                  id="mem-new-summary"
+                  class="memory-input input input-sm"
+                  type="text"
+                  placeholder=""
+                  data-shell-i18n-placeholder="assistant.memoryOverlay.summaryPlaceholder"
+                />
+                <input
+                  id="mem-new-tags"
+                  class="memory-input input input-sm"
+                  type="text"
+                  placeholder=""
+                  data-shell-i18n-placeholder="assistant.memoryOverlay.tagsPlaceholder"
+                />
+                <div class="memory-new-row">
+                  <select id="mem-new-namespace" class="select select-sm">
+                    <option
+                      value="global"
+                      data-shell-i18n-text="assistant.memoryOverlay.namespaces.global"
+                    ></option>
+                    <option
+                      value="policy"
+                      data-shell-i18n-text="assistant.memoryOverlay.namespaces.policy"
+                    ></option>
+                  </select>
+                  <select id="mem-new-type" class="select select-sm">
+                    <option
+                      value="note"
+                      data-shell-i18n-text="assistant.memoryOverlay.types.note"
+                    ></option>
+                    <option
+                      value="fact"
+                      data-shell-i18n-text="assistant.memoryOverlay.types.fact"
+                    ></option>
+                    <option
+                      value="decision"
+                      data-shell-i18n-text="assistant.memoryOverlay.types.decision"
+                    ></option>
+                    <option
+                      value="preference"
+                      data-shell-i18n-text="assistant.memoryOverlay.types.preference"
+                    ></option>
+                  </select>
+                  <div class="memory-importance-picker" id="mem-new-importance" data-value="3">
+                    <span data-star="1">★</span><span data-star="2">★</span
+                    ><span data-star="3">★</span><span data-star="4">★</span
+                    ><span data-star="5">★</span>
+                  </div>
+                </div>
+                <div class="memory-new-actions">
+                  <label class="memory-pin-label">
+                    <input type="checkbox" id="mem-new-pinned" />
+                    <span data-shell-i18n-text="assistant.memoryOverlay.pinLabel"></span>
+                  </label>
+                  <button
+                    class="btn btn-sm btn-primary"
+                    id="mem-new-save-btn"
+                    data-shell-i18n-text="assistant.memoryOverlay.addButton"
+                  ></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="memory-panel-section">
+              <div
+                class="memory-section-title"
+                data-shell-i18n-text="assistant.memoryOverlay.bulkActionsTitle"
+              ></div>
+              <div class="memory-bulk-actions">
+                <div class="memory-prune-form">
+                  <label
+                    class="memory-filter-label"
+                    data-shell-i18n-text="assistant.memoryOverlay.pruneLabel"
+                  ></label>
+                  <div class="memory-prune-row">
+                    <input
+                      id="mem-prune-max"
+                      class="memory-input-sm input input-sm"
+                      type="number"
+                      value="50"
+                      min="1"
+                      placeholder=""
+                      data-shell-i18n-placeholder="assistant.memoryOverlay.pruneMaxPlaceholder"
+                    />
+                    <input
+                      id="mem-prune-days"
+                      class="memory-input-sm input input-sm"
+                      type="number"
+                      value="30"
+                      min="1"
+                      placeholder=""
+                      data-shell-i18n-placeholder="assistant.memoryOverlay.pruneDaysPlaceholder"
+                    />
+                  </div>
+                  <button
+                    class="btn btn-sm btn-secondary"
+                    id="mem-prune-btn"
+                    data-shell-i18n-text="assistant.memoryOverlay.pruneButton"
+                  ></button>
+                </div>
+                <button
+                  class="btn btn-sm btn-danger"
+                  id="mem-delete-all-btn"
+                  data-shell-i18n-text="assistant.memoryOverlay.deleteAllButton"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="memory-list-panel">
+            <div class="memory-search-bar">
+              <input
+                id="mem-search-input"
+                class="memory-search-input"
+                type="text"
+                placeholder=""
+                data-shell-i18n-placeholder="assistant.memoryOverlay.searchPlaceholder"
+              />
+              <span class="memory-result-count" id="mem-result-count"></span>
+            </div>
+            <div class="memory-list" id="memory-list">
+              <div class="memory-empty-state ds-empty-state" id="memory-empty-state">
+                <span>🧠</span>
+                <span data-shell-i18n-text="assistant.memoryOverlay.emptyState"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal is-hidden" id="character-overlay">
+      <div class="modal-content character-modal">
+        <div class="modal-header">
+          <h2 class="modal-title">
+            <span aria-hidden="true">🎭</span>
+            <span data-shell-i18n-text="assistant.characterOverlay.title"></span>
+          </h2>
+          <button
+            class="modal-close"
+            id="character-overlay-close"
+            aria-label=""
+            data-shell-i18n-aria-label="common.closeAriaLabel"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="character-body">
+          <div class="character-active-panel">
+            <div class="character-panel-header">
+              <div class="character-panel-heading">
+                <span
+                  class="character-panel-title"
+                  data-shell-i18n-text="assistant.characterOverlay.activeProfileTitle"
+                ></span>
+                <span class="character-active-count" id="character-active-count"></span>
+              </div>
+              <button
+                class="btn btn-ghost btn-sm"
+                id="character-profile-add-btn"
+                data-shell-i18n-text="assistant.characterOverlay.addProfileButton"
+              ></button>
+            </div>
+            <div class="character-profile-list" id="character-profile-list"></div>
+            <div class="character-profile-form">
+              <label class="character-field" for="character-profile-name">
+                <span
+                  class="character-field-label"
+                  data-shell-i18n-text="assistant.characterOverlay.profileNameLabel"
+                ></span>
+                <input
+                  id="character-profile-name"
+                  class="character-text-input input"
+                  type="text"
+                  maxlength="80"
+                  placeholder=""
+                  data-shell-i18n-placeholder="assistant.characterOverlay.profileNamePlaceholder"
+                />
+              </label>
+              <label class="character-field" for="character-profile-description">
+                <span
+                  class="character-field-label"
+                  data-shell-i18n-text="assistant.characterOverlay.profileDescriptionLabel"
+                ></span>
+                <textarea
+                  id="character-profile-description"
+                  class="character-textarea input"
+                  rows="3"
+                  maxlength="240"
+                  placeholder=""
+                  data-shell-i18n-placeholder="assistant.characterOverlay.profileDescriptionPlaceholder"
+                ></textarea>
+              </label>
+              <div class="character-profile-actions">
+                <button
+                  class="btn btn-ghost btn-sm"
+                  id="character-profile-delete-btn"
+                  data-shell-i18n-text="assistant.characterOverlay.deleteProfileButton"
+                ></button>
+              </div>
+            </div>
+            <div class="character-conflicts is-hidden" id="character-conflicts">
+              <span class="character-conflict-icon">⚠️</span>
+              <span id="character-conflict-text"></span>
+            </div>
+            <div class="character-active-list" id="character-active-list">
+              <div class="character-empty-state ds-empty-state" id="character-empty-state">
+                <span data-shell-i18n-text="assistant.characterOverlay.emptyState"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="character-pool-panel">
+            <div class="character-panel-header">
+              <div class="character-panel-heading">
+                <span
+                  class="character-panel-title"
+                  data-shell-i18n-text="assistant.characterOverlay.poolTitle"
+                ></span>
+                <span class="character-panel-subtitle" id="character-current-profile-label"></span>
+              </div>
+            </div>
+            <div class="character-pool-list" id="character-pool-list"></div>
+          </div>
+        </div>
+
+        <div class="character-footer">
+          <div class="character-footer-info">
+            <span
+              class="character-footer-note"
+              data-shell-i18n-text="assistant.characterOverlay.footerNote"
+            ></span>
+            <button
+              class="btn btn-ghost btn-sm"
+              id="character-copy-msg-btn"
+              title=""
+              data-shell-i18n-title="assistant.characterOverlay.copyMessageTitle"
+            >
+              <span aria-hidden="true">📋</span>
+              <span
+                data-shell-i18n-text="assistant.characterOverlay.copyMessageButton"
+                data-character-copy-label
+              ></span>
+            </button>
+          </div>
+          <div class="character-footer-actions">
+            <button
+              class="btn btn-ghost btn-sm"
+              id="character-cancel-btn"
+              data-shell-i18n-text="common.cancel"
+            ></button>
+            <button
+              class="btn btn-sm btn-primary character-save-btn"
+              id="character-save-btn"
+              data-shell-i18n-text="common.save"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal is-hidden" id="assistant-identity-modal">
+      <div class="modal-content assistant-identity-modal">
+        <div class="modal-header">
+          <h2 class="modal-title" data-shell-i18n-text="assistant.identityModal.title"></h2>
+          <button
+            class="modal-close"
+            id="assistant-identity-modal-close"
+            aria-label=""
+            data-shell-i18n-aria-label="common.closeAriaLabel"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="modal-body assistant-identity-modal__body">
+          <label
+            class="assistant-identity-modal__label"
+            for="assistant-identity-nickname-input"
+            data-shell-i18n-text="assistant.identityModal.label"
+          ></label>
+          <input
+            id="assistant-identity-nickname-input"
+            class="assistant-identity-modal__input input"
+            type="text"
+            maxlength="60"
+            placeholder=""
+            data-shell-i18n-placeholder="assistant.identityModal.placeholder"
+            autocomplete="off"
+          />
+          <p
+            class="assistant-identity-modal__hint"
+            data-shell-i18n-text="assistant.identityModal.hint"
+          ></p>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            class="btn btn-ghost btn-sm"
+            id="assistant-identity-modal-cancel"
+            data-shell-i18n-text="common.cancel"
+          ></button>
+          <button
+            class="btn btn-sm btn-primary"
+            id="assistant-identity-modal-save"
+            data-shell-i18n-text="common.save"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <div class="assistant-webview-panel scene-shell__panel" id="assistant-webview-panel">
+      <div class="modal is-hidden" id="ai0-test-side-panel">
+        <div class="modal-content assistant-test-modal">
+          <div class="modal-body assistant-test-modal__body" id="ai0-test-panel-body"></div>
+        </div>
+      </div>
+      <div class="webview-wrapper" id="ai0-webview-mount">
+        <div class="webview-overlay is-empty" id="ai0-webview-overlay">
+          <div class="overlay-icon"></div>
+          <div
+            class="overlay-title"
+            data-shell-i18n-text="assistant.connectionUi.noAccountTitle"
+          ></div>
+          <div
+            class="overlay-subtitle"
+            data-shell-i18n-text="assistant.connectionUi.noAccountSubtitle"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

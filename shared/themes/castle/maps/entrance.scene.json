@@ -1,0 +1,321 @@
+{
+  "characterRosterPreset": "all-characters",
+  "referenceSize": {
+    "width": 1920,
+    "height": 1080
+  },
+  "objects": [
+    {
+      "id": "door-analyze",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "navigate",
+        "page": "analyze"
+      },
+      "rect": {
+        "leftPx": 28,
+        "topPx": 614,
+        "widthPx": 196,
+        "heightPx": 279
+      },
+      "frame": {
+        "variant": "left-angled",
+        "rotateDeg": -2.5,
+        "perspectiveDeg": 14,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "sideNav.analyzeLabel",
+        "centerXPx": 113,
+        "topPx": 526,
+        "widthPx": 193,
+        "heightPx": 46,
+        "rotateDeg": 9,
+        "fontSizePx": 24,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "door-assistant",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "navigate",
+        "page": "assistant"
+      },
+      "rect": {
+        "leftPx": 1516,
+        "topPx": 192,
+        "widthPx": 176,
+        "heightPx": 227
+      },
+      "frame": {
+        "variant": "upper",
+        "rotateDeg": 0.8,
+        "perspectiveDeg": 0,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "sideNav.assistantLabel",
+        "centerXPx": 1612,
+        "topPx": 138,
+        "widthPx": 197,
+        "heightPx": 45,
+        "rotateDeg": 0,
+        "fontSizePx": 24,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "door-server",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "navigate",
+        "page": "server"
+      },
+      "rect": {
+        "leftPx": 1502,
+        "topPx": 610,
+        "widthPx": 194,
+        "heightPx": 248
+      },
+      "frame": {
+        "variant": "flat",
+        "rotateDeg": 0,
+        "perspectiveDeg": 0,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "sideNav.serverLabel",
+        "centerXPx": 1607,
+        "topPx": 554,
+        "widthPx": 187,
+        "heightPx": 44,
+        "rotateDeg": 0,
+        "fontSizePx": 24,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "door-settings",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "settings",
+        "panel": null
+      },
+      "rect": {
+        "leftPx": 1918,
+        "topPx": 608,
+        "widthPx": 169,
+        "heightPx": 279
+      },
+      "frame": {
+        "variant": "right-angled",
+        "rotateDeg": 2.5,
+        "perspectiveDeg": -14,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "settingsHub.openButton",
+        "centerXPx": 2015,
+        "topPx": 526,
+        "widthPx": 203,
+        "heightPx": 46,
+        "rotateDeg": -7,
+        "fontSizePx": 24,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    },
+    {
+      "id": "hatch-rooms",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "navigate",
+        "page": "rooms"
+      },
+      "rect": {
+        "leftPx": 434,
+        "topPx": 951,
+        "widthPx": 108,
+        "heightPx": 134
+      },
+      "frame": {
+        "variant": "left-angled",
+        "rotateDeg": 0,
+        "perspectiveDeg": 0,
+        "hueDeg": 151,
+        "alpha": 1
+      },
+      "label": {
+        "visible": true,
+        "textKey": "sideNav.roomsLabel",
+        "centerXPx": 461,
+        "topPx": 894,
+        "widthPx": 300,
+        "heightPx": 41,
+        "rotateDeg": 0,
+        "fontSizePx": 22,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 2
+      }
+    },
+    {
+      "id": "board-whisper",
+      "kind": "object",
+      "viewId": null,
+      "action": {
+        "type": "whisper"
+      },
+      "rect": {
+        "leftPx": 362,
+        "topPx": 577,
+        "widthPx": 311,
+        "heightPx": 166
+      },
+      "frame": {
+        "variant": "flat",
+        "rotateDeg": 0,
+        "perspectiveDeg": 0,
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "entrance.panels.whisper",
+        "centerXPx": 515,
+        "topPx": 513,
+        "widthPx": 272,
+        "heightPx": 42,
+        "rotateDeg": 0,
+        "fontSizePx": 20,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    }
+  ],
+  "backs": [
+    {
+      "id": "back-whisper",
+      "kind": "back",
+      "viewId": "whisper",
+      "action": {
+        "type": "back",
+        "target": "room"
+      },
+      "rect": {
+        "leftPx": 0,
+        "topPx": 0,
+        "widthPx": 116,
+        "heightPx": 1080
+      },
+      "glow": {
+        "hueDeg": 33,
+        "alpha": 0.34
+      },
+      "label": {
+        "visible": true,
+        "textKey": "settingsHub.scene.returnRoom",
+        "centerXPx": 58,
+        "topPx": 502,
+        "widthPx": 180,
+        "heightPx": 40,
+        "rotateDeg": 0,
+        "fontSizePx": 18,
+        "letterSpacingPx": 1,
+        "fontPreset": "display",
+        "framePerspectiveDeg": 0
+      }
+    }
+  ],
+  "characters": [
+    {
+      "id": "anchor-user",
+      "kind": "character",
+      "characterKind": "user",
+      "leftPx": 884,
+      "bottomPx": 108,
+      "scale": 0.9,
+      "depth": 1
+    },
+    {
+      "id": "anchor-ai-left-outer",
+      "kind": "character",
+      "characterKind": "ai",
+      "leftPx": 422,
+      "bottomPx": 162,
+      "scale": 0.82,
+      "depth": 2
+    },
+    {
+      "id": "anchor-ai1-primary",
+      "kind": "character",
+      "characterKind": "ai",
+      "preferredSlot": "ai1",
+      "leftPx": 1343,
+      "bottomPx": 151,
+      "scale": 0.84,
+      "depth": 3
+    },
+    {
+      "id": "anchor-assistant",
+      "kind": "character",
+      "characterKind": "assistant",
+      "preferredSlot": "ai0",
+      "leftPx": 1152,
+      "bottomPx": 140,
+      "scale": 0.66,
+      "depth": 4
+    },
+    {
+      "id": "anchor-us1",
+      "kind": "character",
+      "characterKind": "us1",
+      "preferredSlot": "us1",
+      "leftPx": 1363,
+      "bottomPx": 108,
+      "scale": 0.82,
+      "depth": 5
+    },
+    {
+      "id": "anchor-ai2-primary",
+      "kind": "character",
+      "characterKind": "ai",
+      "preferredSlot": "ai2",
+      "leftPx": 1794,
+      "bottomPx": 151,
+      "scale": 0.84,
+      "depth": 6
+    },
+    {
+      "id": "anchor-ai-right-outer",
+      "kind": "character",
+      "characterKind": "ai",
+      "leftPx": 1766,
+      "bottomPx": 162,
+      "scale": 0.82,
+      "depth": 7
+    }
+  ]
+}

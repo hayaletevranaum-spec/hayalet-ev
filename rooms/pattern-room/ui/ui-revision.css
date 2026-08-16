@@ -1,0 +1,262 @@
+/* Pattern Room V2 UI revision overrides.
+ * Loaded after workspace.css to give the revision a single cascade owner.
+ */
+
+.pattern-room-archive-workspace {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pattern-room-archive-browser {
+  width: 100%;
+  min-width: 0;
+}
+
+.pattern-room-workspace-inspector-content > .pattern-room-archive-inspector {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.pattern-room-workspace-inspector-content
+  > .pattern-room-archive-inspector
+  > .pattern-room-context-inspector-label {
+  display: none;
+}
+
+.pattern-room-workspace-inspector-content .pattern-room-source-detail {
+  min-width: 0;
+}
+
+.pattern-room-workspace-inspector-content .pattern-room-source-detail-text,
+.pattern-room-workspace-inspector-content .pattern-room-source-segment-text {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Shared empty and placeholder language. The text remains owned by each panel;
+ * the data kind only controls hierarchy and tone.
+ */
+.pattern-room-empty-state,
+.pattern-room-source-detail-placeholder,
+.pattern-room-connection-empty {
+  position: relative;
+  display: grid;
+  gap: var(--pattern-px-6);
+  align-content: center;
+  min-height: var(--pattern-px-88);
+  margin: 0;
+  padding: var(--pattern-px-16);
+  border: var(--pattern-px-1) dashed var(--pattern-border);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-surface-inset-alpha-62);
+  color: var(--pattern-text-muted);
+  line-height: 1.5;
+}
+
+.pattern-room-empty-state.compact {
+  min-height: 0;
+  padding: var(--pattern-px-10) var(--pattern-px-12);
+}
+
+.pattern-room-empty-state::before,
+.pattern-room-source-detail-placeholder::before {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+  letter-spacing: var(--pattern-em-0-08);
+  text-transform: uppercase;
+  color: var(--pattern-text-subtle);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="data-empty"]::before {
+  content: "Henüz veri yok";
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="selection"]::before {
+  content: "Seçim bekleniyor";
+  color: var(--pattern-accent-cyan);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="filter-empty"]::before {
+  content: "Sonuç bulunamadı";
+  color: var(--pattern-accent-red);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="pending"]::before {
+  content: "İşlem bekleniyor";
+  color: var(--pattern-accent-amber);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="complete-empty"]::before {
+  content: "Sonuç yok";
+  color: var(--pattern-accent-green);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="selection"] {
+  border-color: var(--pattern-accent-cyan-alpha-22);
+  background: var(--pattern-accent-cyan-alpha-05);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="filter-empty"] {
+  border-color: var(--pattern-accent-red-alpha-28);
+  background: var(--pattern-accent-red-alpha-08);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="pending"] {
+  border-color: var(--pattern-accent-amber-alpha-28);
+  background: var(--pattern-accent-amber-alpha-06);
+}
+
+.pattern-room-empty-state[data-pattern-empty-state-kind="complete-empty"] {
+  border-color: var(--pattern-accent-green-alpha-22);
+  background: var(--pattern-accent-green-alpha-10);
+}
+
+.pattern-room-board-pins > .pattern-room-empty-state,
+.pattern-room-claim-objects > .pattern-room-empty-state {
+  width: 100%;
+}
+
+.pattern-room-source-detail-placeholder::before {
+  content: "Kaynak seçimi";
+  color: var(--pattern-accent-cyan);
+}
+
+[data-pattern-archive-empty="true"]::before {
+  content: "Arşiv sonucu";
+  color: var(--pattern-accent-red);
+}
+
+[data-pattern-archive-source-search-state="none"] .pattern-room-source-search-status {
+  margin: var(--pattern-px-8) 0 0;
+  padding: var(--pattern-px-8) var(--pattern-px-10);
+  border: var(--pattern-px-1) dashed var(--pattern-accent-red-alpha-28);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-accent-red-alpha-08);
+  color: var(--pattern-text-muted);
+}
+
+.pattern-room-board-detail:not(:has(.pattern-room-detail-metrics)),
+.pattern-room-connection-detail:not(:has(.pattern-room-detail-metrics)) {
+  padding: var(--pattern-px-16);
+  border: var(--pattern-px-1) dashed var(--pattern-accent-cyan-alpha-22);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-accent-cyan-alpha-05);
+}
+
+.pattern-room-board-detail:not(:has(.pattern-room-detail-metrics)) > h2,
+.pattern-room-connection-detail:not(:has(.pattern-room-detail-metrics)) > h2 {
+  color: var(--pattern-accent-cyan);
+}
+
+.pattern-room-case-review-section-raw {
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--pattern-text-muted);
+}
+
+@media (--pattern-bp-max-1180) {
+  .pattern-room-app-shell {
+    grid-template-columns:
+      var(--pattern-px-218)
+      minmax(0, 1fr)
+      minmax(var(--pattern-px-260), var(--pattern-px-292));
+  }
+}
+
+@media (--pattern-bp-max-1100) {
+  .pattern-room-app-shell {
+    grid-template-columns:
+      var(--pattern-px-84)
+      minmax(0, 1fr)
+      minmax(var(--pattern-px-260), var(--pattern-px-292));
+  }
+
+  .pattern-room-overview,
+  .pattern-room-panel {
+    max-width: none;
+    padding-inline: var(--pattern-px-18);
+  }
+}
+
+@media (--pattern-bp-max-960) {
+  .pattern-room-app-shell {
+    grid-template-columns: var(--pattern-px-84) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(var(--pattern-px-210), 40dvh);
+  }
+
+  .pattern-room-workspace-rail {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  .pattern-room-workspace {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .pattern-room-workspace-inspector {
+    display: flex;
+    grid-column: 2;
+    grid-row: 2;
+    gap: var(--pattern-px-12);
+    max-height: none;
+    padding: var(--pattern-px-14) var(--pattern-px-16);
+    border-top: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+    border-left: 0;
+    box-shadow: 0 calc(0 - var(--pattern-px-12)) var(--pattern-px-32) var(--pattern-black-alpha-24);
+  }
+
+  .pattern-room-workspace-inspector-header {
+    grid-template-columns: minmax(var(--pattern-px-150), 0.4fr) minmax(0, 1fr);
+    gap: var(--pattern-px-6) var(--pattern-px-12);
+    align-items: baseline;
+    padding-bottom: var(--pattern-px-10);
+  }
+
+  .pattern-room-workspace-inspector-header > .pattern-room-context-inspector-label {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .pattern-room-workspace-inspector-case {
+    display: none;
+  }
+}
+
+@media (--pattern-bp-max-820) {
+  .pattern-room-app-shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows:
+      auto
+      minmax(0, 1fr)
+      minmax(var(--pattern-px-210), 42dvh);
+  }
+
+  .pattern-room-workspace-rail {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .pattern-room-workspace {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .pattern-room-workspace-inspector {
+    grid-column: 1;
+    grid-row: 3;
+    padding: var(--pattern-px-12);
+  }
+
+  .pattern-room-workspace-inspector-header {
+    grid-template-columns: 1fr;
+  }
+}

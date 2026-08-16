@@ -1,0 +1,38 @@
+/* Laboratory UI base: global reset and root layout. */
+
+@import "./lab-tokens.css";
+@import "./lab-primitives.css";
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--lab-base-gradient-01), var(--lab-base-gradient-02), var(--lab-base-gradient-03);
+  color: var(--lab-text-default);
+  font-family: var(--lab-font-sans);
+  font-size: var(--lab-text-base);
+  line-height: var(--lab-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

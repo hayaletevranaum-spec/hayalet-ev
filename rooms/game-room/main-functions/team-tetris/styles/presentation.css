@@ -1,0 +1,228 @@
+@media (--game-bp-max-1380) {
+  .tt-stage-main {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-support-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+  }
+
+  .tt-support-pair {
+    grid-column: 1 / -1;
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-stage-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 0.75fr);
+    overflow: auto;
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-support-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (--game-bp-max-1180) {
+  .tt-arena {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-stage {
+    order: 1;
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-rail {
+    order: 2;
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-board-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (--game-bp-max-860) {
+  .tt-requirement-grid,
+  .tt-toggle-row,
+  .tt-partner-row,
+  .tt-actions,
+  .tt-support-stack,
+  .tt-support-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-rotation-row,
+  .tt-actions--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tt-prep-area__controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tt-route-choices {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-bend-row-picker {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-match-topbar,
+  .tt-shell[data-tt-view="match"] .tt-board-grid,
+  .tt-shell[data-tt-view="match"] .tt-support-stack,
+  .tt-shell[data-tt-view="match"] .tt-support-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-stage-main {
+    grid-template-rows: auto auto;
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-match-topbar__ready {
+    justify-self: start;
+  }
+}
+
+@media (--game-bp-max-640) {
+  .tt-shell {
+    padding: var(--game-rem-0-55);
+  }
+
+  .tt-surface {
+    padding: var(--game-rem-0-55);
+    border-radius: var(--game-rem-1-2);
+  }
+
+  .tt-panel,
+  .tt-stage,
+  .tt-requirement,
+  .tt-board-card,
+  .tt-context-card,
+  .tt-prep-area {
+    border-radius: var(--game-rem-0-96);
+  }
+
+  .tt-rotation-row,
+  .tt-actions--compact {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-prep-area__controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tt-bend-row-picker {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .tt-lobby-slot__name {
+    max-width: var(--game-rem-4);
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-stage {
+    padding: var(--game-rem-0-42);
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-match-topbar {
+    padding: var(--game-rem-0-38) var(--game-rem-0-42);
+  }
+
+  .tt-shell[data-tt-view="match"] .tt-board-card {
+    padding: var(--game-rem-0-42);
+  }
+}
+
+body[data-presentation-mode="scene-view"] .tt-shell {
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+
+body[data-presentation-mode="scene-view"] .tt-surface {
+  min-height: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+body[data-presentation-mode="scene-view"] .tt-arena {
+  min-height: 0;
+  grid-template-columns: minmax(var(--game-rem-13-5), var(--game-rem-15)) minmax(0, 1fr);
+  gap: var(--game-rem-0-45);
+  overflow: hidden;
+}
+
+body[data-presentation-mode="scene-view"] .tt-rail {
+  gap: var(--game-rem-0-45);
+}
+
+body[data-presentation-mode="scene-view"] .tt-panel,
+body[data-presentation-mode="scene-view"] .tt-stage,
+body[data-presentation-mode="scene-view"] .tt-requirement,
+body[data-presentation-mode="scene-view"] .tt-board-card,
+body[data-presentation-mode="scene-view"] .tt-context-card {
+  border-radius: var(--game-rem-0-88);
+}
+
+body[data-presentation-mode="scene-view"] .tt-panel {
+  padding: var(--game-rem-0-54);
+  gap: var(--game-rem-0-4);
+}
+
+body[data-presentation-mode="scene-view"] .tt-panel__label,
+body[data-presentation-mode="scene-view"] .tt-panel__eyebrow {
+  font-size: var(--game-rem-0-58);
+}
+
+body[data-presentation-mode="scene-view"] .tt-panel__title {
+  font-size: clamp(var(--game-rem-1-22), 2.2vw, var(--game-rem-1-6));
+}
+
+body[data-presentation-mode="scene-view"] .tt-panel__body,
+body[data-presentation-mode="scene-view"] .tt-panel__hint,
+body[data-presentation-mode="scene-view"] .tt-context-card__meta,
+body[data-presentation-mode="scene-view"] .tt-context-card__lead {
+  font-size: var(--game-rem-0-7);
+  line-height: 1.32;
+}
+
+body[data-presentation-mode="scene-view"] .tt-stage {
+  padding: var(--game-rem-0-52);
+}
+
+body[data-presentation-mode="scene-view"] .tt-stage-main {
+  grid-template-columns: minmax(0, 1fr) minmax(var(--game-rem-13-5), var(--game-rem-14-5));
+  gap: var(--game-rem-0-45);
+}
+
+body[data-presentation-mode="scene-view"] .tt-shell[data-tt-view="match"] .tt-stage-main {
+  grid-template-columns: minmax(0, 1fr) minmax(var(--game-rem-13-5), var(--game-rem-14));
+}
+
+body[data-presentation-mode="scene-view"] .tt-shell[data-tt-view="match"] .tt-match-topbar {
+  padding: var(--game-rem-0-32) var(--game-rem-0-46);
+  gap: var(--game-rem-0-34);
+}
+
+body[data-presentation-mode="scene-view"] .tt-board {
+  --tt-cell-size: clamp(var(--game-rem-0-56), 0.8vw, var(--game-rem-0-92));
+}
+
+body[data-presentation-mode="scene-view"] .tt-shell[data-tt-view="match"] .tt-board {
+  --tt-cell-size: clamp(var(--game-rem-0-56), min(0.82vw, 1.45vh), var(--game-rem-0-92));
+}
+
+body[data-presentation-mode="scene-view"] .tt-context-card[data-variant="snapshot"] .tt-board {
+  --tt-cell-size: clamp(var(--game-rem-0-22), 0.3vw, var(--game-rem-0-32));
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "output": {
+    "style": "plain",
+    "filePath": ".rovo/context/module-custom.txt",
+    "headerText": "# Hayalet-ev Context - Custom Module\n",
+    "showLineNumbers": true
+  },
+  "include": [],
+  "ignore": {
+    "useDefaultPatterns": true
+  }
+}

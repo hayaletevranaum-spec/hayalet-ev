@@ -1,0 +1,13 @@
+{
+  "id": "plan-harder-local",
+  "version": 1,
+  "title": "Plan Harder Local",
+  "interactionType": "plan-harder-local",
+  "description": "Repo-local planning intake card for collecting structured plan constraints inside OpenCode UI.",
+  "draftPersistence": {
+    "type": "memory-db",
+    "namespace": "rovo-interactions",
+    "tags": ["interaction-draft", "plan-harder-local"]
+  },
+  "protocol": "../protocol.md"
+}

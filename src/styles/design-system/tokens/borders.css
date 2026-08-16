@@ -1,0 +1,23 @@
+:root {
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;
+  --border-4: 4px;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  --radius-btn: var(--radius-lg);
+  --radius-btn-sm: var(--radius-md);
+  --radius-input: var(--radius-lg);
+  --radius-card: var(--radius-xl);
+  --radius-modal: var(--radius-2xl);
+  --radius-toast: var(--radius-lg);
+  --radius-badge: var(--radius-full);
+  --radius-dropdown: var(--radius-lg);
+}

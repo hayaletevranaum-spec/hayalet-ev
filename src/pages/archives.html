@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="und" data-theme="obsidian">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/archives.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section class="page page-archives" id="page-archives" aria-labelledby="page-archives-title">
+        <h2
+          class="visually-hidden"
+          id="page-archives-title"
+          data-shell-i18n-text="app.archives.page.pageTitle"
+        ></h2>
+
+        <div class="archives-page scene-shell__embedded-page">
+          <div class="archives-page__header workspace-tool-bar">
+            <div class="workspace-tool-bar__start">
+              <h1
+                class="workspace-tool-bar__title"
+                data-shell-i18n-text="app.archives.page.pageTitle"
+              ></h1>
+            </div>
+            <div class="workspace-tool-bar__center" aria-hidden="true"></div>
+            <div class="workspace-tool-bar__end">
+              <button
+                type="button"
+                class="btn btn-ghost btn-sm"
+                id="archives-page-close-btn"
+                data-shell-i18n-text="common.close"
+              ></button>
+            </div>
+          </div>
+
+          <div class="archives-page__content">
+            <div class="archives-wrapper">
+              <div class="archives-top">
+                <div class="archives-sidebar ds-surface-card ds-surface-card--stack">
+                  <div class="sidebar-header ds-surface-card__header">
+                    <div class="provider-toggle">
+                      <label class="ds-choice-chip ds-choice-chip--segmented">
+                        <input
+                          type="radio"
+                          name="archives-provider"
+                          value="ai1"
+                          id="archive-filter-ai1"
+                          checked
+                        />
+                        <span id="archives-provider-ai1">AI1</span>
+                      </label>
+                      <label class="ds-choice-chip ds-choice-chip--segmented">
+                        <input
+                          type="radio"
+                          name="archives-provider"
+                          value="ai2"
+                          id="archive-filter-ai2"
+                        />
+                        <span id="archives-provider-ai2">AI2</span>
+                      </label>
+                      <label class="ds-choice-chip ds-choice-chip--segmented">
+                        <input
+                          type="radio"
+                          name="archives-provider"
+                          value="us1"
+                          id="archive-filter-us1"
+                        />
+                        <span id="archives-provider-us1">US1</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="archives-list" id="archives-list">
+                    <div class="empty" data-shell-i18n-text="app.archives.page.empty"></div>
+                  </div>
+                </div>
+
+                <div class="archives-detail ds-surface-card ds-surface-card--stack">
+                  <div class="detail-header ds-surface-card__header">
+                    <h3
+                      id="archives-detail-title"
+                      data-shell-i18n-text="app.archives.page.detailTitle"
+                    ></h3>
+                  </div>
+
+                  <div class="detail-content" id="detail-content">
+                    <div class="ds-empty-state" id="detail-empty">
+                      <p
+                        id="archives-detail-empty-text"
+                        data-shell-i18n-text="app.archives.page.detailEmpty"
+                      ></p>
+                    </div>
+
+                    <form class="conversation-form is-hidden" id="conversation-form">
+                      <div class="form-group">
+                        <label
+                          for="archive-title"
+                          id="archives-title-label"
+                          data-shell-i18n-text="app.archives.page.titleLabel"
+                        ></label>
+                        <input
+                          type="text"
+                          id="archive-title"
+                          class="form-input"
+                          placeholder=""
+                          data-shell-i18n-placeholder="app.archives.page.titlePlaceholder"
+                        />
+                      </div>
+
+                      <div class="form-group">
+                        <label
+                          for="archive-summary"
+                          id="archives-summary-label"
+                          data-shell-i18n-text="app.archives.page.summaryLabel"
+                        ></label>
+                        <textarea
+                          id="archive-summary"
+                          class="form-input"
+                          rows="3"
+                          placeholder=""
+                          data-shell-i18n-placeholder="app.archives.page.summaryPlaceholder"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label
+                          id="archives-weburl-label"
+                          data-shell-i18n-text="app.archives.page.webUrlLabel"
+                        ></label>
+                        <div class="url-display-group">
+                          <span class="url-display" id="archive-weburl-display">-</span>
+                          <button
+                            type="button"
+                            class="icon-btn"
+                            id="btn-copy-url"
+                            title=""
+                            aria-label=""
+                            data-shell-i18n-title="app.archives.page.copyUrlTitle"
+                            data-shell-i18n-aria-label="app.archives.page.copyUrlTitle"
+                          >
+                            📋
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="form-actions">
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          id="archive-save"
+                          data-shell-i18n-text="app.archives.page.saveButton"
+                        ></button>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          id="btn-delete"
+                          data-shell-i18n-text="app.archives.page.deleteButton"
+                        ></button>
+                      </div>
+                      <div
+                        class="form-hint"
+                        id="archive-status"
+                        role="status"
+                        aria-live="polite"
+                      ></div>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="archives-search ds-surface-card ds-surface-card--stack">
+                  <div class="search-header ds-surface-card__header">
+                    <div class="search-scope">
+                      <label class="ds-choice-chip ds-choice-chip--segmented">
+                        <input type="radio" name="search-scope" value="current" checked />
+                        <span
+                          id="archives-scope-current"
+                          data-shell-i18n-text="app.archives.page.scopeCurrent"
+                        ></span>
+                      </label>
+                      <label class="ds-choice-chip ds-choice-chip--segmented">
+                        <input type="radio" name="search-scope" value="all" />
+                        <span
+                          id="archives-scope-all"
+                          data-shell-i18n-text="app.archives.page.scopeAll"
+                        ></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="search-input-wrapper">
+                    <input
+                      type="text"
+                      id="search-input"
+                      class="form-input"
+                      aria-label=""
+                      placeholder=""
+                      data-shell-i18n-aria-label="app.archives.page.searchPlaceholder"
+                      data-shell-i18n-placeholder="app.archives.page.searchPlaceholder"
+                      autocomplete="off"
+                    />
+                    <button type="button" class="btn-clear is-hidden" id="btn-clear-search">
+                      ×
+                    </button>
+                  </div>
+
+                  <div class="search-tabs">
+                    <button class="tab-btn is-active" data-tab="messages">
+                      <span
+                        id="archives-messages-tab-label"
+                        data-shell-i18n-text="app.archives.page.messagesTab"
+                      ></span>
+                      <span class="tab-count" id="messages-count">0</span>
+                    </button>
+                    <button class="tab-btn" data-tab="files">
+                      <span
+                        id="archives-files-tab-label"
+                        data-shell-i18n-text="app.archives.page.filesTab"
+                      ></span>
+                      <span class="tab-count" id="files-count">0</span>
+                    </button>
+                  </div>
+
+                  <div class="search-results" id="search-results">
+                    <div class="search-empty" id="search-empty">
+                      <p
+                        id="archives-search-empty-text"
+                        data-shell-i18n-text="app.archives.page.searchEmpty"
+                      ></p>
+                    </div>
+
+                    <div class="results-panel is-active" id="results-messages"></div>
+                    <div class="results-panel" id="results-files"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="archives-bottom">
+                <div class="protocol-sidebar ds-surface-card ds-surface-card--stack">
+                  <div class="protocol-header ds-surface-card__header">
+                    <h3
+                      id="archives-protocol-list-title"
+                      data-shell-i18n-text="app.archives.page.protocolListTitle"
+                    ></h3>
+                  </div>
+                  <div class="protocol-list" id="protocol-list">
+                    <div
+                      class="empty"
+                      id="archives-protocol-list-loading"
+                      data-shell-i18n-text="app.archives.page.protocolLoading"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="protocol-editor ds-surface-card ds-surface-card--stack">
+                  <div class="protocol-editor-header ds-surface-card__header">
+                    <h3
+                      id="protocol-editor-title"
+                      data-shell-i18n-text="app.archives.page.protocolEditorPlaceholderTitle"
+                    ></h3>
+                    <div class="protocol-tag-buttons is-hidden" id="protocol-tag-buttons">
+                      <button
+                        type="button"
+                        class="btn btn-ghost btn-xs protocol-tag-btn"
+                        data-tag="<AI0>"
+                      >
+                        &lt;AI0&gt;
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-ghost btn-xs protocol-tag-btn"
+                        data-tag="<AI1>"
+                      >
+                        &lt;AI1&gt;
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-ghost btn-xs protocol-tag-btn"
+                        data-tag="<AI2>"
+                      >
+                        &lt;AI2&gt;
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-ghost btn-xs protocol-tag-btn"
+                        data-tag="<US1>"
+                      >
+                        &lt;US1&gt;
+                      </button>
+                    </div>
+                    <button
+                      class="btn btn-primary btn-sm is-hidden"
+                      id="btn-protocol-save"
+                      data-shell-i18n-text="app.archives.page.protocolSaveButton"
+                    ></button>
+                  </div>
+                  <div class="protocol-editor-content">
+                    <div class="ds-empty-state" id="protocol-empty">
+                      <p
+                        id="archives-protocol-empty-text"
+                        data-shell-i18n-text="app.archives.page.protocolEmpty"
+                      ></p>
+                    </div>
+                    <textarea
+                      class="protocol-textarea form-input is-hidden"
+                      id="protocol-textarea"
+                      placeholder=""
+                      data-shell-i18n-placeholder="app.archives.page.protocolPlaceholder"
+                    ></textarea>
+                    <div
+                      class="protocol-rich-editor form-input is-hidden"
+                      id="protocol-rich-editor"
+                      contenteditable="true"
+                      role="textbox"
+                      aria-multiline="true"
+                    ></div>
+                  </div>
+                  <div
+                    class="form-hint"
+                    id="protocol-status"
+                    role="status"
+                    aria-live="polite"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/js/pages/archives/app.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,649 @@
+{
+  "title": "Tamir Odası",
+  "subtitle": "Canlı PCB tezgâhı, Asistan AI akışı, bilgi paketi araştırması ve operatör farkındalıklı tanı rehberliğini birleştiren bir elektronik onarım iş istasyonu.",
+  "workbench": {
+    "title": "Onarım Tezgâhı",
+    "subtitle": "Overlay anotasyonları, Asistan AI akışı, ölçüm paneli, bilgi paketi görüntüleyici ve operatör profili farkındalığı ile canlı PCB sahnesi.",
+    "live": "CANLI",
+    "frozen": "DONUK",
+    "buffering": "TAMPONLAMA",
+    "noFeed": "AKIŞ YOK",
+    "noImage": "Kart görseli gerekli",
+    "noImageHelp": "Overlay, ölçüm ve rehberli onarım adımlarını kullanmak için Android kamerayı başlat veya bir kart görseli ekle.",
+    "coordX": "X",
+    "coordY": "Y",
+    "coordGrid": "IZGARA",
+    "emptyStateStep1": "Kamerayı başlat",
+    "emptyStateStep2": "Kartı çerçevele",
+    "emptyStateStep3": "Hazır olunca dondur",
+    "quickActions": {
+      "measurement": "Ölçüm",
+      "measurementTitle": "Ölçüm girişini aç"
+    },
+    "toolbar": {
+      "grid": "Izgara",
+      "gridTitle": "Izgara katmanını aç/kapat",
+      "aiMarks": "Asistan AI İşaretleri",
+      "aiMarksTitle": "Asistan AI işaret katmanını aç/kapat",
+      "operatorNotes": "Operatör Notları",
+      "operatorNotesTitle": "Operatör notlarını aç/kapat",
+      "aiNotes": "Asistan AI Notları",
+      "aiNotesTitle": "Asistan AI notlarını aç/kapat",
+      "measure": "Ölçüm",
+      "measureTitle": "Ölçüm katmanını aç/kapat",
+      "risks": "Riskler",
+      "risksTitle": "Risk katmanını aç/kapat",
+      "notes": "Notlar",
+      "notesTitle": "Onarım notlarını aç/kapat",
+      "evidence": "Kanıt",
+      "evidenceTitle": "Bilgi kanıtını aç/kapat",
+      "inspect": "İncele",
+      "inspectTitle": "İnceleme modunu aç/kapat"
+    },
+    "tools": {
+      "select": {
+        "label": "Seç",
+        "title": "Kart işaretini seç"
+      },
+      "pan": {
+        "label": "Kaydır",
+        "title": "Kart görünümünü kaydır"
+      },
+      "zoom-in": {
+        "label": "Yakınlaş",
+        "title": "Kartı yakınlaştır"
+      },
+      "zoom-out": {
+        "label": "Uzaklaş",
+        "title": "Karttan uzaklaş"
+      },
+      "rect": {
+        "label": "Kutu",
+        "title": "Bir alanın çevresine kutu çiz"
+      },
+      "freehand": {
+        "label": "Çiz",
+        "title": "Serbest kart notu çiz"
+      },
+      "text": {
+        "label": "Metin",
+        "title": "Metin notu ekle"
+      },
+      "measurement-pin": {
+        "label": "Prob",
+        "title": "Ölçüm noktası ekle"
+      },
+      "arrow": {
+        "label": "Ok",
+        "title": "Kart detayını işaret et"
+      },
+      "ruler": {
+        "label": "Cetvel",
+        "title": "Kart mesafesini ölç"
+      },
+      "freeze-frame": {
+        "label": "Dondur",
+        "title": "Geçerli kareyi dondur"
+      },
+      "snapshot": {
+        "label": "Kare",
+        "title": "Kart karesi al"
+      }
+    },
+    "guidance": {
+      "ai": "Asistan AI",
+      "next": "Sıradaki",
+      "say": "Söyle",
+      "risk": "Risk",
+      "fullBoard": "tam kart",
+      "noPending": "bekleyen ölçüm yok",
+      "linkedEvents": "bağlı olaylar",
+      "selected": "seçili",
+      "critical": "kritik",
+      "calm": "sakin",
+      "pending": "bekleyen",
+      "focusCorridor": "odak koridoru",
+      "noLinked": "Bağlı kayıt yok",
+      "hintResume": "canlıya dön",
+      "hintReadAgain": "tekrar oku",
+      "hintSaveNote": "not kaydet",
+      "hintFreeze": "kamerayı dondur",
+      "hintRepeat": "rehberi tekrarla",
+      "hintMeasure": "ölçüm kaydet",
+      "hintShowRisks": "riskleri göster",
+      "benchReady": "Tezgah hazır.",
+      "openRepairSession": "Bir tamir oturumu aç.",
+      "addSymptomsStartAssistant": "Semptomları ekle, sonra Asistan AI ile kanıt araştırmasını başlat.",
+      "measurementVerificationWaiting": "Ölçüm doğrulaması bekliyor.",
+      "focusedBehaviorMatchesFailure": "Odaklanan davranış arıza deseniyle eşleşiyor.",
+      "observeBoardNarrowCheck": "Kartı gözlemle ve sıradaki kontrolü dar tut.",
+      "primaryRailMatchesFailure": "Ana hat davranışı arıza deseniyle eşleşiyor.",
+      "regionEvidenceInspectCalmly": "Bu bölgede sakin inceleme için yeterli kanıt var.",
+      "regionMayMatchEarlierPattern": "Bu bölge önceki bir desenle eşleşebilir.",
+      "progress": "{phase} {current}/{total}",
+      "phase": {
+        "observe": "gözlem",
+        "inspect": "incele",
+        "measure": "ölç",
+        "compare": "karşılaştır",
+        "verify": "doğrula",
+        "conclude": "sonuçlandır"
+      }
+    }
+  },
+  "session": {
+    "rail": {
+      "eyebrow": "TEZGÂH",
+      "title": "Oturumlar",
+      "newSession": "+ Alım",
+      "searchPlaceholder": "Oturumlarda ara…",
+      "viewArchive": "Arşivi Aç",
+      "activeBadge": "Aktif",
+      "archivedBadge": "Arşivlendi"
+    },
+    "active": {
+      "eyebrow": "AKTİF OTURUM",
+      "device": "Cihaz",
+      "boardCode": "Kart Kodu",
+      "serialNumber": "S/N",
+      "status": "Durum",
+      "riskLevel": "Risk Seviyesi",
+      "notes": "Oturum Notları"
+    },
+    "riskLevels": {
+      "low": "DÜŞÜK",
+      "medium": "ORTA",
+      "high": "YÜKSEK",
+      "critical": "KRİTİK"
+    },
+    "status": {
+      "draft": "Taslak",
+      "research": "Araştırma",
+      "ready": "Hazır",
+      "inProgress": "Devam Ediyor",
+      "paused": "Duraklatıldı",
+      "archived": "Arşivlendi"
+    }
+  },
+  "feed": {
+    "eyebrow": "ASİSTAN",
+    "title": "Asistan AI Akışı",
+    "composerPlaceholder": "Asistan AI'ye sor…",
+    "send": "Sor",
+    "severity": {
+      "risk": "RİSK",
+      "suggestion": "ÖNERİ",
+      "action": "AKSİYON",
+      "info": "BİLGİ"
+    }
+  },
+  "wizard": {
+    "eyebrow": "TAMİR",
+    "title": "Tamir Alımı",
+    "steps": {
+      "deviceInfo": "Cihaz",
+      "symptoms": "Semptom",
+      "aiResearch": "Araştırma",
+      "evidenceReview": "İnceleme",
+      "ready": "Hazır"
+    },
+    "hints": {
+      "deviceInfo": "Cihaz türü, marka, model ve kart kodunu tamamla; bilinmeyenler için Bilinmiyor seç.",
+      "symptoms": "Varsayılan semptomları seç veya kendi semptomunu ekle.",
+      "aiResearch": "Araştırmayı başlat veya kanıt paketi olmadan devam et.",
+      "evidenceReview": "Oturum arşivine alınacak kaynakları, arızaları ve test noktalarını seç.",
+      "ready": "Cihaz, semptom ve araştırma özetini kontrol edip tamiri başlat."
+    },
+    "actions": {
+      "addSymptoms": "Semptom ekle",
+      "findEvidence": "Kanıt bul",
+      "startEvidenceResearch": "Kanıt araştırmasını başlat",
+      "reviewSetup": "Kurulumu gözden geçir",
+      "approveEvidence": "Kanıtları onayla",
+      "startRepair": "Tamiri başlat"
+    },
+    "evidenceReview": {
+      "empty": "Kanıt paketi yok. Araştırmayı tekrar çalıştır veya Asistan AI olmadan devam et.",
+      "summary": "{resources} kaynak, {failures} arıza notu, {testPoints} test noktası.",
+      "failurePrefix": "Arıza",
+      "probePrefix": "Prob",
+      "remove": "Kaldır",
+      "preview": "Önizle",
+      "download": "İndir",
+      "manualLabel": "Kaynak adı",
+      "manualAddedBy": "Manuel"
+    },
+    "research": {
+      "bridgeWarning": "Asistan AI köprüsü çalışmadı veya sonuç dönmedi. Tekrar dene ya da Asistan AI olmadan devam et.",
+      "retry": "Tekrar dene",
+      "start": "Araştırmayı başlat",
+      "skip": "Asistan AI olmadan devam et",
+      "noAi": "Asistan AI olmadan",
+      "packReady": "Kanıt paketi hazır",
+      "pending": "Bekliyor"
+    },
+    "labels": {
+      "deviceType": "Cihaz türü",
+      "select": "Seç",
+      "manufacturer": "Marka",
+      "model": "Model",
+      "boardCode": "Kart kodu",
+      "serialNumber": "Seri / iş no",
+      "intakeNotes": "Tezgah notu",
+      "aiSlot": "Asistan AI",
+      "symptomGroupAvailable": "Önerilen semptomlar",
+      "symptomGroupSelected": "Seçili semptomlar",
+      "customSymptom": "Özel semptom",
+      "add": "Ekle",
+      "observationNote": "Gözlem notu"
+    },
+    "summary": {
+      "device": "Cihaz",
+      "model": "Model",
+      "symptom": "Semptom",
+      "research": "Araştırma",
+      "evidence": "Kanıt"
+    },
+    "noRecords": "Kayıt yok",
+    "remove": "Kaldır",
+    "failures": "Arızalar",
+    "testPoints": "Test noktaları",
+    "notes": "Notlar",
+    "manual": {
+      "failureName": "Arıza adı",
+      "failurePart": "Parça / bölge",
+      "failureAction": "Önerilen işlem",
+      "failureRationale": "Gerekçe / gözlem",
+      "failureAdd": "Arıza ekle",
+      "testPointName": "Test noktası",
+      "testPointExpected": "Beklenen değer",
+      "testPointUnit": "Birim",
+      "testPointTolerance": "Tolerans",
+      "testPointAdd": "Test noktası ekle",
+      "notePlaceholder": "Not",
+      "noteSource": "Kaynak",
+      "noteAdd": "Not ekle",
+      "resourceFile": "Dosya",
+      "rail": "Hat"
+    },
+    "resourcePanel": {
+      "schematicTitle": "Şemalar",
+      "schematicAdd": "Şema ekle",
+      "schematicUrl": "https://... veya /dosya/yolu.pdf",
+      "boardImageTitle": "Kart görselleri",
+      "boardImageAdd": "Görsel ekle",
+      "boardImageUrl": "https://... veya /dosya/yolu.png",
+      "datasheetTitle": "Veri sayfası / doküman",
+      "datasheetAdd": "Veri sayfası ekle",
+      "datasheetUrl": "https://... veya /dosya/yolu.pdf",
+      "threadTitle": "Forum / link",
+      "threadAdd": "Link ekle",
+      "threadUrl": "https://forum...",
+      "noteTitle": "Kaynak notları",
+      "noteAdd": "Kaynak ekle",
+      "noteUrl": "https://... veya /dosya/yolu.txt"
+    }
+  },
+  "knowledgePack": {
+    "eyebrow": "BİLGİ PAKETİ",
+    "title": "Asistan AI Sonuçları",
+    "empty": "Henüz kanıt paketi yok",
+    "emptyHelp": "Şemalar, kart fotoğrafları, arıza notları ve test noktaları eklemek için tamir alımından kanıt araştırması çalıştır.",
+    "tabs": {
+      "schematicPreview": "Şema Önizleme",
+      "boardView": "Kart Görünümü",
+      "notes": "Notlar"
+    },
+    "tabSchematic": "Şema",
+    "tabBoard": "Kart fotoğrafları",
+    "tabNotes": "Onarım notları",
+    "schematics": "Şemalar",
+    "boardImages": "Kart Görselleri",
+    "commonFailures": "Yaygın Arızalar",
+    "repairNotes": "Onarım Notları",
+    "testPoints": "Test Noktaları",
+    "stats": {
+      "schematics": "Şemalar",
+      "boardImages": "Kart Görselleri",
+      "commonFailures": "Yaygın Arızalar",
+      "repairNotes": "Onarım Notları",
+      "testPoints": "Test Noktaları",
+      "pages": "sayfa"
+    },
+    "addToSession": "Oturuma Ekle",
+    "pinToWorkbench": "Bu alanı tezgaha sabitle",
+    "preview": "Önizle",
+    "download": "İndir",
+    "emptySteps": {
+      "identifyBoard": "Kartı tanımla",
+      "findEvidence": "Kanıt bul",
+      "attachPack": "Paket ekle"
+    },
+    "resourceKinds": {
+      "boardImage": "Kart görseli",
+      "datasheet": "Veri sayfası",
+      "schematic": "Şema",
+      "thread": "Konu",
+      "note": "Not"
+    },
+    "spatial": {
+      "likelyFault": "Muhtemel arıza",
+      "probe": "Prob"
+    }
+  },
+  "timeline": {
+    "eyebrow": "ONARIM ANLARI",
+    "title": "Onarım Anları",
+    "kinds": {
+      "snapshot": "Kare",
+      "aiMark": "AI İşareti",
+      "measurement": "Ölçüm",
+      "note": "Not",
+      "risk": "Risk Bayrağı",
+      "freezeFrame": "Donuk Kare",
+      "sessionStart": "Oturum Başlangıcı",
+      "annotation": "Anotasyon",
+      "aiMarkLifecycle": "Asistan Durumu",
+      "area": "Alan",
+      "event": "Olay"
+    },
+    "labels": {
+      "risk": "Risk",
+      "snapshot": "Kare",
+      "freezeFrame": "Dondur",
+      "note": "Not",
+      "sessionStart": "Başlangıç",
+      "assistantState": "Asistan durumu",
+      "area": "Alan",
+      "event": "Olay"
+    },
+    "play": "Oynat",
+    "pause": "Duraklat",
+    "followLive": "Canlı takip",
+    "zoomOut": "Uzaklaş",
+    "zoomIn": "Yakınlaş",
+    "markRange": "Aralık işaretle",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "latest": "Son kayıt",
+    "focusMoment": "Bu ana odaklan",
+    "returnLive": "Canlı ana dön",
+    "cleanSnapshot": "Temiz snapshot al",
+    "empty": "Henüz onarım anı yok",
+    "pageReadout": "Sayfa {page}/{pageCount}"
+  },
+  "operator": {
+    "eyebrow": "OPERATÖR PROFİLİ",
+    "title": "Araçlar & Ekipmanlar",
+    "tabs": {
+      "overview": "Profil Özeti",
+      "tools": "Araçlar & Ekipmanlar",
+      "skills": "Beceriler",
+      "preferences": "Tercihler",
+      "controls": "Tamir Kontrolleri"
+    },
+    "groups": {
+      "soldering": "Lehimleme",
+      "measurement": "Ölçüm",
+      "vision": "Görüntüleme",
+      "power": "Güç",
+      "other": "Diğer"
+    },
+    "editProfile": "Profili Düzenle",
+    "toolsTitle": "Aletlerin",
+    "toolsHint": "Tezgahında gerçekten kullandığın aletleri ekle.",
+    "toolsEmpty": "Henüz kayıtlı alet yok. Aşağıdan ekle.",
+    "skillsTitle": "Yeteneklerin",
+    "skillsHint": "Asistan AI'nin dikkate almasını istediğin tamir yeteneklerini kaydet.",
+    "skillsEmpty": "Henüz kayıtlı yetenek yok. Aşağıdan ekle.",
+    "available": "Kullanımda",
+    "unavailable": "Pasif",
+    "remove": "Sil",
+    "toolName": "Alet adı",
+    "toolModel": "Model",
+    "addTool": "+ Alet ekle",
+    "skillName": "Yetenek adı",
+    "addSkill": "+ Yetenek ekle",
+    "measurement": "Ölçüm",
+    "annotation": "Anotasyon",
+    "risk": "Risk",
+    "ai": "Asistan AI"
+  },
+  "measurement": {
+    "eyebrow": "ÖLÇÜM PANELİ",
+    "title": "Multimetre",
+    "tabMultimeter": "Multimetre",
+    "tabPsu": "Güç Kaynağı",
+    "tabSigGen": "Sinyal Üretici",
+    "manualEntry": "Manuel Okuma",
+    "overlayTitle": "Ölçüm Girişi",
+    "closeOverlay": "Ölçüm girişini kapat",
+    "reference": "Referans",
+    "value": "Değer",
+    "mode": "Mod",
+    "unit": "Birim",
+    "range": "Aralık",
+    "channel": "Kanal",
+    "record": "Kaydet",
+    "recordTitle": "Manuel ölçüm kaydet",
+    "recordDisabled": "Önce bir tamir oturumu aç",
+    "recent": "Son Okumalar",
+    "evidence": "Konumsal Kanıt",
+    "tabs": {
+      "multimeter": "Multimetre",
+      "powerSupply": "Güç Kaynağı",
+      "signalGen": "Sinyal Üretici"
+    },
+    "labels": {
+      "dcVoltage": "DC Voltaj",
+      "acVoltage": "AC Voltaj",
+      "resistance": "Direnç",
+      "continuity": "Süreklilik",
+      "diode": "Diyot",
+      "capacitance": "Kapasitans",
+      "frequency": "Frekans",
+      "mode": "Mod",
+      "range": "Aralık",
+      "hold": "Tut",
+      "recentReadings": "Son Okumalar",
+      "addToTimeline": "Onarım Anlarına Ekle",
+      "noReadings": "Henüz manuel ölçüm yok"
+    },
+    "options": {
+      "continuity": "Süreklilik",
+      "diode": "Diyot",
+      "cap": "Kap."
+    }
+  },
+
+  "sync": {
+    "eyebrow": "EŞİTLEME",
+    "title": "Oda Eşitleme",
+    "storage": "Depolama",
+    "registry": "Oda Eşitleme",
+    "events": "Olaylar",
+    "session": "Oturum",
+    "playhead": "Oynatma Konumu",
+    "aiSlot": "Asistan AI",
+    "aiTarget": "Asistan AI Hedefi",
+    "aiSession": "Asistan AI",
+    "status": {
+      "storageLoading": "Onarım geçmişi yükleniyor",
+      "storageReady": "Onarım geçmişi hazır, {count}",
+      "storageError": "Onarım geçmişi hatası",
+      "storageFallback": "Onarım geçmişi yalnızca mevcut oturumla sınırlı",
+      "storageNotConnected": "Onarım geçmişi bağlı değil",
+      "workspaceReady": "Çalışma alanı hazır",
+      "noRepairOpen": "Açık onarım yok",
+      "dispatchIdle": "{slot} boşta",
+      "dispatchChecking": "{slot} kontrol ediyor",
+      "dispatchRefs": ", {count} başvuru",
+      "dispatchReady": "{slot} hazır",
+      "dispatchFailed": "{slot} başarısız",
+      "notStarted": "başlatılmadı",
+      "unknownTime": "bilinmeyen zaman",
+      "repairRecords": "onarım kaydı",
+      "liveEdge": "Canlı kenar",
+      "awaitingEvent": "Tezgah olayı bekleniyor."
+    },
+    "lifecycleActions": {
+      "acknowledged": "Kaydedildi",
+      "investigating": "Kontrol",
+      "resolved": "Düzeltildi",
+      "dismissed": "Yoksay",
+      "markTitle": "Gözlemi işaretle: {label}"
+    },
+    "inspector": {
+      "noLinked": "Bağlı kayıt yok",
+      "linkedEvents": "bağlı olay",
+      "selected": "seçili",
+      "hover": "üzerinde",
+      "none": "yok",
+      "measurePrefix": "ÖLÇÜM",
+      "aiPrefix": "Asistan AI"
+    }
+  },
+  "settings": {
+    "eyebrow": "AYARLAR",
+    "title": "Tamir Kontrolleri",
+    "operatorOverlayTitle": "Kurulum",
+    "handsFreeTitle": "Eller serbest tamir",
+    "handsFreeSubtitle": "Sesli rehberliği, ortam dinlemeyi ve Asistan AI cevap okuma davranışını yönetir.",
+    "companionTitle": "Android eşlikçi",
+    "companionSubtitle": "Analyze companion rotaları için Tamir Odası tercihleri.",
+    "attentionTitle": "Asistan AI dikkati",
+    "attentionSubtitle": "Asistan AI'nin tamir akışını ne sıklıkla bölebileceğini sınırlar.",
+    "mode": "Mod",
+    "handsFree": "Eller serbest",
+    "readReplies": "Cevapları oku",
+    "ambient": "Ortam dinleme",
+    "ambientIdle": "Boşta",
+    "ambientListening": "Dinle",
+    "ambientMuted": "Sessiz",
+    "spoken": "Sesli",
+    "spokenSilent": "Sessiz",
+    "spokenBrief": "Kısa",
+    "spokenStep": "Adım",
+    "dictationSubmit": "Dikte",
+    "dictationComposer": "Taslak",
+    "dictationSend": "Gönder",
+    "companion": "Eşlikçi",
+    "enabled": "Açık",
+    "disabled": "Kapalı",
+    "dictationRoute": "Dikte rotası",
+    "ttsRoute": "TTS rotası",
+    "local": "Yerel",
+    "android": "Android",
+    "camera": "Kamera",
+    "cameraManual": "Manuel",
+    "cameraAndroid": "Android akışı",
+    "budget": "Bütçe",
+    "close": "KAPAT"
+  },
+  "legend": {
+    "snapshot": "Kare",
+    "aiMark": "AI İşareti",
+    "measurement": "Ölçüm",
+    "note": "Not",
+    "risk": "Risk",
+    "operational": "Tüm sistemler operasyonel",
+    "version": "Tamir Odası v1.0.0",
+    "roomSync": "Oda Eşitleme",
+    "storage": "Depolama"
+  },
+  "status": {
+    "cameraNotConnected": "Kamera bağlı değil",
+    "cameraLive": "canlı",
+    "cameraConnected": "bağlı",
+    "cameraReady": "hazır",
+    "manualBoardImage": "Manuel kart görseli",
+    "cameraSourceAndroid": "Android kamera",
+    "cameraSourceSnapshot": "Kare",
+    "cameraSourceImage": "Kart görseli",
+    "cameraSourceManual": "Manuel görsel",
+    "cameraTitleNotConnected": "Kamera akışı isteğe bağlıdır. Eşlikçi erişimi için tamir kontrollerini aç.",
+    "cameraTitleLive": "Kamera akışı canlı. Dar alanları yoklamadan önce kareyi dondur.",
+    "cameraTitleConnected": "Kamera bağlı ancak canlı olarak işaretlenmedi.",
+    "cameraTitleReady": "Kamera kaynağı gerektiğinde hazır.",
+    "cameraTitleManual": "Manuel bir kart görseli kullan veya gerektiğinde Android kamerayı başlat.",
+    "routeLocal": "Yerel",
+    "routeAndroid": "Android",
+    "profileQuiet": "Sessiz",
+    "profileBalanced": "Dengeli",
+    "profileProactive": "Proaktif"
+  },
+  "statusbar": {
+    "version": "Tamir Odası v0.1.0",
+    "setup": "Kurulum",
+    "setupTitle": "Tezgah kurulumunu aç",
+    "themeLight": "Açık",
+    "themeLightTitle": "Açık temaya geç",
+    "themeDark": "Koyu",
+    "themeDarkTitle": "Koyu temaya geç",
+    "returnHome": "Ana sayfaya dön"
+  },
+  "sessionRail": {
+    "archive": "Arşiv",
+    "serialPrefix": "S/N",
+    "delete": "Sil",
+    "deleteTitle": "Kayıtlı oturumu ve verileri sil"
+  },
+  "bottomCluster": {
+    "all": "Tümü",
+    "hidePanels": "Alt panelleri gizle"
+  },
+  "tacticalFeed": {
+    "eyebrow": "ASİSTAN",
+    "title": "Tamir Akışı",
+    "composer": "Tamir asistanına sor...",
+    "send": "Gönder",
+    "clear": "Sil",
+    "sessionRequiredPlaceholder": "Önce bir tamir oturumu aç",
+    "dictationReview": "Sesli not hazır. Gönder de, Gönder'e bas veya sil ve tekrar dikte et.",
+    "slotLabel": "Asistan AI {slot}",
+    "statusChecking": "{slot} son ölçümü kontrol ediyor.",
+    "statusAddedNote": "{slot} bir onarım notu ekledi.",
+    "statusFailed": "{slot} bir onarım notu ekleyemedi.",
+    "researchGathering": "{slot} bu cihaz için kanıt topluyor.",
+    "researchPrepared": "{slot} bir kanıt paketi hazırladı.",
+    "researchFailed": "{slot} bir kanıt paketi hazırlayamadı.",
+    "chatDrafting": "{slot} bir cevap taslaklıyor.",
+    "chatReady": "{slot} cevap hazır.",
+    "chatFailed": "{slot} bir cevap taslaklayamadı.",
+    "quietMode": "Sessiz mod: anlamlı bir değişiklik bekleniyor. {remaining} asistan uyarısı kaldı.",
+    "chatStatus": {
+      "sessionRequired": "Önce bir tamir oturumu aç",
+      "dictationReview": "Sesli not onay bekliyor",
+      "assistantPreparing": "Asistan bir cevap hazırlıyor",
+      "handsFreeSend": "Eller serbest: dikte ettikten sonra gönder veya sil de de",
+      "handsFreeComposer": "Eller serbest: dikte edilen notlar taslakta kalır",
+      "readAloud": "Cevaplar tamir kontrollerinden sesli okunabilir",
+      "textOnly": "Yazılı cevaplar",
+      "waiting": "Bekliyor"
+    },
+    "chatRoles": {
+      "assistant": "Asistan",
+      "you": "Sen"
+    }
+  },
+  "panelChips": {
+    "session": "Oturum",
+    "sessionTitle": "oturum paneli",
+    "feed": "Akış",
+    "feedTitle": "onarım akışı",
+    "aio": "Asistan AI",
+    "aioTitle": "Asistan AI sonuçları paneli",
+    "timeline": "Onarım Anları",
+    "timelineTitle": "onarım anları paneli",
+    "measure": "Ölçüm",
+    "measureTitle": "ölçüm paneli",
+    "state": "Durum",
+    "stateTitle": "durum paneli"
+  },
+  "panelControls": {
+    "expand": "Paneli aç",
+    "collapse": "Paneli kapat",
+    "show": "Göster",
+    "hide": "Gizle"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "roomId": "laboratory",
+  "groups": {
+    "operation-result": {
+      "description": "Concrete asset-producing operations exposed through the workspace controls drawer.",
+      "capabilityIds": [
+        "clip-export",
+        "segment-stabilization",
+        "frame-grab",
+        "roi-crop",
+        "enhanced-frame",
+        "before-after-variant",
+        "image-comparison",
+        "audio-extract",
+        "audio-cleanup",
+        "band-pass-voice",
+        "stem-separation"
+      ],
+      "outputKinds": ["clip", "frame", "image", "audio", "artifact", "variant", "stem"]
+    },
+    "analysis-report": {
+      "description": "Report-producing analysis families configured through the analysis preparation drawer.",
+      "capabilityIds": [
+        "visual-structure",
+        "visual-forensics",
+        "audio-signal",
+        "audio-recovery",
+        "transcription",
+        "speaker-analysis",
+        "prosody-emotion",
+        "sound-classification",
+        "source-separation",
+        "music-analysis"
+      ],
+      "reportSections": [
+        "Visual structure",
+        "Visual forensics",
+        "Audio signal",
+        "Speech evidence",
+        "Prosody and emotion",
+        "Sound events",
+        "Separated sources",
+        "Music descriptors",
+        "Metadata and provenance",
+        "OCR text evidence",
+        "Scene boundaries",
+        "Object and region evidence"
+      ]
+    }
+  },
+  "plannedProviders": {
+    "metadata-provenance": ["exiftool", "mediainfo", "c2patool"],
+    "ocr": ["tesseract"],
+    "scene-detection": ["pyscenedetect"],
+    "object-region": ["opencv", "yolo", "mediapipe", "onnxruntime"],
+    "super-resolution": ["real-esrgan", "onnxruntime"]
+  }
+}

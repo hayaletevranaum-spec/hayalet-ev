@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Forge Room background">
+  <defs>
+    <linearGradient id="forge-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1715" />
+      <stop offset="55%" stop-color="#2d231c" />
+      <stop offset="100%" stop-color="#3f3024" />
+    </linearGradient>
+    <linearGradient id="forge-floor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a392b" />
+      <stop offset="100%" stop-color="#211913" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#forge-bg)" />
+  <rect y="540" width="1600" height="360" fill="url(#forge-floor)" />
+  <rect x="190" y="170" width="1220" height="390" rx="24" fill="rgba(245,166,35,0.08)" stroke="rgba(255,210,120,0.28)" stroke-width="8" />
+  <rect x="280" y="246" width="1040" height="220" rx="18" fill="rgba(17,12,9,0.72)" stroke="rgba(255,210,120,0.16)" stroke-width="4" />
+  <circle cx="800" cy="356" r="78" fill="rgba(255,166,64,0.16)" stroke="rgba(255,214,156,0.42)" stroke-width="6" />
+  <text x="800" y="364" fill="#f2ddc5" font-family="Georgia, serif" font-size="44" text-anchor="middle">FORGE ROOM</text>
+</svg>

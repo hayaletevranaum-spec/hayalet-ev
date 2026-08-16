@@ -1,0 +1,122 @@
+:root {
+  --bg-canvas: radial-gradient(circle at top, rgba(34, 211, 238, 0.1), transparent 32%), #0b1220;
+  --bg-app: var(--bg-canvas);
+  --bg-surface: rgba(15, 23, 42, 0.82);
+  --bg-surface-2: rgba(17, 24, 39, 0.9);
+  --bg-surface-3: rgba(30, 41, 59, 0.96);
+  --bg-elevated: rgba(32, 44, 68, 0.98);
+  --bg-panel: linear-gradient(180deg, rgba(13, 19, 32, 0.94) 0%, rgba(10, 15, 26, 0.98) 100%);
+  --bg-panel-strong: linear-gradient(180deg, rgba(8, 14, 24, 0.98) 0%, rgba(6, 11, 20, 1) 100%);
+  --bg-muted: rgba(148, 163, 184, 0.08);
+  --bg-glass: rgba(15, 23, 42, 0.78);
+  --bg-glass-hover: rgba(21, 32, 52, 0.9);
+  --bg-input: rgba(15, 23, 42, 0.62);
+  --bg-code: rgba(0, 0, 0, 0.3);
+  --bg-overlay: var(--black-alpha-70);
+
+  --text-primary: var(--slate-100);
+  --text-secondary: rgba(226, 232, 240, 0.82);
+  --text-muted: rgba(148, 163, 184, 0.82);
+  --text-tertiary: rgba(148, 163, 184, 0.62);
+  --text-inverse: var(--slate-900);
+
+  --border-default: rgba(148, 163, 184, 0.18);
+  --border-strong: rgba(148, 163, 184, 0.32);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-focus: var(--cyan-400);
+
+  --color-accent: var(--cyan-400);
+  --color-accent-strong: var(--cyan-500);
+  --color-accent-muted: var(--cyan-alpha-20);
+  --color-accent-soft: var(--cyan-alpha-28);
+  --accent-gradient: linear-gradient(135deg, var(--cyan-400) 0%, var(--teal-400) 100%);
+  --accent-gradient-strong: linear-gradient(135deg, var(--cyan-500) 0%, var(--teal-500) 100%);
+
+  --color-success: var(--emerald-400);
+  --color-success-bg: var(--emerald-alpha-20);
+  --color-success-muted: rgba(16, 185, 129, 0.15);
+  --color-warning: var(--amber-400);
+  --color-warning-bg: var(--amber-alpha-20);
+  --color-warning-muted: rgba(245, 158, 11, 0.15);
+  --color-error: var(--red-400);
+  --color-error-bg: var(--red-alpha-20);
+  --color-info: var(--blue-400);
+  --color-info-bg: var(--blue-alpha-15);
+
+  --hover-overlay: rgba(255, 255, 255, 0.05);
+  --focus-ring: 0 0 0 2px var(--bg-app), 0 0 0 4px var(--color-accent);
+
+  --glow-accent: var(--glow-cyan-md);
+  --surface-outline: 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --surface-shadow: var(--shadow-surface);
+  --surface-shadow-hover: var(--shadow-surface-hover);
+  --floating-shadow: var(--shadow-floating);
+
+  --scrollbar-track: var(--bg-surface);
+  --scrollbar-thumb: var(--slate-600);
+  --scrollbar-thumb-hover: var(--slate-500);
+  --app-ui-scale-factor: 1;
+  --scene-ui-scale-factor: 0.9;
+  --scene-ui-relative-scale-factor: 0.9;
+}
+
+:root[data-theme-scale="sm"] {
+  --text-2xs: 9px;
+  --text-caption: 12px;
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 19px;
+  --text-2xl: 22px;
+  --text-3xl: 30px;
+  --text-4xl: 34px;
+}
+
+:root[data-theme-scale="lg"] {
+  --text-2xs: 11px;
+  --text-caption: 14px;
+  --text-xs: 13px;
+  --text-sm: 15px;
+  --text-base: 17px;
+  --text-lg: 19px;
+  --text-xl: 22px;
+  --text-2xl: 26px;
+  --text-3xl: 34px;
+  --text-4xl: 40px;
+}
+
+:root[data-theme-contrast="high"] {
+  --text-secondary: color-mix(in srgb, var(--text-primary) 84%, transparent);
+  --text-muted: color-mix(in srgb, var(--text-primary) 70%, transparent);
+  --text-tertiary: color-mix(in srgb, var(--text-primary) 58%, transparent);
+  --border-default: color-mix(in srgb, var(--text-primary) 20%, transparent);
+  --border-strong: color-mix(in srgb, var(--text-primary) 34%, transparent);
+  --hover-overlay: color-mix(in srgb, var(--text-primary) 10%, transparent);
+  --focus-ring:
+    0 0 0 2px var(--bg-app), 0 0 0 4px color-mix(in srgb, var(--color-accent) 92%, white 8%);
+}
+
+:root[data-theme-motion="reduced"] {
+  --duration-fast: 110ms;
+  --duration-normal: 180ms;
+  --duration-slow: 260ms;
+  --duration-theme-transition: 120ms;
+}
+
+:root[data-theme-motion="reduced"] *,
+:root[data-theme-motion="reduced"] *::before,
+:root[data-theme-motion="reduced"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+}
+
+:root[data-theme-motion="off"] *,
+:root[data-theme-motion="off"] *::before,
+:root[data-theme-motion="off"] *::after {
+  animation: none !important;
+  transition-duration: 0.001ms !important;
+  transition-delay: 0ms !important;
+  scroll-behavior: auto !important;
+}

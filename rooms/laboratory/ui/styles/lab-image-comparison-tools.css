@@ -1,0 +1,423 @@
+/* Interactive image comparison workbench. */
+
+.labx-workspace-comparison__image {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.labx-workspace-comparison__image[data-lab-preserve-media="workspace-comparison-primary"] {
+  transform: var(--lab-comparison-primary-transform, none);
+}
+
+.labx-workspace-comparison__image[data-lab-preserve-media="workspace-comparison-reference"] {
+  transform: var(--lab-comparison-reference-transform, none);
+}
+
+.labx-workspace-comparison__image--left {
+  clip-path: inset(0 calc(100% - var(--lab-comparison-split, 50%)) 0 0);
+}
+
+.labx-workspace-comparison__center-guide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--lab-workspace-px-1);
+  pointer-events: none;
+  background: color-mix(in srgb, var(--lab-info) 60%, transparent);
+  box-shadow: 0 0 0 var(--lab-workspace-px-1) color-mix(in srgb, var(--lab-info) 18%, transparent);
+  z-index: 4;
+}
+
+.labx-workspace-comparison__marker {
+  position: absolute;
+  width: var(--lab-space-3);
+  height: var(--lab-space-3);
+  border: var(--lab-workspace-px-1) solid var(--lab-text-strong);
+  border-radius: var(--lab-radius-pill);
+  display: grid;
+  place-items: center;
+  translate: -50% -50%;
+  pointer-events: none;
+  z-index: 8;
+  background: var(--lab-accent);
+  box-shadow: 0 0 0 var(--lab-workspace-px-2) color-mix(in srgb, var(--lab-accent) 30%, transparent);
+  color: var(--lab-surface-0);
+  font-size: var(--lab-workspace-rem-0-55);
+  font-weight: 800;
+}
+
+.labx-workspace-comparison__marker[data-marker-side="reference"] {
+  background: var(--lab-info);
+  box-shadow: 0 0 0 var(--lab-workspace-px-2) color-mix(in srgb, var(--lab-info) 30%, transparent);
+}
+
+.labx-operation-card__geometry-metrics {
+  display: grid;
+  gap: var(--lab-space-1);
+  padding: var(--lab-space-2);
+  border: var(--lab-workspace-px-1) solid var(--lab-border-subtle);
+  border-radius: var(--lab-radius-md);
+  background: color-mix(in srgb, var(--lab-surface-1) 84%, transparent);
+}
+
+.labx-operation-card__geometry-head,
+.labx-operation-card__geometry-row {
+  display: grid;
+  grid-template-columns: minmax(var(--lab-workspace-rem-2-2), 0.7fr) repeat(
+      3,
+      minmax(var(--lab-workspace-rem-2-7), 1fr)
+    );
+  gap: var(--lab-space-1);
+  align-items: center;
+  font-size: var(--lab-workspace-rem-0-62);
+}
+
+.labx-operation-card__geometry-head {
+  color: var(--lab-text-dim);
+  text-transform: uppercase;
+  letter-spacing: var(--lab-workspace-em-0-04);
+}
+
+.labx-operation-card__geometry-row {
+  color: var(--lab-text-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.labx-operation-card__geometry-row strong {
+  color: var(--lab-text-strong);
+}
+
+.labx-workspace-comparison[data-composite-mode="primary-left-reference-right"],
+.labx-workspace-comparison[data-composite-mode="reference-left-primary-right"] {
+  gap: 0;
+}
+
+.labx-image-comparison-settings {
+  display: grid;
+  gap: var(--lab-space-2);
+}
+
+.labx-image-comparison-settings__frame-toggle {
+  padding-top: var(--lab-space-1);
+  border-top: var(--lab-workspace-px-1) solid var(--lab-border-subtle);
+}
+
+.labx-comparison-toolbox {
+  display: grid;
+  gap: var(--lab-space-2);
+  padding: var(--lab-space-2);
+  border: var(--lab-workspace-px-1) solid var(--lab-border-subtle);
+  border-radius: var(--lab-radius-md);
+  background: color-mix(in srgb, var(--lab-surface-1) 86%, transparent);
+}
+
+.labx-comparison-toolbox__hint {
+  margin: 0;
+  color: var(--lab-text-dim);
+  font-size: var(--lab-workspace-rem-0-6);
+  line-height: 1.45;
+}
+
+.labx-settings-grid--comparison-precision {
+  padding-top: var(--lab-space-1);
+  border-top: var(--lab-workspace-px-1) solid var(--lab-border-subtle);
+}
+
+.labx-image-comparison-settings__markers {
+  border-top: var(--lab-workspace-px-1) solid var(--lab-border-subtle);
+  padding-top: var(--lab-space-1);
+}
+
+.labx-image-comparison-settings__markers > summary {
+  cursor: pointer;
+  color: var(--lab-text-soft);
+  font-size: var(--lab-workspace-rem-0-64);
+  font-weight: 700;
+}
+
+.labx-image-comparison-settings__markers[open] > summary {
+  margin-bottom: var(--lab-space-2);
+}
+
+/* Precision transform controls stay out of the generic operation card and
+ * surface only when their transient comparison rail tool is selected. */
+.labx-image-comparison-settings [data-comparison-tool-panel] {
+  display: none;
+}
+
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="move"]
+  [data-comparison-tool-panel="move"],
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="resize"]
+  [data-comparison-tool-panel="resize"],
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="zoom"]
+  [data-comparison-tool-panel="zoom"],
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="face-landmarks"]
+  [data-comparison-tool-panel="face-landmarks"] {
+  display: grid;
+}
+
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-operation-card__main,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-operation-card__meta,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-operation-card__reason,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-operation-card__action-state,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-operation-card__scope,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-image-comparison-settings__general-toolbar,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-settings-grid--comparison-base,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-image-comparison-settings__frame-toggle,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-image-comparison-settings__markers,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-operation-card__comparison,
+.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool]
+  .labx-operation-card
+  > .labx-operation-card__action {
+  display: none;
+}
+
+.labx-shell:has(.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="move"])
+  .labx-workspace-comparison__media-stage,
+.labx-shell:has(.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="move"])
+  .labx-workspace-comparison__split {
+  cursor: grab;
+  user-select: none;
+}
+
+.labx-shell:has(
+    .labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="resize"]
+  )
+  .labx-workspace-comparison__media-stage,
+.labx-shell:has(
+    .labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="resize"]
+  )
+  .labx-workspace-comparison__split {
+  cursor: nwse-resize;
+  user-select: none;
+}
+
+.labx-shell:has(.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="zoom"])
+  .labx-workspace-comparison__media-stage,
+.labx-shell:has(.labx-icon-rail-popover[data-slot="image-comparison"][data-comparison-tool="zoom"])
+  .labx-workspace-comparison__split {
+  cursor: zoom-in;
+  user-select: none;
+}
+
+.labx-face-landmark-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 7;
+  color: var(--lab-accent);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.labx-face-landmark-overlay[data-side="primary"] {
+  transform: var(--lab-comparison-primary-transform, none);
+}
+
+.labx-face-landmark-overlay[data-side="reference"] {
+  color: var(--lab-info);
+  transform: var(--lab-comparison-reference-transform, none);
+}
+
+.labx-face-landmark-overlay__line {
+  stroke: currentColor;
+  stroke-width: 1;
+  fill: none;
+}
+
+.labx-face-landmark-overlay__point {
+  fill: currentColor;
+  stroke: color-mix(in srgb, var(--lab-surface-0) 78%, transparent);
+  stroke-width: 0.8;
+}
+
+.labx-face-landmark-overlay__point--key {
+  stroke: var(--lab-text-strong);
+  stroke-width: 1.1;
+}
+
+.labx-face-landmark-overlay__label {
+  fill: var(--lab-text-strong);
+  stroke: var(--lab-surface-0);
+  stroke-width: 2.5;
+  paint-order: stroke fill;
+  font-size: var(--lab-workspace-px-10);
+  font-weight: 700;
+}
+
+.labx-face-landmark-panel {
+  min-width: 0;
+}
+
+.labx-face-landmark-panel__actions,
+.labx-face-landmark-panel__align-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--lab-space-1);
+}
+
+.labx-face-landmark-panel__actions {
+  grid-template-columns: 1fr;
+}
+
+.labx-face-landmark-panel button {
+  min-width: 0;
+  padding: var(--lab-space-1) var(--lab-space-2);
+  border: var(--lab-workspace-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-sm);
+  background: var(--lab-surface-0);
+  color: var(--lab-text-soft);
+  cursor: pointer;
+  font-size: var(--lab-workspace-rem-0-62);
+}
+
+.labx-face-landmark-panel button:hover {
+  border-color: var(--lab-accent);
+  color: var(--lab-text-strong);
+}
+
+.labx-face-landmark-panel__status,
+.labx-face-landmark-panel__empty {
+  margin: 0;
+  color: var(--lab-text-dim);
+  font-size: var(--lab-workspace-rem-0-6);
+  line-height: 1.45;
+}
+
+.labx-face-landmark-panel__status[data-state="error"] {
+  color: var(--lab-error);
+}
+
+.labx-face-landmark-panel__controls {
+  display: grid;
+  gap: var(--lab-space-1);
+  padding-block: var(--lab-space-1);
+  border-block: var(--lab-workspace-px-1) solid var(--lab-border-subtle);
+}
+
+.labx-face-landmark-panel__controls > label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(var(--lab-workspace-rem-5-2), 0.7fr);
+  gap: var(--lab-space-2);
+  align-items: center;
+  color: var(--lab-text-soft);
+  font-size: var(--lab-workspace-rem-0-62);
+}
+
+.labx-face-landmark-panel__controls input,
+.labx-face-landmark-panel__controls select {
+  min-width: 0;
+  width: 100%;
+}
+
+.labx-face-landmark-panel__controls input[type="checkbox"] {
+  width: auto;
+  justify-self: end;
+}
+
+.labx-face-landmark-panel__align {
+  display: grid;
+  gap: var(--lab-space-1);
+}
+
+.labx-face-landmark-metrics {
+  display: grid;
+  gap: var(--lab-space-1);
+  max-height: var(--lab-workspace-rem-18);
+  overflow: auto;
+  padding-top: var(--lab-space-1);
+  border-top: var(--lab-workspace-px-1) solid var(--lab-border-subtle);
+}
+
+.labx-face-landmark-metrics__head,
+.labx-face-landmark-metrics__row {
+  display: grid;
+  grid-template-columns: minmax(var(--lab-workspace-rem-6-5), 1.7fr) repeat(
+      3,
+      minmax(var(--lab-workspace-rem-2-6), 0.7fr)
+    );
+  gap: var(--lab-space-1);
+  align-items: center;
+  font-size: var(--lab-workspace-rem-0-58);
+  font-variant-numeric: tabular-nums;
+}
+
+.labx-face-landmark-metrics__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-block: var(--lab-space-1);
+  background: var(--lab-surface-1);
+  color: var(--lab-text-dim);
+  text-transform: uppercase;
+  letter-spacing: var(--lab-workspace-em-0-03);
+}
+
+.labx-face-landmark-metrics__row {
+  color: var(--lab-text-soft);
+}
+
+.labx-face-landmark-metrics__row strong {
+  color: var(--lab-text-strong);
+  font-weight: 600;
+}
+
+.labx-shell:has(
+    input[data-lab-field="operationSettings.image-comparison.showImageFrames"]:not(:checked)
+  )
+  .labx-workspace-comparison {
+  gap: 0;
+  padding: 0;
+}
+
+.labx-shell:has(
+    input[data-lab-field="operationSettings.image-comparison.showImageFrames"]:not(:checked)
+  )
+  .labx-workspace-comparison__pane,
+.labx-shell:has(
+    input[data-lab-field="operationSettings.image-comparison.showImageFrames"]:not(:checked)
+  )
+  .labx-workspace-comparison__pane[data-active="true"] {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.labx-shell:has(
+    input[data-lab-field="operationSettings.image-comparison.showImageFrames"]:not(:checked)
+  )
+  .labx-workspace-comparison__media-stage,
+.labx-shell:has(
+    input[data-lab-field="operationSettings.image-comparison.showImageFrames"]:not(:checked)
+  )
+  .labx-workspace-comparison__media-stage[data-active="true"] {
+  outline-color: transparent;
+}
+
+.labx-shell:has(
+    input[data-lab-field="operationSettings.image-comparison.showImageFrames"]:not(:checked)
+  )
+  .labx-workspace-comparison__split {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.labx-shell:has(
+    input[data-lab-field="operationSettings.image-comparison.showImageFrames"]:not(:checked)
+  )
+  .labx-workspace-comparison__divider {
+  display: none;
+}

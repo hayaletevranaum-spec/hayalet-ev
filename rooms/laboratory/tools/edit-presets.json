@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "defaultMode": "beginner",
+  "modes": ["beginner", "advanced"],
+  "focusRegions": {
+    "containment": {
+      "labelKey": "mediaAnalysis.edit.focusRegions.containment",
+      "cropNormalized": { "x": 0.24, "y": 0.14, "width": 0.48, "height": 0.52 }
+    },
+    "corridor": {
+      "labelKey": "mediaAnalysis.edit.focusRegions.corridor",
+      "cropNormalized": { "x": 0.4, "y": 0.12, "width": 0.44, "height": 0.58 }
+    },
+    "archive": {
+      "labelKey": "mediaAnalysis.edit.focusRegions.archive",
+      "cropNormalized": { "x": 0.07, "y": 0.09, "width": 0.6, "height": 0.72 }
+    },
+    "full-frame": {
+      "labelKey": "mediaAnalysis.edit.focusRegions.full-frame",
+      "cropNormalized": { "x": 0, "y": 0, "width": 1, "height": 1 }
+    }
+  },
+  "resizePresets": {
+    "keep": {
+      "labelKey": "mediaAnalysis.edit.resizePresets.keep",
+      "width": null,
+      "height": null
+    },
+    "analysis": {
+      "labelKey": "mediaAnalysis.edit.resizePresets.analysis",
+      "width": 1280,
+      "height": -2
+    },
+    "compact": {
+      "labelKey": "mediaAnalysis.edit.resizePresets.compact",
+      "width": 854,
+      "height": -2
+    },
+    "custom": {
+      "labelKey": "mediaAnalysis.edit.resizePresets.custom",
+      "width": null,
+      "height": null
+    }
+  },
+  "presets": {
+    "video": {
+      "beginner": [
+        {
+          "id": "video-quick-review",
+          "labelKey": "mediaAnalysis.edit.presets.video.quick-review",
+          "patch": {
+            "common": {
+              "focusRegionId": "full-frame"
+            },
+            "video": {
+              "trimEnabled": false,
+              "resizePreset": "analysis",
+              "fpsLimit": 24,
+              "includeAudio": true,
+              "blurFocusOutside": false,
+              "frameGrabCount": 0
+            }
+          }
+        },
+        {
+          "id": "video-focus-window",
+          "labelKey": "mediaAnalysis.edit.presets.video.focus-window",
+          "patch": {
+            "common": {
+              "focusRegionId": "containment"
+            },
+            "video": {
+              "trimEnabled": true,
+              "resizePreset": "analysis",
+              "fpsLimit": 18,
+              "includeAudio": true,
+              "blurFocusOutside": true,
+              "frameGrabCount": 4
+            }
+          }
+        }
+      ]
+    },
+    "audio": {
+      "beginner": [
+        {
+          "id": "audio-speech-cleanup",
+          "labelKey": "mediaAnalysis.edit.presets.audio.speech-cleanup",
+          "patch": {
+            "audio": {
+              "trimEnabled": false,
+              "silenceTrim": true,
+              "normalize": true,
+              "normalizeTargetDb": -16,
+              "mono": true,
+              "highpassHz": 120,
+              "lowpassHz": 6000
+            }
+          }
+        },
+        {
+          "id": "audio-context-preserve",
+          "labelKey": "mediaAnalysis.edit.presets.audio.context-preserve",
+          "patch": {
+            "audio": {
+              "trimEnabled": false,
+              "silenceTrim": false,
+              "normalize": true,
+              "normalizeTargetDb": -18,
+              "mono": false,
+              "highpassHz": 60,
+              "lowpassHz": 0
+            }
+          }
+        }
+      ]
+    },
+    "image": {
+      "beginner": [
+        {
+          "id": "image-ocr-prepare",
+          "labelKey": "mediaAnalysis.edit.presets.image.ocr-prepare",
+          "patch": {
+            "common": {
+              "focusRegionId": "archive"
+            },
+            "image": {
+              "rotateDegrees": 0,
+              "resizePreset": "analysis",
+              "brightness": 0.06,
+              "contrast": 1.1,
+              "sharpen": 0.8,
+              "blurStrength": 0
+            }
+          }
+        },
+        {
+          "id": "image-safe-share",
+          "labelKey": "mediaAnalysis.edit.presets.image.safe-share",
+          "patch": {
+            "common": {
+              "focusRegionId": "containment"
+            },
+            "image": {
+              "rotateDegrees": 0,
+              "resizePreset": "compact",
+              "brightness": 0,
+              "contrast": 1,
+              "sharpen": 0.3,
+              "blurStrength": 0.8
+            }
+          }
+        }
+      ]
+    }
+  }
+}

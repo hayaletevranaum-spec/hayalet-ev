@@ -1,0 +1,290 @@
+import type {
+  DebateRole,
+  DebateSession,
+  DebateTurn,
+  EvidenceItem,
+  PatternEdge,
+  PatternNode,
+  PatternRoomDomainData,
+  ReportTrace,
+  SourceItem,
+  Topic,
+} from "../../types/pattern-room-domain.js";
+
+const topicId = "topic-earth-shape-mock";
+const debateSessionId = "debate-earth-shape-mock";
+
+const topic: Topic = {
+  id: topicId,
+  label: "Dunya'nin sekli arastirmasi",
+  description: "Pattern Room regression fixture konusu.",
+  status: "draft",
+  createdAt: "2026-05-20T10:00:00.000Z",
+  updatedAt: "2026-05-20T10:15:00.000Z",
+  rootNodeId: "node-horizon-claim",
+};
+
+const nodes: PatternNode[] = [
+  {
+    id: "node-horizon-claim",
+    topicId,
+    nodeType: "claim",
+    layer: "interpretation",
+    label: "Ufuk iddiasi",
+    content: "Uzaklasan cisimlerin ufukta asamali kaybolmasi merkezi iddia olarak izleniyor.",
+    confidence: null,
+    sourceRef: null,
+    createdBy: "US1",
+    createdAt: "2026-05-20T10:01:00.000Z",
+    metadata: { phase: "2B", fixture: true },
+  },
+  {
+    id: "node-navigation-source",
+    topicId,
+    nodeType: "source",
+    layer: "evidence",
+    label: "Seyir defteri kaynagi",
+    content: "Uzun rota gozlemlerini temsil eden arka plan kaynak karti.",
+    confidence: null,
+    sourceRef: "source-navigation-log",
+    createdBy: "AI0",
+    createdAt: "2026-05-20T10:03:00.000Z",
+    metadata: { shelf: "archive-fixture" },
+  },
+  {
+    id: "node-shadow-analysis",
+    topicId,
+    nodeType: "analysis",
+    layer: "analysis",
+    label: "Golge acisi analizi",
+    content: "Farkli konumlardaki golge acilari karsilastirma gerektiren analiz notu olarak duruyor.",
+    confidence: null,
+    sourceRef: "source-shadow-comparison",
+    createdBy: "AI1",
+    createdAt: "2026-05-20T10:05:00.000Z",
+    metadata: { table: "desk-fixture" },
+  },
+  {
+    id: "node-perspective-uncertainty",
+    topicId,
+    nodeType: "uncertainty",
+    layer: "uncertainty",
+    label: "Perspektif belirsizligi",
+    content: "Gorsel kayitlarda lens, mesafe ve perspektif etkisi ayrica isaretlenmeli.",
+    confidence: null,
+    sourceRef: "source-orbit-photograph",
+    createdBy: "AI2",
+    createdAt: "2026-05-20T10:07:00.000Z",
+    metadata: { caution: "visual-context" },
+  },
+];
+
+const edges: PatternEdge[] = [
+  {
+    id: "edge-navigation-supports-horizon",
+    topicId,
+    edgeType: "supports",
+    sourceNodeId: "node-navigation-source",
+    targetNodeId: "node-horizon-claim",
+    weight: 0.65,
+    createdBy: "AI0",
+    createdAt: "2026-05-20T10:08:00.000Z",
+    note: "Regression fixture support relation only.",
+  },
+  {
+    id: "edge-shadow-derived-from-source",
+    topicId,
+    edgeType: "derived_from",
+    sourceNodeId: "node-navigation-source",
+    targetNodeId: "node-shadow-analysis",
+    weight: 0.5,
+    createdBy: "AI1",
+    createdAt: "2026-05-20T10:09:00.000Z",
+    note: null,
+  },
+  {
+    id: "edge-perspective-questions-claim",
+    topicId,
+    edgeType: "questions",
+    sourceNodeId: "node-perspective-uncertainty",
+    targetNodeId: "node-horizon-claim",
+    weight: 0.4,
+    createdBy: "AI2",
+    createdAt: "2026-05-20T10:10:00.000Z",
+    note: "Tenth-man caution fixture.",
+  },
+];
+
+const sources: SourceItem[] = [
+  {
+    id: "source-navigation-log",
+    topicId,
+    label: "Seyir defteri",
+    sourceType: "book",
+    origin: "Yerel temsilî arşiv kaydı",
+    reliability: "user_provided",
+    addedBy: "US1",
+    addedAt: "2026-05-20T10:02:00.000Z",
+  },
+  {
+    id: "source-shadow-comparison",
+    topicId,
+    label: "Golge karsilastirma gorseli",
+    sourceType: "visual",
+    origin: "Yerel temsilî görsel inceleme",
+    reliability: "unverified",
+    addedBy: "AI0",
+    addedAt: "2026-05-20T10:04:00.000Z",
+  },
+  {
+    id: "source-table-printout",
+    topicId,
+    label: "Masa cikti notu",
+    sourceType: "personal_note",
+    origin: "Yerel temsilî masa çıktısı",
+    reliability: "unknown",
+    addedBy: "AI1",
+    addedAt: "2026-05-20T10:06:00.000Z",
+  },
+  {
+    id: "source-orbit-photograph",
+    topicId,
+    label: "Yorunge fotografi",
+    sourceType: "unknown",
+    origin: "Yerel temsilî görsel kart",
+    reliability: "disputed",
+    addedBy: "AI2",
+    addedAt: "2026-05-20T10:07:30.000Z",
+  },
+];
+
+const evidence: EvidenceItem[] = [
+  {
+    id: "evidence-navigation-excerpt",
+    topicId,
+    sourceId: "source-navigation-log",
+    layer: "evidence",
+    excerpt: "Uzak rota gozlemlerinde ufuk etkisi tekrar eden bir iz olarak kayda gecmis.",
+    interpretation: null,
+    addedBy: "AI0",
+    addedAt: "2026-05-20T10:11:00.000Z",
+    linkedNodeIds: ["node-navigation-source", "node-horizon-claim"],
+  },
+  {
+    id: "evidence-shadow-note",
+    topicId,
+    sourceId: "source-shadow-comparison",
+    layer: "analysis",
+    excerpt: "Golge acilarinin farkli konumlarda degismesi analiz panosuna isaretlenmis.",
+    interpretation: "Karsilastirma yorumu kesin hukum degil, sadece analiz katmani icin kullanilir.",
+    addedBy: "AI1",
+    addedAt: "2026-05-20T10:12:00.000Z",
+    linkedNodeIds: ["node-shadow-analysis"],
+  },
+];
+
+const roles: DebateRole[] = [
+  {
+    slotId: "AI0",
+    role: "researcher",
+    label: "AI0 Researcher",
+    connected: false,
+    provider: null,
+  },
+  {
+    slotId: "AI1",
+    role: "advocate",
+    label: "AI1 Advocate",
+    connected: false,
+    provider: null,
+  },
+  {
+    slotId: "AI2",
+    role: "tenth-man",
+    label: "AI2 Tenth Man",
+    connected: false,
+    provider: null,
+  },
+  {
+    slotId: "US1",
+    role: "arbiter",
+    label: "US1 Arbiter",
+    connected: false,
+    provider: null,
+  },
+];
+
+const turns: DebateTurn[] = [
+  {
+    id: "turn-researcher-opening",
+    sessionId: debateSessionId,
+    actorId: "AI0",
+    content: "Kaynak ve iddia once ayri dugumler olarak tutulmali.",
+    stance: "support",
+    referencedNodeIds: ["node-navigation-source", "node-horizon-claim"],
+    turnIndex: 0,
+    createdAt: "2026-05-20T10:13:00.000Z",
+  },
+  {
+    id: "turn-tenth-man-question",
+    sessionId: debateSessionId,
+    actorId: "AI2",
+    content: "Gorsel kaydin perspektif etkisi ayri belirsizlik olarak isaretlenmeli.",
+    stance: "question",
+    referencedNodeIds: ["node-perspective-uncertainty"],
+    turnIndex: 1,
+    createdAt: "2026-05-20T10:14:00.000Z",
+  },
+];
+
+const debateSession: DebateSession = {
+  id: debateSessionId,
+  topicId,
+  status: "mock",
+  prompt: "Yerel 10. Adam test simülasyonu; gerçek AI veya relay çağrısı yapmaz.",
+  roles,
+  turns,
+  verdict: null,
+  startedAt: "2026-05-20T10:13:00.000Z",
+  endedAt: null,
+};
+
+const reportTrace: ReportTrace[] = [
+  {
+    id: "trace-topic-node-added",
+    topicId,
+    traceType: "node-added",
+    actorId: "US1",
+    summary: "Ana iddia düğümü yerel konuya eklendi.",
+    payload: { nodeId: "node-horizon-claim" },
+    occurredAt: "2026-05-20T10:01:00.000Z",
+  },
+  {
+    id: "trace-evidence-added",
+    topicId,
+    traceType: "evidence-added",
+    actorId: "AI0",
+    summary: "Gözlem kaynağı ana iddiayla ilişkilendirildi.",
+    payload: { evidenceId: "evidence-navigation-excerpt" },
+    occurredAt: "2026-05-20T10:11:00.000Z",
+  },
+  {
+    id: "trace-debate-turn",
+    topicId,
+    traceType: "debate-turn",
+    actorId: "AI2",
+    summary: "10. Adam yerel tartışma turu test izine yansıtıldı.",
+    payload: { turnId: "turn-tenth-man-question" },
+    occurredAt: "2026-05-20T10:14:00.000Z",
+  },
+];
+
+export const PATTERN_ROOM_DOMAIN_TEST_FIXTURE: PatternRoomDomainData = {
+  topic,
+  nodes,
+  edges,
+  sources,
+  evidence,
+  debateSession,
+  reportTrace,
+};

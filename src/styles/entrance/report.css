@@ -1,0 +1,193 @@
+.ds-log-time {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.ds-log-level-badge {
+  color: var(--text-on-brand);
+  padding: var(--space-0-5) var(--space-1-5);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+}
+
+.ds-log-level-badge-info {
+  background-color: var(--color-info);
+}
+
+.ds-log-level-badge-warn,
+.ds-log-level-badge-warning {
+  background-color: var(--color-warning);
+}
+
+.ds-log-level-badge-error {
+  background-color: var(--color-error);
+}
+
+.ds-log-level-badge-success {
+  background-color: var(--color-success);
+}
+
+.ds-log-level-badge-debug {
+  background-color: color-mix(in srgb, var(--color-info) 55%, var(--bg-surface));
+}
+
+.ds-log-category {
+  color: var(--color-accent);
+  font-weight: var(--font-medium);
+  font-size: var(--text-xs);
+}
+
+.ds-log-message {
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.live-log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-1) solid var(--border-default);
+  background: var(--bg-surface-3);
+}
+
+.live-log-header h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+.live-log-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.live-log-app-tabs {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.live-log-app-tabs .btn {
+  opacity: 0.7;
+}
+
+.live-log-app-tabs .btn.is-active {
+  opacity: 1;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.live-log-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: var(--space-24);
+}
+
+.live-log-control span {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+.live-log-control-search {
+  min-width: var(--layout-live-log-search-min);
+  max-width: var(--layout-live-log-search-max);
+  width: 100%;
+}
+
+.live-log-metrics {
+  justify-self: end;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.live-log-content .ds-log-entry__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.live-log-content .ds-log-time {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.live-log-content .ds-log-app {
+  padding: 0 var(--space-1-5);
+  border-radius: var(--radius-xs);
+  border: var(--border-1) solid var(--border-default);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+}
+
+.live-log-content .ds-log-category {
+  color: var(--color-accent);
+  font-weight: var(--font-medium);
+  font-size: var(--text-xs);
+}
+
+.live-log-content .ds-log-message {
+  color: var(--text-primary);
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.live-log-content .ds-log-level-badge-warning,
+.live-log-content .ds-log-level-badge-warn {
+  background-color: var(--color-warning);
+}
+
+.live-log-content .ds-log-level-badge-error {
+  background-color: var(--color-error);
+}
+
+.live-log-content .ds-log-level-badge-info {
+  background-color: var(--color-info);
+}
+
+.live-log-content .ds-log-level-badge-success {
+  background-color: var(--color-success);
+}
+
+.live-log-content .ds-log-level-badge-debug {
+  background-color: color-mix(in srgb, var(--color-info) 55%, var(--bg-surface));
+}
+
+.live-log-detail-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-meta);
+  color: var(--text-tertiary);
+}
+
+.ds-log-entry.log-toast {
+  border-left: var(--border-3) solid var(--color-info);
+}
+
+.ds-log-entry.log-panel {
+  border-left: var(--border-3) solid var(--color-warning);
+}
+
+@media (--breakpoint-max-768) {
+  .live-log-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .live-log-header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

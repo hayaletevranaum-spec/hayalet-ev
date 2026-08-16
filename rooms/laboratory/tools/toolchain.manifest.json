@@ -1,0 +1,676 @@
+{
+  "version": 1,
+  "roomId": "laboratory",
+  "tools": {
+    "yt-dlp": {
+      "displayName": "yt-dlp",
+      "installDirName": "yt-dlp",
+      "installStrategy": "automatic",
+      "usedBy": ["Media intake", "YouTube capture"],
+      "testImpact": ["source-routing", "youtube-import"],
+      "readinessImpact": "Blocks remote YouTube video intake flows.",
+      "stageSupport": {
+        "source": "required",
+        "edit": "unsupported",
+        "profile": "unsupported",
+        "process": "unsupported",
+        "report": "unsupported"
+      },
+      "releaseProvider": {
+        "type": "github-release",
+        "owner": "yt-dlp",
+        "repo": "yt-dlp",
+        "releaseUrl": "https://github.com/yt-dlp/yt-dlp/releases/latest"
+      },
+      "probe": {
+        "args": ["--version"],
+        "versionRegex": "(\\d{4}\\.\\d{2}\\.\\d{2}(?:\\.[0-9]+)?)"
+      },
+      "assets": {
+        "linux-x64": {
+          "assetMatch": "^yt-dlp_linux$",
+          "archive": "none",
+          "executableName": "yt-dlp"
+        },
+        "linux-arm64": {
+          "assetMatch": "^yt-dlp_linux_aarch64$",
+          "archive": "none",
+          "executableName": "yt-dlp"
+        },
+        "linux-musl-x64": {
+          "assetMatch": "^yt-dlp_musllinux$",
+          "archive": "none",
+          "executableName": "yt-dlp"
+        },
+        "darwin-x64": {
+          "assetMatch": "^yt-dlp_macos$",
+          "archive": "none",
+          "executableName": "yt-dlp"
+        },
+        "darwin-arm64": {
+          "assetMatch": "^yt-dlp_macos$",
+          "archive": "none",
+          "executableName": "yt-dlp"
+        },
+        "win32-x64": {
+          "assetMatch": "^yt-dlp\\.exe$",
+          "archive": "none",
+          "executableName": "yt-dlp.exe"
+        },
+        "win32-arm64": {
+          "assetMatch": "^yt-dlp_arm64\\.exe$",
+          "archive": "none",
+          "executableName": "yt-dlp.exe"
+        }
+      }
+    },
+    "ffmpeg": {
+      "displayName": "FFmpeg",
+      "installDirName": "ffmpeg",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Media edit", "Profile artifacts", "Managed process runs"],
+      "testImpact": ["media-edit", "profile-preflight", "managed-reporting"],
+      "readinessImpact": "Blocks local transforms, derived outputs, and most managed analysis runs.",
+      "stageSupport": {
+        "source": "required",
+        "edit": "required",
+        "profile": "required",
+        "process": "required",
+        "report": "unsupported"
+      },
+      "releaseProvider": {
+        "type": "github-release",
+        "owner": "yt-dlp",
+        "repo": "FFmpeg-Builds",
+        "releaseUrl": "https://github.com/yt-dlp/FFmpeg-Builds/releases/latest"
+      },
+      "probe": {
+        "args": ["-version"],
+        "versionRegex": "ffmpeg version\\s+([^\\s]+)"
+      },
+      "systemCommand": {
+        "executableName": "ffmpeg",
+        "companionExecutables": ["ffprobe", "ffprobe.exe"],
+        "envVarNames": ["HAYALET_FFMPEG_PATH", "FFMPEG_PATH"],
+        "candidatePaths": [
+          "${dataDir}/host-dependencies/ffmpeg/win32-x64/ffmpeg.exe",
+          "${dataDir}/host-dependencies/ffmpeg/win32-arm64/ffmpeg.exe",
+          "${dataDir}/host-dependencies/ffmpeg/linux-x64/ffmpeg",
+          "${dataDir}/host-dependencies/ffmpeg/linux-arm64/ffmpeg"
+        ],
+        "setupHint": "Prepare the shared FFmpeg runtime from Settings > Capture, or expose ffmpeg on PATH and refresh Laboratory tools."
+      },
+      "assets": {
+        "linux-x64": {
+          "assetMatch": "^ffmpeg-master-latest-linux64-gpl\\.tar\\.xz$",
+          "archive": "tar.xz",
+          "executableName": "ffmpeg",
+          "companionExecutables": ["ffprobe"]
+        },
+        "linux-arm64": {
+          "assetMatch": "^ffmpeg-master-latest-linuxarm64-gpl\\.tar\\.xz$",
+          "archive": "tar.xz",
+          "executableName": "ffmpeg",
+          "companionExecutables": ["ffprobe"]
+        },
+        "win32-x64": {
+          "assetMatch": "^ffmpeg-master-latest-win64-gpl\\.zip$",
+          "archive": "zip",
+          "executableName": "ffmpeg.exe",
+          "companionExecutables": ["ffprobe.exe"]
+        },
+        "win32-arm64": {
+          "assetMatch": "^ffmpeg-master-latest-winarm64-gpl\\.zip$",
+          "archive": "zip",
+          "executableName": "ffmpeg.exe",
+          "companionExecutables": ["ffprobe.exe"]
+        }
+      }
+    },
+    "visual-forensics-py": {
+      "displayName": "Visual Forensics Python",
+      "installDirName": "visual-forensics-py",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Near-duplicate frame checks", "Optical-flow assist", "Reference quality checks"],
+      "testImpact": ["visual-forensics", "reference-quality", "duplicate-frame-analysis"],
+      "readinessImpact": "Optional OpenCV/scikit-image helpers remain unavailable; FFmpeg proxy probes still run where possible.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "optional"
+      },
+      "probe": {
+        "args": ["-c", "import cv2, skimage, numpy, scipy; print(cv2.__version__)"],
+        "versionRegex": "(\\d+(?:\\.\\d+)+)"
+      },
+      "systemCommand": {
+        "executableName": "python3",
+        "candidatePaths": [
+          "${roomStorageDir}/runtime/visual-forensics-py-venv/bin/python3",
+          "${roomStorageDir}/runtime/visual-forensics-py-venv/bin/python",
+          "${roomStorageDir}/runtime/visual-forensics-py-venv/Scripts/python.exe"
+        ],
+        "setupHint": "Use the in-app install to prepare OpenCV, scikit-image, numpy, and scipy in a Laboratory-managed Python runtime, then refresh this tool from settings."
+      },
+      "installer": {
+        "type": "python-venv-pip",
+        "venvDir": "${roomStorageDir}/runtime/visual-forensics-py-venv",
+        "estimatedDownloadSize": "180 - 600 MB",
+        "estimatedInstalledSize": "500 MB - 1.5 GB",
+        "supportedPythonVersions": ["3.12", "3.11", "3.10"],
+        "packages": ["opencv-contrib-python-headless", "scikit-image", "numpy", "scipy"]
+      }
+    },
+    "exiftool": {
+      "displayName": "ExifTool",
+      "installDirName": "exiftool",
+      "availability": "installable",
+      "installStrategy": "automatic",
+      "usedBy": ["Metadata provenance audit", "Capture metadata cross-check"],
+      "testImpact": ["metadata-provenance", "report-counter-evidence"],
+      "readinessImpact": "Metadata provenance checks fall back to FFmpeg/ffprobe fields when ExifTool is not available.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "optional"
+      },
+      "probe": {
+        "args": ["-ver"],
+        "versionRegex": "(\\d+(?:\\.\\d+)+|\\d+)"
+      },
+      "releaseProvider": {
+        "type": "web-page",
+        "latestPageUrl": "https://exiftool.org/",
+        "releaseUrl": "https://exiftool.org/",
+        "versionRegex": "Image-ExifTool-([0-9.]+)\\.tar\\.gz"
+      },
+      "assets": {
+        "linux-x64": {
+          "assetMatch": "Image-ExifTool-${version}.tar.gz",
+          "archive": "tar.gz",
+          "downloadUrlTemplate": "https://sourceforge.net/projects/exiftool/files/Image-ExifTool-${version}.tar.gz/download",
+          "executableName": "exiftool",
+          "copyArchiveContents": true
+        },
+        "linux-arm64": {
+          "assetMatch": "Image-ExifTool-${version}.tar.gz",
+          "archive": "tar.gz",
+          "downloadUrlTemplate": "https://sourceforge.net/projects/exiftool/files/Image-ExifTool-${version}.tar.gz/download",
+          "executableName": "exiftool",
+          "copyArchiveContents": true
+        },
+        "darwin-x64": {
+          "assetMatch": "Image-ExifTool-${version}.tar.gz",
+          "archive": "tar.gz",
+          "downloadUrlTemplate": "https://sourceforge.net/projects/exiftool/files/Image-ExifTool-${version}.tar.gz/download",
+          "executableName": "exiftool",
+          "copyArchiveContents": true
+        },
+        "darwin-arm64": {
+          "assetMatch": "Image-ExifTool-${version}.tar.gz",
+          "archive": "tar.gz",
+          "downloadUrlTemplate": "https://sourceforge.net/projects/exiftool/files/Image-ExifTool-${version}.tar.gz/download",
+          "executableName": "exiftool",
+          "copyArchiveContents": true
+        },
+        "win32-x64": {
+          "assetMatch": "exiftool-${version}_64.zip",
+          "archive": "zip",
+          "downloadUrlTemplate": "https://sourceforge.net/projects/exiftool/files/exiftool-${version}_64.zip/download",
+          "executableName": "exiftool.exe",
+          "sourceExecutableName": "exiftool(-k).exe",
+          "copyArchiveContents": true
+        },
+        "win32-arm64": {
+          "assetMatch": "exiftool-${version}_64.zip",
+          "archive": "zip",
+          "downloadUrlTemplate": "https://sourceforge.net/projects/exiftool/files/exiftool-${version}_64.zip/download",
+          "executableName": "exiftool.exe",
+          "sourceExecutableName": "exiftool(-k).exe",
+          "copyArchiveContents": true
+        }
+      },
+      "systemCommand": {
+        "executableName": "exiftool",
+        "setupHint": "Use the in-app install to prepare the room-local ExifTool runtime, or expose exiftool on PATH and refresh Laboratory tools."
+      }
+    },
+    "mediainfo": {
+      "displayName": "MediaInfo",
+      "installDirName": "mediainfo",
+      "availability": "installable",
+      "installStrategy": "automatic",
+      "usedBy": ["Container metadata cross-check", "Stream provenance audit"],
+      "testImpact": ["metadata-provenance", "container-stream-cross-check"],
+      "readinessImpact": "Container/stream provenance comparisons remain limited to ffprobe when MediaInfo is not available.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "optional"
+      },
+      "probe": {
+        "args": ["--Version"],
+        "versionRegex": "(?:MediaInfo(?:Lib)?\\s*-?\\s*v?)([^\\s]+)"
+      },
+      "releaseProvider": {
+        "type": "web-page",
+        "latestPageUrl": "https://mediaarea.net/en/MediaInfo/Download/AppImage",
+        "releaseUrl": "https://mediaarea.net/en/MediaInfo",
+        "versionRegex": "mediainfo-([0-9.]+)\\.glibc2\\.3-x86_64\\.AppImage"
+      },
+      "assets": {
+        "linux-x64": {
+          "assetMatch": "mediainfo-${version}.glibc2.3-x86_64.AppImage",
+          "archive": "none",
+          "downloadUrlTemplate": "https://mediaarea.net/download/binary/mediainfo/${version}/mediainfo-${version}.glibc2.3-x86_64.AppImage",
+          "executableName": "mediainfo"
+        },
+        "win32-x64": {
+          "assetMatch": "MediaInfo_CLI_${version}_Windows_x64.zip",
+          "archive": "zip",
+          "downloadUrlTemplate": "https://mediaarea.net/download/binary/mediainfo/${version}/MediaInfo_CLI_${version}_Windows_x64.zip",
+          "executableName": "MediaInfo.exe",
+          "copyArchiveContents": true,
+          "releaseProvider": {
+            "type": "web-page",
+            "latestPageUrl": "https://mediaarea.net/en/MediaInfo/Download/Windows",
+            "releaseUrl": "https://mediaarea.net/en/MediaInfo",
+            "versionRegex": "MediaInfo_CLI_([0-9.]+)_Windows_x64\\.zip"
+          }
+        },
+        "win32-arm64": {
+          "assetMatch": "MediaInfo_CLI_${version}_Windows_ARM64.zip",
+          "archive": "zip",
+          "downloadUrlTemplate": "https://mediaarea.net/download/binary/mediainfo/${version}/MediaInfo_CLI_${version}_Windows_ARM64.zip",
+          "executableName": "MediaInfo.exe",
+          "copyArchiveContents": true,
+          "releaseProvider": {
+            "type": "web-page",
+            "latestPageUrl": "https://mediaarea.net/en/MediaInfo/Download/Windows",
+            "releaseUrl": "https://mediaarea.net/en/MediaInfo",
+            "versionRegex": "MediaInfo_CLI_([0-9.]+)_Windows_ARM64\\.zip"
+          }
+        }
+      },
+      "systemCommand": {
+        "executableName": "mediainfo",
+        "setupHint": "Use the in-app install to prepare the room-local MediaInfo CLI runtime, or expose mediainfo on PATH and refresh Laboratory tools."
+      }
+    },
+    "ffmpeg-libvmaf": {
+      "displayName": "FFmpeg libvmaf Probe",
+      "installDirName": "ffmpeg-libvmaf",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Reference quality check", "VMAF availability probe"],
+      "testImpact": ["reference-quality", "ffmpeg-filter-probe"],
+      "readinessImpact": "VMAF quality deltas are reported as not measured unless the active FFmpeg exposes the libvmaf filter and a reference source exists.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "optional"
+      },
+      "probe": {
+        "args": ["-hide_banner", "-filters"],
+        "versionRegex": "\\blibvmaf\\b"
+      },
+      "releaseProvider": {
+        "type": "github-release",
+        "owner": "yt-dlp",
+        "repo": "FFmpeg-Builds",
+        "releaseUrl": "https://github.com/yt-dlp/FFmpeg-Builds/releases/latest"
+      },
+      "assets": {
+        "linux-x64": {
+          "assetMatch": "^ffmpeg-master-latest-linux64-gpl\\.tar\\.xz$",
+          "archive": "tar.xz",
+          "executableName": "ffmpeg",
+          "companionExecutables": ["ffprobe"]
+        },
+        "linux-arm64": {
+          "assetMatch": "^ffmpeg-master-latest-linuxarm64-gpl\\.tar\\.xz$",
+          "archive": "tar.xz",
+          "executableName": "ffmpeg",
+          "companionExecutables": ["ffprobe"]
+        },
+        "win32-x64": {
+          "assetMatch": "^ffmpeg-master-latest-win64-gpl\\.zip$",
+          "archive": "zip",
+          "executableName": "ffmpeg.exe",
+          "companionExecutables": ["ffprobe.exe"]
+        },
+        "win32-arm64": {
+          "assetMatch": "^ffmpeg-master-latest-winarm64-gpl\\.zip$",
+          "archive": "zip",
+          "executableName": "ffmpeg.exe",
+          "companionExecutables": ["ffprobe.exe"]
+        }
+      },
+      "systemCommand": {
+        "executableName": "ffmpeg",
+        "companionExecutables": ["ffprobe", "ffprobe.exe"],
+        "envVarNames": ["HAYALET_FFMPEG_PATH", "FFMPEG_PATH"],
+        "candidatePaths": [
+          "${dataDir}/host-dependencies/ffmpeg/win32-x64/ffmpeg.exe",
+          "${dataDir}/host-dependencies/ffmpeg/win32-arm64/ffmpeg.exe",
+          "${dataDir}/host-dependencies/ffmpeg/linux-x64/ffmpeg",
+          "${dataDir}/host-dependencies/ffmpeg/linux-arm64/ffmpeg"
+        ],
+        "setupHint": "Prepare the shared FFmpeg runtime from Settings > Capture, then refresh Laboratory tools to probe libvmaf support."
+      }
+    },
+    "raft-optical-flow": {
+      "displayName": "RAFT Optical Flow",
+      "installDirName": "raft-optical-flow",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Optical-flow tracking", "Subject/background motion split"],
+      "testImpact": ["optical-flow-tracking", "planned-tool-gating"],
+      "readinessImpact": "RAFT is optional for dense motion follow-up; optical-flow tracking degrades to lighter motion proxies when it is not installed.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "optional"
+      },
+      "probe": {
+        "args": ["-c", "import torch, torchvision, cv2, numpy, scipy; print(torch.__version__)"],
+        "versionRegex": "(\\d+(?:\\.\\d+)+)"
+      },
+      "systemCommand": {
+        "executableName": "python3",
+        "candidatePaths": [
+          "${roomStorageDir}/runtime/raft-optical-flow-venv/bin/python3",
+          "${roomStorageDir}/runtime/raft-optical-flow-venv/bin/python",
+          "${roomStorageDir}/runtime/raft-optical-flow-venv/Scripts/python.exe"
+        ],
+        "setupHint": "Use the in-app install to prepare the room-local PyTorch/OpenCV runtime for RAFT optical-flow follow-up checks."
+      },
+      "installer": {
+        "type": "python-venv-pip",
+        "venvDir": "${roomStorageDir}/runtime/raft-optical-flow-venv",
+        "estimatedDownloadSize": "1.5 - 4 GB",
+        "estimatedInstalledSize": "3 - 7 GB",
+        "supportedPythonVersions": ["3.12", "3.11", "3.10"],
+        "packages": ["torch", "torchvision", "opencv-python-headless", "numpy", "scipy"]
+      }
+    },
+    "opensmile": {
+      "displayName": "openSMILE",
+      "installDirName": "opensmile",
+      "availability": "installable",
+      "installStrategy": "automatic",
+      "usedBy": ["Prosody checks", "Paralinguistic audio features"],
+      "testImpact": ["audio-prosody", "voice-pattern-checks"],
+      "readinessImpact": "Optional audio feature extraction stays unavailable until the host binary is installed.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "unsupported"
+      },
+      "probe": {
+        "args": ["-h"],
+        "versionRegex": "(?:openSMILE|SMILExtract)[^\\d]*(\\d+(?:\\.\\d+)+)"
+      },
+      "releaseProvider": {
+        "type": "github-release",
+        "owner": "audeering",
+        "repo": "opensmile",
+        "releaseUrl": "https://github.com/audeering/opensmile/releases/latest"
+      },
+      "assets": {
+        "linux-x64": {
+          "assetMatch": "^opensmile-.*-linux-x86_64\\.zip$",
+          "archive": "zip",
+          "executableName": "SMILExtract",
+          "companionExecutables": ["libSMILEapi.so"]
+        },
+        "linux-arm64": {
+          "assetMatch": "^opensmile-.*-linux-armv8\\.zip$",
+          "archive": "zip",
+          "executableName": "SMILExtract",
+          "companionExecutables": ["libSMILEapi.so"]
+        },
+        "darwin-x64": {
+          "assetMatch": "^opensmile-.*-macos-x86_64\\.zip$",
+          "archive": "zip",
+          "executableName": "SMILExtract",
+          "companionExecutables": ["libSMILEapi.dylib"]
+        },
+        "darwin-arm64": {
+          "assetMatch": "^opensmile-.*-macos-armv8\\.zip$",
+          "archive": "zip",
+          "executableName": "SMILExtract",
+          "companionExecutables": ["libSMILEapi.dylib"]
+        },
+        "win32-x64": {
+          "assetMatch": "^opensmile-.*-windows-x86_64\\.zip$",
+          "archive": "zip",
+          "executableName": "SMILExtract.exe",
+          "companionExecutables": ["SMILEapi.dll"]
+        }
+      },
+      "systemCommand": {
+        "executableName": "SMILExtract",
+        "setupHint": "Use the in-app install on supported runtimes, or install openSMILE on the host system so the SMILExtract binary is available on PATH, then refresh this tool from settings."
+      }
+    },
+    "yamnet": {
+      "displayName": "YAMNet",
+      "installDirName": "yamnet",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Sound event tagging", "Ambient event summaries"],
+      "testImpact": ["audio-events", "environmental-audio"],
+      "readinessImpact": "Event tagging and ambient sound summaries remain disabled without the Python runtime.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "unsupported"
+      },
+      "probe": {
+        "args": [
+          "-c",
+          "import tensorflow as tf, tensorflow_hub as hub, scipy, numpy; print(tf.__version__)"
+        ],
+        "versionRegex": "(\\d+(?:\\.\\d+)+)"
+      },
+      "systemCommand": {
+        "executableName": "python3",
+        "candidatePaths": [
+          "${roomStorageDir}/runtime/yamnet-venv/bin/python3",
+          "${roomStorageDir}/runtime/yamnet-venv/bin/python",
+          "${roomStorageDir}/runtime/yamnet-venv/Scripts/python.exe"
+        ],
+        "setupHint": "Install python3 packages tensorflow, tensorflow_hub, numpy, scipy, and setuptools<81 so the room-local YAMNet helper can run, then refresh this tool from settings."
+      },
+      "installer": {
+        "type": "python-venv-pip",
+        "venvDir": "${roomStorageDir}/runtime/yamnet-venv",
+        "estimatedDownloadSize": "800 MB - 1.6 GB",
+        "estimatedInstalledSize": "1.5 - 3 GB",
+        "supportedPythonVersions": ["3.12", "3.11", "3.10"],
+        "packages": ["tensorflow", "tensorflow_hub", "numpy", "scipy", "setuptools<81"]
+      }
+    },
+    "librosa": {
+      "displayName": "librosa",
+      "installDirName": "librosa",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Rhythm fallback", "Music structure helpers"],
+      "testImpact": ["audio-rhythm", "music-analysis"],
+      "readinessImpact": "Music and rhythm oriented helpers stay blocked until the package is installed.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "unsupported"
+      },
+      "probe": {
+        "args": ["-c", "import librosa, numpy, scipy; print(librosa.__version__)"],
+        "versionRegex": "(\\d+(?:\\.\\d+)+)"
+      },
+      "systemCommand": {
+        "executableName": "python3",
+        "candidatePaths": [
+          "${roomStorageDir}/runtime/librosa-venv/bin/python3",
+          "${roomStorageDir}/runtime/librosa-venv/bin/python",
+          "${roomStorageDir}/runtime/librosa-venv/Scripts/python.exe"
+        ],
+        "setupHint": "Install python3 packages librosa, numpy, and scipy so the room-local music analysis helpers can run, then refresh this tool from settings."
+      },
+      "installer": {
+        "type": "python-venv-pip",
+        "venvDir": "${roomStorageDir}/runtime/librosa-venv",
+        "estimatedDownloadSize": "80 - 250 MB",
+        "estimatedInstalledSize": "250 - 700 MB",
+        "packages": ["librosa", "numpy", "scipy"]
+      }
+    },
+    "demucs": {
+      "displayName": "Demucs",
+      "installDirName": "demucs",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Source separation", "Vocal isolation"],
+      "testImpact": ["source-separation", "speech-vs-music"],
+      "readinessImpact": "Optional separation workflows cannot run without the host package.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "unsupported"
+      },
+      "probe": {
+        "args": [
+          "-c",
+          "import demucs, importlib.metadata; print(importlib.metadata.version('demucs'))"
+        ],
+        "versionRegex": "(\\d+(?:\\.\\d+)+)"
+      },
+      "systemCommand": {
+        "executableName": "python3",
+        "candidatePaths": [
+          "${roomStorageDir}/runtime/demucs-venv/bin/python3",
+          "${roomStorageDir}/runtime/demucs-venv/bin/python",
+          "${roomStorageDir}/runtime/demucs-venv/Scripts/python.exe"
+        ],
+        "setupHint": "Install the demucs Python package so the prepared source-separation runtime can be enabled, then refresh this tool from settings."
+      },
+      "installer": {
+        "type": "python-venv-pip",
+        "venvDir": "${roomStorageDir}/runtime/demucs-venv",
+        "estimatedDownloadSize": "3 - 5 GB",
+        "estimatedInstalledSize": "4 - 6 GB",
+        "packages": ["demucs"]
+      }
+    },
+    "essentia": {
+      "displayName": "Essentia",
+      "installDirName": "essentia",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Tonal fallback", "Music descriptor extraction"],
+      "testImpact": ["tonal-analysis", "music-descriptors"],
+      "readinessImpact": "Fallback tonal analysis remains unavailable until the host package is installed.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "unsupported"
+      },
+      "probe": {
+        "args": [
+          "-c",
+          "import essentia, importlib.metadata; print(importlib.metadata.version('essentia'))"
+        ],
+        "versionRegex": "(\\d+(?:\\.\\d+)+)"
+      },
+      "systemCommand": {
+        "executableName": "python3",
+        "candidatePaths": [
+          "${roomStorageDir}/runtime/essentia-venv/bin/python3",
+          "${roomStorageDir}/runtime/essentia-venv/bin/python",
+          "${roomStorageDir}/runtime/essentia-venv/Scripts/python.exe"
+        ],
+        "setupHint": "Install the essentia Python package so the prepared tonal fallback can be enabled, then refresh this tool from settings."
+      },
+      "installer": {
+        "type": "python-venv-pip",
+        "venvDir": "${roomStorageDir}/runtime/essentia-venv",
+        "estimatedDownloadSize": "100 MB - 1 GB",
+        "estimatedInstalledSize": "300 MB - 2 GB",
+        "supportedPythonVersions": ["3.12", "3.11", "3.10"],
+        "packages": ["essentia"]
+      }
+    },
+    "pyaudioanalysis": {
+      "displayName": "pyAudioAnalysis",
+      "installDirName": "pyaudioanalysis",
+      "availability": "system-command",
+      "installStrategy": "automatic",
+      "usedBy": ["Speaker diarization fallback", "Segment classification"],
+      "testImpact": ["speaker-diarization", "audio-segmentation"],
+      "readinessImpact": "Diarization and segmentation fallback flows stay blocked until the host package is installed.",
+      "stageSupport": {
+        "source": "unsupported",
+        "edit": "unsupported",
+        "profile": "optional",
+        "process": "optional",
+        "report": "unsupported"
+      },
+      "probe": {
+        "args": [
+          "-c",
+          "from pyAudioAnalysis import audioSegmentation as aS; import hmmlearn, sklearn, scipy, numpy; print('pyAudioAnalysis')"
+        ],
+        "versionRegex": "(pyAudioAnalysis)"
+      },
+      "systemCommand": {
+        "executableName": "python3",
+        "candidatePaths": [
+          "${roomStorageDir}/runtime/pyaudioanalysis-venv/bin/python3",
+          "${roomStorageDir}/runtime/pyaudioanalysis-venv/bin/python",
+          "${roomStorageDir}/runtime/pyaudioanalysis-venv/Scripts/python.exe"
+        ],
+        "setupHint": "Use the in-app install to prepare pyAudioAnalysis with the Laboratory-managed Python runtime, then refresh this tool from settings."
+      },
+      "installer": {
+        "type": "python-venv-pip",
+        "venvDir": "${roomStorageDir}/runtime/pyaudioanalysis-venv",
+        "estimatedDownloadSize": "250 - 900 MB",
+        "estimatedInstalledSize": "700 MB - 2 GB",
+        "supportedPythonVersions": ["3.12", "3.11", "3.10"],
+        "packages": [
+          "pyAudioAnalysis",
+          "numpy",
+          "scipy",
+          "scikit-learn",
+          "hmmlearn",
+          "matplotlib",
+          "eyed3",
+          "pydub"
+        ]
+      }
+    }
+  }
+}

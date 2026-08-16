@@ -1,0 +1,70 @@
+/* ── Reset ───────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--repair-bg);
+  color: var(--repair-text);
+  font-family: var(--repair-body);
+  font-size: var(--repair-px-13);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.repair-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--repair-sp-2);
+  height: 100%;
+  max-width: min(var(--repair-px-360), calc(100% - var(--repair-sp-6)));
+  margin: 0 auto;
+  padding: var(--repair-sp-4);
+  text-align: center;
+  font-size: var(--repair-px-12);
+  color: var(--repair-text-dim);
+}
+
+.repair-empty-state__title {
+  color: var(--repair-text);
+  font: 700 var(--repair-px-14) var(--repair-body);
+}
+
+.repair-empty-state__copy {
+  max-width: var(--repair-px-320);
+  color: var(--repair-text-muted);
+  line-height: 1.45;
+}
+
+.repair-empty-state__steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--repair-px-5);
+  margin-top: var(--repair-px-4);
+}
+
+.repair-empty-state__steps span {
+  padding: var(--repair-px-2) var(--repair-px-8);
+  border: var(--repair-px-1) solid var(--repair-border-muted);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-control);
+  color: var(--repair-text-dim);
+  font: 700 var(--repair-px-9) var(--repair-mono);
+  text-transform: uppercase;
+}

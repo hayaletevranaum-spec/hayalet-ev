@@ -1,0 +1,649 @@
+{
+  "title": "Repair Room",
+  "subtitle": "An electronics repair workstation combining a live PCB workbench, Assistant AI flow, knowledge pack research, and operator-aware diagnostic guidance.",
+  "workbench": {
+    "title": "Repair Workbench",
+    "subtitle": "Live PCB stage with overlay annotations, Assistant AI flow, measurement panel, knowledge pack viewer, and operator profile awareness.",
+    "live": "LIVE",
+    "frozen": "FROZEN",
+    "buffering": "BUFFERING",
+    "noFeed": "NO FEED",
+    "noImage": "Board image required",
+    "noImageHelp": "Start the Android camera or attach a board image to unlock overlays, measurements, and guided repair steps.",
+    "coordX": "X",
+    "coordY": "Y",
+    "coordGrid": "GRID",
+    "emptyStateStep1": "Start camera",
+    "emptyStateStep2": "Frame board",
+    "emptyStateStep3": "Freeze when ready",
+    "quickActions": {
+      "measurement": "Measure",
+      "measurementTitle": "Open measurement entry"
+    },
+    "toolbar": {
+      "grid": "Grid",
+      "gridTitle": "Toggle grid overlay",
+      "aiMarks": "Assistant AI Marks",
+      "aiMarksTitle": "Toggle Assistant AI mark overlay",
+      "operatorNotes": "Operator Notes",
+      "operatorNotesTitle": "Toggle operator annotations",
+      "aiNotes": "Assistant AI Notes",
+      "aiNotesTitle": "Toggle Assistant AI annotations",
+      "measure": "Measure",
+      "measureTitle": "Toggle measurement overlay",
+      "risks": "Risks",
+      "risksTitle": "Toggle risk overlay",
+      "notes": "Notes",
+      "notesTitle": "Toggle repair notes",
+      "evidence": "Evidence",
+      "evidenceTitle": "Toggle knowledge evidence",
+      "inspect": "Inspect",
+      "inspectTitle": "Toggle investigation mode"
+    },
+    "tools": {
+      "select": {
+        "label": "Select",
+        "title": "Select a board mark"
+      },
+      "pan": {
+        "label": "Pan",
+        "title": "Move the board view"
+      },
+      "zoom-in": {
+        "label": "Zoom in",
+        "title": "Zoom in on the board"
+      },
+      "zoom-out": {
+        "label": "Zoom out",
+        "title": "Zoom out from the board"
+      },
+      "rect": {
+        "label": "Box",
+        "title": "Draw a box around an area"
+      },
+      "freehand": {
+        "label": "Draw",
+        "title": "Draw a freehand board note"
+      },
+      "text": {
+        "label": "Text",
+        "title": "Add a text note"
+      },
+      "measurement-pin": {
+        "label": "Probe",
+        "title": "Add a measurement point"
+      },
+      "arrow": {
+        "label": "Arrow",
+        "title": "Point to a board detail"
+      },
+      "ruler": {
+        "label": "Ruler",
+        "title": "Measure board distance"
+      },
+      "freeze-frame": {
+        "label": "Freeze",
+        "title": "Freeze the current frame"
+      },
+      "snapshot": {
+        "label": "Snapshot",
+        "title": "Capture a board snapshot"
+      }
+    },
+    "guidance": {
+      "ai": "Assistant AI",
+      "next": "Next",
+      "say": "Say",
+      "risk": "Risk",
+      "fullBoard": "full board",
+      "noPending": "no pending measurement",
+      "linkedEvents": "linked events",
+      "selected": "selected",
+      "critical": "critical",
+      "calm": "calm",
+      "pending": "pending",
+      "focusCorridor": "focus corridor",
+      "noLinked": "No linked forensic records",
+      "hintResume": "resume live",
+      "hintReadAgain": "read this again",
+      "hintSaveNote": "save note",
+      "hintFreeze": "freeze camera",
+      "hintRepeat": "repeat guidance",
+      "hintMeasure": "record measurement",
+      "hintShowRisks": "show risks",
+      "benchReady": "The bench is ready.",
+      "openRepairSession": "Open a repair session.",
+      "addSymptomsStartAssistant": "Add the symptoms, then start Assistant AI evidence research.",
+      "measurementVerificationWaiting": "Measurement verification is waiting.",
+      "focusedBehaviorMatchesFailure": "Focused behavior matches a failure pattern.",
+      "observeBoardNarrowCheck": "Observe the board and keep the next check narrow.",
+      "primaryRailMatchesFailure": "Primary rail behavior matches the failure pattern.",
+      "regionEvidenceInspectCalmly": "This region has enough evidence to inspect calmly.",
+      "regionMayMatchEarlierPattern": "This region may match an earlier pattern.",
+      "progress": "{phase} {current}/{total}",
+      "phase": {
+        "observe": "observe",
+        "inspect": "inspect",
+        "measure": "measure",
+        "compare": "compare",
+        "verify": "verify",
+        "conclude": "conclude"
+      }
+    }
+  },
+  "session": {
+    "rail": {
+      "eyebrow": "WORKBENCH",
+      "title": "Sessions",
+      "newSession": "+ Intake",
+      "searchPlaceholder": "Search sessions…",
+      "viewArchive": "View Archive",
+      "activeBadge": "Active",
+      "archivedBadge": "Archived"
+    },
+    "active": {
+      "eyebrow": "ACTIVE SESSION",
+      "device": "Device",
+      "boardCode": "Board Code",
+      "serialNumber": "S/N",
+      "status": "Status",
+      "riskLevel": "Risk Level",
+      "notes": "Session Notes"
+    },
+    "riskLevels": {
+      "low": "LOW",
+      "medium": "MEDIUM",
+      "high": "HIGH",
+      "critical": "CRITICAL"
+    },
+    "status": {
+      "draft": "Draft",
+      "research": "Research",
+      "ready": "Ready",
+      "inProgress": "In Progress",
+      "paused": "Paused",
+      "archived": "Archived"
+    }
+  },
+  "feed": {
+    "eyebrow": "ASSISTANT",
+    "title": "Assistant AI Flow",
+    "composerPlaceholder": "Ask Assistant AI…",
+    "send": "Ask",
+    "severity": {
+      "risk": "RISK",
+      "suggestion": "SUGGESTION",
+      "action": "ACTION",
+      "info": "INFO"
+    }
+  },
+  "wizard": {
+    "eyebrow": "REPAIR",
+    "title": "Repair Intake",
+    "steps": {
+      "deviceInfo": "Device",
+      "symptoms": "Symptom",
+      "aiResearch": "Research",
+      "evidenceReview": "Review",
+      "ready": "Ready"
+    },
+    "hints": {
+      "deviceInfo": "Complete device type, maker, model, and board code; choose Unknown when needed.",
+      "symptoms": "Pick default symptoms or add your own symptom.",
+      "aiResearch": "Start research or continue without an evidence pack.",
+      "evidenceReview": "Choose the resources, failures, and test points saved to the session archive.",
+      "ready": "Check the device, symptom, and research summary before starting repair."
+    },
+    "actions": {
+      "addSymptoms": "Add symptoms",
+      "findEvidence": "Find evidence",
+      "startEvidenceResearch": "Start evidence research",
+      "reviewSetup": "Review setup",
+      "approveEvidence": "Approve evidence",
+      "startRepair": "Start repair"
+    },
+    "evidenceReview": {
+      "empty": "No evidence pack is available. Run research again or continue without Assistant AI.",
+      "summary": "{resources} resources, {failures} failure notes, {testPoints} test points.",
+      "failurePrefix": "Failure",
+      "probePrefix": "Probe",
+      "remove": "Remove",
+      "preview": "Preview",
+      "download": "Download",
+      "manualLabel": "Source name",
+      "manualAddedBy": "Manual"
+    },
+    "research": {
+      "bridgeWarning": "The Assistant AI bridge did not return a result. Retry or continue without Assistant AI.",
+      "retry": "Retry",
+      "start": "Start research",
+      "skip": "Continue without Assistant AI",
+      "noAi": "Without Assistant AI",
+      "packReady": "Evidence pack ready",
+      "pending": "Pending"
+    },
+    "labels": {
+      "deviceType": "Device type",
+      "select": "Select",
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "boardCode": "Board code",
+      "serialNumber": "Serial / job no",
+      "intakeNotes": "Bench note",
+      "aiSlot": "Assistant AI",
+      "symptomGroupAvailable": "Suggested symptoms",
+      "symptomGroupSelected": "Selected symptoms",
+      "customSymptom": "Custom symptom",
+      "add": "Add",
+      "observationNote": "Observation note"
+    },
+    "summary": {
+      "device": "Device",
+      "model": "Model",
+      "symptom": "Symptom",
+      "research": "Research",
+      "evidence": "Evidence"
+    },
+    "noRecords": "No records",
+    "remove": "Remove",
+    "failures": "Failures",
+    "testPoints": "Test points",
+    "notes": "Notes",
+    "manual": {
+      "failureName": "Failure name",
+      "failurePart": "Part / area",
+      "failureAction": "Suggested action",
+      "failureRationale": "Rationale / observation",
+      "failureAdd": "Add failure",
+      "testPointName": "Test point",
+      "testPointExpected": "Expected value",
+      "testPointUnit": "Unit",
+      "testPointTolerance": "Tolerance",
+      "testPointAdd": "Add test point",
+      "notePlaceholder": "Note",
+      "noteSource": "Source",
+      "noteAdd": "Add note",
+      "resourceFile": "File",
+      "rail": "Rail"
+    },
+    "resourcePanel": {
+      "schematicTitle": "Schematics",
+      "schematicAdd": "Add schematic",
+      "schematicUrl": "https://... or /path/to.pdf",
+      "boardImageTitle": "Board images",
+      "boardImageAdd": "Add image",
+      "boardImageUrl": "https://... or /path/to.png",
+      "datasheetTitle": "Datasheet / document",
+      "datasheetAdd": "Add document",
+      "datasheetUrl": "https://... or /path/to.pdf",
+      "threadTitle": "Forum / link",
+      "threadAdd": "Add link",
+      "threadUrl": "https://forum...",
+      "noteTitle": "Resource notes",
+      "noteAdd": "Add resource",
+      "noteUrl": "https://... or /path/to.txt"
+    }
+  },
+  "knowledgePack": {
+    "eyebrow": "KNOWLEDGE PACK",
+    "title": "Assistant AI Results",
+    "empty": "No evidence pack yet",
+    "emptyHelp": "Run evidence search from the repair intake to attach schematics, board photos, failure notes, and test points.",
+    "tabs": {
+      "schematicPreview": "Schematic Preview",
+      "boardView": "Board View",
+      "notes": "Notes"
+    },
+    "tabSchematic": "Schematic",
+    "tabBoard": "Board photos",
+    "tabNotes": "Repair notes",
+    "schematics": "Schematics",
+    "boardImages": "Board Images",
+    "commonFailures": "Common Failures",
+    "repairNotes": "Repair Notes",
+    "testPoints": "Test Points",
+    "stats": {
+      "schematics": "Schematics",
+      "boardImages": "Board Images",
+      "commonFailures": "Common Failures",
+      "repairNotes": "Repair Notes",
+      "testPoints": "Test Points",
+      "pages": "pages"
+    },
+    "addToSession": "Add to Session",
+    "pinToWorkbench": "Pin this area to workbench",
+    "preview": "Preview",
+    "download": "Download",
+    "emptySteps": {
+      "identifyBoard": "Identify board",
+      "findEvidence": "Find evidence",
+      "attachPack": "Attach pack"
+    },
+    "resourceKinds": {
+      "boardImage": "Board image",
+      "datasheet": "Datasheet",
+      "schematic": "Schematic",
+      "thread": "Thread",
+      "note": "Note"
+    },
+    "spatial": {
+      "likelyFault": "Likely fault",
+      "probe": "Probe"
+    }
+  },
+  "timeline": {
+    "eyebrow": "REPAIR MOMENTS",
+    "title": "Repair Moments",
+    "kinds": {
+      "snapshot": "Snapshot",
+      "aiMark": "AI Mark",
+      "measurement": "Measurement",
+      "note": "Note",
+      "risk": "Risk Flag",
+      "freezeFrame": "Freeze Frame",
+      "sessionStart": "Session Start",
+      "annotation": "Annotation",
+      "aiMarkLifecycle": "Assistant State",
+      "area": "Area",
+      "event": "Event"
+    },
+    "labels": {
+      "risk": "Risk",
+      "snapshot": "Snapshot",
+      "freezeFrame": "Freeze",
+      "note": "Note",
+      "sessionStart": "Start",
+      "assistantState": "Assistant state",
+      "area": "Area",
+      "event": "Event"
+    },
+    "play": "Play",
+    "pause": "Pause",
+    "followLive": "Follow live",
+    "zoomOut": "Zoom out",
+    "zoomIn": "Zoom in",
+    "markRange": "Mark range",
+    "previous": "Previous",
+    "next": "Next",
+    "latest": "Latest",
+    "focusMoment": "Focus this moment",
+    "returnLive": "Return to live",
+    "cleanSnapshot": "Take clean snapshot",
+    "empty": "No repair moments yet",
+    "pageReadout": "Page {page}/{pageCount}"
+  },
+  "operator": {
+    "eyebrow": "OPERATOR PROFILE",
+    "title": "Tools & Equipment",
+    "tabs": {
+      "overview": "Profile Overview",
+      "tools": "Tools & Equipment",
+      "skills": "Skills",
+      "preferences": "Preferences",
+      "controls": "Repair Controls"
+    },
+    "groups": {
+      "soldering": "Soldering",
+      "measurement": "Measurement",
+      "vision": "Vision",
+      "power": "Power",
+      "other": "Other"
+    },
+    "editProfile": "Edit Profile",
+    "toolsTitle": "Your tools",
+    "toolsHint": "Add the equipment you actually have on your bench.",
+    "toolsEmpty": "No tools saved yet. Add one below.",
+    "skillsTitle": "Your skills",
+    "skillsHint": "Track repair skills you want Assistant AI to account for.",
+    "skillsEmpty": "No skills saved yet. Add one below.",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "remove": "Remove",
+    "toolName": "Tool name",
+    "toolModel": "Model",
+    "addTool": "+ Add tool",
+    "skillName": "Skill name",
+    "addSkill": "+ Add skill",
+    "measurement": "Measurement",
+    "annotation": "Annotation",
+    "risk": "Risk",
+    "ai": "Assistant AI"
+  },
+  "measurement": {
+    "eyebrow": "MEASUREMENT PANEL",
+    "title": "Multimeter",
+    "tabMultimeter": "Multimeter",
+    "tabPsu": "Power Supply",
+    "tabSigGen": "Signal Gen",
+    "manualEntry": "Manual Reading",
+    "overlayTitle": "Measurement Entry",
+    "closeOverlay": "Close measurement entry",
+    "reference": "Reference",
+    "value": "Value",
+    "mode": "Mode",
+    "unit": "Unit",
+    "range": "Range",
+    "channel": "Channel",
+    "record": "Record",
+    "recordTitle": "Record manual measurement",
+    "recordDisabled": "Open a repair session first",
+    "recent": "Recent Readings",
+    "evidence": "Spatial Evidence",
+    "tabs": {
+      "multimeter": "Multimeter",
+      "powerSupply": "Power Supply",
+      "signalGen": "Signal Gen"
+    },
+    "labels": {
+      "dcVoltage": "DC Voltage",
+      "acVoltage": "AC Voltage",
+      "resistance": "Resistance",
+      "continuity": "Continuity",
+      "diode": "Diode",
+      "capacitance": "Capacitance",
+      "frequency": "Frequency",
+      "mode": "Mode",
+      "range": "Range",
+      "hold": "Hold",
+      "recentReadings": "Recent Readings",
+      "addToTimeline": "Add to Repair Moments",
+      "noReadings": "No manual readings yet"
+    },
+    "options": {
+      "continuity": "Continuity",
+      "diode": "Diode",
+      "cap": "Cap"
+    }
+  },
+
+  "sync": {
+    "eyebrow": "SYNC",
+    "title": "Room Sync",
+    "storage": "Storage",
+    "registry": "Room Sync",
+    "events": "Events",
+    "session": "Session",
+    "playhead": "Playhead",
+    "aiSlot": "Assistant AI",
+    "aiTarget": "Assistant AI Target",
+    "aiSession": "Assistant AI",
+    "status": {
+      "storageLoading": "Repair history loading",
+      "storageReady": "Repair history ready, {count}",
+      "storageError": "Repair history error",
+      "storageFallback": "Repair history limited to current session",
+      "storageNotConnected": "Repair history not connected",
+      "workspaceReady": "Workspace ready",
+      "noRepairOpen": "No repair open",
+      "dispatchIdle": "{slot} idle",
+      "dispatchChecking": "{slot} checking",
+      "dispatchRefs": ", {count} refs",
+      "dispatchReady": "{slot} ready",
+      "dispatchFailed": "{slot} failed",
+      "notStarted": "not started",
+      "unknownTime": "unknown time",
+      "repairRecords": "repair record(s)",
+      "liveEdge": "Live edge",
+      "awaitingEvent": "Awaiting workbench event."
+    },
+    "lifecycleActions": {
+      "acknowledged": "Noted",
+      "investigating": "Checking",
+      "resolved": "Fixed",
+      "dismissed": "Ignore",
+      "markTitle": "Mark observation as {label}"
+    },
+    "inspector": {
+      "noLinked": "No linked forensic records",
+      "linkedEvents": "linked events",
+      "selected": "selected",
+      "hover": "hover",
+      "none": "none",
+      "measurePrefix": "MEASURE",
+      "aiPrefix": "Assistant AI"
+    }
+  },
+  "settings": {
+    "eyebrow": "SETTINGS",
+    "title": "Repair Controls",
+    "operatorOverlayTitle": "setup",
+    "handsFreeTitle": "Hands-free repair",
+    "handsFreeSubtitle": "Controls spoken guidance, ambient listening, and Assistant AI reply handling.",
+    "companionTitle": "Android companion",
+    "companionSubtitle": "Repair Room preferences for Analyze companion routes.",
+    "attentionTitle": "Assistant AI attention",
+    "attentionSubtitle": "Limits how often Assistant AI interrupts the repair flow.",
+    "mode": "Mode",
+    "handsFree": "Hands-free",
+    "readReplies": "Read replies",
+    "ambient": "Ambient",
+    "ambientIdle": "Idle",
+    "ambientListening": "Listen",
+    "ambientMuted": "Muted",
+    "spoken": "Spoken",
+    "spokenSilent": "Silent",
+    "spokenBrief": "Brief",
+    "spokenStep": "Step",
+    "dictationSubmit": "Dictation",
+    "dictationComposer": "Composer",
+    "dictationSend": "Send",
+    "companion": "Companion",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "dictationRoute": "Dictate route",
+    "ttsRoute": "TTS route",
+    "local": "Local",
+    "android": "Android",
+    "camera": "Camera",
+    "cameraManual": "Manual",
+    "cameraAndroid": "Android feed",
+    "budget": "Budget",
+    "close": "CLOSE"
+  },
+  "legend": {
+    "snapshot": "Snapshot",
+    "aiMark": "AI Mark",
+    "measurement": "Measurement",
+    "note": "Note",
+    "risk": "Risk",
+    "operational": "All systems operational",
+    "version": "Repair Room v1.0.0",
+    "roomSync": "Room Sync",
+    "storage": "Storage"
+  },
+  "status": {
+    "cameraNotConnected": "Camera not connected",
+    "cameraLive": "live",
+    "cameraConnected": "connected",
+    "cameraReady": "ready",
+    "manualBoardImage": "Manual board image",
+    "cameraSourceAndroid": "Android camera",
+    "cameraSourceSnapshot": "Snapshot",
+    "cameraSourceImage": "Board image",
+    "cameraSourceManual": "Manual image",
+    "cameraTitleNotConnected": "Camera feed is optional. Open repair controls if you need companion access.",
+    "cameraTitleLive": "Camera feed is live. Freeze the frame before probing tight areas.",
+    "cameraTitleConnected": "Camera is connected but not marked live.",
+    "cameraTitleReady": "Camera source is ready when needed.",
+    "cameraTitleManual": "Use a manual board image or start the Android camera when needed.",
+    "routeLocal": "Local",
+    "routeAndroid": "Android",
+    "profileQuiet": "Quiet",
+    "profileBalanced": "Balanced",
+    "profileProactive": "Proactive"
+  },
+  "statusbar": {
+    "version": "Repair Room v0.1.0",
+    "setup": "Setup",
+    "setupTitle": "Open bench setup",
+    "themeLight": "Light",
+    "themeLightTitle": "Switch to light theme",
+    "themeDark": "Dark",
+    "themeDarkTitle": "Switch to dark theme",
+    "returnHome": "Return to home"
+  },
+  "sessionRail": {
+    "archive": "Archive",
+    "serialPrefix": "S/N",
+    "delete": "Delete",
+    "deleteTitle": "Delete saved session and data"
+  },
+  "bottomCluster": {
+    "all": "All",
+    "hidePanels": "Hide bottom panels"
+  },
+  "tacticalFeed": {
+    "eyebrow": "ASSIST",
+    "title": "Repair Feed",
+    "composer": "Ask the repair assistant...",
+    "send": "Send",
+    "clear": "Discard",
+    "sessionRequiredPlaceholder": "Open a repair session first",
+    "dictationReview": "Voice note staged. Say send, press Send, or clear and dictate again.",
+    "slotLabel": "Assistant AI {slot}",
+    "statusChecking": "{slot} is checking the latest measurement.",
+    "statusAddedNote": "{slot} added a repair note.",
+    "statusFailed": "{slot} could not add a repair note.",
+    "researchGathering": "{slot} is gathering evidence for this device.",
+    "researchPrepared": "{slot} prepared an evidence pack.",
+    "researchFailed": "{slot} could not prepare an evidence pack.",
+    "chatDrafting": "{slot} is drafting a reply.",
+    "chatReady": "{slot} reply is ready.",
+    "chatFailed": "{slot} could not draft a reply.",
+    "quietMode": "Quiet mode: waiting for a meaningful change. {remaining} assistant prompts left.",
+    "chatStatus": {
+      "sessionRequired": "Open a repair session first",
+      "dictationReview": "Voice note waiting for confirmation",
+      "assistantPreparing": "Assistant is preparing a reply",
+      "handsFreeSend": "Hands-free mode: say send or clear after dictation",
+      "handsFreeComposer": "Hands-free mode: dictated notes stay in the composer",
+      "readAloud": "Replies can be read aloud from repair controls",
+      "textOnly": "Text replies only",
+      "waiting": "Waiting"
+    },
+    "chatRoles": {
+      "assistant": "Assistant",
+      "you": "You"
+    }
+  },
+  "panelChips": {
+    "session": "Session",
+    "sessionTitle": "session panel",
+    "feed": "Feed",
+    "feedTitle": "repair feed",
+    "aio": "Assistant AI",
+    "aioTitle": "Assistant AI results panel",
+    "timeline": "Repair Moments",
+    "timelineTitle": "repair moments panel",
+    "measure": "Measure",
+    "measureTitle": "measurement panel",
+    "state": "State",
+    "stateTitle": "state panel"
+  },
+  "panelControls": {
+    "expand": "Expand panel",
+    "collapse": "Collapse panel",
+    "show": "Show",
+    "hide": "Hide"
+  }
+}

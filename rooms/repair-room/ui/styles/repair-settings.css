@@ -1,0 +1,86 @@
+/* ── Repair Settings ─────────────────────────────────────────────── */
+.repair-settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--repair-sp-3);
+}
+
+.repair-settings-summary {
+  padding: var(--repair-sp-2);
+  border: var(--repair-px-1) solid var(--repair-border-muted);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-whisper);
+  color: var(--repair-text-muted);
+  font: 700 var(--repair-px-10) var(--repair-mono);
+  letter-spacing: var(--repair-em-0-04);
+}
+
+.repair-settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--repair-sp-2);
+  padding-bottom: var(--repair-sp-3);
+  border-bottom: var(--repair-px-1) solid var(--repair-border-muted);
+}
+
+.repair-settings-section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.repair-settings-section__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--repair-px-2);
+}
+
+.repair-settings-section__title {
+  color: var(--repair-text);
+  font-size: var(--repair-px-12);
+  font-weight: 700;
+}
+
+.repair-settings-section__subtitle {
+  color: var(--repair-text-dim);
+  font-size: var(--repair-px-11);
+  line-height: 1.35;
+}
+
+.repair-settings-group {
+  display: grid;
+  grid-template-columns: minmax(var(--repair-px-72), 0.6fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: var(--repair-sp-2);
+}
+
+.repair-settings-group__label {
+  min-width: 0;
+  color: var(--repair-text-muted);
+  font: 700 var(--repair-px-10) var(--repair-mono);
+  text-transform: uppercase;
+}
+
+.repair-settings-group__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--repair-px-4);
+  min-width: 0;
+}
+
+.repair-settings-button {
+  min-height: var(--repair-px-24);
+  padding: var(--repair-px-3) var(--repair-px-8);
+  border: var(--repair-px-1) solid var(--repair-border);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-control);
+  color: var(--repair-text-dim);
+  cursor: pointer;
+  font: 700 var(--repair-px-9) var(--repair-mono);
+  text-transform: uppercase;
+}
+
+.repair-settings-button:hover,
+.repair-settings-button--active {
+  border-color: var(--repair-border-strong);
+  color: var(--repair-cyan);
+}

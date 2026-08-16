@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "defaultMode": "beginner",
+  "defaultDepth": "balanced",
+  "defaultSensitivity": 0.58,
+  "defaultModelId": "tiny",
+  "lanes": {
+    "metadata-lineage": {
+      "labelKey": "mediaAnalysis.profile.lanes.metadata-lineage.title",
+      "summaryKey": "mediaAnalysis.profile.lanes.metadata-lineage.summary",
+      "mediaKinds": ["video", "audio", "image"],
+      "requiredTools": ["ffmpeg"],
+      "optionalTools": [],
+      "supportsBeginner": true,
+      "artifactKinds": ["metadata", "frame-strip"]
+    },
+    "visual-tamper": {
+      "labelKey": "mediaAnalysis.profile.lanes.visual-tamper.title",
+      "summaryKey": "mediaAnalysis.profile.lanes.visual-tamper.summary",
+      "mediaKinds": ["video", "image"],
+      "requiredTools": ["ffmpeg"],
+      "optionalTools": [],
+      "supportsBeginner": true,
+      "artifactKinds": ["frame-strip"]
+    },
+    "audio-tamper": {
+      "labelKey": "mediaAnalysis.profile.lanes.audio-tamper.title",
+      "summaryKey": "mediaAnalysis.profile.lanes.audio-tamper.summary",
+      "mediaKinds": ["video", "audio"],
+      "requiredTools": ["ffmpeg"],
+      "optionalTools": [],
+      "supportsBeginner": true,
+      "artifactKinds": ["spectrogram", "waveform"]
+    },
+    "speech-overlay": {
+      "labelKey": "mediaAnalysis.profile.lanes.speech-overlay.title",
+      "summaryKey": "mediaAnalysis.profile.lanes.speech-overlay.summary",
+      "mediaKinds": ["video", "audio"],
+      "requiredTools": ["ffmpeg"],
+      "optionalTools": ["transcript-runtime"],
+      "supportsBeginner": true,
+      "artifactKinds": ["spectrogram", "transcript"]
+    },
+    "synthetic-suspicion": {
+      "labelKey": "mediaAnalysis.profile.lanes.synthetic-suspicion.title",
+      "summaryKey": "mediaAnalysis.profile.lanes.synthetic-suspicion.summary",
+      "mediaKinds": ["video", "audio", "image"],
+      "requiredTools": ["ffmpeg"],
+      "optionalTools": ["transcript-runtime"],
+      "supportsBeginner": true,
+      "artifactKinds": ["frame-strip", "spectrogram", "metadata"]
+    }
+  },
+  "presets": {
+    "video": {
+      "beginner": [
+        {
+          "id": "video-quick-authenticity",
+          "labelKey": "mediaAnalysis.profile.presets.video.quick-authenticity.title",
+          "summaryKey": "mediaAnalysis.profile.presets.video.quick-authenticity.summary",
+          "paceKey": "mediaAnalysis.profile.pace.fast",
+          "patch": {
+            "targetAssetMode": "source",
+            "depth": "quick",
+            "sensitivity": 0.44,
+            "laneSelection": {
+              "metadata-lineage": true,
+              "visual-tamper": true,
+              "audio-tamper": false,
+              "speech-overlay": false,
+              "synthetic-suspicion": true
+            }
+          }
+        },
+        {
+          "id": "video-dialogue-overdub",
+          "labelKey": "mediaAnalysis.profile.presets.video.dialogue-overdub.title",
+          "summaryKey": "mediaAnalysis.profile.presets.video.dialogue-overdub.summary",
+          "paceKey": "mediaAnalysis.profile.pace.balanced",
+          "patch": {
+            "targetAssetMode": "source",
+            "depth": "balanced",
+            "sensitivity": 0.62,
+            "laneSelection": {
+              "metadata-lineage": true,
+              "visual-tamper": false,
+              "audio-tamper": true,
+              "speech-overlay": true,
+              "synthetic-suspicion": true
+            }
+          }
+        },
+        {
+          "id": "video-balanced-forensic",
+          "labelKey": "mediaAnalysis.profile.presets.video.balanced-forensic.title",
+          "summaryKey": "mediaAnalysis.profile.presets.video.balanced-forensic.summary",
+          "paceKey": "mediaAnalysis.profile.pace.deep",
+          "patch": {
+            "targetAssetMode": "derived",
+            "depth": "deep",
+            "sensitivity": 0.7,
+            "laneSelection": {
+              "metadata-lineage": true,
+              "visual-tamper": true,
+              "audio-tamper": true,
+              "speech-overlay": true,
+              "synthetic-suspicion": true
+            }
+          }
+        }
+      ]
+    },
+    "audio": {
+      "beginner": [
+        {
+          "id": "audio-overdub-check",
+          "labelKey": "mediaAnalysis.profile.presets.audio.overdub-check.title",
+          "summaryKey": "mediaAnalysis.profile.presets.audio.overdub-check.summary",
+          "paceKey": "mediaAnalysis.profile.pace.fast",
+          "patch": {
+            "targetAssetMode": "source",
+            "depth": "quick",
+            "sensitivity": 0.5,
+            "laneSelection": {
+              "metadata-lineage": true,
+              "visual-tamper": false,
+              "audio-tamper": true,
+              "speech-overlay": true,
+              "synthetic-suspicion": true
+            }
+          }
+        },
+        {
+          "id": "audio-continuity-pass",
+          "labelKey": "mediaAnalysis.profile.presets.audio.continuity-pass.title",
+          "summaryKey": "mediaAnalysis.profile.presets.audio.continuity-pass.summary",
+          "paceKey": "mediaAnalysis.profile.pace.balanced",
+          "patch": {
+            "targetAssetMode": "source",
+            "depth": "balanced",
+            "sensitivity": 0.62,
+            "laneSelection": {
+              "metadata-lineage": true,
+              "visual-tamper": false,
+              "audio-tamper": true,
+              "speech-overlay": true,
+              "synthetic-suspicion": true
+            }
+          }
+        }
+      ]
+    },
+    "image": {
+      "beginner": [
+        {
+          "id": "image-quick-lineage",
+          "labelKey": "mediaAnalysis.profile.presets.image.quick-lineage.title",
+          "summaryKey": "mediaAnalysis.profile.presets.image.quick-lineage.summary",
+          "paceKey": "mediaAnalysis.profile.pace.fast",
+          "patch": {
+            "targetAssetMode": "source",
+            "depth": "quick",
+            "sensitivity": 0.46,
+            "laneSelection": {
+              "metadata-lineage": true,
+              "visual-tamper": true,
+              "audio-tamper": false,
+              "speech-overlay": false,
+              "synthetic-suspicion": true
+            }
+          }
+        },
+        {
+          "id": "image-safe-share-audit",
+          "labelKey": "mediaAnalysis.profile.presets.image.safe-share-audit.title",
+          "summaryKey": "mediaAnalysis.profile.presets.image.safe-share-audit.summary",
+          "paceKey": "mediaAnalysis.profile.pace.balanced",
+          "patch": {
+            "targetAssetMode": "derived",
+            "depth": "balanced",
+            "sensitivity": 0.58,
+            "laneSelection": {
+              "metadata-lineage": true,
+              "visual-tamper": true,
+              "audio-tamper": false,
+              "speech-overlay": false,
+              "synthetic-suspicion": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}

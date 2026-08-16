@@ -1,0 +1,146 @@
+[data-theme="ivory-lab"] {
+  --bg-canvas:
+    radial-gradient(circle at top left, rgba(139, 107, 76, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(244, 63, 94, 0.08), transparent 24%), #f7f1e7;
+  --bg-app: var(--bg-canvas);
+  --bg-surface: rgba(252, 250, 246, 0.88);
+  --bg-surface-2: rgba(245, 239, 230, 0.92);
+  --bg-surface-3: rgba(255, 252, 246, 0.98);
+  --bg-elevated: rgba(238, 228, 213, 0.98);
+  --bg-panel: linear-gradient(180deg, rgba(255, 252, 246, 0.94) 0%, rgba(245, 239, 230, 0.98) 100%);
+  --bg-panel-strong: linear-gradient(
+    180deg,
+    rgba(252, 248, 241, 0.98) 0%,
+    rgba(241, 232, 219, 1) 100%
+  );
+  --bg-muted: rgba(96, 72, 51, 0.08);
+  --bg-glass: rgba(252, 250, 246, 0.75);
+  --bg-glass-hover: rgba(255, 252, 246, 0.92);
+  --bg-input: rgba(255, 252, 246, 0.78);
+  --bg-overlay: rgba(67, 47, 29, 0.34);
+
+  --text-primary: #1f1812;
+  --text-secondary: rgba(47, 34, 23, 0.78);
+  --text-muted: rgba(96, 72, 51, 0.76);
+  --text-tertiary: rgba(96, 72, 51, 0.56);
+  --text-inverse: #fffdf7;
+
+  --border-default: rgba(96, 72, 51, 0.14);
+  --border-strong: rgba(96, 72, 51, 0.24);
+  --border-glass: rgba(96, 72, 51, 0.08);
+  --border-focus: var(--rose-500);
+
+  --color-accent: var(--rose-500);
+  --color-accent-strong: #be123c;
+  --color-accent-muted: var(--rose-alpha-18);
+  --color-accent-soft: rgba(244, 63, 94, 0.26);
+  --accent-gradient: linear-gradient(135deg, #f43f5e 0%, #c2410c 100%);
+  --accent-gradient-strong: linear-gradient(135deg, #e11d48 0%, #9a3412 100%);
+
+  --hover-overlay: rgba(96, 72, 51, 0.06);
+  --focus-ring: 0 0 0 2px rgba(252, 250, 246, 0.95), 0 0 0 4px rgba(244, 63, 94, 0.34);
+  --glow-accent: 0 0 20px rgba(244, 63, 94, 0.22);
+  --surface-outline: 0 0 0 1px rgba(96, 72, 51, 0.04);
+  --surface-shadow: 0 18px 42px -28px rgba(96, 72, 51, 0.28);
+  --surface-shadow-hover: 0 26px 54px -28px rgba(96, 72, 51, 0.34);
+  --floating-shadow: 0 30px 60px -34px rgba(96, 72, 51, 0.38);
+
+  --scrollbar-track: rgba(231, 220, 200, 0.7);
+  --scrollbar-thumb: rgba(139, 107, 76, 0.42);
+  --scrollbar-thumb-hover: rgba(139, 107, 76, 0.62);
+
+  --assistant-topbar-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.94) 0%,
+    rgba(245, 239, 230, 0.88) 100%
+  );
+  --assistant-topbar-border: rgba(139, 107, 76, 0.12);
+  --assistant-topbar-shadow:
+    0 18px 40px -30px rgba(96, 72, 51, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  --assistant-chip-bg: rgba(252, 250, 246, 0.74);
+  --assistant-chip-hover: rgba(255, 252, 246, 0.94);
+  --assistant-chip-border: rgba(139, 107, 76, 0.12);
+  --assistant-role-bg: rgba(244, 63, 94, 0.1);
+  --assistant-role-border: rgba(244, 63, 94, 0.14);
+  --assistant-role-text: #9f1239;
+
+  --opencode-shell-bg:
+    radial-gradient(circle at top left, rgba(244, 63, 94, 0.14), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(139, 107, 76, 0.1), transparent 20%),
+    linear-gradient(180deg, rgba(255, 252, 246, 0.7) 0%, var(--bg-app) 100%);
+  --opencode-shell-layout-bg:
+    radial-gradient(circle at top, rgba(244, 63, 94, 0.1), transparent 38%),
+    linear-gradient(180deg, rgba(255, 252, 246, 0.9) 0%, rgba(245, 239, 230, 0.74) 100%);
+  --opencode-shell-sidebar-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.98) 0%,
+    rgba(245, 239, 230, 0.98) 100%
+  );
+  --opencode-shell-sidebar-section-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.96) 0%,
+    rgba(238, 228, 213, 0.96) 100%
+  );
+  --opencode-shell-session-tab-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.92) 0%,
+    rgba(245, 239, 230, 0.96) 100%
+  );
+  --opencode-shell-session-tab-active-bg: linear-gradient(
+    180deg,
+    rgba(244, 63, 94, 0.18) 0%,
+    rgba(255, 252, 246, 0.96) 100%
+  );
+  --archives-shell-bg:
+    radial-gradient(circle at top right, rgba(244, 63, 94, 0.1), transparent 24%),
+    radial-gradient(circle at 18% 18%, rgba(139, 107, 76, 0.08), transparent 18%),
+    linear-gradient(180deg, rgba(255, 252, 246, 0.24), transparent 22%);
+  --archives-surface-card-header-bg: linear-gradient(
+    180deg,
+    rgba(255, 247, 236, 0.98) 0%,
+    rgba(241, 232, 219, 0.96) 100%
+  );
+  --archives-item-bg-active: linear-gradient(
+    180deg,
+    rgba(244, 63, 94, 0.14) 0%,
+    rgba(255, 252, 246, 0.98) 100%
+  );
+  --archives-item-border-active: rgba(244, 63, 94, 0.28);
+  --opencode-shell-session-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.76) 0%,
+    rgba(245, 239, 230, 0.96) 100%
+  );
+  --opencode-shell-session-hover-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.96) 0%,
+    rgba(238, 228, 213, 0.96) 100%
+  );
+  --opencode-shell-session-active-bg: linear-gradient(
+    180deg,
+    rgba(244, 63, 94, 0.14) 0%,
+    rgba(255, 252, 246, 0.98) 100%
+  );
+  --opencode-shell-session-active-border: rgba(244, 63, 94, 0.34);
+  --opencode-shell-empty-state-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.88) 0%,
+    rgba(245, 239, 230, 0.98) 100%
+  );
+  --opencode-shell-chat-empty-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.96) 0%,
+    rgba(245, 239, 230, 0.98) 100%
+  );
+  --opencode-shell-usage-bg: linear-gradient(
+    180deg,
+    rgba(255, 252, 246, 0.98) 0%,
+    rgba(238, 228, 213, 0.98) 100%
+  );
+  --opencode-shell-progress-track-bg: rgba(96, 72, 51, 0.08);
+  --opencode-shell-progress-fill-bg: linear-gradient(
+    135deg,
+    rgba(244, 63, 94, 0.92) 0%,
+    rgba(194, 65, 12, 0.92) 100%
+  );
+}

@@ -1,0 +1,134 @@
+/* ── Settings Overlay ────────────────────────────────────────────── */
+.repair-settings-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: var(--repair-sp-4);
+}
+
+.repair-settings-overlay[hidden] {
+  display: none;
+}
+
+.repair-settings-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: var(--repair-scrim-strong);
+  cursor: pointer;
+}
+
+.repair-settings-overlay__dialog {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(var(--repair-settings-dialog-w), calc(100vw - var(--repair-px-64)));
+  height: min(
+    var(--repair-settings-dialog-max-h),
+    calc(100vh - var(--repair-settings-dialog-viewport-gap))
+  );
+  max-height: min(
+    var(--repair-settings-dialog-max-h),
+    calc(100vh - var(--repair-settings-dialog-viewport-gap))
+  );
+  min-height: min(var(--repair-settings-dialog-min-h), 100%);
+  border: var(--repair-px-1) solid var(--repair-border-strong);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-panel);
+  box-shadow: 0 var(--repair-px-20) var(--repair-settings-dialog-shadow-blur)
+    var(--repair-settings-dialog-shadow-color);
+  overflow: hidden;
+}
+
+.repair-settings-overlay__header {
+  display: grid;
+  grid-template-columns: minmax(var(--repair-px-140), 1fr) auto;
+  align-items: center;
+  gap: var(--repair-sp-3);
+  padding: var(--repair-sp-3);
+  border-bottom: var(--repair-px-1) solid var(--repair-border);
+}
+
+.repair-settings-overlay__title {
+  min-width: 0;
+  color: var(--repair-text);
+  font-family: var(--repair-display);
+  font-size: var(--repair-px-14);
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repair-settings-overlay__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0 0 var(--repair-sp-3);
+  border-bottom: var(--repair-px-1) solid var(--repair-border);
+}
+
+.repair-settings-overlay__close {
+  min-height: var(--repair-px-26);
+  padding: var(--repair-px-3) var(--repair-px-9);
+  border: var(--repair-px-1) solid var(--repair-border);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-control);
+  color: var(--repair-text-dim);
+  cursor: pointer;
+  font: 700 var(--repair-px-9) var(--repair-mono);
+  text-transform: uppercase;
+}
+
+.repair-settings-overlay__close:hover {
+  border-color: var(--repair-border-strong);
+  color: var(--repair-cyan);
+}
+
+.repair-settings-overlay__tab {
+  min-height: var(--repair-px-28);
+  padding: var(--repair-px-4) var(--repair-px-12);
+  border: 0;
+  border-bottom: var(--repair-px-2) solid transparent;
+  background: transparent;
+  color: var(--repair-text-dim);
+  cursor: pointer;
+  font: 700 var(--repair-px-10) var(--repair-mono);
+  text-transform: uppercase;
+}
+
+.repair-settings-overlay__tab:hover,
+.repair-settings-overlay__tab--active {
+  border-bottom-color: var(--repair-cyan);
+  color: var(--repair-cyan);
+}
+
+.repair-settings-overlay__body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: var(--repair-sp-3);
+}
+
+.repair-settings-overlay__content {
+  height: 100%;
+  min-height: 0;
+}
+
+.repair-settings-overlay__content > .repair-panel {
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+}
+
+.repair-settings-overlay__content > .repair-panel > .repair-panel__header {
+  display: none;
+}
+
+.repair-settings-overlay__content > .repair-panel > .repair-panel__body {
+  padding: 0;
+  overflow: auto;
+}

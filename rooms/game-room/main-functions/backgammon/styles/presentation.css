@@ -1,0 +1,286 @@
+.backgammon-choice-button {
+  display: grid;
+  gap: var(--game-rem-0-18);
+  padding: var(--game-rem-0-42) var(--game-rem-0-55);
+  border-radius: var(--game-rem-0-72);
+  border: var(--game-px-1) solid var(--game-bronze-18);
+  background: var(--game-bg-backgammon-control);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--game-ms-140) ease,
+    border-color var(--game-ms-140) ease,
+    background var(--game-ms-140) ease,
+    box-shadow var(--game-ms-140) ease;
+}
+
+.backgammon-choice-button:hover:not(:disabled) {
+  transform: translateY(var(--game-px-neg-1));
+  border-color: var(--game-bronze-12);
+  box-shadow: 0 var(--game-px-12) var(--game-px-22) var(--game-black-18);
+}
+
+.backgammon-choice-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.backgammon-choice-button[data-selected="true"] {
+  border-color: var(--game-bronze-12);
+  background: var(--game-bg-backgammon-control-selected);
+}
+
+.backgammon-choice-button__title {
+  font-weight: 700;
+}
+
+.backgammon-choice-button__meta {
+  color: var(--shell-muted);
+  font-size: var(--game-rem-0-78);
+}
+
+.backgammon-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--game-rem-2-6);
+  padding: 0 var(--game-rem-0-95);
+  border-radius: var(--game-rem-1);
+  border: var(--game-px-1) solid var(--game-gold-22);
+  background: var(--game-gradient-36), var(--game-white-03);
+  color: var(--game-parchment-2);
+  font-weight: 700;
+  letter-spacing: var(--game-em-0-12);
+  text-transform: uppercase;
+}
+
+.backgammon-textarea {
+  width: 100%;
+  resize: none;
+  min-height: var(--game-rem-3-4);
+  padding: var(--game-rem-0-68) var(--game-rem-0-75);
+  border-radius: var(--game-rem-1);
+  border: var(--game-px-1) solid var(--game-white-08);
+  background: var(--game-white-04);
+  color: var(--shell-ink);
+  font: inherit;
+}
+
+.backgammon-textarea:focus {
+  outline: none;
+  border-color: var(--game-accent-36);
+  box-shadow: 0 0 0 var(--game-px-1) var(--game-accent-1);
+}
+
+.backgammon-button {
+  min-height: var(--game-rem-2-4);
+  padding: 0 var(--game-rem-0-9);
+  border-radius: var(--game-rem-1);
+  border: var(--game-px-1) solid transparent;
+  cursor: pointer;
+  transition:
+    transform var(--game-ms-140) ease,
+    opacity var(--game-ms-140) ease,
+    box-shadow var(--game-ms-140) ease;
+}
+
+.backgammon-button:hover:not(:disabled) {
+  transform: translateY(var(--game-px-neg-1));
+}
+
+.backgammon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.backgammon-button--primary {
+  background: linear-gradient(
+    135deg,
+    var(--game-bg-backgammon-primary-from),
+    var(--game-bg-backgammon-board-base)
+  );
+  color: var(--game-parchment-2);
+  box-shadow: 0 var(--game-px-12) var(--game-px-22) var(--game-bg-backgammon-primary-shadow);
+}
+
+.backgammon-button--ghost {
+  background: var(--game-bg-backgammon-control);
+  color: var(--game-parchment-5);
+  border-color: var(--game-bronze-18);
+}
+
+.backgammon-button--compact {
+  min-height: var(--game-rem-2);
+  padding: 0 var(--game-rem-0-7);
+  font-size: var(--game-rem-0-8);
+}
+
+.backgammon-avatar {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--game-px-999);
+  background: linear-gradient(
+    135deg,
+    var(--game-bg-backgammon-avatar-from),
+    var(--game-bg-backgammon-avatar-to)
+  );
+  border: var(--game-px-1) solid var(--game-bronze-18);
+  color: var(--game-parchment-2);
+  overflow: hidden;
+  font-weight: 700;
+  letter-spacing: var(--game-em-0-04);
+}
+
+.backgammon-avatar--sm {
+  width: var(--game-rem-1-9);
+  height: var(--game-rem-1-9);
+  font-size: var(--game-rem-0-72);
+}
+
+.backgammon-avatar--md {
+  width: var(--game-rem-2-55);
+  height: var(--game-rem-2-55);
+  font-size: var(--game-rem-0-86);
+}
+
+.backgammon-avatar--lg {
+  width: var(--game-rem-3-2);
+  height: var(--game-rem-3-2);
+  font-size: var(--game-rem-1);
+}
+
+.backgammon-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.backgammon-avatar__initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.backgammon-slot-list {
+  display: grid;
+  gap: var(--game-rem-0-45);
+}
+
+.backgammon-slot-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--game-rem-0-45);
+  padding: var(--game-rem-0-38) var(--game-rem-0-5);
+  border-radius: var(--game-rem-0-72);
+  border: var(--game-px-1) solid var(--game-bronze-18);
+  background: var(--game-bg-backgammon-control-muted);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--game-ms-140) ease,
+    border-color var(--game-ms-140) ease,
+    background var(--game-ms-140) ease,
+    box-shadow var(--game-ms-140) ease;
+}
+
+.backgammon-slot-card:hover:not(:disabled) {
+  transform: translateY(var(--game-px-neg-1));
+  border-color: var(--game-accent-3);
+  box-shadow: 0 var(--game-px-12) var(--game-px-24) var(--game-black-18);
+}
+
+.backgammon-slot-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.backgammon-slot-card[data-selected="true"] {
+  border-color: var(--game-bronze-12);
+  background: var(--game-bg-backgammon-slot-selected);
+  box-shadow: inset 0 0 0 var(--game-px-1) var(--game-bronze-18);
+}
+
+.backgammon-slot-card__info {
+  min-width: 0;
+  display: grid;
+  gap: var(--game-rem-0-2);
+}
+
+.backgammon-slot-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--game-rem-0-4);
+  min-width: 0;
+}
+
+.backgammon-slot-card__badge {
+  font-size: var(--game-rem-0-65);
+  letter-spacing: var(--game-em-0-14);
+  padding: var(--game-rem-0-1) var(--game-rem-0-42);
+  border-radius: var(--game-px-999);
+  background: var(--game-white-08);
+  color: var(--shell-muted);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.backgammon-slot-card__name {
+  min-width: 0;
+  font-size: var(--game-rem-0-92);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.backgammon-slot-card__status {
+  display: flex;
+  align-items: center;
+  gap: var(--game-rem-0-38);
+  font-size: var(--game-rem-0-72);
+  color: var(--shell-muted);
+}
+
+.backgammon-slot-card__dot {
+  width: var(--game-rem-0-48);
+  height: var(--game-rem-0-48);
+  border-radius: var(--game-px-999);
+  background: var(--game-white-2);
+  flex-shrink: 0;
+}
+
+.backgammon-slot-card[data-tone="ready"] .backgammon-slot-card__dot {
+  background: var(--game-green-1);
+  box-shadow: 0 0 0 var(--game-px-3) var(--game-green-4a-18);
+}
+
+.backgammon-slot-card[data-tone="disconnected"] .backgammon-slot-card__dot {
+  background: var(--game-red-1);
+  box-shadow: 0 0 0 var(--game-px-3) var(--game-red-f8-16);
+}
+
+.backgammon-slot-card[data-tone="assigned"] .backgammon-slot-card__dot {
+  background: var(--game-amber-2);
+  box-shadow: 0 0 0 var(--game-px-3) var(--game-amber-14);
+}
+
+.backgammon-slot-card[data-tone="empty"] .backgammon-slot-card__dot {
+  background: var(--game-white-25);
+}
+
+.backgammon-slot-card[data-tone="ready"] .backgammon-slot-card__status-text {
+  color: var(--game-green-2);
+}
+
+.backgammon-slot-card[data-tone="disconnected"] .backgammon-slot-card__status-text {
+  color: var(--game-red-3);
+}

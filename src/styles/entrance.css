@@ -1,0 +1,63 @@
+@import "./entrance/slot.css";
+@import "./entrance/account.css";
+@import "./entrance/report.css";
+@import "./entrance/scene.css";
+@import "./entrance/test.css";
+
+.page-entrance {
+  height: var(--layout-page-height);
+  overflow-y: auto;
+}
+
+.entrance-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-app);
+}
+
+[data-ui-mode="scene"][data-active-page="entrance"] .page-entrance {
+  height: 100%;
+  overflow: hidden;
+}
+
+[data-ui-mode="scene"][data-active-page="entrance"] .entrance-page {
+  min-height: 100%;
+}
+
+.slot-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 52fr 21fr 52fr;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  min-height: 0;
+}
+
+@media (--breakpoint-max-1280) {
+  .accordion-panels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (--breakpoint-max-1024) {
+  .slot-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .accordion-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .accounts-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (--breakpoint-max-768) {
+  .user-settings-column {
+    gap: var(--space-1);
+  }
+}

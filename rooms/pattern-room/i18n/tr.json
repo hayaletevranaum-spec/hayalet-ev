@@ -1,0 +1,229 @@
+{
+  "room": {
+    "name": "Pattern Room",
+    "feature": "Pattern Workbench"
+  },
+  "workspace": {
+    "shell": {
+      "kicker": "Soruşturma sistemi",
+      "title": "Pattern Room",
+      "status": "Yerel vaka aktif",
+      "navigationLabel": "Çalışma alanları",
+      "caseLabel": "Aktif vaka",
+      "sourceMetric": "%count% kaynak",
+      "evidenceMetric": "%count% kanıt",
+      "boardNoteMetric": "%count% pano notu",
+      "connectionMetric": "%count% bağlantı",
+      "reviewMetric": "%count% inceleme",
+      "keyboardHint": "Ok tuşlarıyla çalışma alanları arasında geçiş yap.",
+      "inspectorLabel": "Bağlam paneli"
+    },
+    "feedback": {
+      "dismiss": "Bildirimi kapat",
+      "sentToDesk": "Öğe çalışma masasına gönderildi.",
+      "alreadyOnDesk": "Öğe zaten çalışma masasında.",
+      "addedToReview": "Öğe 10. Adam referanslarına eklendi.",
+      "alreadyInReview": "Öğe zaten 10. Adam referanslarında.",
+      "sourcePinned": "Kaynak soruşturma tuvaline sabitlendi.",
+      "noteAdded": "Yerel not eklendi.",
+      "boardItemAdded": "Pano öğesi eklendi.",
+      "sourceAdded": "Kaynak arşive eklendi.",
+      "sourceRemoved": "Kaynak ve bağlı yerel izler kaldırıldı.",
+      "boardItemRemoved": "Yerel pano öğesi kaldırıldı.",
+      "sessionReset": "Yerel oturum temizlendi.",
+      "evidenceAdded": "Kanıt notu eklendi.",
+      "connectionAdded": "Bağlantı oluşturuldu.",
+      "debateUpdated": "10. Adam oturumu güncellendi.",
+      "importSucceeded": "Kaynak içe aktarıldı.",
+      "importFailed": "İşlem tamamlanamadı; alanları ve uyarıları kontrol edin.",
+      "caseIdentityUpdated": "Vaka kimliği güncellendi.",
+      "caseIdentityUnchanged": "Vaka kimliğinde kaydedilecek bir değişiklik yok.",
+      "connectionUpdated": "Yerel bağlantı güncellendi.",
+      "connectionUnchanged": "Bağlantıda kaydedilecek bir değişiklik yok."
+    },
+    "nav": {
+      "overview": {
+        "label": "Vaka Merkezi",
+        "description": "Genel görünüm"
+      },
+      "board": {
+        "label": "Soruşturma Tuvali",
+        "description": "Pano ve ilişki görünümleri"
+      },
+      "archive": {
+        "label": "Arşiv",
+        "description": "Kaynak araştırması"
+      },
+      "connections": {
+        "label": "İlişki Görünümü",
+        "description": "Soruşturma tuvalini grafik modunda aç"
+      },
+      "review": {
+        "label": "Vaka İncelemesi",
+        "description": "10. Adam ve AI"
+      },
+      "report": {
+        "label": "Rapor",
+        "description": "Salt okunur dosya"
+      },
+      "reviewHistory": {
+        "label": "İnceleme Geçmişi",
+        "description": "Önceki oturumlar"
+      }
+    },
+    "overview": {
+      "activityLabel": "Vaka faaliyeti",
+      "activityTitle": "Araştırma masası hazır",
+      "activityCopy": "Her ana araç soldaki navigasyondan doğrudan açılır.",
+      "identityLabel": "Vaka kimliği",
+      "identityTitle": "Araştırmayı adlandır",
+      "identityCopy": "Vaka adı ve ana araştırma sorusu tüm çalışma alanlarına, rapora ve Case Packet önizlemesine yansır.",
+      "caseNameLabel": "Vaka adı",
+      "caseNamePlaceholder": "Örn. Kuzey Koridoru Sensör Olayı",
+      "researchQuestionLabel": "Ana araştırma sorusu",
+      "researchQuestionPlaceholder": "Bu araştırma hangi soruya yanıt arıyor?",
+      "saveIdentity": "Vaka Kimliğini Kaydet"
+    },
+    "board": {
+      "canvasLabel": "Pano çalışma yüzeyi",
+      "inspectorLabel": "Pano inspector",
+      "toolsLabel": "Hızlı ekleme araçları"
+    },
+    "archive": {
+      "browserLabel": "Kaynak tarayıcı",
+      "inspectorLabel": "Kaynak inspector",
+      "toolsLabel": "Arşiv araçları",
+      "searchLabel": "Arşivde ara",
+      "searchPlaceholder": "Başlık, tür, köken veya içerik ara",
+      "filterLabel": "Kaynak türü",
+      "allSources": "Tüm kaynaklar",
+      "visibleCount": "%visible% / %total% kaynak",
+      "empty": "Bu aramayla eşleşen kaynak yok."
+    },
+    "connections": {
+      "kicker": "İlişki haritası",
+      "title": "Bağlantılar",
+      "intro": "İddiaları, kaynakları ve kanıtları aynı ilişki yüzeyinde karşılaştır.",
+      "entitiesLabel": "Bağlanabilir öğeler",
+      "composerLabel": "Yeni bağlantı"
+    },
+    "report": {
+      "outlineLabel": "Belge içeriği",
+      "documentLabel": "Vaka raporu",
+      "jumpLabel": "%section% bölümüne git"
+    },
+    "review": {
+      "workspaceLabel": "Vaka inceleme çalışma alanı",
+      "debateInspectorLabel": "10. Adam oturumu"
+    }
+  },
+  "review": {
+    "kicker": "AI vaka incelemesi",
+    "title": "Vaka İnceleme Önizlemesi",
+    "intro": "AI'ya gönderilecek araştırma paketini inceleyin. Bu aşamada hiçbir mesaj gönderilmez. Önizleme veya yanıt panoya otomatik uygulanmaz.",
+    "previewEmpty": "Önizleme henüz hazırlanmadı.",
+    "roleLabel": "İnceleme rolü",
+    "targetLabel": "Hedef",
+    "protocolLabel": "Protokol",
+    "roles": {
+      "AI0": "AI0 — Araştırmacı",
+      "AI1": "AI1 — Savunucu",
+      "AI2": "AI2 — 10. Adam",
+      "US1": "US1 — Hakem"
+    },
+    "actions": {
+      "prepare": "Önizleme Hazırla",
+      "send": "İncelemeyi Gönder",
+      "cancel": "İptal",
+      "retry": "Tekrar Dene",
+      "resend": "Yeniden Gönder",
+      "applyAll": "Panoya Uygula",
+      "applyOpenQuestions": "Yalnız Açık Soruları Ekle",
+      "applyEvidenceSuggestions": "Yalnız Kanıt Adaylarını Koru"
+    },
+    "apply": {
+      "reviewPrefix": "AI İncelemesi",
+      "evidenceSuggestionLabel": "Kanıt Önerisi",
+      "openQuestionLabel": "Açık Soru",
+      "userAppliedSuggestion": "Kullanıcı tarafından uygulanmış AI önerisi; bağımsız olarak doğrulanmamıştır."
+    },
+    "statuses": {
+      "idle": "İnceleme hazır değil",
+      "running": "İnceleme Çalışıyor",
+      "waiting": "AI Yanıtı Bekleniyor",
+      "ready": "İnceleme Hazır",
+      "error": "Yanıt Hatası",
+      "cancelled": "İnceleme İptal Edildi",
+      "timeout": "Yanıt Zaman Aşımına Uğradı",
+      "applied": "İnceleme Panoya Uygulandı"
+    },
+    "messages": {
+      "confirmDispatch": "%role% rolü için vaka incelemesi gönderilecek. Devam edilsin mi?",
+      "dispatched": "%role% rolüne gönderildi.",
+      "dispatchFailed": "Gönderim başarısız.",
+      "controlFailed": "İnceleme işlemi gönderilemedi.",
+      "applyFailed": "İnceleme panoya uygulanamadı.",
+      "applied": "Seçilen inceleme işlemi tamamlandı. Kanıt önerileri gerçek bir kaynak ve alıntıyla eşleştirilene kadar aday olarak kalır.",
+      "noResult": "Uygulanabilecek hazır bir inceleme sonucu yok.",
+      "historyEmpty": "Henüz inceleme geçmişi yok.",
+      "resultEmpty": "AI yanıtı henüz hazır değil.",
+      "fallbackWarning": "Yanıt beklenen başlık biçimini tam olarak izlemedi; ham içerik temkinli biçimde ayrıştırıldı."
+    },
+    "sections": {
+      "observation": "Gözlem",
+      "evidence": "Kanıt",
+      "analysis": "Analiz",
+      "counterArgument": "Karşı Argüman",
+      "missingInformation": "Eksik Bilgi",
+      "openQuestions": "Açık Sorular",
+      "confidenceNotes": "Güven Notları"
+    },
+    "result": {
+      "title": "Yapılandırılmış İnceleme",
+      "summary": "Özet",
+      "warnings": "Uyarılar",
+      "confidence": "Güven",
+      "missingEvidence": "Eksik Kanıt",
+      "suggestedConnections": "Önerilen Bağlantılar",
+      "openQuestions": "Açık Sorular"
+    },
+    "workspace": {
+      "request": "Gönderilecek istek",
+      "response": "Alınan yanıt",
+      "parsed": "Ayrıştırılmış bölümler",
+      "applyPreview": "Uygulama önizlemesi",
+      "applyResult": "Uygulama sonucu",
+      "history": "İnceleme geçmişi",
+      "responseEmpty": "AI yanıtı henüz alınmadı.",
+      "applyEmpty": "Uygulanmış bir inceleme sonucu yok.",
+      "boardNotes": "Pano notları",
+      "skipped": "Atlanan",
+      "evidenceCandidates": "Kanıt adayları"
+    },
+    "history": {
+      "title": "İnceleme Geçmişi",
+      "timestamp": "Zaman",
+      "role": "Rol",
+      "packetHash": "Paket özeti",
+      "responseHash": "Yanıt özeti",
+      "state": "Durum"
+    },
+    "candidates": {
+      "title": "Kanıt adayları",
+      "intro": "AI önerileri burada aday olarak kalır. Kanıta yükseltmek için gerçek bir kaynak ve kaynaktan seçilmiş alıntı gerekir.",
+      "empty": "Bekleyen kanıt adayı yok.",
+      "badge": "AI kanıt adayı",
+      "provenance": "Oturum: %session% · Öneri: %suggestion%",
+      "sourceLabel": "Gerçek kaynak",
+      "sourcePlaceholder": "Kaynak seç",
+      "excerptLabel": "Kaynaktan seçilmiş alıntı",
+      "excerptPlaceholder": "Kaynakta gerçekten bulunan bölümü buraya aktarın.",
+      "promote": "Kanıta Yükselt",
+      "discard": "Adayı Sil",
+      "promoted": "Kanıt adayı kaynak ve alıntıyla doğrulanarak kanıta yükseltildi.",
+      "promotionFailed": "Kanıt adayı yükseltilemedi.",
+      "discarded": "Kanıt adayı silindi.",
+      "discardFailed": "Kanıt adayı silinemedi."
+    }
+  }
+}

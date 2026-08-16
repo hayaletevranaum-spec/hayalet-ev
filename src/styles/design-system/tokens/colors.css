@@ -1,0 +1,58 @@
+:root {
+  --paper-50: #fcfaf6;
+  --paper-100: #f5efe6;
+  --sand-200: #e7dcc8;
+  --oak-500: #8b6b4c;
+  --oak-700: #604833;
+
+  --slate-100: #f1f5f9;
+  --slate-300: #cbd5e1;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #060b16;
+
+  --rose-300: #fda4af;
+  --rose-500: #f43f5e;
+  --amber-300: #fcd34d;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+
+  --emerald-400: #34d399;
+
+  --amber-400: #fbbf24;
+
+  --red-400: #f87171;
+  --red-500: #ef4444;
+
+  --blue-400: #60a5fa;
+
+  --black-alpha-50: rgba(0, 0, 0, 0.5);
+  --black-alpha-70: rgba(0, 0, 0, 0.7);
+
+  --cyan-alpha-20: rgba(34, 211, 238, 0.2);
+  --cyan-alpha-28: rgba(34, 211, 238, 0.28);
+  --emerald-alpha-20: rgba(52, 211, 153, 0.2);
+  --amber-alpha-20: rgba(251, 191, 36, 0.2);
+  --amber-alpha-25: rgba(251, 191, 36, 0.25);
+  --red-alpha-20: rgba(248, 113, 113, 0.2);
+  --blue-alpha-15: rgba(59, 130, 246, 0.15);
+  --blue-alpha-30: rgba(59, 130, 246, 0.3);
+  --paper-alpha-75: rgba(252, 250, 246, 0.75);
+  --paper-alpha-88: rgba(252, 250, 246, 0.88);
+  --oak-alpha-16: rgba(139, 107, 76, 0.16);
+  --rose-alpha-18: rgba(244, 63, 94, 0.18);
+
+  --text-on-brand: #ffffff;
+  --text-on-brand-inverse: #000000;
+
+  --provider-chatgpt: #10a37f;
+  --provider-gemini: #4b90ff;
+  --provider-grok: #ffffff;
+  --provider-opencode: #8b5cf6;
+}

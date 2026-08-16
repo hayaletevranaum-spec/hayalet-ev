@@ -1,0 +1,108 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# Build outputs
+dist/
+out/
+release/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+.directory
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Data directory (user databases and attachments)
+data/*
+!data/protocols.json
+
+# Generated room runtime artifacts
+rooms/.build/
+
+# Generated assistant intelligence cache
+.rovo/cache.json
+
+# Local/generated workspace metadata
+metadata.json
+
+# Assets allowlist
+# (disabled to allow versioning assets under src/assets)
+
+# Commands (runtime data)
+/commands/
+
+# Config settings may contain sensitive data
+config/settings.json
+config/rooms.json
+
+# Settings (may contain sensitive data - legacy, now in config/)
+settings.json
+
+# Google Drive credentials
+googledrive-credentials.json
+token.json
+
+# Local certificates and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Screenshots
+screenshots/
+*.png
+*.jpg
+*.jpeg
+!mainhall.png
+!laboratory.png
+!repair.png
+!scene.png
+!android-companion/
+!android-companion/**
+!screenshots/
+!screenshots/**
+!src/assets/assistant.png
+!src/assets/chatgpt.png
+!src/assets/default.png
+!src/assets/gemini.png
+!src/assets/grok.png
+!src/assets/icon.png
+!src/assets/logo.jpg
+!src/assets/opencode.png
+!src/public/logo.jpg
+
+# Ghost agent workspace
+.hayalet-ghost-agent/
+ghost-agent-restart-flag.json
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+# *.modified (disabled to allow modified artifacts under src)
+
+# Git worktrees
+.worktrees/
+
+# Local AI tool runtime/config links
+.antigravitycli/

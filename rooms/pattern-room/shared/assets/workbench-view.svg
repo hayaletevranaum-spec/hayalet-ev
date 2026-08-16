@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Pattern Workbench closeup">
+  <rect width="1600" height="900" fill="#0d1012" />
+  <path d="M108 78h1384v704H108z" fill="#111517" stroke="#2f3b40" stroke-width="5" />
+  <path d="M198 142h500v394H198z" fill="#281f17" stroke="#8c7042" stroke-width="4" />
+  <path d="M278 214h146m70 0h124M278 292h276M278 370h204M278 448h310" stroke="#f2c76e" stroke-width="9" stroke-linecap="round" />
+  <path d="M260 214l278 156M560 214 324 448" stroke="#8ff8ee" stroke-width="4" opacity=".55" />
+  <circle cx="260" cy="214" r="12" fill="#9ad877" />
+  <circle cx="560" cy="214" r="12" fill="#8ff8ee" />
+  <circle cx="324" cy="448" r="12" fill="#ef6f6c" />
+  <path d="M734 628c92-92 398-92 490 0 42 42 22 100-78 130-112 34-330 34-442 0-100-30-120-88-78-130Z" fill="#102024" stroke="#19d8cd" stroke-width="6" />
+  <path d="M790 648c92-42 316-42 408 0M766 708c124 44 354 44 478 0" fill="none" stroke="#8ff8ee" stroke-width="5" opacity=".68" />
+  <path d="M1004 162h304v260h-304z" fill="#15191c" stroke="#53606a" stroke-width="4" />
+  <path d="M1048 224h206M1048 294h148M1048 364h226" stroke="#9ad877" stroke-width="8" stroke-linecap="round" opacity=".8" />
+  <path d="M216 782h1168" stroke="#20282d" stroke-width="8" stroke-linecap="round" />
+</svg>

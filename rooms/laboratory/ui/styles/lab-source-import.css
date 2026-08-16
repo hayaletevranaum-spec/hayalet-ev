@@ -1,0 +1,269 @@
+/* Project import preview and controls. */
+
+.labx-project-import__status {
+  margin: 0;
+  color: var(--lab-text-soft);
+  font-size: var(--lab-text-sm);
+  line-height: var(--lab-leading-snug);
+}
+
+.labx-project-import__status[data-tone="error"] {
+  color: var(--lab-error);
+}
+
+.labx-project-import__status[data-tone="success"] {
+  color: var(--lab-success);
+}
+
+.labx-project-import__direct-result,
+.labx-project-import__youtube-result {
+  display: grid;
+  gap: var(--lab-space-3);
+}
+
+/* YouTube preview card. */
+
+.labx-project-import__youtube-preview {
+  display: grid;
+  grid-template-columns: var(--lab-source-import-rem-5-5) minmax(0, 1fr);
+  gap: var(--lab-space-3);
+  align-items: center;
+  padding: var(--lab-space-2);
+  border: var(--lab-source-import-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-md);
+  background: var(--lab-surface-2);
+}
+
+.labx-project-import__youtube-preview img,
+.labx-project-import__thumb-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--lab-radius-sm);
+  background: var(--lab-source-import-color-01);
+  object-fit: cover;
+}
+
+.labx-project-import__thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lab-text-soft);
+  font-size: var(--lab-text-xs);
+}
+
+.labx-project-import__youtube-preview strong,
+.labx-project-import__youtube-preview span {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.labx-project-import__youtube-preview strong {
+  color: var(--lab-text-strong);
+  font-size: var(--lab-text-base);
+  font-weight: var(--lab-weight-semibold);
+}
+
+.labx-project-import__youtube-preview span {
+  color: var(--lab-text-soft);
+  font-size: var(--lab-text-xs);
+  margin-top: var(--lab-space-0_5);
+}
+
+/* YouTube control sections. */
+
+.labx-project-import__yt-controls {
+  display: grid;
+  gap: var(--lab-space-2);
+}
+
+.labx-project-import__yt-section {
+  display: grid;
+  gap: var(--lab-space-2);
+  min-width: 0;
+  margin: 0;
+  padding: var(--lab-space-2_5) var(--lab-space-3);
+  border: var(--lab-source-import-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-md);
+  background: var(--lab-source-import-color-02);
+}
+
+.labx-project-import__yt-section legend {
+  padding: 0 var(--lab-space-1_5);
+  color: var(--lab-text-strong);
+  font-size: var(--lab-text-xs);
+  font-weight: var(--lab-weight-semibold);
+  letter-spacing: var(--lab-tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+.labx-project-import__yt-grid {
+  display: grid;
+  gap: var(--lab-space-1_5);
+}
+
+/* Wider label column keeps long field labels readable. */
+.labx-project-import__yt-field {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(var(--lab-source-import-rem-7-5), 0.42fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--lab-space-2);
+  color: var(--lab-text-soft);
+  font-size: var(--lab-text-sm);
+}
+
+.labx-project-import__yt-field[data-span="full"] {
+  grid-column: 1 / -1;
+}
+
+.labx-project-import__yt-field--toggle {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--lab-space-2);
+}
+
+.labx-project-import__yt-field > span {
+  /* Labels can wrap instead of truncating. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--lab-text-soft);
+  font-weight: var(--lab-weight-medium);
+}
+
+.labx-project-import__yt-field--toggle input {
+  margin: 0;
+  accent-color: var(--lab-accent);
+}
+
+.labx-project-import__yt-field select,
+.labx-project-import__yt-field input {
+  min-width: 0;
+  width: 100%;
+  min-height: var(--lab-source-import-rem-1-85);
+  box-sizing: border-box;
+  border: var(--lab-source-import-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-sm);
+  background: var(--lab-surface-1);
+  color: var(--lab-text-default);
+  font: inherit;
+  font-size: var(--lab-text-sm);
+  padding: var(--lab-space-1) var(--lab-space-2_5);
+  transition:
+    border-color var(--lab-duration-base) var(--lab-ease-out),
+    background var(--lab-duration-base) var(--lab-ease-out),
+    box-shadow var(--lab-duration-base) var(--lab-ease-out);
+}
+
+.labx-project-import__yt-field select:hover,
+.labx-project-import__yt-field input:hover {
+  border-color: var(--lab-border-strong);
+}
+
+.labx-project-import__yt-field select:focus,
+.labx-project-import__yt-field input:focus {
+  outline: none;
+  border-color: var(--lab-accent);
+  box-shadow: 0 0 0 var(--lab-source-import-px-3) var(--lab-accent-soft);
+}
+
+/* Details and metadata. */
+
+.labx-project-import__details {
+  display: grid;
+  gap: var(--lab-space-1_5);
+}
+
+.labx-project-import__detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--lab-space-3);
+  color: var(--lab-text-soft);
+  font-size: var(--lab-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.labx-project-import__detail-row span {
+  min-width: 0;
+  color: var(--lab-text-dim);
+}
+
+.labx-project-import__detail-row strong {
+  min-width: 0;
+  color: var(--lab-text-default);
+  font-weight: var(--lab-weight-medium);
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+/* Progress stages. */
+
+.labx-project-import__progress {
+  display: grid;
+  gap: var(--lab-space-2);
+}
+
+.labx-project-import__progress-main {
+  display: grid;
+  gap: var(--lab-space-1_5);
+}
+
+.labx-project-import__progress-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--lab-space-3);
+  color: var(--lab-text-default);
+  font-size: var(--lab-text-sm);
+  font-weight: var(--lab-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.labx-project-import__progress p {
+  margin: 0;
+  color: var(--lab-text-soft);
+  font-size: var(--lab-text-xs);
+  line-height: var(--lab-leading-snug);
+}
+
+.labx-project-import__stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lab-space-1_5);
+}
+
+.labx-project-import__stages span {
+  border: var(--lab-source-import-px-1) solid var(--lab-border-default);
+  border-radius: var(--lab-radius-pill);
+  background: var(--lab-source-import-color-03);
+  color: var(--lab-text-dim);
+  font-size: var(--lab-text-xs);
+  font-weight: var(--lab-weight-medium);
+  letter-spacing: var(--lab-tracking-wide);
+  padding: var(--lab-space-0_5) var(--lab-space-2);
+  transition:
+    border-color var(--lab-duration-base) var(--lab-ease-out),
+    background var(--lab-duration-base) var(--lab-ease-out),
+    color var(--lab-duration-base) var(--lab-ease-out);
+}
+
+.labx-project-import__stages span[data-state="active"] {
+  border-color: var(--lab-border-accent);
+  background: var(--lab-accent-bg);
+  color: var(--lab-accent-strong);
+}
+
+.labx-project-import__stages span[data-state="done"] {
+  border-color: var(--lab-source-import-color-04);
+  background: var(--lab-success-soft);
+  color: var(--lab-success);
+}
+
+@media (--lab-bp-max-860) {
+  .labx-project-import__yt-grid,
+  .labx-project-import__youtube-preview {
+    grid-template-columns: 1fr;
+  }
+}

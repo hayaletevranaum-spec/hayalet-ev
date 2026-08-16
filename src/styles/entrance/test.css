@@ -1,0 +1,307 @@
+.slot-test-btn,
+.slot-sync-btn {
+  transition: var(--transition-fast);
+  opacity: 1;
+}
+
+.slot-test-btn:hover:not(:disabled),
+.slot-sync-btn:hover:not(:disabled) {
+  background: var(--color-accent-muted);
+  transform: scale(1.05);
+}
+
+.slot-test-btn.is-loading,
+.slot-test-btn.testing,
+.slot-sync-btn.is-loading,
+.slot-sync-btn.testing {
+  animation: pulse-scale var(--duration-pulse) infinite;
+}
+
+.slot-test-btn:disabled,
+.slot-sync-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.test-results-summary {
+  background: var(--hover-overlay);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.test-stats {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+.stat-item {
+  padding: var(--space-1-5) var(--space-3);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+}
+
+.stat-pass {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.stat-fail {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.stat-warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.stat-skip {
+  background: var(--hover-overlay);
+  color: var(--text-muted);
+}
+
+.test-meta {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.test-aborted {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-error-bg);
+  border-left: var(--border-3) solid var(--color-error);
+  border-radius: var(--radius-sm);
+  color: var(--color-error);
+  font-weight: var(--font-medium);
+}
+
+.test-category {
+  margin-bottom: var(--space-6);
+}
+
+.category-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.test-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.test-result-item {
+  background: var(--hover-overlay);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  border-left: var(--border-3) solid transparent;
+  transition: var(--transition-fast);
+}
+
+.test-result-item:hover {
+  background: var(--bg-elevated);
+}
+
+.test-result-item.test-pass {
+  border-left-color: var(--color-success);
+}
+
+.test-result-item.test-fail {
+  border-left-color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.test-result-item.test-warning {
+  border-left-color: var(--color-warning);
+  background: var(--color-warning-bg);
+}
+
+.test-result-item.test-skip {
+  border-left-color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.test-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2-5);
+  margin-bottom: var(--space-1-5);
+}
+
+.test-status {
+  font-size: var(--text-base);
+  flex-shrink: 0;
+}
+
+.test-name {
+  flex: 1;
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.test-duration {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  background: var(--hover-overlay);
+  padding: var(--space-0-5) var(--space-1-5);
+  border-radius: var(--radius-sm);
+}
+
+.test-message {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-left: var(--space-7);
+  line-height: var(--leading-relaxed);
+}
+
+.test-details {
+  margin-top: var(--space-2);
+  margin-left: var(--space-7);
+  padding: var(--space-2);
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+}
+
+.detail-item {
+  margin-bottom: var(--space-1);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-item strong {
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
+.detail-item code {
+  background: var(--hover-overlay);
+  padding: var(--space-0-5) var(--space-1-5);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-info);
+}
+
+.detail-error {
+  color: var(--color-error);
+}
+
+.error-message {
+  padding: var(--space-4);
+  background: var(--color-error-bg);
+  border-radius: var(--radius-md);
+  border: var(--border-1) solid var(--color-error);
+}
+
+.error-message p {
+  margin: var(--space-2) 0;
+  color: var(--text-primary);
+}
+
+.error-message strong {
+  color: var(--color-error);
+}
+
+.scenario-slot-overlay {
+  z-index: calc(var(--z-elevated) + 1);
+}
+
+.scenario-overlay {
+  margin: 0;
+}
+
+.scenario-overlay__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.scenario-overlay__eyebrow {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.scenario-overlay__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.scenario-overlay__steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+  padding-right: var(--space-1);
+}
+
+.scenario-sync-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.scenario-sync-mode__option.is-active {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--text-primary);
+}
+
+.scenario-step__preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.scenario-step__preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-2);
+}
+
+.scenario-step__message--sync-progress {
+  overflow-wrap: anywhere;
+}
+
+.scenario-step__preview-url {
+  overflow-wrap: anywhere;
+}
+
+.scenario-empty {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  padding: var(--space-3) 0;
+}

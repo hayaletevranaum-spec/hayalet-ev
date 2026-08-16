@@ -1,0 +1,376 @@
+<section
+  class="page page-entrance is-hidden"
+  id="page-entrance"
+  aria-labelledby="page-entrance-title"
+>
+  <h2
+    class="visually-hidden"
+    id="page-entrance-title"
+    data-shell-i18n-text="sideNav.entranceLabel"
+  ></h2>
+  <div class="entrance-page">
+    <div
+      class="entrance-scene"
+      id="entrance-scene-root"
+      data-shell-i18n-aria-label="entrance.scene.ariaLabel"
+      hidden
+    >
+      <div class="entrance-scene__surface scene-shell__surface">
+        <img
+          class="entrance-scene__background scene-shell__cover-image"
+          id="entrance-scene-background"
+          alt=""
+        />
+        <div class="entrance-scene__room-layer scene-shell__room-layer">
+          <div class="entrance-scene__hotspots" id="entrance-scene-hotspots"></div>
+          <div class="entrance-scene__characters" id="entrance-scene-characters"></div>
+        </div>
+        <div class="entrance-scene__editor-host" id="entrance-scene-editor-host"></div>
+        <div class="entrance-scene__menu-host" id="entrance-scene-menu-host"></div>
+        <div
+          class="entrance-scene__view scene-shell__view"
+          id="entrance-scene-view"
+          aria-hidden="true"
+        >
+          <img
+            class="entrance-scene__view-background scene-shell__cover-image"
+            id="entrance-scene-view-background"
+            alt=""
+          />
+          <div class="entrance-scene__view-shade scene-shell__panel-shade"></div>
+          <div class="entrance-scene__view-slot" id="entrance-scene-view-slot"></div>
+        </div>
+      </div>
+    </div>
+    <div class="slot-grid">
+      <div class="slot-card glass-panel ds-surface-card ds-surface-card--stack" data-slot="ai1">
+        <div class="slot-header">
+          <div class="slot-header-top">
+            <div class="slot-avatar-wrapper">
+              <div class="avatar-placeholder img-cover" id="ai1-avatar"></div>
+              <span class="slot-status-dot" id="ai1-status-dot"></span>
+            </div>
+            <div class="slot-info">
+              <span class="slot-nickname" id="ai1-nickname">AI1</span>
+              <select id="ai1-account-select" class="select-compact"></select>
+            </div>
+            <div class="slot-methods-column">
+              <div class="setting-group">
+                <label class="setting-label" data-i18n-text="slot.messageLabel"></label>
+                <select
+                  id="ai1-msg-method"
+                  class="select-compact"
+                  title=""
+                  data-i18n-title="slot.messageMethodTitle"
+                >
+                  <option value="injection" data-i18n-text="slot.methods.injection"></option>
+                  <option value="xdotools" data-i18n-text="slot.methods.xdotools"></option>
+                </select>
+              </div>
+              <div class="setting-group">
+                <label class="setting-label" data-i18n-text="slot.fileLabel"></label>
+                <select
+                  id="ai1-file-method"
+                  class="select-compact"
+                  title=""
+                  data-i18n-title="slot.fileMethodTitle"
+                >
+                  <option value="dragdrop" data-i18n-text="slot.methods.dragdrop"></option>
+                  <option value="injection" data-i18n-text="slot.methods.injection"></option>
+                  <option value="xdotools" data-i18n-text="slot.methods.xdotools"></option>
+                  <option value="uguu" data-i18n-text="slot.methods.uguu"></option>
+                  <option value="catbox" data-i18n-text="slot.methods.catbox"></option>
+                  <option value="googledrive" data-i18n-text="slot.methods.googledrive"></option>
+                </select>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <div class="slot-checkboxes-column">
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented"
+                  title=""
+                  data-i18n-title="slot.catchTitle"
+                >
+                  <input type="checkbox" id="ai1-catch-check" />
+                  <span data-i18n-text="slot.catchLabel"></span>
+                </label>
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented"
+                  title=""
+                  data-i18n-title="slot.resumeTitle"
+                >
+                  <input type="checkbox" id="ai1-resume-last-session-check" />
+                  <span data-i18n-text="slot.resumeLabel"></span>
+                </label>
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented"
+                  title=""
+                  data-i18n-title="slot.rememberTitle"
+                >
+                  <input type="checkbox" id="ai1-remember-connection-check" />
+                  <span data-i18n-text="slot.rememberLabel"></span>
+                </label>
+              </div>
+              <div class="slot-action-stack">
+                <button
+                  class="btn btn-primary btn-sm slot-connect-btn"
+                  id="ai1-toggle-btn"
+                  data-i18n-text="slot.selectAccount"
+                ></button>
+                <div class="slot-action-icons">
+                  <button
+                    class="btn btn-ghost btn-icon btn-sm"
+                    id="ai1-devtools-btn"
+                    title=""
+                    aria-label=""
+                    data-i18n-title="slot.devtoolsTitle"
+                    data-i18n-aria-label="slot.devtoolsTitle"
+                  >
+                    🔧
+                  </button>
+                  <button
+                    class="btn btn-ghost btn-icon btn-sm slot-test-btn"
+                    id="ai1-test-btn"
+                    title=""
+                    aria-label=""
+                    data-i18n-title="slot.providerTestTitle"
+                    data-i18n-aria-label="slot.providerTestTitle"
+                    disabled
+                  >
+                    🧪
+                  </button>
+                  <button
+                    class="btn btn-ghost btn-icon btn-sm slot-sync-btn"
+                    id="ai1-sync-btn"
+                    title=""
+                    aria-label=""
+                    data-i18n-title="slot.providerSyncTitle"
+                    data-i18n-aria-label="slot.providerSyncTitle"
+                    disabled
+                  >
+                    🔄
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slot-url-bar">
+          <div class="slot-url" id="ai1-url-display">-</div>
+        </div>
+        <div class="slot-webview-container" id="ai1-webview-mount">
+          <div class="webview-overlay is-empty" id="ai1-webview-overlay">
+            <div class="overlay-icon"></div>
+            <div class="overlay-title" data-i18n-text="webview.noAccount.title"></div>
+            <div class="overlay-subtitle" data-i18n-text="webview.noAccount.subtitle"></div>
+          </div>
+        </div>
+        <div
+          class="webview-overlay is-hidden scenario-slot-overlay"
+          id="ai1-scenario-overlay"
+        ></div>
+      </div>
+
+      <div
+        class="slot-card glass-panel ds-surface-card ds-surface-card--stack slot-card--us1"
+        data-slot="us1"
+      >
+        <div class="slot-header">
+          <div class="slot-header-top">
+            <div class="slot-avatar-wrapper">
+              <div class="avatar-placeholder img-cover" id="us1-avatar"></div>
+              <span class="slot-status-dot" id="us1-status-dot"></span>
+            </div>
+            <div class="slot-info">
+              <span class="slot-nickname" id="us1-nickname">US1</span>
+              <select id="us1-identity-select" class="select-compact"></select>
+              <select id="us1-communication-system-select" class="select-compact">
+                <option value="mail" data-i18n-text="us1.communicationSystem.options.mail"></option>
+                <option
+                  value="relay-e2ee"
+                  data-i18n-text="us1.communicationSystem.options.relay"
+                ></option>
+              </select>
+            </div>
+          </div>
+          <div class="slot-header-actions slot-header-actions--us1">
+            <div class="us1-slot-panel__header-row">
+              <div class="slot-checkboxes-column us1-slot-panel__checkboxes">
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented us1-slot-panel__choice"
+                  title=""
+                  data-i18n-title="us1.catchTitle"
+                >
+                  <input type="checkbox" id="us1-catch-check" />
+                  <span data-i18n-text="us1.catchLabel"></span>
+                </label>
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented us1-slot-panel__choice"
+                  title=""
+                  data-i18n-title="slot.resumeTitle"
+                >
+                  <input type="checkbox" id="us1-resume-last-session-check" />
+                  <span data-i18n-text="slot.resumeLabel"></span>
+                </label>
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented us1-slot-panel__choice"
+                  title=""
+                  data-i18n-title="slot.rememberTitle"
+                >
+                  <input type="checkbox" id="us1-remember-connection-check" />
+                  <span data-i18n-text="slot.rememberLabel"></span>
+                </label>
+              </div>
+              <button
+                class="btn btn-primary btn-sm slot-connect-btn us1-slot-panel__toggle-btn"
+                id="us1-toggle-btn"
+                data-i18n-text="slot.connect"
+              ></button>
+            </div>
+          </div>
+        </div>
+        <div class="slot-webview-container slot-webview-container--us1">
+          <div
+            class="us1-slot-panel__report us1-slot-panel__report--webview"
+            id="us1-report-log"
+            aria-live="polite"
+          ></div>
+          <div
+            class="ds-status-msg us1-slot-panel__feedback us1-slot-panel__feedback--overlay"
+            id="us1-feedback-msg"
+          ></div>
+        </div>
+      </div>
+
+      <div class="slot-card glass-panel ds-surface-card ds-surface-card--stack" data-slot="ai2">
+        <div class="slot-header">
+          <div class="slot-header-top">
+            <div class="slot-avatar-wrapper">
+              <div class="avatar-placeholder img-cover" id="ai2-avatar"></div>
+              <span class="slot-status-dot" id="ai2-status-dot"></span>
+            </div>
+            <div class="slot-info">
+              <span class="slot-nickname" id="ai2-nickname">AI2</span>
+              <select id="ai2-account-select" class="select-compact"></select>
+            </div>
+            <div class="slot-methods-column">
+              <div class="setting-group">
+                <label class="setting-label" data-i18n-text="slot.messageLabel"></label>
+                <select
+                  id="ai2-msg-method"
+                  class="select-compact"
+                  title=""
+                  data-i18n-title="slot.messageMethodTitle"
+                >
+                  <option value="injection" data-i18n-text="slot.methods.injection"></option>
+                  <option value="xdotools" data-i18n-text="slot.methods.xdotools"></option>
+                </select>
+              </div>
+              <div class="setting-group">
+                <label class="setting-label" data-i18n-text="slot.fileLabel"></label>
+                <select
+                  id="ai2-file-method"
+                  class="select-compact"
+                  title=""
+                  data-i18n-title="slot.fileMethodTitle"
+                >
+                  <option value="dragdrop" data-i18n-text="slot.methods.dragdrop"></option>
+                  <option value="injection" data-i18n-text="slot.methods.injection"></option>
+                  <option value="xdotools" data-i18n-text="slot.methods.xdotools"></option>
+                  <option value="uguu" data-i18n-text="slot.methods.uguu"></option>
+                  <option value="catbox" data-i18n-text="slot.methods.catbox"></option>
+                  <option value="googledrive" data-i18n-text="slot.methods.googledrive"></option>
+                </select>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <div class="slot-checkboxes-column">
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented"
+                  title=""
+                  data-i18n-title="slot.catchTitle"
+                >
+                  <input type="checkbox" id="ai2-catch-check" />
+                  <span data-i18n-text="slot.catchLabel"></span>
+                </label>
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented"
+                  title=""
+                  data-i18n-title="slot.resumeTitle"
+                >
+                  <input type="checkbox" id="ai2-resume-last-session-check" />
+                  <span data-i18n-text="slot.resumeLabel"></span>
+                </label>
+                <label
+                  class="ds-choice-chip ds-choice-chip--segmented"
+                  title=""
+                  data-i18n-title="slot.rememberTitle"
+                >
+                  <input type="checkbox" id="ai2-remember-connection-check" />
+                  <span data-i18n-text="slot.rememberLabel"></span>
+                </label>
+              </div>
+              <div class="slot-action-stack">
+                <button
+                  class="btn btn-primary btn-sm slot-connect-btn"
+                  id="ai2-toggle-btn"
+                  data-i18n-text="slot.selectAccount"
+                ></button>
+                <div class="slot-action-icons">
+                  <button
+                    class="btn btn-ghost btn-icon btn-sm"
+                    id="ai2-devtools-btn"
+                    title=""
+                    aria-label=""
+                    data-i18n-title="slot.devtoolsTitle"
+                    data-i18n-aria-label="slot.devtoolsTitle"
+                  >
+                    🔧
+                  </button>
+                  <button
+                    class="btn btn-ghost btn-icon btn-sm slot-test-btn"
+                    id="ai2-test-btn"
+                    title=""
+                    aria-label=""
+                    data-i18n-title="slot.providerTestTitle"
+                    data-i18n-aria-label="slot.providerTestTitle"
+                    disabled
+                  >
+                    🧪
+                  </button>
+                  <button
+                    class="btn btn-ghost btn-icon btn-sm slot-sync-btn"
+                    id="ai2-sync-btn"
+                    title=""
+                    aria-label=""
+                    data-i18n-title="slot.providerSyncTitle"
+                    data-i18n-aria-label="slot.providerSyncTitle"
+                    disabled
+                  >
+                    🔄
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slot-url-bar">
+          <div class="slot-url" id="ai2-url-display">-</div>
+        </div>
+        <div class="slot-webview-container" id="ai2-webview-mount">
+          <div class="webview-overlay is-empty" id="ai2-webview-overlay">
+            <div class="overlay-icon"></div>
+            <div class="overlay-title" data-i18n-text="webview.noAccount.title"></div>
+            <div class="overlay-subtitle" data-i18n-text="webview.noAccount.subtitle"></div>
+          </div>
+        </div>
+        <div
+          class="webview-overlay is-hidden scenario-slot-overlay"
+          id="ai2-scenario-overlay"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="/js/pages/entrance.ts"></script>

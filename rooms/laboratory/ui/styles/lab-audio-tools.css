@@ -1,0 +1,9 @@
+/* Live audio audition tool sizing. */
+
+.labx-icon-rail-popover[data-content="audio-focus"] {
+  width: var(--lab-rail-width-pinned);
+}
+
+.labx-icon-rail-popover[data-content="audio-focus"] [data-lab-live-pitch-presets="true"] {
+  flex-wrap: nowrap;
+}

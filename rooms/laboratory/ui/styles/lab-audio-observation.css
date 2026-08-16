@@ -1,0 +1,80 @@
+/* Audio observation layout.
+ * Reuses the existing media workbench: the taller timeline row takes space
+ * from the preview row instead of opening a separate analysis panel.
+ */
+
+.labx-media-workbench > .labx-timeline[data-audio-observation-layout="expanded"] {
+  height: clamp(var(--lab-workspace-rem-13), 28vh, var(--lab-workspace-rem-20));
+  min-height: var(--lab-workspace-rem-13);
+  box-sizing: border-box;
+  border-top: var(--lab-workspace-px-1) solid var(--lab-border-accent);
+  background: var(--lab-workspace-color-05);
+}
+
+.labx-media-workbench
+  > .labx-timeline[data-audio-observation-layout="expanded"]
+  .labx-timeline__track {
+  height: clamp(var(--lab-workspace-rem-8), 18vh, var(--lab-workspace-rem-12));
+  min-height: var(--lab-workspace-rem-8);
+}
+
+.labx-media-workbench
+  > .labx-timeline[data-audio-observation-layout="expanded"]
+  .labx-timeline__waveform-window {
+  top: var(--lab-space-1);
+  bottom: var(--lab-space-1);
+}
+
+.labx-media-workbench
+  > .labx-timeline[data-audio-observation-layout="expanded"]
+  .labx-audio-viz--timeline {
+  width: 100%;
+  height: 100%;
+}
+
+/* Keep the enlarged waveform at the top and make the transport block dense.
+ * The base timeline reserves two strip heights for controls; observation mode
+ * removes that reservation so the video gets the unused vertical space back.
+ */
+.labx-media-workbench
+  > .labx-timeline[data-audio-observation-layout="expanded"]
+  .labx-timeline__controls {
+  margin-top: auto;
+  min-height: 0;
+  gap: var(--lab-space-0_5);
+  padding-top: var(--lab-space-0_5);
+}
+
+.labx-media-workbench
+  > .labx-timeline[data-audio-observation-layout="expanded"]
+  .labx-timeline__controls-row {
+  min-height: 0;
+  gap: var(--lab-space-1);
+}
+
+.labx-media-workbench
+  > .labx-timeline[data-audio-observation-layout="expanded"]
+  .labx-timeline__selection-row {
+  padding-top: var(--lab-space-0_5);
+}
+
+.labx-timeline__observation-toggle[aria-pressed="true"] {
+  border-color: var(--lab-border-accent);
+  background: var(--lab-accent-bg-strong);
+  color: var(--lab-text-strong);
+  box-shadow: 0 0 0 var(--lab-workspace-px-1) var(--lab-accent-soft);
+}
+
+@media (--lab-bp-max-960) {
+  .labx-media-workbench > .labx-timeline[data-audio-observation-layout="expanded"] {
+    height: clamp(var(--lab-workspace-rem-12), 30vh, var(--lab-workspace-rem-18));
+    min-height: var(--lab-workspace-rem-12);
+  }
+
+  .labx-media-workbench
+    > .labx-timeline[data-audio-observation-layout="expanded"]
+    .labx-timeline__track {
+    height: clamp(var(--lab-workspace-rem-7), 16vh, var(--lab-workspace-rem-10));
+    min-height: var(--lab-workspace-rem-7);
+  }
+}

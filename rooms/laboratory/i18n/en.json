@@ -1,0 +1,2813 @@
+{
+  "title": "Laboratory",
+  "subtitle": "Obsidian media analysis room for staged capture, cleanup, profiling, processing, and reporting.",
+  "features": {
+    "media-analysis": "Media Analysis",
+    "audio-analysis": "Audio Analysis"
+  },
+  "workbench": {
+    "eyebrow": "Central Laboratory",
+    "title": "Analysis Workbench",
+    "subtitle": "One desktop-first flow for project intake, module focus, readiness, runs, and reports.",
+    "moduleRailLabel": "Analysis modules",
+    "moduleTitle": "Active module",
+    "moduleSelectionHint": "Build the run set here, then focus one module for detailed setup.",
+    "selectedModulesTitle": "Modules in this run",
+    "selectedModulesEmpty": "No modules are queued yet.",
+    "sourceScope": {
+      "title": "Analysis Modules",
+      "subtitle": "Choose which analysis modules join this project, lock the run order, and set the active module.",
+      "legend": {
+        "includeTitle": "Add to run",
+        "includeBody": "Includes the module in this project run.",
+        "activateTitle": "Set active module",
+        "activateBody": "Starts the run with this module and moves it to the first slot.",
+        "excludeTitle": "Remove from run",
+        "excludeBody": "Skips the module for this project run."
+      },
+      "metrics": {
+        "active": "Active module",
+        "included": "Modules in run",
+        "order": "Run order"
+      },
+      "countSuffix": "modules",
+      "orderTitle": "How will this run proceed?",
+      "orderEmpty": "No run order is ready yet.",
+      "orderActive": "Starting module",
+      "orderQueued": "Queued module",
+      "statusTags": {
+        "active": "Active module",
+        "included": "In run",
+        "excluded": "Inactive",
+        "order": "Slot"
+      },
+      "states": {
+        "active": "This module starts first. The process stage will run it before the others.",
+        "included": "This module stays in the run and follows the active module.",
+        "excluded": "This module is skipped for the current project run."
+      },
+      "actions": {
+        "include": "Add to run",
+        "exclude": "Remove from run",
+        "activate": "Set active module",
+        "active": "Active module"
+      }
+    },
+    "railCurrentStage": "Current stage",
+    "railFocusedModule": "Focused module",
+    "railJourneyLabel": "Workbench stages",
+    "railStepCount": "Stage progress",
+    "includeAction": "Add to run",
+    "excludeAction": "Remove",
+    "focusAction": "Set Active",
+    "activateAction": "Set Active",
+    "activeTag": "Active",
+    "railState": {
+      "active": "Current stage",
+      "complete": "Completed",
+      "idle": "Ready",
+      "blocked": "Blocked"
+    },
+    "dependencyAction": "Module Manager",
+    "dependencyEyebrow": "Operations Center",
+    "dependencyTitle": "Module Manager",
+    "dependencySubtitle": "",
+    "dependencyOverview": "Manage tool installs, updates, and room support from one shared panel.",
+    "dependencyFocus": "Current step focus:",
+    "readinessTitle": "Readiness",
+    "readinessSubtitle": "Coverage snapshot",
+    "blockerTitle": "Current blockers",
+    "readyHint": "The current workspace has enough coverage to continue with the active module.",
+    "operationsTitle": "Active Operations",
+    "operationsFallback": "Room job",
+    "operationsEmpty": "No active operation.",
+    "statusLine": {
+      "activityLabel": "Activity",
+      "blockingLabel": "Blocking",
+      "eventLogEmpty": "No recent event has been recorded.",
+      "eventLogEyebrow": "Event stream",
+      "eventLogTitle": "Workbench events",
+      "hideEventsAction": "Hide events",
+      "idleMessage": "Waiting for the next workbench action.",
+      "resultLabel": "Result",
+      "sourceLabels": {
+        "host": "Host",
+        "request": "Request",
+        "system": "System",
+        "ui": "UI"
+      },
+      "showEventsAction": "Show events"
+    },
+    "operationsMeta": {
+      "cancelAction": "Cancel",
+      "operationLabel": "Operation",
+      "stepLabel": "Step",
+      "transferLabel": "Transfer",
+      "actions": {
+        "tool-install": "Tool install",
+        "tool-update": "Tool update",
+        "tool-check-updates": "Update check",
+        "tool-check-all-updates": "Update check",
+        "tool-update-selected": "Selected tool update",
+        "tool-update-all": "Bulk module update",
+        "profile-model-install": "Profile model download",
+        "source-download-url": "Direct URL intake",
+        "source-download-youtube": "YouTube intake"
+      },
+      "operations": {
+        "download-file": "Downloading file",
+        "tool-run": "Running tool command",
+        "tool-install": "Install task running",
+        "tool-update": "Update task running",
+        "tool-check-for-updates": "Checking for updates",
+        "delete-path": "Cleaning temporary files"
+      },
+      "stages": {
+        "queued": "Queued",
+        "running": "Running",
+        "stdout": "Live output",
+        "stderr": "Warning stream",
+        "completed": "Completed",
+        "failed": "Failed",
+        "cancelled": "Cancelled"
+      }
+    },
+    "toolGridTitle": "Tool inventory",
+    "modelGridTitle": "Profile model inventory",
+    "dependency": {
+      "strategy": "Install strategy",
+      "usedBy": "Used by",
+      "tests": "Impacts"
+    },
+    "cards": {
+      "autoManaged": "Auto-managed",
+      "manualFlows": "Manual host flows",
+      "operations": "Active operations",
+      "models": "Models ready",
+      "toolCoverage": "Tool coverage",
+      "blockers": "Blocking items",
+      "resultsSuffix": "results",
+      "entriesSuffix": "entries"
+    },
+    "modules": {
+      "media-analysis": {
+        "summary": "Source intake, edit handoff, profiling, and report composition."
+      },
+      "audio-analysis": {
+        "summary": "Audio-first module checks, provider readiness, and signal summaries."
+      }
+    },
+    "stages": {
+      "source": {
+        "title": "Build the project route",
+        "subtitle": "Pick or create a project, choose the active module, and prepare the source from one workspace."
+      },
+      "edit": {
+        "title": "Edit",
+        "subtitle": "Refine the asset or subtitle output before deeper profiling and managed runs."
+      },
+      "profile": {
+        "title": "Test Profile",
+        "subtitle": ""
+      },
+      "process": {
+        "title": "Run the guided analysis",
+        "subtitle": "Track module progress, warnings, and downstream report readiness without leaving the shell."
+      },
+      "report": {
+        "title": "Review the laboratory outcome",
+        "subtitle": "Read one report surface with module sections, caveats, exports, and follow-up actions."
+      }
+    },
+    "stageGuards": {
+      "noProject": "Select or create a project before leaving the source stage.",
+      "sourceRequired": "Prepare a source file before continuing to the next stage.",
+      "profileRequired": "Resolve the profile blockers before starting the guided analysis.",
+      "preflightRequired": "Run the profile preflight before starting the guided analysis.",
+      "processRequired": "Finish the guided analysis before opening the report stage.",
+      "reportPending": "Wait for the report snapshot to finish before opening the report stage."
+    }
+  },
+  "mediaAnalysis": {
+    "eyebrow": "Obsidian Laboratory",
+    "operatorLabel": "Operator",
+    "decisionHeader": {
+      "idle": {
+        "title": "Idle",
+        "subtitle": "Load a source"
+      },
+      "preparing-analysis": {
+        "title": "Preparing",
+        "subtitle": "Waiting for a source or selection"
+      },
+      "ready-to-run": {
+        "title": "Ready",
+        "subtitle": "Analysis can start"
+      },
+      "running-analysis": {
+        "title": "Analyzing",
+        "subtitle": "Modules are running"
+      },
+      "reviewing-results": {
+        "title": "Results",
+        "subtitle": "Analysis complete"
+      },
+      "exploring-alternatives": {
+        "title": "Explore",
+        "subtitle": "Alternatives are being evaluated"
+      }
+    },
+    "topBar": {
+      "brand": "Laboratory",
+      "project": "Project",
+      "projectManagement": "Project Management",
+      "newProject": "New Project",
+      "selection": "Help",
+      "source": "Analysis",
+      "analyze": "Action",
+      "results": "Result",
+      "navLabel": "Mode indicators",
+      "toolMgmt": "Tool Management",
+      "drawerExpand": "Open panel",
+      "drawerCollapse": "Close panel",
+      "closeRoom": "Return home"
+    },
+    "sourcePanel": {
+      "title": "Sources",
+      "project": {
+        "managementTitle": "Project",
+        "newProject": "New Project",
+        "deleteProject": "Delete Project",
+        "untitledProject": "Untitled"
+      }
+    },
+    "center": {
+      "loading": "Laboratory center loading",
+      "loadingLabel": "Preparing workspace..."
+    },
+    "workspaceInspector": {
+      "toggle": "Controls",
+      "ariaLabel": "Workspace controls",
+      "tabs": "Control tabs"
+    },
+    "iconRail": {
+      "roi-select": "Crop ROI",
+      "audio-focus": "Audio Focus",
+      "frame-export": "Frame Export",
+      "clip-export": "Clip Export",
+      "enhanced-frame": "Enhanced Frame",
+      "image-comparison": "Image Compare",
+      "before-after": "Before / After",
+      "audio-extract": "Extract Audio",
+      "band-pass": "Band-pass Voice",
+      "denoise": "Denoise",
+      "stem-separate": "Stem Separation",
+      "stabilize": "Stabilize",
+      "visual-adjust": "Visual Adjustments",
+      "pin": "Pin panel",
+      "close": "Close",
+      "draft": "Draft",
+      "emptyAudio": "Audio controls are only available for audio or video sources.",
+      "emptyVisual": "Visual adjustments are only available for image or video sources.",
+      "emptyOperation": "No operation available for this slot.",
+      "operationUnavailable": "Operation unavailable. Load a source and try again."
+    },
+    "overlay": {
+      "processing": "Processing...",
+      "cancel": "Cancel",
+      "elapsed": "Elapsed"
+    },
+    "loading": {
+      "ariaLabel": "Laboratory loading",
+      "eyebrow": "Ghost House Laboratory",
+      "title": "Preparing Laboratory environment",
+      "body": "The shell stays visible while room context and room-local translations finish loading.",
+      "steps": {
+        "context": "Loading room context",
+        "modules": "Initializing modules",
+        "tools": "Checking tools"
+      }
+    },
+    "processSummary": {
+      "ariaLabel": "Laboratory process state",
+      "activeTask": "Active task",
+      "noActiveTask": "Ready for input",
+      "noProgress": "No progress in motion",
+      "states": {
+        "idle": "Idle",
+        "initializing": "Initializing",
+        "processing": "Processing",
+        "analyzing": "Analyzing",
+        "staging": "Staged"
+      },
+      "thinking": {
+        "running": "Thinking...",
+        "analyzing": "Analyzing..."
+      },
+      "tasks": {
+        "sourcePreparation": "Source preparation"
+      },
+      "progress": {
+        "oneActiveTask": "1 active task"
+      }
+    },
+    "strip": {
+      "ariaLabel": "Process state",
+      "failed": "Failed",
+      "cancelled": "Cancelled",
+      "empty": "Empty result",
+      "partial": "Completed with warnings",
+      "complete": "Completed",
+      "idle": "Ready",
+      "idleNoSource": "Ready - waiting for source",
+      "processing": "Processing...",
+      "analyzing": "Analyzing...",
+      "staging": "Preparing staging...",
+      "retry": "Retry Analysis",
+      "cancel": "Stop",
+      "log": "Log",
+      "showDetails": "Show Details",
+      "hideDetails": "Hide Details",
+      "noRecentActions": "No recent actions",
+      "noRawLog": "No raw log",
+      "recentActions": "Recent actions",
+      "rawLog": "Raw log",
+      "analysisSummary": "Analysis summary",
+      "moduleStatus": {
+        "waiting": "Waiting",
+        "running": "Inspecting",
+        "queued": "Queued",
+        "completed": "Completed",
+        "failed": "Needs review",
+        "cancelled": "Cancelled",
+        "skipped": "Skipped"
+      },
+      "steps": {
+        "select": "Select",
+        "plan": "Plan",
+        "evaluate": "Evaluate",
+        "decide": "Decide",
+        "stage": "Stage"
+      }
+    },
+    "drawer": {
+      "expand": "Open panel",
+      "collapse": "Close panel",
+      "setup": {
+        "eyebrow": "Configuration",
+        "title": "Analysis Preparation",
+        "analysisTitle": "Analysis Modules",
+        "expandGroup": "Expand",
+        "collapseGroup": "Collapse",
+        "moduleSettings": "Settings",
+        "reportSections": {
+          "visual-structure": "Visual structure",
+          "visual-forensics": "Visual forensics",
+          "audio-signal": "Audio signal",
+          "audio-recovery": "Audio recovery",
+          "transcription": "Speech evidence",
+          "speaker-analysis": "Speech evidence",
+          "prosody-emotion": "Prosody and emotion",
+          "sound-classification": "Sound events",
+          "source-separation": "Separated sources",
+          "music-analysis": "Music descriptors"
+        },
+        "preflightTitle": "Preflight",
+        "preflightOk": "All tools are ready",
+        "preflightAutoOn": "Active",
+        "preflightAutoOff": "Passive",
+        "preflightStatus": "Status",
+        "preflightRuntime": "Estimated time",
+        "preflightRuntimeUnknown": "Unknown",
+        "preflightRuntimeSeconds": "{seconds}s",
+        "preflightRuntimeMinutes": "{minutes} min",
+        "preflightModules": "Active modules",
+        "preflightNoModules": "None",
+        "noReadyAnalyses": "No analysis can run with the current tools.",
+        "cta": "Start Analysis",
+        "partialWarn": "Some tools are missing; results may be partial."
+      },
+      "running": {
+        "eyebrow": "Running",
+        "title": "Analysis Progress",
+        "planStatus": {
+          "running": "Analyzing",
+          "queued": "Queued",
+          "completed": "Completed",
+          "failed": "Failed",
+          "cancelled": "Cancelled",
+          "skipped": "Skipped",
+          "ready": "Ready"
+        },
+        "stagesTitle": "Analysis stages",
+        "stages": {
+          "scope": "Scope",
+          "preflight": "Preflight",
+          "modules": "Modules",
+          "report": "Report"
+        },
+        "stageDetails": {
+          "scopeLocked": "Locked for this run",
+          "scopeStarted": "Run started",
+          "preflightComplete": "Checks passed",
+          "preflightActive": "Preparing tools",
+          "preflightSkipped": "Preflight is passive",
+          "reportComplete": "Report is ready",
+          "reportError": "Needs review",
+          "reportCancelled": "Run stopped",
+          "reportPending": "Waiting on modules"
+        },
+        "stageStatus": {
+          "active": "Active",
+          "complete": "Complete",
+          "error": "Error",
+          "cancelled": "Cancelled",
+          "pending": "Pending"
+        },
+        "progressResolving": "Resolving module plan",
+        "progressCount": "{done}/{total} modules",
+        "moduleFallbackTitle": "Active modules",
+        "moduleFallbackSubtitle": "Runtime events are keeping this plan visible.",
+        "moduleFallbackDetail": "Awaiting module signal",
+        "planResolving": "Preparing the analysis plan.",
+        "cancelPending": "Cancelling analysis",
+        "cancel": "Cancel Analysis",
+        "cancelPendingSub": "Cancellation request is being processed",
+        "cancelSub": "The running analysis will stop"
+      },
+      "result": {
+        "eyebrow": "Result",
+        "title": "Decision Surface",
+        "partialWarn": "Analysis completed, but some modules reported warnings.",
+        "fresh": "Current",
+        "stale": "Stale",
+        "dirty": "Workspace differs",
+        "reportCta": "View Report",
+        "explore": "Switch to Explore Mode"
+      },
+      "explore": {
+        "eyebrow": "Explore",
+        "title": "Alternatives and Comparison",
+        "comparisonTitle": "Changes",
+        "noDiff": "No parameter changes",
+        "partialWarn": "Analysis completed, but some modules reported warnings.",
+        "alternativesTitle": "Alternatives",
+        "reanalyze": "Analyze Again",
+        "reanalyzeSub": "Start a new analysis with current parameters",
+        "backToResult": "Return to Result Mode"
+      }
+    },
+    "operations": {
+      "tab": "Operations",
+      "title": "Operations",
+      "notReady": "Not ready",
+      "runningAction": "Running",
+      "cancelAction": "Cancel",
+      "cancelTitle": "Cancel this operation",
+      "successAction": "Ready",
+      "errorAction": "Retry",
+      "plannedAction": "Planned",
+      "runAction": "Run",
+      "settings": "Settings",
+      "scope": {
+        "selectedRange": "Selected time range",
+        "selectedRoi": "Selected ROI",
+        "title": "Scope"
+      },
+      "ready": "Ready",
+      "partial": "Partial",
+      "blocked": "Blocked",
+      "output": "Output",
+      "tools": "Tools",
+      "groups": {
+        "clip": "Clip Outputs",
+        "frame": "Frame & Region",
+        "audio": "Audio Outputs",
+        "stems": "Stem Outputs"
+      },
+      "outputs": {
+        "clip": "clip",
+        "frame": "frame",
+        "image": "image",
+        "artifact": "artifact",
+        "audio": "audio",
+        "variant": "variant",
+        "stem": "stem"
+      },
+      "capabilities": {
+        "clip-export": {
+          "label": "Clip Export",
+          "description": "Create a standalone clip from the active timeline selection."
+        },
+        "segment-stabilization": {
+          "label": "Stabilized Review Clip",
+          "description": "Prepare a stabilized clip variant for motion readability."
+        },
+        "frame-grab": {
+          "label": "Frame Grab",
+          "description": "Capture the current video frame as a project asset."
+        },
+        "roi-crop": {
+          "label": "Crop ROI",
+          "description": "Export the active inspection region as an image asset."
+        },
+        "enhanced-frame": {
+          "label": "Enhanced Frame",
+          "description": "Generate a clarity-focused frame or ROI variant."
+        },
+        "before-after-variant": {
+          "label": "Before/After Variant",
+          "description": "Prepare an original-versus-enhanced comparison asset for review."
+        },
+        "image-comparison": {
+          "label": "Image Comparison Pack",
+          "description": "Compare the active image with a selected reference image."
+        },
+        "audio-extract": {
+          "label": "Extract Audio",
+          "description": "Export the source audio track as a WAV asset."
+        },
+        "audio-cleanup": {
+          "label": "Clean Audio",
+          "description": "Create a denoised or band-pass focused audio variant."
+        },
+        "band-pass-voice": {
+          "label": "Band-pass Voice",
+          "description": "Create a voice-focused audio variant with a constrained frequency pass."
+        },
+        "stem-separation": {
+          "label": "Separate Sources",
+          "description": "Create isolated stems for speech, ambience, or music review."
+        }
+      },
+      "comparison": {
+        "activeImageFallback": "Active image",
+        "activeImageMissing": "No active image",
+        "captureMoment": "Capture Moment",
+        "findingNoRoi": "No ROI context",
+        "note": "Finding note",
+        "referenceFallback": "Reference",
+        "referenceMissing": "No reference selected",
+        "referenceRequired": "Select a second image reference first.",
+        "primaryRoi": "A region",
+        "referenceRoi": "B region",
+        "roiMissing": "Not selected yet",
+        "roiStatus": "Comparison regions",
+        "roiSummary": "x:{x}% y:{y}% w:{width}% h:{height}%",
+        "saveFinding": "Save Finding",
+        "savedFindings": "Saved findings",
+        "split": "Split",
+        "viewMode": "View",
+        "viewModes": {
+          "side-by-side": "Side by side",
+          "stacked": "Stacked",
+          "split": "Split",
+          "difference": "Difference",
+          "roi-detail": "Detail region"
+        }
+      }
+    },
+    "rightContext": {
+      "selection": "Selection",
+      "emptySelection": "No active selection",
+      "activeAction": "Selected action",
+      "emptyAction": "No action selected"
+    },
+    "timeline": {
+      "eyebrow": "Timeline",
+      "selection": "Selection",
+      "type": "Type",
+      "suggestedActions": "Suggested actions",
+      "inspectionTools": "Inspection tools",
+      "selectedAction": "Selected action",
+      "clear": "Clear",
+      "preview": "Preview",
+      "steps": "Steps",
+      "outputs": "Outputs",
+      "estimatedCost": "Estimated cost",
+      "actionSelected": "Action selected",
+      "wantThis": "I want this",
+      "notNow": "Not now",
+      "queueForLater": "Queue for later",
+      "regionInactive": "Region inactive",
+      "regionActive": "Region active · {width}% × {height}%",
+      "regionActiveFocused": "Region active · Focused · {width}% × {height}%",
+      "clearRegion": "Clear region",
+      "resetFocus": "Reset focus",
+      "focusRegion": "Focus region",
+      "captureRegion": "Capture region",
+      "frameBack": "Frame -1",
+      "frameForward": "Frame +1",
+      "dismissSnapshot": "Dismiss snapshot",
+      "staticFrame": "Static frame",
+      "regionSnapshot": "Region snapshot",
+      "snapshotAlt": "Temporary inspection snapshot",
+      "playPause": "Play / pause",
+      "playSelection": "Play selection",
+      "playSelectionTitle": "Play selected time range",
+      "loopSelection": "Loop",
+      "loopSelectionTitle": "Loop selected time range playback",
+      "playbackSpeed": "Playback Speed",
+      "playheadTools": "Playback timing",
+      "jumpBackOneSecond": "Back 1 second",
+      "jumpForwardOneSecond": "Forward 1 second",
+      "volume": "Volume",
+      "markCurrent": "Mark",
+      "markCurrentTitle": "Mark current moment",
+      "bookmarkNotePlaceholder": "Short note",
+      "bookmarkDefaultNote": "Mark {time}",
+      "removeBookmark": "Remove mark",
+      "microZoom": "Selection micro zoom",
+      "microZoomToggle": "Micro Zoom",
+      "microZoomToggleTitle": "Show or hide selection micro zoom",
+      "selectionStart": "Start",
+      "selectionStartButton": "Set start",
+      "selectionEnd": "End",
+      "selectionEndButton": "Set end",
+      "inspectionMode": "Inspection mode",
+      "selectionHint": "This selection will guide future analysis",
+      "suggestedOperations": "Suggested operations",
+      "suggestedAnalyses": "Suggested analyses",
+      "interpretation": "Interpretation",
+      "invalidRangeHint": "End must be greater than start to create a valid selection.",
+      "seekDragHint": "Click to seek, drag to create a selection.",
+      "outsideRangeHint": "Waveform falls outside the visible master range.",
+      "selectionTypes": {
+        "clip": "Clip",
+        "focus": "Focus",
+        "inspect": "Inspect",
+        "unknown": "Unknown"
+      },
+      "inspectionModes": {
+        "none": "None",
+        "visual": "Visual",
+        "audio": "Audio",
+        "motion": "Motion"
+      },
+      "cost": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "interpretationTypes": {
+        "info": "Info",
+        "warning": "Warning",
+        "hint": "Hint"
+      },
+      "severity": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "audioObservationMode": "Observe",
+      "audioObservationStandardTitle": "Return to the standard player layout.",
+      "audioObservationExpandedTitle": "Expand audio observation and reduce the video preview."
+    },
+    "stageNav": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "stages": {
+      "source": "Source",
+      "edit": "Edit",
+      "profile": "Test Profile",
+      "process": "Process",
+      "report": "Report"
+    },
+    "shared": {
+      "summary": "Summary",
+      "status": "Status",
+      "idle": "Idle",
+      "ready": "Ready",
+      "duration": "Duration",
+      "resolution": "Resolution",
+      "codec": "Codec",
+      "format": "Format",
+      "bitrate": "Bitrate",
+      "range": "Window",
+      "focus": "Focus",
+      "preset": "Preset",
+      "region": "Region",
+      "route": "Route",
+      "localSample": "Local sample",
+      "reportReady": "Report snapshot ready",
+      "score": "Confidence",
+      "risk": "Risk band",
+      "elevatedRisk": "Elevated"
+    },
+    "settings": {
+      "eyebrow": "Tool Room",
+      "title": "Media Analyzer Settings",
+      "subtitle": "Probe and review room-local capture, edit, and profiling tools. Central transcript runtime ownership stays in Settings.",
+      "refreshAction": "Refresh Tools",
+      "bulkUpdateAction": "Update Modules",
+      "reset": "Reset",
+      "edit": "Edit",
+      "fields": {
+        "format": "Format",
+        "quality": "Quality",
+        "fps": "FPS",
+        "scale": "Scale",
+        "includeAudio": "Audio",
+        "applyRoiCrop": "Use ROI",
+        "shakiness": "Shakiness",
+        "smoothing": "Smoothing",
+        "cropMode": "Crop",
+        "stabilizationStrength": "Stability",
+        "zoomCompensation": "Zoom guard",
+        "frameMode": "Frame mode",
+        "burstCount": "Burst",
+        "timestampLabel": "Timestamp",
+        "padding": "Padding",
+        "paddingPercent": "Padding",
+        "outputSize": "Size",
+        "aspectLock": "Aspect",
+        "preset": "Preset",
+        "strength": "Strength",
+        "applyPreviewSettings": "Preview",
+        "layout": "Layout",
+        "revealPreset": "Reveal",
+        "variantCount": "Variants",
+        "package": "Package",
+        "metricSize": "Metric size",
+        "splitMode": "Split",
+        "splitPercent": "Split %",
+        "includeRoiDetail": "ROI detail",
+        "comparisonLayout": "Layout",
+        "diffMode": "Difference",
+        "channels": "Channels",
+        "sampleRate": "Sample rate",
+        "timelineOnly": "Range only",
+        "denoise": "Denoise",
+        "highpassHz": "High-pass",
+        "lowpassHz": "Low-pass",
+        "normalize": "Normalize",
+        "normalizeTargetDb": "Target loudness",
+        "compressor": "Compressor",
+        "lowHz": "Low",
+        "highHz": "High",
+        "widthQ": "Width Q",
+        "gainDb": "Gain",
+        "gain": "Gain",
+        "stemSet": "Stems",
+        "model": "Model",
+        "samplingDensity": "Sampling",
+        "frameStep": "Frame step",
+        "sensitivity": "Sensitivity",
+        "revealStrength": "Reveal",
+        "channelMode": "Channel",
+        "roiOnly": "ROI only",
+        "gammaMin": "Gamma min",
+        "gammaMax": "Gamma max",
+        "contrastMin": "Contrast min",
+        "contrastMax": "Contrast max",
+        "edgeStrength": "Edge",
+        "histogramStrength": "Histogram",
+        "sampleWindowSeconds": "Window",
+        "silenceThresholdDb": "Silence",
+        "recoveryPreset": "Preset",
+        "shiftHz": "Shift",
+        "centerHz": "Center",
+        "widthHz": "Width",
+        "modelPolicy": "Model",
+        "language": "Language",
+        "sampleSeconds": "Sample",
+        "speakerCount": "Speakers",
+        "minSegmentSeconds": "Min segment",
+        "topK": "Top K",
+        "threshold": "Threshold",
+        "device": "Device",
+        "stems": "Stems",
+        "segmentPreset": "Segment",
+        "focus": "Focus",
+        "musicFocus": "Focus",
+        "essentiaFallback": "Essentia",
+        "harmonicSensitivity": "Harmonic",
+        "percussiveSensitivity": "Percussive",
+        "heuristicSensitivity": "Heuristic",
+        "windowSeconds": "Window",
+        "compression": "Compression",
+        "phaseMode": "Phase",
+        "hashMode": "Hash mode",
+        "similarityThreshold": "Similarity",
+        "minRunFrames": "Min run",
+        "flowEngine": "Flow engine",
+        "cameraCompensation": "Camera compensation",
+        "motionThreshold": "Motion threshold",
+        "planeSplit": "Plane split",
+        "artifactProfile": "Artifact profile",
+        "lowLightBias": "Low-light bias",
+        "edgeSensitivity": "Edge sensitivity",
+        "bppThreshold": "BPP threshold",
+        "metadataDepth": "Metadata depth",
+        "timelineCrosscheck": "Timeline check",
+        "platformFingerprint": "Platform fingerprint",
+        "metricSet": "Metrics",
+        "referenceSource": "Reference",
+        "minDelta": "Min delta",
+        "primaryZoom": "Primary zoom",
+        "primaryAspectLock": "Primary aspect",
+        "primaryScaleX": "Primary scale X",
+        "primaryScaleY": "Primary scale Y",
+        "primaryOffsetX": "Primary offset X",
+        "primaryOffsetY": "Primary offset Y",
+        "primaryRotation": "Primary rotation",
+        "referenceZoom": "Reference zoom",
+        "referenceAspectLock": "Reference aspect",
+        "referenceScaleX": "Reference scale X",
+        "referenceScaleY": "Reference scale Y",
+        "referenceOffsetX": "Reference offset X",
+        "referenceOffsetY": "Reference offset Y",
+        "referenceRotation": "Reference rotation",
+        "compositeMode": "Composite",
+        "centerGuide": "Center guide",
+        "marker1Enabled": "Marker 1",
+        "marker1Side": "Marker 1 side",
+        "marker1X": "Marker 1 X",
+        "marker1Y": "Marker 1 Y",
+        "marker2Enabled": "Marker 2",
+        "marker2Side": "Marker 2 side",
+        "marker2X": "Marker 2 X",
+        "marker2Y": "Marker 2 Y",
+        "marker3Enabled": "Marker 3",
+        "marker3Side": "Marker 3 side",
+        "marker3X": "Marker 3 X",
+        "marker3Y": "Marker 3 Y"
+      },
+      "options": {
+        "enabled": "On",
+        "disabled": "Off",
+        "mp4": "MP4",
+        "webm": "WebM",
+        "gif": "GIF",
+        "mov": "MOV",
+        "wav": "WAV",
+        "flac": "FLAC",
+        "mp3": "MP3",
+        "png": "PNG",
+        "jpg": "JPG",
+        "webp": "WebP",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "compact": "Compact",
+        "source": "Source",
+        "overview": "Overview",
+        "detailed": "Detailed",
+        "primary-left-reference-right": "Primary left / reference right",
+        "primary-mirror": "Primary mirror",
+        "480p": "480p",
+        "720p": "720p",
+        "1080p": "1080p",
+        "current": "Current",
+        "middle": "Middle",
+        "burst": "Burst",
+        "free": "Free",
+        "square": "Square",
+        "16:9": "16:9",
+        "4:3": "4:3",
+        "512": "512 px",
+        "1024": "1024 px",
+        "2048": "2048 px",
+        "detail": "Detail",
+        "keep": "Keep",
+        "adaptive": "Adaptive",
+        "fixed": "Fixed",
+        "fast": "Fast",
+        "quality": "Quality",
+        "clarity": "Clarity",
+        "low-light": "Low light",
+        "edge": "Edge",
+        "forensic": "Forensic",
+        "side-by-side": "Side by side",
+        "stacked": "Stacked",
+        "wipe": "Wipe",
+        "luma": "Luma",
+        "rgb": "RGB",
+        "red": "Red",
+        "green": "Green",
+        "blue": "Blue",
+        "mono": "Mono",
+        "stereo": "Stereo",
+        "speech": "Speech",
+        "broadband": "Broadband",
+        "hidden": "Hidden",
+        "light": "Light",
+        "strong": "Strong",
+        "selected": "Selected",
+        "fastest": "Fastest",
+        "best-ready": "Best ready",
+        "auto": "Auto",
+        "tr": "Turkish",
+        "en": "English",
+        "cpu": "CPU",
+        "cuda": "CUDA",
+        "gpu": "GPU",
+        "all": "All",
+        "htdemucs": "HTDemucs",
+        "htdemucs_ft": "HTDemucs FT",
+        "mdx_extra": "MDX Extra",
+        "vocal": "Vocal",
+        "standard": "Standard",
+        "extended": "Extended",
+        "sparse": "Sparse",
+        "balanced": "Balanced",
+        "dense": "Dense",
+        "2stems": "2 stems",
+        "4stems": "4 stems",
+        "vocals": "Vocals",
+        "drums": "Drums",
+        "bass": "Bass",
+        "other": "Other",
+        "music": "Music",
+        "percussion": "Percussion",
+        "rhythm": "Rhythm",
+        "tonal": "Tonal",
+        "tempo": "Tempo",
+        "off": "Off",
+        "side": "Side",
+        "left": "Left",
+        "right": "Right",
+        "mid": "Mid",
+        "inverted": "Inverted",
+        "exact": "Exact",
+        "perceptual": "Perceptual",
+        "hybrid": "Hybrid",
+        "farneback": "Farneback",
+        "raft-planned": "RAFT planned",
+        "roi": "ROI",
+        "full-frame": "Full frame",
+        "fast-motion": "Fast motion",
+        "ssim": "SSIM",
+        "vmaf": "VMAF",
+        "ssim-vmaf": "SSIM + VMAF",
+        "pre-upload": "Pre-upload",
+        "comparison-reference": "Comparison reference",
+        "active-reference": "Active reference",
+        "none": "None",
+        "reference-left-primary-right": "Reference left / primary right",
+        "primary": "Primary",
+        "reference": "Reference"
+      },
+      "closeAction": "Close",
+      "installAction": "Install",
+      "updateAction": "Update",
+      "checkUpdatesAction": "Check For Updates",
+      "manualCheckAction": "Check",
+      "manualRefreshAction": "Refresh Probe",
+      "updateAvailableHint": "A newer release is available for this module.",
+      "versionLabel": "Installed Version",
+      "latestLabel": "Latest",
+      "pathLabel": "Binary Path",
+      "busyHint": "A room-managed job is running for this tool.",
+      "noStageTools": "This stage does not require a dedicated room-managed tool.",
+      "otherToolsTitle": "Other room tools",
+      "otherToolsSubtitle": "Stage-adjacent installs stay available from the same overlay.",
+      "stageSupportLabel": "Stage support",
+      "tools": {
+        "yt-dlp": "yt-dlp",
+        "ffmpeg": "FFmpeg",
+        "transcript-runtime": "Speech Runtime",
+        "opensmile": "openSMILE",
+        "yamnet": "YAMNet",
+        "librosa": "librosa",
+        "demucs": "Demucs",
+        "essentia": "Essentia",
+        "pyaudioanalysis": "pyAudioAnalysis"
+      },
+      "support": {
+        "required": "Required",
+        "optional": "Optional",
+        "unsupported": "Unsupported"
+      },
+      "status": {
+        "missing": "Missing",
+        "installed": "Installed",
+        "updateAvailable": "Update available",
+        "appInstall": "In-app install ready",
+        "manualReady": "System tool detected",
+        "ready": "Ready",
+        "idle": "Idle",
+        "error": "Error",
+        "planned": "Planned"
+      },
+      "helper": {
+        "toggleAction": "Install Commands",
+        "collapseAction": "Hide Commands",
+        "commandsEmpty": "No ready-made command is available for this platform.",
+        "copyCommandAction": "Copy Command",
+        "copySuccess": "Command copied to clipboard.",
+        "copyFailure": "The command could not be copied to the clipboard.",
+        "platforms": {
+          "linux": "Linux",
+          "windows": "Windows"
+        }
+      }
+    },
+    "messages": {
+      "project-create": "New project created.",
+      "project-select": "Project resumed.",
+      "project-delete": "Project deleted.",
+      "source-set-kind": "Source type updated.",
+      "source-set-mode": "Source route updated.",
+      "source-update-draft": "Source draft saved.",
+      "source-pick-local": "Local source copied into the project.",
+      "source-download-url": "Direct URL source downloaded into the project.",
+      "source-download-youtube": "YouTube source captured into the project.",
+      "tool-install": "Tool installation completed.",
+      "tool-update": "Tool update completed.",
+      "tool-check-updates": "Update check completed.",
+      "tool-check-all-updates": "Update check completed.",
+      "tool-update-selected": "Selected tool updates completed.",
+      "tool-update-all": "Bulk module update flow completed.",
+      "tools-refresh": "Tool status refreshed.",
+      "refresh": "Source state refreshed.",
+      "edit-set-mode": "Edit mode updated.",
+      "edit-apply-preset": "Edit preset applied.",
+      "edit-update-recipe": "Edit recipe saved.",
+      "edit-set-output": "Derived output selected.",
+      "edit-set-handoff": "Downstream handoff updated.",
+      "edit-preview": "Preview output generated.",
+      "edit-apply": "Derived output rendered.",
+      "edit-cancel": "Active edit job cancelled.",
+      "edit-cancel-preview": "Preview render cancelled.",
+      "edit-cancel-apply": "Derived render cancelled.",
+      "profile-set-mode": "Profile mode updated.",
+      "profile-apply-preset": "Profile preset applied.",
+      "profile-update": "Profile settings saved.",
+      "profile-set-target": "Profile target updated.",
+      "profile-set-model": "Transcript model updated.",
+      "profile-run-preflight": "Profile preflight completed.",
+      "profile-cancel-preflight": "Profile preflight cancelled.",
+      "profile-model-install": "Transcript model installed.",
+      "profile-model-remove": "Transcript model removed.",
+      "process-run": "Managed process run completed.",
+      "audio-process-run": "Audio analysis run completed.",
+      "process-cancel": "Process run cancelled.",
+      "audio-process-cancel": "Audio analysis run cancelled.",
+      "report-export": "Report export completed.",
+      "audio-report-export": "Audio report export completed."
+    },
+    "projectImport": {
+      "tabs": {
+        "video": "Video",
+        "audio": "Sound",
+        "image": "Image"
+      },
+      "methods": {
+        "local": {
+          "label": "Local File",
+          "description": "Copy a file into the active project"
+        },
+        "url": {
+          "label": "Direct URL",
+          "description": "Download from a remote media URL"
+        },
+        "youtube": {
+          "label": "YouTube",
+          "description": "Check real yt-dlp formats and add selected streams",
+          "missingTool": "Install yt-dlp to use YouTube imports",
+          "videoOnly": "Only video imports can use YouTube"
+        }
+      },
+      "localHint": "The file picker opens when you press Add.",
+      "localUnifiedTitle": "Add Local File",
+      "localUnifiedHint": "Pick a video, audio, or image file; the selected file is copied into the active project.",
+      "localUnifiedButton": "Add Local File",
+      "url": {
+        "check": "Check",
+        "checking": "Checking",
+        "add": "Add to Project",
+        "formatCount": "{count} formats",
+        "videoFormat": "Video stream",
+        "audioFormat": "Audio stream",
+        "noVideo": "No video, audio only",
+        "noAudio": "No separate audio",
+        "directReady": "Direct URL ready as {type}"
+      },
+      "clear": "Clear",
+      "add": "Add",
+      "review": {
+        "title": "Import Review",
+        "details": "Details",
+        "progress": "Progress",
+        "kind": "Type",
+        "method": "Method",
+        "pendingFile": "Pending file",
+        "metadataName": "Name",
+        "metadataDuration": "Duration",
+        "metadataSize": "Size"
+      },
+      "progress": {
+        "started": "Import started",
+        "localPicking": "Stage: waiting for file selection",
+        "urlDownloading": "Stage: downloading file",
+        "youtubePreparing": "Stage: preparing YouTube import",
+        "stages": "Stages",
+        "stagePrepare": "Prepare",
+        "stageDownload": "Download",
+        "stageProcess": "Merge",
+        "stageStore": "Store"
+      }
+    },
+    "source": {
+      "title": "Prepare the analysis source",
+      "subtitle": "Choose the source format, place it inside a room project, and review it with a real preview surface.",
+      "formatLabel": "Source Type",
+      "modeLabel": "Route",
+      "intakeTitle": "Source Intake",
+      "previewPanelTitle": "Live Source Preview",
+      "previewTitle": "Preview",
+      "previewEmptyTitle": "Project source not prepared yet",
+      "previewEmptyBody": "Pick a local file or pull a remote source into the active project to unlock the live preview.",
+      "previewInfo": {
+        "route": "Route",
+        "file": "Stored File",
+        "status": "State",
+        "source": "Origin"
+      },
+      "jobs": {
+        "title": "Active Transfer"
+      },
+      "consoleTitle": "Preparation Console",
+      "consoleLines": [
+        "Sample route armed for the obsidian lab.",
+        "Container metadata indexed for the visual shell.",
+        "Fallback capture profile aligned with the current source.",
+        "Dummy handoff is ready for the next stage."
+      ],
+      "summaryTitle": "Source Summary",
+      "summaryHint": "The room keeps each source inside its own project folder before the next analysis stages.",
+      "modes": {
+        "youtube": "YouTube",
+        "local": "Local",
+        "url": "Direct URL",
+        "localCopy": "Local Copy"
+      },
+      "fields": {
+        "youtubeUrl": "YouTube URL",
+        "urlInput": "Direct Media URL"
+      },
+      "placeholders": {
+        "youtubeUrl": "https://www.youtube.com/watch?v=...",
+        "urlInput": "https://example.com/media.mp4"
+      },
+      "actions": {
+        "pickLocal": "Copy Local Source",
+        "downloadUrl": "Download URL Source",
+        "replaceUrl": "Replace URL Source",
+        "replaceLocal": "Replace Local Source"
+      },
+      "youtubeImport": {
+        "previewFallbackTitle": "YouTube video",
+        "statusParsing": "Checking YouTube formats...",
+        "statusError": "Invalid YouTube URL or network error"
+      },
+      "intakeFrame": {
+        "title": "Source Intake Controls",
+        "subtitle": "Keep source setup compact once a capture is ready; reopen this frame whenever you need to switch routes or refine the download plan.",
+        "readyLabel": "Active source",
+        "statusReady": "Source ready",
+        "statusPending": "Awaiting source",
+        "showAction": "Show settings",
+        "hideAction": "Hide settings"
+      },
+      "youtubeForm": {
+        "sections": {
+          "streams": {
+            "title": "Streams"
+          },
+          "download": {
+            "title": "Output Policy"
+          },
+          "network": {
+            "title": "Network"
+          }
+        },
+        "fields": {
+          "mergeOutputFormat": "Merge Container",
+          "recodeVideo": "Recode Video",
+          "audioFormat": "Extract Audio",
+          "audioQuality": "Conversion quality",
+          "limitRate": "Rate limit",
+          "retries": "Retries",
+          "captureMode": "Capture Mode"
+        },
+        "placeholders": {
+          "limitRate": "2M or 500K"
+        },
+        "options": {
+          "container": {
+            "auto": "Auto",
+            "mp4": "MP4",
+            "mkv": "MKV",
+            "webm": "WEBM"
+          },
+          "recode": {
+            "none": "Do not recode",
+            "mp4": "Recode to MP4",
+            "mkv": "Recode to MKV",
+            "webm": "Recode to WEBM"
+          },
+          "audio": {
+            "none": "Keep original",
+            "mp3": "MP3",
+            "aac": "AAC",
+            "m4a": "M4A",
+            "opus": "Opus",
+            "wav": "WAV",
+            "flac": "FLAC"
+          },
+          "audioQuality": {
+            "best": "Use extractor default",
+            "max": "0 · Max quality",
+            "high": "2 · High quality",
+            "medium": "5 · Balanced",
+            "small": "7 · Smaller file"
+          },
+          "captureMode": {
+            "videoAudio": "Video + Audio",
+            "audioOnly": "Audio Only",
+            "videoOnly": "Video Only"
+          }
+        },
+        "defaultSectionHint": "Room-approved yt-dlp controls."
+      },
+      "formats": {
+        "video": {
+          "title": "Video",
+          "subtitle": "Switch between YouTube, local files, and direct URLs."
+        },
+        "audio": {
+          "title": "Audio",
+          "subtitle": "Copy local audio or pull it from a direct URL."
+        },
+        "image": {
+          "title": "Image",
+          "subtitle": "Copy still images into the project or download them by URL."
+        }
+      },
+      "kinds": {
+        "audio": "Audio",
+        "image": "Image",
+        "video": "Video"
+      },
+      "progress": {
+        "runningDetail": "Import is running. The source will be saved into this project.",
+        "readyToReplace": "Ready to replace the current project source.",
+        "complete": "Import complete",
+        "failed": "Import failed",
+        "awaiting": "Awaiting import"
+      },
+      "viewport": {
+        "loadingTitle": "Source preparation in progress",
+        "loadingBody": "The preview will unlock after the probe completes.",
+        "errorTitle": "Source preparation failed",
+        "errorBody": "Check the source settings and retry the source probe.",
+        "retry": "Retry Source Probe",
+        "retryBlocked": {
+          "activeRun": "Source retry is locked while an analysis is running.",
+          "notFailed": "Retry is available only after source preparation fails.",
+          "missingUrl": "A source URL is required.",
+          "missingYoutubeUrl": "A YouTube URL is required.",
+          "missingYtDlp": "yt-dlp is required for YouTube retry.",
+          "localReselectRequired": "Local sources cannot be retried automatically. Choose the file again from the source panel."
+        }
+      },
+      "lockedHint": "Source locked during analysis",
+      "workspacePreviewAlt": "Workspace preview",
+      "noSource": "No source",
+      "currentSource": "current source",
+      "directUrl": {
+        "title": "Direct URL Source",
+        "hint": "Paste a remote URL."
+      },
+      "localCopy": {
+        "title": "Local Source Copy"
+      },
+      "importRoute": "Import Route"
+    },
+    "download": {
+      "title": "Video Download Relay",
+      "subtitle": "Dummy queue for staged capture before analysis starts.",
+      "presetLabel": "Presets",
+      "qualityLabel": "Detailed Settings",
+      "separateAudio": "Separate audio stem",
+      "progressLabel": "Queue Progress",
+      "button": "Start Download",
+      "statusReady": "Ready for staged capture",
+      "statusActive": "Dummy transfer in progress",
+      "statusDone": "Sample capture finished",
+      "actionStarted": "Dummy download pulse started.",
+      "presetActivated": "{preset} preset armed.",
+      "presets": {
+        "archive": "Archive Mirror",
+        "evidence": "Evidence Extract",
+        "share": "Share Cut"
+      },
+      "qualities": {
+        "source": "Source fidelity",
+        "balanced": "Balanced proxy",
+        "expedited": "Expedited sample"
+      }
+    },
+    "edit": {
+      "title": "Shape the inspection window",
+      "subtitle": "Build a non-destructive edit recipe, preview it safely, and commit a derived analysis-ready output.",
+      "previewEmptyTitle": "Edit preview is waiting for a project source",
+      "previewEmptyBody": "Return to the source stage, capture a real file into the active project, then come back to shape the derived output.",
+      "workspaceTitle": "Edit Workspace",
+      "workspaceHint": "The working surface always shows the source, the latest preview, or the active derived output.",
+      "previewStates": {
+        "stale": "Preview is stale. Generate a fresh preview before trusting the current frame."
+      },
+      "jobsTitle": "Active Edit Job",
+      "modeTitle": "Operator Mode",
+      "modeSubtitle": "",
+      "modes": {
+        "beginner": "Beginner",
+        "advanced": "Advanced"
+      },
+      "presetTitle": "Recipe Presets",
+      "presetSubtitle": "",
+      "commonTitle": "Shared Recipe",
+      "commonSubtitle": "These fields persist across preview and derived renders.",
+      "videoTitle": "Video Controls",
+      "videoSubtitle": "Trim, resize, and focus the analysis cut without touching the original.",
+      "audioTitle": "Audio Controls",
+      "audioSubtitle": "Prepare speech or ambience with a safe normalization chain.",
+      "imageTitle": "Image Controls",
+      "imageSubtitle": "Crop, rotate, and tune still frames for OCR or evidence review.",
+      "advancedGroups": {
+        "focus": {
+          "title": "Framing and Focus",
+          "subtitle": "Adjust the active region and how the surrounding area behaves."
+        },
+        "timing": {
+          "title": "Cut and Flow",
+          "subtitle": "Choose which span of the source is carried into the output."
+        },
+        "sizing": {
+          "title": "Sizing and Performance",
+          "subtitle": "Tune output size, frame rate, and extra capture density."
+        },
+        "output": {
+          "title": "Output and Notes",
+          "subtitle": "Keep the file hint and operator context in one place."
+        },
+        "signal": {
+          "title": "Signal Chain",
+          "subtitle": "Group cleanup, filtering, and pre-analysis audio handling together."
+        },
+        "geometry": {
+          "title": "Framing and Geometry",
+          "subtitle": "Manage resize, rotation, and custom dimensions together."
+        },
+        "imageTone": {
+          "title": "Image Tuning",
+          "subtitle": "Balance brightness, contrast, blur, and sharpness together."
+        }
+      },
+      "actionsTitle": "Preview and Apply",
+      "actionsSubtitle": "",
+      "outputsTitle": "Derived Outputs",
+      "outputsSubtitle": "Each applied render is stored under the project and can be handed to later stages.",
+      "outputsEmpty": "No derived outputs yet. Generate one after previewing the recipe.",
+      "progressTitle": "Edit Job Flow",
+      "progressSubtitle": "Track preview, render, and cancel operations here.",
+      "progressIdle": "No active edit job. Progress appears here when you start a preview or a derived render.",
+      "progressUpdated": "Last update",
+      "progressRunningHint": "The background task is still running; this panel refreshes as progress arrives.",
+      "progressToolOutputHidden": "Verbose tool output was hidden here. Open logs if you need the full command stream.",
+      "ffmpegMissing": "FFmpeg is required for the edit stage. Install or update it from settings.",
+      "sourceRequired": "The edit stage stays read-only until the project has a prepared source file.",
+      "sourceAsset": "Source Asset",
+      "previewAsset": "Preview Asset",
+      "derivedOutput": "Derived Output",
+      "fullWindow": "Full source window",
+      "summaryTitle": "Edit Summary",
+      "selectedWindow": "Selected window",
+      "selectedRegion": "Selected region",
+      "selectedResize": "Resize path",
+      "selectedOutput": "Selected output",
+      "handoffLabel": "Downstream handoff",
+      "handoffModes": {
+        "source": "Use source",
+        "derived": "Use derived output"
+      },
+      "fields": {
+        "outputNameHint": "Output Name Hint",
+        "notes": "Operator Notes",
+        "trimEnabled": "Enable trim window",
+        "includeAudio": "Keep audio track",
+        "blurFocusOutside": "Blur outside focus region",
+        "trimStartSeconds": "Trim start",
+        "trimEndSeconds": "Trim end",
+        "resizePreset": "Resize preset",
+        "fpsLimit": "FPS limit",
+        "customWidth": "Custom width",
+        "customHeight": "Custom height",
+        "frameGrabCount": "Frame grab count",
+        "normalize": "Normalize loudness",
+        "silenceTrim": "Trim silence",
+        "mono": "Convert to mono",
+        "spectrogram": "Generate spectrogram",
+        "normalizeTargetDb": "Target loudness",
+        "highpassHz": "High-pass Hz",
+        "lowpassHz": "Low-pass Hz",
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "blurStrength": "Blur strength",
+        "rotateDegrees": "Rotate degrees",
+        "sharpen": "Sharpen"
+      },
+      "placeholders": {
+        "outputNameHint": "derived-focus-cut",
+        "notes": "Why this recipe exists, what later stages should expect"
+      },
+      "actions": {
+        "preview": "Generate Preview",
+        "apply": "Render Derived Output",
+        "cancel": "Cancel Current Job",
+        "cancelPreview": "Cancel Preview",
+        "cancelApply": "Cancel Apply",
+        "selectOutput": "Use This Output"
+      },
+      "focusRegions": {
+        "containment": "Containment bay",
+        "corridor": "Door corridor",
+        "archive": "Archive console",
+        "full-frame": "Full frame"
+      },
+      "resizePresets": {
+        "keep": "Keep original size",
+        "analysis": "Analysis 1280",
+        "compact": "Compact 854",
+        "custom": "Custom size"
+      },
+      "presets": {
+        "video": {
+          "quick-review": "Quick review",
+          "focus-window": "Focus window"
+        },
+        "audio": {
+          "speech-cleanup": "Speech cleanup",
+          "context-preserve": "Context preserve"
+        },
+        "image": {
+          "ocr-prepare": "OCR prepare",
+          "safe-share": "Safe share"
+        }
+      }
+    },
+    "profile": {
+      "title": "Shape the analysis profile",
+      "subtitle": "Choose the target asset, inspection depth, and AI-assisted side checks before the heavy analysis run.",
+      "targetTitle": "Profile Target",
+      "targetSubtitle": "Decide whether the profile reads the original source or the active derived output.",
+      "targetEmptyTitle": "No profile target available yet",
+      "targetEmptyBody": "Prepare a source or select a derived output to unlock the profile surface.",
+      "targetModes": {
+        "source": "Source asset",
+        "derived": "Derived output"
+      },
+      "targetOutputLabel": "Derived output",
+      "targetOutputEmpty": "Use the active derived output",
+      "modeTitle": "Operator Mode",
+      "modeSubtitle": "Start with guided presets or open the full lane console.",
+      "modes": {
+        "beginner": "Guided",
+        "advanced": "Advanced"
+      },
+      "presetTitle": "Profile Presets",
+      "presetSubtitle": "Each preset mixes authenticity, continuity, and transcript-aware checks in a different way.",
+      "advancedTitle": "Advanced Controls",
+      "advancedSubtitle": "Tune the probe depth, sensitivity, lane mix, and optional transcript model.",
+      "advancedGroups": {
+        "scanTitle": "Scan Setup",
+        "scanSubtitle": "Tune depth, sensitivity, and sampling density together.",
+        "artifactsTitle": "Model and Artifacts",
+        "artifactsSubtitle": "Choose the transcript model and the preflight evidence files here.",
+        "lanesTitle": "Analysis Lanes",
+        "lanesSubtitle": "Select which control lanes stay active for this run."
+      },
+      "depthLabel": "Probe Depth",
+      "sensitivityLabel": "Suspicion Sensitivity",
+      "modelLabel": "Transcript Model",
+      "modelAuto": "Auto-select when available",
+      "laneState": {
+        "ready": "Ready",
+        "degraded": "Degraded",
+        "blocked": "Blocked"
+      },
+      "laneMeta": {
+        "requiredTools": "Required tools",
+        "optionalTools": "Optional analyzers",
+        "mediaKinds": "Media support",
+        "incompatible": "Not available for the current media type.",
+        "speechToolMissing": "Prepare the Settings transcript runtime to unlock transcript-aware speech sampling.",
+        "speechModelMissing": "Install the active transcript model from Settings to unlock the deeper speech lane."
+      },
+      "artifactControlsTitle": "Artifact Preferences",
+      "artifactControlsSubtitle": "Choose which lightweight evidence files the preflight should generate.",
+      "artifactTypes": {
+        "metadata": "Metadata snapshot",
+        "frame-strip": "Frame strip",
+        "spectrogram": "Spectrogram",
+        "transcript": "Transcript sample"
+      },
+      "frameDensityLabel": "Frame Sample Density",
+      "frameDensity": {
+        "sparse": "Sparse",
+        "balanced": "Balanced",
+        "dense": "Dense"
+      },
+      "transcriptSampleLabel": "Transcript Sample Window",
+      "signalsTitle": "Preflight Signals",
+      "signalsSubtitle": "These are the strongest indicators surfaced by the current lightweight pass.",
+      "signalsEmpty": "No preflight findings yet. Run the preflight to surface signals.",
+      "signalMeta": {
+        "kind": "Signal type",
+        "confidence": "Confidence",
+        "evidence": "Evidence"
+      },
+      "signalKinds": {
+        "measured": "Measured",
+        "heuristic": "Heuristic",
+        "derived": "Derived"
+      },
+      "confidenceLevels": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "artifactsTitle": "Artifacts",
+      "artifactsSubtitle": "Each run can drop metadata, frame strips, and audio traces into the project.",
+      "artifactsEmpty": "No profile artifacts generated yet.",
+      "preflightTitle": "Preflight Run",
+      "preflightSubtitle": "Run a lightweight screening pass before the full process stage.",
+      "actions": {
+        "run": "Run Preflight",
+        "cancel": "Cancel Preflight"
+      },
+      "summaryTitle": "Profile Summary",
+      "summary": {
+        "target": "Target asset",
+        "preset": "Preset",
+        "sampleWindow": "Sample window",
+        "runtime": "Estimated runtime",
+        "signals": "Signals",
+        "artifacts": "Artifacts",
+        "lanes": "Enabled lanes",
+        "model": "Transcript model",
+        "preflight": "Preflight status"
+      },
+      "blockersTitle": "Run blockers",
+      "warningsTitle": "Warnings",
+      "sourceRequired": "Prepare a source before building the profile.",
+      "status": {
+        "idle": "Idle",
+        "running": "Running",
+        "ready": "Ready",
+        "stale": "Needs rerun",
+        "error": "Error"
+      },
+      "levels": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "modelTitle": "Transcript Models",
+      "modelSubtitle": "Transcript sampling now follows the central Settings runtime instead of room-local model ownership.",
+      "modelUnavailable": "Manage transcript runtime and model installation from Settings > User > Speech Runtime.",
+      "modelVerificationHint": "After preparing the runtime in Settings, refresh Module Management here to re-probe the shared status.",
+      "modelActions": {
+        "install": "Install Model",
+        "remove": "Remove Model"
+      },
+      "modelSummary": {
+        "size": "Model size",
+        "quantization": "Quantization",
+        "language": "Language",
+        "platforms": "Runtime support",
+        "cleanup": "Cleanup policy",
+        "integrity": "Integrity"
+      },
+      "cleanupPolicy": {
+        "checksumMismatch": "Remove mismatched downloads",
+        "descriptorChange": "Replace when descriptor changes"
+      },
+      "depth": {
+        "quick": "Quick sweep",
+        "balanced": "Balanced pass",
+        "deep": "Deep pass"
+      },
+      "pace": {
+        "fast": "Fast",
+        "balanced": "Balanced",
+        "deep": "Deep"
+      },
+      "lanes": {
+        "metadata-lineage": {
+          "title": "Metadata lineage",
+          "summary": "Check whether container timing, file lineage, and obvious metadata seams feel coherent."
+        },
+        "visual-tamper": {
+          "title": "Visual tamper",
+          "summary": "Look for freezes, dark gaps, and frame-window instability that often marks visual edits."
+        },
+        "audio-tamper": {
+          "title": "Audio tamper",
+          "summary": "Scan silence, loudness drift, and spectral continuity for cleanup or splice fingerprints."
+        },
+        "speech-overlay": {
+          "title": "Speech overlay",
+          "summary": "Use transcript-aware sampling to catch overdubs, replaced phrases, and dialogue mismatch."
+        },
+        "synthetic-suspicion": {
+          "title": "Synthetic suspicion",
+          "summary": "Blend the strongest cross-lane cues into a single suspicion score for the next stage."
+        }
+      },
+      "presets": {
+        "video": {
+          "quick-authenticity": {
+            "title": "Quick authenticity",
+            "summary": "Fast source-first sweep for obvious video seams and metadata drift."
+          },
+          "dialogue-overdub": {
+            "title": "Dialogue overdub",
+            "summary": "Bias the run toward speech continuity, silence cuts, and overdub clues."
+          },
+          "balanced-forensic": {
+            "title": "Balanced forensic",
+            "summary": "Use the active derived output and enable every supported lane for a denser pass."
+          }
+        },
+        "audio": {
+          "overdub-check": {
+            "title": "Overdub check",
+            "summary": "Short audio-first pass tuned for dialogue replacement and splice traces."
+          },
+          "continuity-pass": {
+            "title": "Continuity pass",
+            "summary": "Balanced waveform and transcript-aware sweep for continuity issues."
+          }
+        },
+        "image": {
+          "quick-lineage": {
+            "title": "Quick lineage",
+            "summary": "Fast metadata and frame-surface check for origin and sharing clues."
+          },
+          "safe-share-audit": {
+            "title": "Safe share audit",
+            "summary": "Derived-output profile that focuses on visual tamper and exposure breadcrumbs."
+          }
+        }
+      },
+      "models": {
+        "tiny": {
+          "multilingual": {
+            "title": "Tiny Multilingual",
+            "summary": "Fast multilingual transcript model for Turkish-heavy or mixed-language checks."
+          },
+          "en": {
+            "title": "Tiny English",
+            "summary": "Smallest transcript model. Fastest option for a lightweight speech sanity check."
+          }
+        },
+        "base": {
+          "multilingual": {
+            "title": "Base Multilingual",
+            "summary": "Larger multilingual transcript model for denser dialogue, accents, and room tone."
+          },
+          "en": {
+            "title": "Base English",
+            "summary": "Heavier transcript model with better recall for difficult dialogue and room tone."
+          }
+        }
+      }
+    },
+    "process": {
+      "title": "Follow the staged process",
+      "subtitle": "Monitor the room-managed pipeline as each analysis module advances on the active target.",
+      "summaryTitle": "Process Summary",
+      "summaryHintActive": "The managed run streams real job progress from the room host.",
+      "summaryHintDone": "The managed run finished and a report-ready snapshot is now available.",
+      "summaryStatusActive": "Managed run active",
+      "summaryStatusDone": "Managed run complete",
+      "controls": {
+        "restart": "Run Process",
+        "jumpReport": "Open Report"
+      },
+      "steps": {
+        "intake": "Source Intake",
+        "cleanup": "Frame Cleanup",
+        "motion": "Motion Analysis",
+        "visualSignal": "Visual Signal Amplification",
+        "imageComparison": "Image Comparison",
+        "audio": "Audio Sweep",
+        "report": "Report Synthesis"
+      }
+    },
+    "report": {
+      "title": "Review the final report",
+      "subtitle": "This pane renders the latest managed process results, findings, and export history for the active target.",
+      "handoffTitle": "Managed Report Snapshot",
+      "stagedHint": "The report stays evidence-led: measured, derived, and heuristic findings remain clearly separated.",
+      "overviewTitle": "Report Overview",
+      "signalTitle": "Risk Signals",
+      "findingsTitle": "Priority Findings",
+      "sideTitle": "Analysis Detail",
+      "overviewMeta": {
+        "generated": "Generated"
+      },
+      "latestExportEyebrow": "Latest Export",
+      "latestExportTitle": "Latest report file",
+      "latestExportSubtitle": "Review the generated markdown file, its location, and the next follow-up actions here.",
+      "latestExportEmpty": "Once you export the report, the latest file will appear here.",
+      "exportHistoryEyebrow": "Export History",
+      "exportHistoryTitle": "Generated report files",
+      "exportHistorySubtitle": "Track the latest report exports written for this target.",
+      "emptyFindings": "No managed report findings are ready yet.",
+      "emptyBody": "Run the process stage first, then this final report surface will render its persisted findings and exports.",
+      "exportMeta": {
+        "created": "Created",
+        "status": "Status",
+        "path": "Location"
+      },
+      "exportQueued": "Report export queued.",
+      "openFileSuccess": "The latest report file was opened.",
+      "openFolderSuccess": "The report folder was opened.",
+      "openPathFailure": "The report output could not be opened.",
+      "actions": {
+        "restart": "Start New Run",
+        "export": "Export Report",
+        "openFile": "Open File",
+        "openFolder": "Open Folder"
+      }
+    },
+    "assets": {
+      "pathUnavailable": "Path unavailable",
+      "sync": {
+        "sameAxis": "Sync: ✓ Same timeline",
+        "offset": "Sync: Offset {offset} ms"
+      },
+      "actions": {
+        "download": "Download",
+        "ariaLabel": "Asset actions",
+        "preview": "Preview",
+        "useAsCompareReference": "Use as comparison reference",
+        "viewReport": "View report",
+        "delete": "Delete"
+      },
+      "relation": {
+        "source": "Source",
+        "activeSource": "Active source",
+        "compareReference": "Comparison reference"
+      },
+      "projects": {
+        "newOption": "-- New Project --"
+      },
+      "empty": "No project assets yet",
+      "groups": {
+        "source": "Source",
+        "clip": "Clips",
+        "frame": "Frames",
+        "audio": "Sounds",
+        "image": "Images",
+        "report": "Reports",
+        "artifact": "Artifacts"
+      }
+    },
+    "assetContent": {
+      "unavailable": "Content unavailable"
+    },
+    "documentOverlay": {
+      "ariaLabel": "Artifact viewer",
+      "closeAria": "Close document",
+      "eyebrow": "Artifact",
+      "actions": {
+        "download": "Download",
+        "close": "Close"
+      },
+      "empty": {
+        "noFile": "File path unavailable"
+      }
+    },
+    "leftRail": {
+      "toolManagement": "Tool Management",
+      "workspaceLabel": "Media workspace",
+      "analysisTitle": "ANALYSIS",
+      "readiness": {
+        "readyShort": "OK"
+      },
+      "status": {
+        "selected": "Selected",
+        "unavailable": "Unavailable",
+        "available": "Available"
+      }
+    },
+    "topbarActions": {
+      "ariaLabel": "Process Activity"
+    },
+    "reportOverlay": {
+      "diff": {
+        "timeline": "Timeline",
+        "hypothesis": "Hypothesis"
+      },
+      "snapshot": {
+        "fullSource": "Full source",
+        "title": "Snapshot Summary",
+        "focus": "Focus",
+        "unspecified": "Unspecified",
+        "timeline": "Timeline",
+        "liveWorkspaceChanged": "Live workspace changed in {keys}. Report still reflects the frozen snapshot.",
+        "frozen": "Report reflects the frozen run snapshot."
+      },
+      "correlation": {
+        "title": "Correlation"
+      },
+      "narrative": {
+        "title": "Narrative Cues"
+      },
+      "forensics": {
+        "title": "Forensic Notes"
+      },
+      "triage": {
+        "title": "Triage Decision",
+        "anomaly": "Anomaly",
+        "manipulation": "Manipulation suspicion",
+        "followUp": "Follow-up"
+      },
+      "evidenceStrength": {
+        "title": "Evidence Strength"
+      },
+      "counterEvidence": {
+        "title": "Counter Evidence"
+      },
+      "empty": {
+        "noFindings": "No findings",
+        "noTimeline": "No timeline",
+        "noArtifacts": "No artifacts",
+        "noReport": "No report available"
+      },
+      "user": {
+        "suspiciousFrames": "Suspicious Frames",
+        "suspiciousFramesHint": "Automatically detected notable frames",
+        "hypothesisResult": "Hypothesis Result",
+        "moduleSummary": "Module Summary",
+        "summary": "Summary",
+        "confidence": "Confidence",
+        "elapsedSeconds": "{seconds} sec",
+        "findings": "Findings"
+      },
+      "ai": {
+        "manifest": "Manifest",
+        "moduleTimeline": "Module Timeline",
+        "technicalFindings": "Findings (Technical)",
+        "artifacts": "Artifacts",
+        "degraded": "Constraints",
+        "warnings": "Warnings",
+        "errors": "Errors"
+      },
+      "closeAria": "Close report",
+      "ariaLabel": "Analysis Report",
+      "eyebrow": "Analysis Result",
+      "title": "Report #{id}",
+      "actions": {
+        "exportJson": "JSON Export",
+        "exportPdf": "PDF Export",
+        "close": "Close"
+      },
+      "tabs": {
+        "user": "User Report",
+        "ai": "Technical Report"
+      },
+      "confidence": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      }
+    },
+    "reportFreshness": {
+      "current": "✓ Current",
+      "previousRunActive": "⊘ Previous run · Analysis in progress",
+      "previousRun": "⊘ Previous run",
+      "stale": "⊘ Stale run · Last analysis failed",
+      "workspaceDirty": "Workspace differs"
+    },
+    "toolManager": {
+      "support": {
+        "requiredForStage": "Required for {stage}",
+        "optionalForStage": "Optional for {stage}",
+        "roomWide": "Room-wide"
+      },
+      "status": {
+        "busy": "Running",
+        "updateAvailable": "Update available",
+        "installed": "Installed",
+        "planned": "Planned",
+        "notReady": "Not ready"
+      },
+      "lifecycle": {
+        "settingsManaged": "Speech Runtime lifecycle is managed in main Settings. Laboratory only reflects the current runtime probe and active language/model readiness.",
+        "lastError": "Last error: {error}",
+        "systemCommandVerified": "Last verification succeeded ({checkedAt}){detail}.",
+        "systemCommandMissing": "Last verification ({checkedAt}): tool was not found.",
+        "updateAvailable": "Update found ({checkedAt}). The update button is ready.",
+        "upToDate": "Up to date ({checkedAt}).",
+        "default": "Tool status is tracked through the room-local registry."
+      },
+      "strategy": {
+        "settingsManaged": "Managed through Settings",
+        "planned": "Planned",
+        "systemCommand": "Verify / setup note",
+        "automatic": "In-app install"
+      },
+      "actions": {
+        "settingsManaged": "Managed from Settings",
+        "planned": "Planned",
+        "checkUpdates": "Check updates",
+        "checkAllUpdates": "Check updates",
+        "verifySystemCommand": "Verify",
+        "update": "Update",
+        "updateSelected": "Update",
+        "install": "Install",
+        "bulkUpdate": "Bulk update",
+        "refresh": "Refresh",
+        "close": "Close"
+      },
+      "labels": {
+        "stageSupport": "Stage support",
+        "installedVersion": "Installed version",
+        "latestVersion": "Latest version",
+        "lastCheckedAt": "Last check",
+        "location": "Location",
+        "pythonRuntime": "Python runtime",
+        "requiredPython": "Required Python",
+        "managedPythonRuntime": "Laboratory-managed Python",
+        "systemPythonRuntime": "System Python bootstrap"
+      },
+      "empty": {
+        "title": "No additional tool is required here",
+        "body": "No room-local tool requirement is visible for the active stage."
+      },
+      "mode": {
+        "analyzing": "Analysis",
+        "complete": "Completed",
+        "workspace": "Workspace"
+      },
+      "closeAria": "Close tool management",
+      "ariaLabel": "Tool Management",
+      "eyebrow": "Workbench",
+      "title": "Tool Management",
+      "subtitle": "Manage room tools such as yt-dlp and FFmpeg here; Speech Runtime is only reflected through the central Settings runtime state.",
+      "stats": {
+        "catalog": "Tool catalog",
+        "relevant": "Relevant tools",
+        "installed": "Installed tools",
+        "updates": "Pending updates"
+      },
+      "updates": {
+        "title": "Update list",
+        "empty": "No pending tool updates.",
+        "emptyDetail": "Updates found after a check appear here selected by default.",
+        "versionPair": "{current} -> {latest}"
+      },
+      "progress": {
+        "ariaLabel": "Install and update progress",
+        "eyebrow": "Operation tracking",
+        "title": "Install and update",
+        "activeCount": "{count} active",
+        "unknownTool": "Tool",
+        "fallbackDetail": "Waiting for operation details.",
+        "pendingPercent": "Preparing",
+        "percent": "{percent}%",
+        "phase": "Step {index}/{count}: {label}",
+        "package": "Package: {name}",
+        "packageSize": "Package size {size}",
+        "lastOutput": "Last output: {line}",
+        "cancel": "Cancel",
+        "idle": "No active install or update.",
+        "idleDetail": "Progress appears here when a tool operation starts.",
+        "actions": {
+          "install": "Install",
+          "update": "Update",
+          "checkUpdates": "Update check",
+          "generic": "Tool operation"
+        },
+        "stage": {
+          "queued": "Queued",
+          "running": "Running",
+          "downloading": "Downloading",
+          "extracting": "Extracting",
+          "output": "Output",
+          "completed": "Completed",
+          "failed": "Failed",
+          "cancelled": "Cancelled",
+          "tracking": "Tracking"
+        }
+      },
+      "installReview": {
+        "ariaLabel": "Install confirmation",
+        "eyebrow": "Before install",
+        "title": "{tool} will be installed",
+        "body": "This prepares an isolated tool environment with the Laboratory-managed Python runtime and installs the required packages.",
+        "download": "Download",
+        "disk": "Disk use",
+        "target": "Target",
+        "pythonRuntime": "Python runtime",
+        "requiredPython": "Required Python",
+        "steps": "Planned operations",
+        "stepRuntime": "Prepare the Laboratory-managed Python runtime; create or repair the tool venv with it.",
+        "stepTooling": "Upgrade pip, setuptools, and wheel.",
+        "stepPackages": "Download and install Python packages.",
+        "stepProbe": "Verify the install with an import probe.",
+        "packages": "Packages",
+        "noPackages": "The runtime will resolve the package list.",
+        "unknownEstimate": "Unknown",
+        "dismiss": "Cancel",
+        "confirm": "Start install"
+      },
+      "sections": {
+        "catalog": {
+          "title": "Laboratory tools",
+          "hint": "Install, update, and inspect the tools managed by Laboratory."
+        }
+      },
+      "usedBy": {
+        "media-intake": "Media intake",
+        "youtube-capture": "YouTube capture",
+        "media-edit": "Media edit",
+        "profile-artifacts": "Profile artifacts",
+        "managed-process-runs": "Managed process runs",
+        "transcript-extraction": "Transcript extraction",
+        "speech-overlay-checks": "Speech overlay checks",
+        "prosody-checks": "Prosody checks",
+        "paralinguistic-audio-features": "Paralinguistic audio features",
+        "sound-event-tagging": "Sound event tagging",
+        "ambient-event-summaries": "Ambient event summaries",
+        "rhythm-fallback": "Rhythm fallback",
+        "music-structure-helpers": "Music structure helpers",
+        "source-separation": "Source separation",
+        "vocal-isolation": "Vocal isolation",
+        "tonal-fallback": "Tonal fallback",
+        "music-descriptor-extraction": "Music descriptor extraction",
+        "speaker-diarization-fallback": "Speaker diarization fallback",
+        "segment-classification": "Segment classification"
+      },
+      "toolDetails": {
+        "yt-dlp": {
+          "readinessImpact": "Blocks remote YouTube video intake flows."
+        },
+        "ffmpeg": {
+          "readinessImpact": "Blocks local transforms, derived outputs, and most managed analysis runs."
+        },
+        "transcript-runtime": {
+          "readinessImpact": "Limits transcript-backed speech checks and transcript artifacts."
+        },
+        "opensmile": {
+          "readinessImpact": "Optional audio feature extraction stays unavailable until the host binary is installed."
+        },
+        "yamnet": {
+          "readinessImpact": "Event tagging and ambient sound summaries remain disabled without the Python runtime."
+        },
+        "librosa": {
+          "readinessImpact": "Music and rhythm oriented helpers stay blocked until the package is installed."
+        },
+        "demucs": {
+          "readinessImpact": "Optional separation workflows cannot run without the host package."
+        },
+        "essentia": {
+          "readinessImpact": "Fallback tonal analysis remains unavailable until the host package is installed."
+        },
+        "pyaudioanalysis": {
+          "readinessImpact": "Diarization and segmentation fallback flows stay blocked until the host package is installed."
+        }
+      }
+    },
+    "audioFocus": {
+      "previewTarget": {
+        "video": "Playback rate affects the bound preview media transport.",
+        "audio": "Playback rate affects the current preview audio."
+      },
+      "eyebrow": "AUDIO FOCUS",
+      "fields": {
+        "gain": "Gain",
+        "filter": "Filter",
+        "cutoff": "Cutoff Freq",
+        "resonance": "Resonance (Q)",
+        "playbackSpeed": "Playback Speed"
+      },
+      "analysisAid": "ANALYSIS AID",
+      "preservePitch": "Preserve pitch while changing speed",
+      "transportNote": "Slow down to inspect. Speed up to detect patterns.",
+      "visualizerHint": "A single real-time waveform layer is used below the timeline preview. Spectrum mode draws a live frequency view on the same canvas.",
+      "eqTitle": "PARAMETRIC EQ",
+      "resetAction": "Reset All",
+      "filters": {
+        "none": "None",
+        "lowpass": "Lowpass",
+        "highpass": "Highpass",
+        "bandpass": "Bandpass"
+      },
+      "visualization": "View",
+      "visualizations": {
+        "waveform": "Waveform",
+        "spectrum": "Spectrogram"
+      },
+      "independentPitch": "Independent pitch",
+      "pitchPreservedStatus": "Pitch preserved during speed changes.",
+      "naturalPitchStatus": "Speed changes affect natural pitch too.",
+      "independentPitchStatus": "Independent pitch: {value} st · does not change playback speed.",
+      "liveAuditionTitle": "LIVE AUDITION",
+      "pitchPresets": "Pitch presets"
+    },
+    "hypothesis": {
+      "label": "Hypothesis",
+      "placeholder": "Describe what you're looking for — e.g. check splice around 01:30, verify audio sync..."
+    },
+    "interactiveControls": {
+      "title": "Visual Adjustments",
+      "fields": {
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "gamma": "Gamma",
+        "saturation": "Saturation",
+        "hueRotate": "Hue Rotate",
+        "sharpness": "Sharpness",
+        "edgeHighlight": "Edge Highlight",
+        "invert": "Invert"
+      },
+      "channelTitle": "CHANNEL ISOLATE",
+      "resetAction": "Reset All"
+    },
+    "processPanel": {
+      "status": {
+        "running": "Running",
+        "completed": "Completed",
+        "failed": "Failed",
+        "queued": "Waiting",
+        "skipped": "Skipped",
+        "cancelled": "Cancelled",
+        "pending": "Pending",
+        "ready": "Ready"
+      },
+      "statusTooltips": {
+        "failed": "This module did not run; the others continue"
+      },
+      "time": {
+        "seconds": "{value} sec",
+        "minutes": "{minutes} min {seconds} sec",
+        "justNow": "just now",
+        "secondsAgo": "{value} sec ago",
+        "minutesAgo": "{value} min ago",
+        "hoursAgo": "{value} hr ago"
+      },
+      "recent": {
+        "running": "in progress",
+        "title": "Recent actions"
+      },
+      "executionRuntime": {
+        "running": "Executing plan...",
+        "completed": "Execution complete",
+        "progress": "{progress}%",
+        "insights": "Insights",
+        "detectedElements": "Detected elements",
+        "outcomeEvaluated": "Outcome evaluated",
+        "goalEvaluation": "Goal evaluation: {summary}"
+      },
+      "diff": {
+        "timeline": "Timeline",
+        "hypothesis": "Hypothesis"
+      },
+      "empty": {
+        "moduleWaiting": "Waiting for module",
+        "noModulePlan": "No module plan",
+        "noExecution": "No execution yet",
+        "noCapabilityMatch": "No capability match",
+        "pipelineResolving": "Pipeline resolving...",
+        "noFindings": "No findings",
+        "noArtifacts": "No artifacts",
+        "noRecentActions": "No actions yet"
+      },
+      "snapshot": {
+        "fullSource": "Full source",
+        "liveWorkspaceChanged": "Live workspace changed in {keys}. Snapshot stays frozen for this run.",
+        "frozen": "Snapshot stays frozen for this run.",
+        "title": "Run Snapshot",
+        "focus": "Focus",
+        "unspecified": "Unspecified",
+        "timeline": "Timeline"
+      },
+      "progressLabel": "{completed}/{total} steps · {percent}%",
+      "sections": {
+        "pipeline": "Pipeline",
+        "findings": "Findings",
+        "artifacts": "Artifacts"
+      },
+      "actions": {
+        "more": "More"
+      },
+      "idleTitle": "Analysis flow",
+      "runStatus": {
+        "analyzing": "Analyzing",
+        "completed": "Completed",
+        "failed": "Error",
+        "cancelled": "Cancelled",
+        "queued": "Queued"
+      },
+      "runTitle": "Analysis #{id}",
+      "activeModule": "Running module: {module}",
+      "stepCount": "{count} steps",
+      "confidence": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      }
+    },
+    "roi": {
+      "focusedLabel": "Focused ROI",
+      "inspectionLabel": "Inspection ROI",
+      "actions": {
+        "deactivate": "Deactivate",
+        "activate": "Activate",
+        "export": "Export as image",
+        "remove": "Remove",
+        "resetFocus": "Reset focus",
+        "focusRegion": "Focus region",
+        "captureRegion": "Capture region",
+        "clearRegion": "Clear region",
+        "resizeRegion": "Resize region"
+      },
+      "status": {
+        "regionActive": "Region active",
+        "noRegion": "No region yet"
+      },
+      "inspectionPrefix": "Inspection",
+      "summary": {
+        "regions": "{count} region(s)",
+        "active": "active"
+      },
+      "hints": {
+        "redefine": "Drag to redefine the inspection region or double click to focus",
+        "define": "Drag to define an inspection region",
+        "selectRange": "Select a time range, then drag to define region of interest",
+        "locked": "ROI edits are locked while analysis is running"
+      },
+      "inspectionModes": {
+        "none": "None",
+        "visual": "Visual",
+        "audio": "Audio",
+        "motion": "Motion"
+      }
+    },
+    "analysisActions": {
+      "viewReport": "View Report",
+      "cancel": "Cancel Analysis",
+      "start": "Start Analysis",
+      "imageAnalysis": "Analyze Image"
+    },
+    "capabilities": {
+      "visual-structure": {
+        "label": "Visual Structure"
+      },
+      "visual-forensics": {
+        "label": "Visual Forensics"
+      },
+      "audio-signal": {
+        "label": "Audio Signal"
+      },
+      "audio-recovery": {
+        "label": "Audio Recovery"
+      },
+      "transcription": {
+        "label": "Transcription"
+      },
+      "speaker-analysis": {
+        "label": "Speaker Analysis"
+      },
+      "prosody-emotion": {
+        "label": "Prosody & Emotion"
+      },
+      "sound-classification": {
+        "label": "Sound Classification"
+      },
+      "source-separation": {
+        "label": "Source Separation"
+      },
+      "music-analysis": {
+        "label": "Music Analysis"
+      }
+    },
+    "runtime": {
+      "actions": {
+        "generic": "Action",
+        "named": "{action}",
+        "sourceDownloadUrl": "Downloading URL source",
+        "sourceDownloadYoutube": "Preparing YouTube source",
+        "sourcePickLocal": "Importing local source",
+        "editPreview": "Preparing preview",
+        "runPreflight": "Running preflight",
+        "processRun": "Running analysis",
+        "processCancel": "Cancelling analysis",
+        "reportExport": "Exporting report",
+        "toolInstall": "Installing tool",
+        "toolUpdate": "Updating tool",
+        "toolCheckUpdates": "Checking tool updates"
+      },
+      "blockReasons": {
+        "selectSource": "Select a source first.",
+        "sourceProbeRequiredForPreflight": "Preflight cannot be verified until source probe completes.",
+        "selectCapabilityFamily": "Select at least one capability family first.",
+        "selectedCapabilitiesNotReady": "Selected capabilities are not ready yet.",
+        "toolWarningsCanProceed": "Tool warnings exist, but the run can start.",
+        "sourceProbeIncomplete": "Source probe has not completed.",
+        "sourceProbeFailed": "Source probe failed.",
+        "sourceProbeMustComplete": "Source probe must complete.",
+        "sourceProbeBeforeAnalysis": "Source probe must complete before analysis.",
+        "preflightBlockedStage": "Preflight blocked this stage.",
+        "preflightNotReady": "Preflight is not ready yet.",
+        "reportNotGenerated": "Report has not been generated yet.",
+        "stageNotReady": "This stage is not ready yet.",
+        "prepareSourceAndProbe": "Prepare the source and complete probe first.",
+        "selectAnalysisModule": "Select at least one analysis module.",
+        "sourceNotReady": "Source is not ready yet.",
+        "sourceUnsupported": "Not available for this source type.",
+        "requiredToolsNotInstalled": "Required tools not installed.",
+        "someToolsMissingPartial": "Some tools missing — partial results.",
+        "sourceUrlRequired": "Source URL is required",
+        "youtubeUrlRequired": "YouTube URL is required",
+        "capabilityPartiallyReady": "{label} is partially ready.",
+        "sourceKindUnsupported": "This source type ({sourceKind}) is not supported.",
+        "missingTools": "Missing tool: {tools}",
+        "optionalToolsMissing": "Optional tool missing: {tools}",
+        "missingDependencies": "Missing dependency: {dependencies}"
+      },
+      "controller": {
+        "roomApiDisconnected": "Room API bridge is not connected.",
+        "sourcePreviewUnavailable": "Source preview is unavailable.",
+        "projectCheckpointSaved": "Project saved with the current checkpoint state."
+      },
+      "emptyReasons": {
+        "runCompletedNoFindings": "The run completed, but no reportable findings or artifacts were produced.",
+        "reportReadyUnreadable": "The report is ready, but readable content could not be produced.",
+        "previousRunRestored": "The previous run was restored as a summary."
+      },
+      "events": {
+        "analysisCompleted": "Analysis completed",
+        "analysisFailed": "Analysis failed",
+        "analysisCancelled": "Analysis cancelled",
+        "analysisStarted": "Analysis started",
+        "analysisRequestCompleted": "Analysis request completed",
+        "analysisRequestFailed": "Analysis request failed",
+        "analysisRequestCancelled": "Analysis request cancelled",
+        "analysisScopeLocked": "Analysis scope locked for the current run.",
+        "cancelledByOperator": "Cancelled by operator.",
+        "cancelledByUser": "Run cancelled by the user.",
+        "feedCleared": "Event feed cleared.",
+        "processUpdate": "Process update",
+        "rawOutput": "Raw output",
+        "stage": {
+          "queued": "{action} queued",
+          "completed": "{action} completed",
+          "failed": "{action} failed",
+          "cancelled": "{action} cancelled",
+          "started": "{action} started"
+        }
+      },
+      "expectedOutputs": {
+        "visualInspection": {
+          "frames": "Frame outputs",
+          "anomalies": "Anomaly data"
+        },
+        "audioInvestigation": {
+          "audio": "Audio output"
+        }
+      },
+      "preflight": {
+        "warningCanContinue": "Preflight has warnings, but the run can continue.",
+        "stageNotMarkedReady": "Preflight has not marked this stage ready yet.",
+        "notRun": "Preflight has not run yet.",
+        "failed": "Preflight could not complete.",
+        "running": "Preflight is running.",
+        "missingDependencies": "Missing dependencies: {dependencies}"
+      },
+      "primaryAction": {
+        "exportReport": "Export Reports",
+        "cancelRun": "Cancel Run",
+        "startAnalysis": "Start Analysis",
+        "generatePreview": "Generate Preview",
+        "refreshPreview": "Refresh Preview",
+        "refreshSource": "Refresh Source",
+        "prepareSource": "Prepare Source",
+        "exportReportDetail": "Structured report will be exported",
+        "cancelRunDetail": "Active run will be cancelled",
+        "startAnalysisDetail": "Only enabled modules will run",
+        "generatePreviewDetail": "Preview completion cannot be faked",
+        "probeRunningDetail": "Real probe is completing",
+        "probeCompleteDetail": "Probe completed",
+        "startProbeDetail": "Source probe will start"
+      },
+      "userActions": {
+        "exportTimelineClip": {
+          "running": "Extracting clip",
+          "success": "Clip ready",
+          "error": "Clip could not be extracted"
+        },
+        "exportFrameGrab": {
+          "running": "Grabbing frame",
+          "success": "Frame grabbed",
+          "error": "Frame could not be grabbed"
+        },
+        "exportEnhancedFrame": {
+          "running": "Preparing enhanced frame",
+          "success": "Enhanced frame ready",
+          "error": "Enhanced frame could not be prepared"
+        },
+        "exportAudioTrack": {
+          "running": "Extracting audio",
+          "success": "Audio extracted",
+          "error": "Audio could not be extracted"
+        },
+        "exportRoiImage": {
+          "running": "Capturing region image",
+          "success": "Region image ready",
+          "error": "Region image could not be captured"
+        },
+        "reportExport": {
+          "running": "Exporting report",
+          "success": "Report exported",
+          "error": "Report could not be exported"
+        },
+        "audioReportExport": {
+          "running": "Exporting audio report",
+          "success": "Audio report exported",
+          "error": "Audio report could not be exported"
+        }
+      }
+    }
+  },
+  "visualAnalysis": {
+    "catalog": {
+      "modules": {
+        "frame-consistency": {
+          "title": "Frame Consistency",
+          "summary": "Checks sampled frames for freeze intervals and cadence drift."
+        },
+        "lighting-consistency": {
+          "title": "Lighting Consistency",
+          "summary": "Compares exposure and lighting continuity inside the selected scope."
+        },
+        "background-consistency": {
+          "title": "Background Consistency",
+          "summary": "Looks for backdrop shifts that break the pinned scene baseline."
+        },
+        "occlusion-inconsistency": {
+          "title": "Occlusion Inconsistency",
+          "summary": "Flags scope windows where cover or reveal patterns feel inconsistent."
+        },
+        "object-insert-remove-anomaly": {
+          "title": "Insert or Remove Anomaly",
+          "summary": "Surfaces suspicious object appearance and disappearance changes."
+        },
+        "ai-artifact-detection": {
+          "title": "AI Artifact Detection",
+          "summary": "Reserved for model-assisted synthetic trace inspection."
+        },
+        "temporal-noise-pattern": {
+          "title": "Temporal Noise Pattern",
+          "summary": "Tracks repeated noise and black-frame patterns across time."
+        },
+        "motion-anomaly": {
+          "title": "Motion Anomaly",
+          "summary": "Measures coarse motion spikes and transition irregularities."
+        },
+        "perceptual-duplicate-frame": {
+          "title": "Perceptual Duplicate Frame",
+          "summary": "Separates exact duplicate frames from perceptual near-copy frame runs."
+        },
+        "optical-flow-tracking": {
+          "title": "Optical-flow Tracking",
+          "summary": "Splits subject and background motion with a lightweight flow proxy."
+        },
+        "compression-signature-mapping": {
+          "title": "Compression Signature Mapping",
+          "summary": "Maps low-light, motion, edge, cadence, and GOP artifact families."
+        },
+        "metadata-provenance-audit": {
+          "title": "Metadata Provenance Audit",
+          "summary": "Cross-checks ffprobe, ExifTool, and MediaInfo metadata when available."
+        },
+        "reference-quality-check": {
+          "title": "Reference Quality Check",
+          "summary": "Reports SSIM/VMAF-style deltas when a reference or pre-upload source exists."
+        },
+        "visual-signal-amplification": {
+          "title": "Visual Signal Amplification",
+          "summary": "Builds brighter reveal-oriented preview variants for manual review."
+        },
+        "color-channel-isolation": {
+          "title": "Color Channel Isolation",
+          "summary": "Separates color channels to expose hidden or low-signal detail."
+        },
+        "gamma-scan": {
+          "title": "Gamma Scan",
+          "summary": "Runs a gamma-focused reveal pass over the scoped target."
+        },
+        "contrast-scan": {
+          "title": "Contrast Scan",
+          "summary": "Pushes contrast and tone separation for hidden detail review."
+        },
+        "edge-enhancement": {
+          "title": "Edge Enhancement",
+          "summary": "Emphasizes boundaries and contour information for the active window."
+        },
+        "histogram-equalization": {
+          "title": "Histogram Equalization",
+          "summary": "Normalizes luminance distribution to reveal obscured structure."
+        },
+        "hidden-detail-reveal": {
+          "title": "Hidden Detail Reveal",
+          "summary": "Combines reveal filters for a stronger low-visibility detail pass."
+        }
+      }
+    },
+    "providers": {
+      "ffmpeg-visual-structure": {
+        "title": "FFmpeg Visual Structure",
+        "summary": "Room-managed FFmpeg probes for structural frame forensics."
+      },
+      "ffmpeg-visual-reveal": {
+        "title": "FFmpeg Visual Reveal",
+        "summary": "Room-managed FFmpeg reveal filters for preview variants and signal amplification."
+      },
+      "ffmpeg-visual-forensics": {
+        "title": "FFmpeg Visual Forensics",
+        "summary": "Room-managed FFmpeg probes for triage, counter-evidence, and forensic mapping."
+      },
+      "opencv-visual-forensics": {
+        "title": "OpenCV Visual Forensics",
+        "summary": "Optional OpenCV/scikit-image helpers for near-copy and quality metrics."
+      },
+      "metadata-provenance-system": {
+        "title": "Metadata Provenance System",
+        "summary": "Room-managed ExifTool and MediaInfo metadata cross-check lane."
+      },
+      "raft-optical-flow-provider": {
+        "title": "RAFT Optical Flow",
+        "summary": "Dense-flow tracking provider backed by a room-managed PyTorch/OpenCV runtime."
+      },
+      "synthetic-visual-forensics": {
+        "title": "Synthetic Visual Forensics",
+        "summary": "Planned model-backed inspection lane for AI artifact and synthesis traces."
+      }
+    }
+  },
+  "audioAnalysis": {
+    "stageNav": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "stages": {
+      "source": "Audio Source",
+      "edit": "Signal Prep",
+      "profile": "Audio Profile",
+      "process": "Run",
+      "report": "Audio Report"
+    },
+    "shared": {
+      "toolingEyebrow": "Shared Tool Room",
+      "toolingTitle": "Same tool workflow, audio-first surface",
+      "toolingBody": "Tool installs and updates stay room-local here, but transcript runtime and model readiness are managed from the main Settings panel."
+    },
+    "settings": {
+      "eyebrow": "Tool Room",
+      "title": "Audio Analysis Settings",
+      "subtitle": "This feature reuses the same room-local tooling flow as Media Analysis, while transcript runtime ownership stays in Settings.",
+      "providersEyebrow": "Provider Readiness",
+      "providersTitle": "Audio provider dashboard",
+      "providersSubtitle": "Descriptor-driven provider cards stay aligned with the same room-local install workflow and future v2 placeholder paths.",
+      "providerMeta": {
+        "type": "Provider type",
+        "install": "Install path",
+        "modules": "Modules",
+        "artifacts": "Expected artifacts",
+        "version": "Version",
+        "model": "Model",
+        "platform": "Platform",
+        "fallbacks": "Fallbacks"
+      },
+      "providerMetaValues": {
+        "supported": "Supported",
+        "limited": "Limited"
+      }
+    },
+    "source": {
+      "formatLabel": "Audio Source Type",
+      "title": "Prepare an audio target",
+      "subtitle": "",
+      "formats": {
+        "video": {
+          "title": "Video",
+          "subtitle": "Inspect the embedded audio path from a local file or URL."
+        },
+        "audio": {
+          "title": "Audio",
+          "subtitle": "Work directly on standalone audio files."
+        }
+      }
+    },
+    "edit": {
+      "title": "Shape the signal path",
+      "subtitle": "Reuse the same FFmpeg-backed prep surface to normalize, trim, and inspect the audio-oriented workspace."
+    },
+    "profile": {
+      "title": "Configure the audio profile",
+      "subtitle": "Tune signal health, transcript, speaker, and planned audio modules with the same tool and model registry."
+    },
+    "process": {
+      "title": "Run the staged audio desk",
+      "subtitle": "Monitor the shared job pipeline while implemented audio modules advance on the active target.",
+      "summaryTitle": "Audio Run Summary",
+      "controls": {
+        "restart": "Run Audio Desk",
+        "jumpReport": "Open Audio Report"
+      }
+    },
+    "report": {
+      "title": "Review the audio handoff",
+      "subtitle": "Inspect the latest audio-oriented findings, artifacts, exports, and clearly marked planned follow-up modules without leaving the laboratory.",
+      "stagedHint": "This report keeps the audio-first view honest: implemented modules are real, while deeper v2 modules remain clearly marked as planned.",
+      "overviewTitle": "Audio Report Overview",
+      "findingsTitle": "Audio Findings",
+      "sideTitle": "Audio Detail",
+      "overviewMeta": {
+        "generated": "Generated"
+      },
+      "latestExportEyebrow": "Latest Export",
+      "latestExportTitle": "Latest audio report file",
+      "latestExportSubtitle": "Review the generated markdown file, its location, and the next follow-up actions here.",
+      "latestExportEmpty": "Once you export the audio report, the latest file will appear here.",
+      "exportHistoryEyebrow": "Export History",
+      "exportHistoryTitle": "Generated audio report files",
+      "exportHistorySubtitle": "Track the latest report exports written for this target.",
+      "emptyFindings": "No audio summary cards are ready yet.",
+      "emptyBody": "Run the audio process stage first, then this report will render persisted audio findings and module results.",
+      "moduleRollupEyebrow": "Module Rollup",
+      "moduleRollupTitle": "Catalog-driven module status",
+      "moduleRollupSubtitle": "Implemented, gated, and planned audio families all stay visible in one ordered report surface.",
+      "exportMeta": {
+        "created": "Created",
+        "status": "Status",
+        "path": "Location"
+      },
+      "openFileSuccess": "The latest audio report file was opened.",
+      "openFolderSuccess": "The audio report folder was opened.",
+      "openPathFailure": "The audio report output could not be opened.",
+      "moduleMeta": {
+        "phase": "Phase",
+        "confidence": "Confidence",
+        "providers": "Providers",
+        "signals": "Signals",
+        "artifacts": "Artifacts",
+        "metrics": "Metrics",
+        "blockers": "Blockers",
+        "warnings": "Warnings"
+      },
+      "actions": {
+        "restart": "Start New Audio Run",
+        "export": "Export Audio Report",
+        "openFile": "Open File",
+        "openFolder": "Open Folder"
+      }
+    },
+    "catalog": {
+      "eyebrow": "Analysis Catalog",
+      "title": "Audio module rollout",
+      "subtitle": "V1 ships real signal, artifact, transcript, and speaker surfaces. V2 modules already reserve their place in the same workflow.",
+      "status": {
+        "implemented": "Active",
+        "gated": "Capability-gated",
+        "planned": "Planned"
+      },
+      "modules": {
+        "signal-health": {
+          "title": "Signal health",
+          "summary": "Technical loudness, silence, and continuity checks powered by the shared FFmpeg room tooling."
+        },
+        "signal-recovery": {
+          "title": "Signal recovery",
+          "summary": "Run FFmpeg-based denoise and recovery passes to surface masked or degraded speech content."
+        },
+        "spectral-artifacts": {
+          "title": "Waveform and spectrogram",
+          "summary": "Audio-first visual artifacts sit beside the same room-local source and tool state."
+        },
+        "frequency-shift-reversal": {
+          "title": "Frequency-shift reversal",
+          "summary": "Generate inverse shift variants when hidden content may have been pitch-moved or heterodyned."
+        },
+        "band-pass-exploration": {
+          "title": "Band-pass exploration",
+          "summary": "Isolate speech-heavy mid-band windows to inspect masked narration or narrow-band details."
+        },
+        "spectrogram-guided-recovery": {
+          "title": "Spectrogram-guided recovery",
+          "summary": "Produce recovery variants tuned for spectrogram inspection before deeper transcript attempts."
+        },
+        "hidden-pattern-extraction": {
+          "title": "Hidden-pattern extraction",
+          "summary": "Amplify low-level details and intermittent cues to expose hidden or masked audio patterns."
+        },
+        "phase-recovery-experiment": {
+          "title": "Phase recovery experiment",
+          "summary": "Probe side-channel or cancellation-prone content with stereo phase-isolation experiments."
+        },
+        "transcription": {
+          "title": "Transcript",
+          "summary": "Optional transcript capture reuses the central Settings-owned Speech Runtime and active model."
+        },
+        "transcript-support": {
+          "title": "Transcript support",
+          "summary": "Checks transcript prerequisites and keeps speech evidence routing visible."
+        },
+        "speaker-diarization": {
+          "title": "Speaker timeline",
+          "summary": "The speaker timeline now runs on a fully local pyAudioAnalysis path when the host package is ready."
+        },
+        "prosody": {
+          "title": "Prosody",
+          "summary": "Speech pacing, contour, and estimated pause metrics now run when the room-local openSMILE install is ready."
+        },
+        "emotion": {
+          "title": "Emotion heuristics",
+          "summary": "A cautious, clearly labeled heuristic layer now derives coarse arousal-style labels from prosody signals."
+        },
+        "sound-events": {
+          "title": "Sound events",
+          "summary": "Ambient and event classification now runs through the manual YAMNet runtime when its Python dependencies are available."
+        },
+        "source-separation": {
+          "title": "Source separation",
+          "summary": "Stem and layer extraction now runs when the manual Demucs tool is ready, with isolated stems saved into the project workspace."
+        },
+        "music-rhythm-tonal": {
+          "title": "Music and rhythm",
+          "summary": "BPM, dominant pitch-class, and soundtrack-oriented descriptors now run when the manual librosa tool is ready, with Essentia kept as a deeper fallback path."
+        }
+      }
+    },
+    "providers": {
+      "ffmpeg-signal": {
+        "title": "FFmpeg signal runner",
+        "summary": "Shared room-local binary for loudness, silence, and artifact generation."
+      },
+      "ffmpeg-signal-recovery": {
+        "title": "FFmpeg signal recovery",
+        "summary": "Shared room-local FFmpeg provider for denoise, band-pass, reveal, and recovery experiment variants."
+      },
+      "ffmpeg-frequency-recovery": {
+        "title": "FFmpeg frequency recovery",
+        "summary": "Shared room-local FFmpeg provider for inverse frequency-shift exploration and comparison artifacts."
+      },
+      "ffmpeg-phase-lab": {
+        "title": "FFmpeg phase lab",
+        "summary": "Shared room-local FFmpeg provider for stereo phase-isolation and side-channel recovery experiments."
+      },
+      "speech-runtime-transcript": {
+        "title": "Speech Runtime transcript runner",
+        "summary": "Shared central transcript runtime projection for transcript-aware passes."
+      },
+      "speaker-timeline": {
+        "title": "Speaker timeline adapter",
+        "summary": "Manual pyAudioAnalysis-backed diarization runtime with no account requirement and fully local execution."
+      },
+      "prosody-open-smile": {
+        "title": "Prosody descriptor runner",
+        "summary": "Shared room-local openSMILE runner for pacing, contour, and pause-oriented prosody summaries."
+      },
+      "emotion-heuristic": {
+        "title": "Emotion heuristic adapter",
+        "summary": "Shared room-local openSMILE heuristic layer with explicit confidence and disclaimer handling."
+      },
+      "sound-event-classifier": {
+        "title": "Sound event classifier",
+        "summary": "Manual YAMNet-backed runtime for broad AudioSet event tagging on supported setups."
+      },
+      "source-separation-runner": {
+        "title": "Source separation runner",
+        "summary": "Manual Demucs-backed stem extraction runtime for vocals, ambience, and music beds on supported setups."
+      },
+      "music-rhythm-engine": {
+        "title": "Music and rhythm engine",
+        "summary": "Manual librosa-backed rhythm and descriptor runtime for BPM, beat density, and dominant pitch-class summaries."
+      },
+      "music-rhythm-essentia": {
+        "title": "Music and tonal fallback",
+        "summary": "Planned Essentia-backed fallback path for deeper tonal and music descriptor expansion."
+      }
+    }
+  }
+}

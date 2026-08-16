@@ -1,0 +1,371 @@
+@custom-media --pattern-bp-min-1440 (min-width: 1440px);
+@custom-media --pattern-bp-max-1180 (max-width: 1180px);
+@custom-media --pattern-bp-max-1100 (max-width: 1100px);
+@custom-media --pattern-bp-max-960 (max-width: 960px);
+@custom-media --pattern-bp-max-820 (max-width: 820px);
+
+:root {
+  color-scheme: dark;
+
+  /* ── Zemin yüzeyler (koyu ahşap / deri / kağıt / metal) ── */
+  --pattern-surface: #0d0c0a;
+  --pattern-surface-strong: #0a0908;
+  --pattern-surface-floor: #111009;
+  --pattern-surface-desk: #16130f;
+  --pattern-surface-cork: #231a10;
+  --pattern-surface-paper: #1e1a14;
+  --pattern-surface-metal: #141618;
+  --pattern-surface-wall-mid: #131210;
+  --pattern-surface-wall-warm: #1a1610;
+  --pattern-surface-board-deep: #1a1408;
+  --pattern-surface-depth-alpha-96: rgba(10, 9, 8, 0.96);
+  --pattern-surface-warm-alpha-72: rgba(30, 24, 14, 0.72);
+  --pattern-surface-panel-alpha-82: rgba(20, 18, 14, 0.82);
+  --pattern-surface-panel-alpha-84: rgba(20, 18, 14, 0.84);
+  --pattern-surface-panel-alpha-86: rgba(20, 18, 14, 0.86);
+  --pattern-surface-control-alpha-74: rgba(14, 13, 10, 0.74);
+  --pattern-surface-detail-alpha-86: rgba(16, 14, 10, 0.86);
+  --pattern-surface-hotspot-alpha-88: rgba(18, 15, 10, 0.88);
+  --pattern-surface-device-alpha-86: rgba(15, 14, 13, 0.86);
+  --pattern-surface-wall-alpha-62: rgba(24, 22, 16, 0.62);
+  --pattern-surface-board-alpha-92: rgba(28, 22, 12, 0.92);
+  --pattern-surface-board-warm-alpha-90: rgba(42, 30, 14, 0.9);
+  --pattern-surface-board-cork-alpha-84: rgba(38, 28, 16, 0.84);
+  --pattern-surface-cork-alpha-32: rgba(100, 72, 38, 0.32);
+  --pattern-surface-cabinet-alpha-88: rgba(28, 32, 28, 0.88);
+  --pattern-surface-archive-alpha-86: rgba(22, 26, 22, 0.86);
+  --pattern-surface-lightbox-alpha-84: rgba(30, 26, 18, 0.84);
+  --pattern-surface-inset-alpha-62: rgba(10, 9, 7, 0.62);
+  --pattern-surface-inset-alpha-70: rgba(10, 9, 7, 0.7);
+  --pattern-surface-inset-alpha-78: rgba(10, 9, 7, 0.78);
+  --pattern-surface-paper-alpha-90: rgba(26, 22, 15, 0.9);
+
+  /* ── Metin ── */
+  --pattern-text: #f0ead6;
+  --pattern-text-muted: #c4bc9c;
+  --pattern-text-subtle: #8a8270;
+  --pattern-text-warm: #f0ead6;
+  --pattern-text-alpha-07: rgba(240, 234, 214, 0.07);
+  --pattern-text-alpha-08: rgba(240, 234, 214, 0.08);
+  --pattern-text-alpha-12: rgba(240, 234, 214, 0.12);
+  --pattern-text-alpha-14: rgba(240, 234, 214, 0.14);
+  --pattern-text-alpha-16: rgba(240, 234, 214, 0.16);
+  --pattern-text-alpha-18: rgba(240, 234, 214, 0.18);
+
+  /* ── Aksan: Pirinç / Kehribar (ana vurgu) ── */
+  --pattern-accent-amber: #c8913a;
+  --pattern-accent-amber-alpha-06: rgba(200, 145, 58, 0.06);
+  --pattern-accent-amber-alpha-08: rgba(200, 145, 58, 0.08);
+  --pattern-accent-amber-alpha-09: rgba(200, 145, 58, 0.09);
+  --pattern-accent-amber-alpha-10: rgba(200, 145, 58, 0.1);
+  --pattern-accent-amber-alpha-14: rgba(200, 145, 58, 0.14);
+  --pattern-accent-amber-alpha-18: rgba(200, 145, 58, 0.18);
+  --pattern-accent-amber-alpha-22: rgba(200, 145, 58, 0.22);
+  --pattern-accent-amber-alpha-24: rgba(200, 145, 58, 0.24);
+  --pattern-accent-amber-alpha-28: rgba(200, 145, 58, 0.28);
+  --pattern-accent-amber-alpha-30: rgba(200, 145, 58, 0.3);
+  --pattern-accent-amber-alpha-34: rgba(200, 145, 58, 0.34);
+  --pattern-accent-amber-alpha-36: rgba(200, 145, 58, 0.36);
+  --pattern-accent-amber-alpha-38: rgba(200, 145, 58, 0.38);
+  --pattern-accent-amber-alpha-42: rgba(200, 145, 58, 0.42);
+  --pattern-accent-amber-alpha-46: rgba(200, 145, 58, 0.46);
+  --pattern-accent-amber-alpha-48: rgba(200, 145, 58, 0.48);
+  --pattern-accent-amber-alpha-50: rgba(200, 145, 58, 0.5);
+  --pattern-accent-amber-alpha-58: rgba(200, 145, 58, 0.58);
+  --pattern-accent-amber-alpha-72: rgba(200, 145, 58, 0.72);
+  --pattern-accent-amber-deep: #a0712a;
+  --pattern-accent-amber-light: #d4a857;
+  --pattern-accent-amber-deep-alpha-05: rgba(160, 113, 42, 0.05);
+  --pattern-accent-amber-deep-alpha-08: rgba(160, 113, 42, 0.08);
+  --pattern-accent-amber-deep-alpha-10: rgba(160, 113, 42, 0.1);
+  --pattern-accent-amber-deep-alpha-13: rgba(160, 113, 42, 0.13);
+  --pattern-accent-amber-deep-alpha-16: rgba(160, 113, 42, 0.16);
+  --pattern-accent-amber-deep-alpha-18: rgba(160, 113, 42, 0.18);
+
+  /* ── Aksan: Yeşil & Cyan ── */
+  --pattern-accent-green: #6aaa6a;
+  --pattern-accent-green-alpha-10: rgba(106, 170, 106, 0.1);
+  --pattern-accent-green-alpha-22: rgba(106, 170, 106, 0.22);
+  --pattern-accent-cyan: #54aec4;
+  --pattern-accent-cyan-alpha-05: rgba(84, 174, 196, 0.05);
+  --pattern-accent-cyan-alpha-10: rgba(84, 174, 196, 0.1);
+  --pattern-accent-cyan-alpha-22: rgba(84, 174, 196, 0.22);
+
+  /* ── Aksan: Soruşturma Kırmızısı (ikincil) ── */
+  --pattern-accent-red: #c04040;
+  --pattern-accent-red-alpha-08: rgba(192, 64, 64, 0.08);
+  --pattern-accent-red-alpha-10: rgba(192, 64, 64, 0.1);
+  --pattern-accent-red-alpha-16: rgba(192, 64, 64, 0.16);
+  --pattern-accent-red-alpha-22: rgba(192, 64, 64, 0.22);
+  --pattern-accent-red-alpha-28: rgba(192, 64, 64, 0.28);
+  --pattern-accent-red-alpha-35: rgba(192, 64, 64, 0.35);
+  --pattern-accent-red-alpha-38: rgba(192, 64, 64, 0.38);
+  --pattern-accent-red-alpha-40: rgba(192, 64, 64, 0.4);
+  --pattern-accent-red-alpha-50: rgba(192, 64, 64, 0.5);
+
+  /* ── Durum renkleri ── */
+  --pattern-success: #6aaa6a;
+  --pattern-success-alpha-05: rgba(106, 170, 106, 0.05);
+  --pattern-success-alpha-46: rgba(106, 170, 106, 0.46);
+  --pattern-success-alpha-48: rgba(106, 170, 106, 0.48);
+  --pattern-danger: #c04040;
+  --pattern-danger-text: #e08080;
+  --pattern-danger-alpha-10: rgba(192, 64, 64, 0.1);
+  --pattern-danger-alpha-16: rgba(192, 64, 64, 0.16);
+  --pattern-danger-alpha-28: rgba(192, 64, 64, 0.28);
+  --pattern-danger-alpha-38: rgba(192, 64, 64, 0.38);
+  --pattern-danger-alpha-50: rgba(192, 64, 64, 0.5);
+  --pattern-danger-alpha-52: rgba(192, 64, 64, 0.52);
+
+  /* ── Kenarlıklar ve glow ── */
+  --pattern-border: var(--pattern-text-alpha-14);
+  --pattern-border-strong: var(--pattern-accent-amber-alpha-28);
+  --pattern-border-currentcolor-alpha-48: color-mix(in srgb, currentColor 48%, transparent);
+  --pattern-border-wall-alpha-36: rgba(80, 72, 52, 0.36);
+  --pattern-border-board-alpha-45: rgba(160, 100, 40, 0.45);
+  --pattern-border-cabinet-alpha-50: rgba(80, 96, 80, 0.5);
+  --pattern-glow-amber-focus: 0 0 0 3px var(--pattern-accent-amber-alpha-14);
+  --pattern-glow-amber-action: 0 0 0 3px var(--pattern-accent-amber-alpha-10);
+
+  /* ── Utility alphas ── */
+  --pattern-white-alpha-03: rgba(255, 255, 255, 0.03);
+  --pattern-white-alpha-04: rgba(255, 255, 255, 0.04);
+  --pattern-white-alpha-05: rgba(255, 255, 255, 0.05);
+  --pattern-white-alpha-06: rgba(255, 255, 255, 0.06);
+  --pattern-white-alpha-07: rgba(255, 255, 255, 0.07);
+  --pattern-white-alpha-08: rgba(255, 255, 255, 0.08);
+  --pattern-black-alpha-24: rgba(0, 0, 0, 0.24);
+  --pattern-black-alpha-26: rgba(0, 0, 0, 0.26);
+  --pattern-black-alpha-28: rgba(0, 0, 0, 0.28);
+  --pattern-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --pattern-black-alpha-32: rgba(0, 0, 0, 0.32);
+  --pattern-black-alpha-40: rgba(0, 0, 0, 0.4);
+  --pattern-black-alpha-52: rgba(0, 0, 0, 0.52);
+
+  /* ── Gradyanlar ── */
+  --pattern-gradient-body-depth: linear-gradient(
+    180deg,
+    rgba(30, 24, 14, 0.72),
+    rgba(10, 9, 8, 0.96)
+  );
+  --pattern-gradient-body-accent: linear-gradient(
+    90deg,
+    rgba(200, 145, 58, 0.05),
+    rgba(192, 64, 64, 0.03)
+  );
+  --pattern-gradient-grid-wood: repeating-linear-gradient(
+    90deg,
+    rgba(200, 145, 58, 0.04) 0 1px,
+    transparent 1px 48px
+  );
+  --pattern-gradient-grid-cross: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.08) 0 1px,
+    transparent 1px 48px
+  );
+  --pattern-gradient-office-depth: linear-gradient(180deg, #1a1610 0%, #131210 48%, #0a0908 100%);
+  --pattern-gradient-floor-glow: linear-gradient(
+    90deg,
+    rgba(200, 145, 58, 0.12),
+    transparent 28%,
+    rgba(192, 64, 64, 0.06)
+  );
+  --pattern-gradient-wall-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    transparent 32%
+  );
+  /* Mantar pano dokusu */
+  --pattern-gradient-board-cork: linear-gradient(
+    135deg,
+    rgba(200, 145, 58, 0.1),
+    rgba(160, 100, 40, 0.04) 48%,
+    transparent
+  );
+  --pattern-gradient-cork-grain: repeating-linear-gradient(
+    112deg,
+    rgba(200, 145, 58, 0.04) 0 2px,
+    transparent 2px 14px
+  );
+  /* Ahşap masa */
+  --pattern-gradient-desk-surface: linear-gradient(
+    160deg,
+    rgba(200, 145, 58, 0.1),
+    rgba(100, 70, 30, 0.05) 50%,
+    transparent
+  );
+  --pattern-gradient-desk-grain: repeating-linear-gradient(
+    88deg,
+    rgba(200, 145, 58, 0.05) 0 1px,
+    transparent 1px 36px
+  );
+  /* Kağıt/lightbox */
+  --pattern-gradient-lightbox-surface: linear-gradient(
+    180deg,
+    rgba(200, 145, 58, 0.08),
+    rgba(20, 18, 14, 0.82)
+  );
+  --pattern-gradient-lightbox-grid: linear-gradient(
+    90deg,
+    rgba(200, 145, 58, 0.07) 1px,
+    transparent 1px
+  );
+  /* Arşiv */
+  --pattern-gradient-archive-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    transparent 32%
+  );
+  /* Dolap çekmeceleri (yeşil metal) */
+  --pattern-gradient-cabinet-centerline: linear-gradient(
+    90deg,
+    transparent 48%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 52%
+  );
+  --pattern-gradient-cabinet-drawers: repeating-linear-gradient(
+    180deg,
+    rgba(106, 170, 106, 0.07) 0 56px,
+    transparent 56px 62px
+  );
+  /* Hotspot */
+  --pattern-gradient-hotspot-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent);
+  /* Pano sahne */
+  --pattern-gradient-board-scene-depth: linear-gradient(
+    180deg,
+    rgba(42, 30, 14, 0.9),
+    rgba(20, 18, 10, 0.92)
+  );
+  /* Kart sheen */
+  --pattern-gradient-amber-card-sheen: linear-gradient(
+    135deg,
+    rgba(200, 145, 58, 0.1),
+    transparent 42%
+  );
+  --pattern-gradient-currentcolor-card-sheen: linear-gradient(
+    135deg,
+    color-mix(in srgb, currentColor 14%, transparent),
+    transparent
+  );
+  --pattern-gradient-danger-card-sheen: linear-gradient(
+    135deg,
+    rgba(192, 64, 64, 0.1),
+    transparent 42%
+  );
+  /* Slot sheen */
+  --pattern-gradient-amber-slot-sheen: linear-gradient(
+    180deg,
+    rgba(200, 145, 58, 0.08),
+    transparent
+  );
+  --pattern-gradient-red-slot-sheen: linear-gradient(180deg, rgba(192, 64, 64, 0.08), transparent);
+  /* Rapor */
+  --pattern-gradient-report-sheen: linear-gradient(
+    180deg,
+    rgba(200, 145, 58, 0.09),
+    transparent 34%
+  );
+
+  /* ── Spacing ── */
+  --pattern-px-neg-4: -4px;
+  --pattern-px-neg-1: -1px;
+  --pattern-px-1: 1px;
+  --pattern-px-2: 2px;
+  --pattern-px-3: 3px;
+  --pattern-px-4: 4px;
+  --pattern-px-5: 5px;
+  --pattern-px-6: 6px;
+  --pattern-px-7: 7px;
+  --pattern-px-8: 8px;
+  --pattern-px-9: 9px;
+  --pattern-px-10: 10px;
+  --pattern-px-11: 11px;
+  --pattern-px-12: 12px;
+  --pattern-px-14: 14px;
+  --pattern-px-16: 16px;
+  --pattern-px-17: 17px;
+  --pattern-px-18: 18px;
+  --pattern-px-20: 20px;
+  --pattern-px-21: 21px;
+  --pattern-px-22: 22px;
+  --pattern-px-24: 24px;
+  --pattern-px-26: 26px;
+  --pattern-px-28: 28px;
+  --pattern-px-30: 30px;
+  --pattern-px-32: 32px;
+  --pattern-px-34: 34px;
+  --pattern-px-36: 36px;
+  --pattern-px-38: 38px;
+  --pattern-px-40: 40px;
+  --pattern-px-42: 42px;
+  --pattern-px-44: 44px;
+  --pattern-px-48: 48px;
+  --pattern-px-50: 50px;
+  --pattern-px-54: 54px;
+  --pattern-px-56: 56px;
+  --pattern-px-58: 58px;
+  --pattern-px-62: 62px;
+  --pattern-px-64: 64px;
+  --pattern-px-68: 68px;
+  --pattern-px-70: 70px;
+  --pattern-px-72: 72px;
+  --pattern-px-74: 74px;
+  --pattern-px-76: 76px;
+  --pattern-px-84: 84px;
+  --pattern-px-86: 86px;
+  --pattern-px-88: 88px;
+  --pattern-px-96: 96px;
+  --pattern-px-104: 104px;
+  --pattern-px-110: 110px;
+  --pattern-px-112: 112px;
+  --pattern-px-118: 118px;
+  --pattern-px-120: 120px;
+  --pattern-px-122: 122px;
+  --pattern-px-132: 132px;
+  --pattern-px-136: 136px;
+  --pattern-px-150: 150px;
+  --pattern-px-156: 156px;
+  --pattern-px-164: 164px;
+  --pattern-px-168: 168px;
+  --pattern-px-174: 174px;
+  --pattern-px-176: 176px;
+  --pattern-px-178: 178px;
+  --pattern-px-182: 182px;
+  --pattern-px-184: 184px;
+  --pattern-px-188: 188px;
+  --pattern-px-210: 210px;
+  --pattern-px-218: 218px;
+  --pattern-px-238: 238px;
+  --pattern-px-260: 260px;
+  --pattern-px-292: 292px;
+  --pattern-px-320: 320px;
+  --pattern-px-330: 330px;
+  --pattern-px-360: 360px;
+  --pattern-px-388: 388px;
+  --pattern-px-472: 472px;
+  --pattern-px-560: 560px;
+  --pattern-px-570: 570px;
+  --pattern-px-640: 640px;
+  --pattern-px-720: 720px;
+  --pattern-px-820: 820px;
+  --pattern-px-920: 920px;
+  --pattern-px-999: 999px;
+  --pattern-px-1180: 1180px;
+  --pattern-em-0-04: 0.04em;
+  --pattern-em-0-06: 0.06em;
+  --pattern-em-0-08: 0.08em;
+  --pattern-em-0-1: 0.1em;
+  --pattern-em-neg-0-02: -0.02em;
+  --pattern-rem-0-72: 0.72rem;
+  --pattern-rem-0-74: 0.74rem;
+  --pattern-rem-0-76: 0.76rem;
+  --pattern-rem-0-78: 0.78rem;
+  --pattern-rem-0-82: 0.82rem;
+  --pattern-rem-0-88: 0.88rem;
+  --pattern-rem-1: 1rem;
+  --pattern-rem-1-2: 1.2rem;
+  --pattern-rem-1-35: 1.35rem;
+  --pattern-rem-1-5: 1.5rem;
+  --pattern-rem-2-35: 2.35rem;
+  --pattern-rem-3-8: 3.8rem;
+}

@@ -1,0 +1,41 @@
+<section class="page page-rooms is-hidden" id="page-rooms" aria-labelledby="page-rooms-title">
+  <h2 class="visually-hidden" id="page-rooms-title" data-shell-i18n-text="sideNav.roomsLabel"></h2>
+  <div class="rooms-page">
+    <div
+      class="entrance-scene"
+      id="rooms-scene-root"
+      data-shell-i18n-aria-label="app.rooms.page.sceneAriaLabel"
+      hidden
+    >
+      <div class="entrance-scene__surface scene-shell__surface">
+        <img
+          class="entrance-scene__background scene-shell__cover-image"
+          id="rooms-scene-background"
+          alt=""
+        />
+        <div class="entrance-scene__hotspots" id="rooms-scene-hotspots"></div>
+        <div class="entrance-scene__characters" id="rooms-scene-characters"></div>
+        <div class="entrance-scene__editor-host" id="rooms-scene-editor-host"></div>
+      </div>
+    </div>
+
+    <div class="room-shell" id="rooms-classic-shell">
+      <div class="room-shell-hero">
+        <div class="room-shell-badge" data-shell-i18n-text="app.rooms.page.badge"></div>
+        <h1 class="room-shell-title" data-shell-i18n-text="app.rooms.page.title"></h1>
+        <p class="room-shell-subtitle" data-shell-i18n-text="app.rooms.page.subtitle"></p>
+      </div>
+
+      <div class="room-shell-grid">
+        <section class="glass-panel ds-surface-card ds-surface-card--stack room-shell-panel">
+          <div
+            class="panel-title ds-surface-card__header ds-panel-title"
+            data-shell-i18n-text="app.rooms.page.panelTitle"
+          ></div>
+          <p class="room-shell-message" data-shell-i18n-text="app.rooms.page.panelDescription"></p>
+          <div class="rooms-classic-list" id="rooms-classic-list"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

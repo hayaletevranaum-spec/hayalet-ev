@@ -1,0 +1,63 @@
+:root {
+  --size-icon-sm: 24px;
+  --size-icon-md: 32px;
+  --size-icon-lg: 48px;
+  --size-icon-xl: 64px;
+
+  --size-dot-xs: 6px;
+  --size-dot-sm: 8px;
+  --size-dot-control: 9px;
+  --size-dot-md: 10px;
+  --size-dot-lg: 14px;
+
+  --size-control-xs: 18px;
+  --size-control-compact: 26px;
+  --size-control-md: 28px;
+  --size-control-pill: 34px;
+  --size-control-lg: 36px;
+  --size-control-xl: 42px;
+  --size-control-2xl: 44px;
+  --size-control-3xl: 50px;
+
+  --size-webview-offscreen: 1px;
+
+  --size-us1-report-min-h: 140px;
+  --size-us1-report-max-h: 220px;
+  --size-select-max-w: 140px;
+  --size-dropdown-md: 220px;
+  --size-status-pill-min-w: 4.5rem;
+  --size-settings-capture-note-min-h: 1.2em;
+
+  --sidebar-width: 320px;
+  --size-panel-compact: 280px;
+  --size-panel-wide: 360px;
+  --size-panel-scroll-max-h: 52vh;
+
+  --size-avatar-md: 40px;
+  --size-avatar-lg: 48px;
+
+  --size-toggle-w: 28px;
+  --size-toggle-h: 16px;
+  --size-toggle-thumb: 12px;
+  --size-toggle-offset: 2px;
+
+  --size-switch-track-lg-w: 36px;
+  --size-switch-track-lg-h: 20px;
+  --size-switch-thumb-lg: 14px;
+  --size-switch-offset-lg: 3px;
+
+  --size-choice-pill: 28px;
+  --size-choice-pill-sm: 26px;
+  --size-input-inline-sm: 70px;
+  --size-modal-wide: 1100px;
+  --size-modal-tall: min(80vh, 860px);
+  --size-character-textarea-min-h: 5.5rem;
+  --size-empty-icon-lg: 2rem;
+  --size-focus-ring: 3px;
+  --size-focus-ring-strong: 4px;
+  --size-status-glow-sm: 8px;
+  --size-status-glow-md: 12px;
+  --size-status-badge-offset: -2px;
+  --size-motion-lift-sm: -1px;
+  --size-motion-drop-sm: 4px;
+}

@@ -1,0 +1,86 @@
+@media (--repair-bp-max-980) {
+  .repair-workspace {
+    --repair-session-column: minmax(var(--repair-px-180), var(--repair-px-260));
+    --repair-workbench-column: minmax(0, 1.6fr);
+
+    grid-template-columns: var(--repair-session-column) var(--repair-workbench-column);
+    grid-template-rows: minmax(0, 1fr) auto auto auto;
+  }
+
+  .repair-panel--session-rail {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .repair-panel--workbench-stage {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .repair-panel--tactical-feed {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-height: var(--repair-px-180);
+  }
+
+  .repair-panel--wizard-pack-stack,
+  .repair-bottom-cluster {
+    grid-column: 1 / -1;
+  }
+
+  .repair-panel--wizard-pack-stack {
+    grid-row: 3;
+  }
+
+  .repair-bottom-cluster {
+    grid-row: 4;
+  }
+}
+
+@media (--repair-bp-max-680) {
+  .repair-statusbar {
+    height: auto;
+    min-height: var(--repair-px-32);
+    flex-wrap: wrap;
+    row-gap: var(--repair-sp-1);
+  }
+
+  .repair-workspace {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(var(--repair-px-360), 1fr) repeat(4, auto);
+  }
+
+  .repair-panel--session-rail,
+  .repair-panel--tactical-feed,
+  .repair-panel--wizard-pack-stack,
+  .repair-bottom-cluster {
+    grid-column: 1;
+  }
+
+  .repair-bottom-cluster__header {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .repair-panel--workbench-stage {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: var(--repair-px-360);
+  }
+
+  .repair-panel--session-rail {
+    grid-row: 2;
+  }
+
+  .repair-panel--tactical-feed {
+    grid-row: 3;
+  }
+
+  .repair-panel--wizard-pack-stack {
+    grid-row: 4;
+  }
+
+  .repair-bottom-cluster {
+    grid-row: 5;
+  }
+}

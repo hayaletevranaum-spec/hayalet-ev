@@ -1,0 +1,50 @@
+{
+  "extends": "../src/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["src/*"],
+      "@electron/*": ["electron/*"],
+      "@mcp/*": ["mcp-server/*"],
+      "@shared/*": ["src/types/*"],
+      "@theme-source/*": ["shared/themes/*"],
+      "@timeouts": ["shared/timeouts.ts"],
+      "@limits": ["shared/limits.ts"],
+      "@slots": ["shared/slots.ts"],
+      "@ui-constants": ["shared/ui-constants.ts"]
+    },
+    "outDir": "../dist/mcp-server",
+    "rootDir": "..",
+    "declaration": false,
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "types": ["node"],
+
+    // lib: ESNext + DOM — DOM tipleri src/types paylaşımlı dosyaları için gerekli
+    // Runtime güvencesi types:["node"] ile sağlanıyor (Node API'leri kısıtlı)
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "sourceMap": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./tsconfig.mcp.tsbuildinfo",
+    "noErrorTruncation": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".."
+  },
+  "include": ["**/*.ts", "../src/types/**/*.ts"],
+  "exclude": [
+    "../node_modules",
+    "../dist",
+    "../build",
+    "../electron",
+    "../src/js",
+    "../scripts",
+    "../logs",
+    "../commands",
+    "../data",
+    "../config",
+    "../screenshots",
+    "../tmp",
+    "../temp",
+    "../.vite",
+    "../.rovo"
+  ]
+}

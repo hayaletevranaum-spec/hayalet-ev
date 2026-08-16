@@ -1,0 +1,593 @@
+.tt-shell {
+  display: grid;
+  min-height: 0;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: clamp(var(--game-rem-0-5), 1vw, var(--game-rem-0-78));
+}
+
+.tt-surface {
+  min-height: 0;
+  height: 100%;
+  min-width: 0;
+  padding: clamp(var(--game-rem-0-48), 0.9vw, var(--game-rem-0-72));
+  border-radius: var(--game-rem-1-55);
+  border: var(--game-px-1) solid var(--shell-panel-border);
+  background:
+    radial-gradient(circle at top center, var(--game-gradient-09), transparent 28%),
+    linear-gradient(158deg, var(--game-bg-surface-2), var(--game-bg-deep-1));
+  box-shadow: var(--shell-shadow);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.tt-arena {
+  min-height: 0;
+  height: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(var(--game-rem-15-6), var(--game-rem-17)) minmax(0, 1fr);
+  gap: var(--game-rem-0-58);
+  overflow: hidden;
+}
+
+.tt-shell[data-tt-view="match"] .tt-arena {
+  grid-template-columns: minmax(var(--game-rem-14), var(--game-rem-15-5)) minmax(0, 1fr);
+  gap: var(--game-rem-0-5);
+}
+
+.tt-rail,
+.tt-stage {
+  min-width: 0;
+  min-height: 0;
+}
+
+.tt-rail {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: var(--game-rem-0-58);
+  align-content: start;
+  overflow: hidden;
+}
+
+.tt-shell[data-tt-view="match"] .tt-rail {
+  gap: var(--game-rem-0-45);
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.tt-panel,
+.tt-stage,
+.tt-requirement,
+.tt-board-card {
+  border-radius: var(--game-rem-1-2);
+  border: var(--game-px-1) solid var(--shell-panel-border);
+  background: linear-gradient(180deg, var(--game-white-04), transparent 50%), var(--shell-panel-bg);
+}
+
+.tt-panel {
+  padding: var(--game-rem-0-7);
+  display: grid;
+  gap: var(--game-rem-0-48);
+}
+
+.tt-shell[data-tt-view="match"] .tt-panel {
+  padding: var(--game-rem-0-58);
+  gap: var(--game-rem-0-34);
+}
+
+.tt-panel--intro {
+  padding-block: var(--game-rem-0-76);
+}
+
+.tt-shell[data-tt-view="match"] .tt-panel--intro {
+  padding-block: var(--game-rem-0-58);
+}
+
+.tt-panel--overview {
+  gap: var(--game-rem-0-62);
+}
+
+.tt-panel__eyebrow,
+.tt-panel__label {
+  margin: 0;
+  font-size: var(--game-rem-0-66);
+  letter-spacing: var(--game-em-0-14);
+  text-transform: uppercase;
+  color: var(--shell-muted);
+}
+
+.tt-panel__title {
+  margin: 0;
+  font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", serif;
+  font-size: clamp(var(--game-rem-1-65), 2.4vw, var(--game-rem-2-2));
+  line-height: var(--game-rem-0-96);
+}
+
+.tt-shell[data-tt-view="match"] .tt-panel__title {
+  font-size: clamp(var(--game-rem-1-22), 1.45vw, var(--game-rem-1-5));
+}
+
+.tt-panel__body,
+.tt-panel__hint {
+  margin: 0;
+  color: var(--shell-muted);
+  line-height: 1.4;
+  font-size: var(--game-rem-0-82);
+}
+
+.tt-shell[data-tt-view="match"] .tt-panel__body,
+.tt-shell[data-tt-view="match"] .tt-panel__hint {
+  font-size: var(--game-rem-0-72);
+  line-height: 1.32;
+}
+
+.tt-overview-grid {
+  display: grid;
+  gap: var(--game-rem-0-58);
+}
+
+.tt-overview-copy {
+  display: grid;
+  gap: var(--game-rem-0-22);
+}
+
+.tt-requirement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--game-rem-0-42);
+}
+
+.tt-requirement {
+  min-height: 0;
+  padding: var(--game-rem-0-62) var(--game-rem-0-66);
+  display: grid;
+  gap: var(--game-rem-0-18);
+}
+
+.tt-requirement[data-ready="true"] {
+  border-color: var(--game-accent-36);
+}
+
+.tt-requirement__slot {
+  font-size: var(--game-rem-0-6);
+  letter-spacing: var(--game-em-0-14);
+  text-transform: uppercase;
+  color: var(--shell-muted);
+}
+
+.tt-requirement__name {
+  font-size: var(--game-rem-0-84);
+  font-weight: 700;
+}
+
+.tt-requirement__status {
+  color: var(--shell-muted);
+  font-size: var(--game-rem-0-72);
+}
+
+.tt-toggle-row,
+.tt-actions {
+  display: grid;
+  gap: var(--game-rem-0-5);
+}
+
+.tt-partner-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--game-rem-0-42);
+}
+
+.tt-toggle-row,
+.tt-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tt-pairing-preview {
+  padding: var(--game-rem-0-58) var(--game-rem-0-62);
+  border-radius: var(--game-rem-0-96);
+  border: var(--game-px-1) solid var(--game-white-06);
+  background: var(--game-white-025);
+  display: grid;
+  gap: var(--game-rem-0-26);
+}
+
+.tt-toggle {
+  min-height: var(--game-rem-2-55);
+  padding: var(--game-rem-0-58) var(--game-rem-0-72);
+  border-radius: var(--game-rem-0-96);
+  border: var(--game-px-1) solid var(--game-white-08);
+  background: var(--game-white-03);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--game-ms-140) ease,
+    border-color var(--game-ms-140) ease,
+    background var(--game-ms-140) ease,
+    box-shadow var(--game-ms-140) ease;
+}
+
+.tt-toggle:focus-visible,
+.tt-prep-btn:focus-visible,
+.tt-prep-btn--confirm:focus-visible,
+.tt-route-btn:focus-visible,
+.tt-bend-row-btn:focus-visible,
+.tt-actions .backgammon-button:focus-visible,
+.tt-support-stack > .backgammon-button:focus-visible {
+  outline: var(--game-px-2) solid var(--game-accent-92);
+  outline-offset: var(--game-px-2);
+  box-shadow: var(--game-px-0) var(--game-px-0) var(--game-px-0) var(--game-px-3)
+    var(--game-accent-18);
+}
+
+.tt-toggle[data-selected="true"] {
+  border-color: var(--game-accent-42);
+  background:
+    linear-gradient(135deg, var(--game-gradient-31), var(--game-white-04)), var(--game-white-04);
+}
+
+.tt-toggle:hover {
+  transform: translateY(var(--game-px-neg-1));
+}
+
+.tt-stage {
+  min-height: 0;
+  padding: var(--game-rem-0-62);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  gap: var(--game-rem-0-58);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, var(--game-teal-13-1), transparent 42%),
+    linear-gradient(180deg, var(--game-white-04), transparent 32%), var(--game-bg-dark-overlay-4);
+}
+
+.tt-shell[data-tt-view="match"] .tt-stage {
+  padding: var(--game-rem-0-52);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--game-rem-0-46);
+}
+
+.tt-match-topbar {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr) minmax(0, 0.9fr) minmax(0, 1.05fr);
+  gap: var(--game-rem-0-46);
+  align-items: center;
+  padding: var(--game-rem-0-42) var(--game-rem-0-58);
+  border-radius: var(--game-rem-0-96);
+  border: var(--game-px-1) solid var(--game-accent-2);
+  background:
+    linear-gradient(135deg, var(--game-bg-teal-dark-2), var(--game-white-03)), var(--game-white-025);
+  box-shadow: inset var(--game-px-0) var(--game-px-0) var(--game-px-0) var(--game-px-1)
+    var(--game-white-04);
+}
+
+.tt-match-topbar > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tt-match-topbar__status {
+  font-size: var(--game-rem-0-86);
+  line-height: 1.2;
+}
+
+.tt-match-topbar__turn,
+.tt-match-topbar__roster,
+.tt-match-topbar__ready {
+  color: var(--shell-muted);
+  font-size: var(--game-rem-0-72);
+  line-height: 1.25;
+}
+
+.tt-match-topbar__ready {
+  justify-self: end;
+  max-width: 100%;
+  padding: var(--game-rem-0-18) var(--game-rem-0-42);
+  border-radius: var(--game-px-999);
+  border: var(--game-px-1) solid var(--game-white-08);
+  background: var(--game-white-03);
+}
+
+.tt-stage-main {
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(var(--game-rem-16), var(--game-rem-18));
+  gap: var(--game-rem-0-58);
+  overflow: hidden;
+}
+
+.tt-shell[data-tt-view="match"] .tt-stage-main {
+  grid-template-columns: minmax(0, 1fr) minmax(var(--game-rem-14), var(--game-rem-15-5));
+  gap: var(--game-rem-0-5);
+}
+
+.tt-support-stack {
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: var(--game-rem-0-52);
+  align-content: start;
+}
+
+.tt-shell[data-tt-view="match"] .tt-support-stack {
+  gap: var(--game-rem-0-38);
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.tt-shell[data-tt-view="match"] .tt-context-card,
+.tt-shell[data-tt-view="match"] .tt-prep-area {
+  padding: var(--game-rem-0-46) var(--game-rem-0-5);
+  gap: var(--game-rem-0-32);
+}
+
+.tt-shell[data-tt-view="match"] .tt-context-card--status {
+  background: linear-gradient(140deg, var(--game-bg-teal-dark-2), var(--game-white-025));
+}
+
+.tt-shell[data-tt-view="match"] .tt-context-card--status .tt-context-card__lead {
+  font-size: var(--game-rem-0-78);
+  line-height: 1.28;
+}
+
+.tt-shell[data-tt-view="match"] .tt-context-card__meta,
+.tt-shell[data-tt-view="match"] .tt-context-card__hint,
+.tt-shell[data-tt-view="match"] .tt-context-card__empty {
+  font-size: var(--game-rem-0-68);
+  line-height: 1.3;
+}
+
+.tt-shell[data-tt-view="match"] .tt-prep-area__controls {
+  gap: var(--game-rem-0-3);
+}
+
+.tt-shell[data-tt-view="match"] .tt-prep-btn {
+  min-height: var(--game-rem-2-35);
+}
+
+.tt-shell[data-tt-view="match"] .tt-prep-btn--confirm,
+.tt-shell[data-tt-view="match"] .tt-support-stack > .backgammon-button {
+  min-height: var(--game-rem-2-4);
+}
+
+.tt-support-pair {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--game-rem-0-52);
+}
+
+.tt-lobby-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--game-rem-0-48);
+}
+
+.tt-lobby-slot {
+  display: flex;
+  align-items: center;
+  gap: var(--game-rem-0-36);
+  padding: var(--game-rem-0-3) var(--game-rem-0-52) var(--game-rem-0-3) var(--game-rem-0-3);
+  border-radius: var(--game-px-999);
+  border: var(--game-px-1) solid var(--game-white-08);
+  background: var(--game-white-03);
+  font-size: var(--game-rem-0-74);
+  font-weight: 600;
+}
+
+.tt-lobby-slot[data-anonymous="true"] {
+  border-style: dashed;
+  opacity: 0.62;
+}
+
+.tt-lobby-slot__avatar {
+  width: var(--game-rem-1-6);
+  height: var(--game-rem-1-6);
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--game-accent-18);
+  flex-shrink: 0;
+}
+
+.tt-lobby-slot__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tt-lobby-slot__initial {
+  font-size: var(--game-rem-0-7);
+  font-weight: 700;
+  color: var(--game-accent-92);
+}
+
+.tt-lobby-slot__name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: var(--game-rem-6);
+}
+
+.tt-lobby-slot__badge {
+  margin-left: auto;
+  padding: var(--game-rem-0-1) var(--game-rem-0-36);
+  border-radius: var(--game-px-999);
+  font-size: var(--game-rem-0-56);
+  font-weight: 700;
+  letter-spacing: var(--game-em-0-08);
+  text-transform: uppercase;
+  background: var(--game-white-06);
+  color: var(--shell-muted);
+}
+
+.tt-lobby-slot__badge[data-ready="true"] {
+  background: var(--game-accent-18);
+  color: var(--game-bg-teal-light-1);
+}
+
+.tt-lobby-slot[data-ready="true"] {
+  border-color: var(--game-accent-28);
+}
+
+.tt-lobby-slot[data-ready="false"] {
+  opacity: 0.68;
+}
+
+.tt-prep-area {
+  padding: var(--game-rem-0-62);
+  border-radius: var(--game-rem-1);
+  border: var(--game-px-1) solid var(--game-accent-18);
+  background:
+    radial-gradient(circle at top center, var(--game-gradient-10), transparent 48%),
+    linear-gradient(180deg, var(--game-white-04), transparent 40%), var(--game-bg-dark-overlay-2);
+  display: grid;
+  gap: var(--game-rem-0-52);
+}
+
+.tt-prep-area__empty {
+  margin: 0;
+  color: var(--shell-muted);
+  font-size: var(--game-rem-0-78);
+  text-align: center;
+  padding: var(--game-rem-1) var(--game-px-0);
+}
+
+.tt-prep-area__stage-label {
+  display: flex;
+  align-items: center;
+  gap: var(--game-rem-0-36);
+}
+
+.tt-prep-area__stage-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--game-rem-1-4);
+  padding: var(--game-rem-0-14) var(--game-rem-0-52);
+  border-radius: var(--game-px-999);
+  border: var(--game-px-1) solid var(--game-accent-32);
+  background: var(--game-accent-12);
+  color: var(--game-bg-teal-light-1);
+  font-size: var(--game-rem-0-62);
+  font-weight: 700;
+  letter-spacing: var(--game-em-0-1);
+  text-transform: uppercase;
+}
+
+.tt-prep-area__controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--game-rem-0-38);
+}
+
+.tt-prep-btn {
+  min-height: var(--game-rem-2-2);
+  font-size: var(--game-rem-0-72);
+  padding: var(--game-rem-0-36) var(--game-rem-0-42);
+}
+
+.tt-prep-btn--confirm {
+  width: 100%;
+}
+
+.tt-route-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--game-rem-0-38);
+}
+
+.tt-route-btn {
+  text-align: center;
+  font-size: var(--game-rem-0-72);
+  min-height: var(--game-rem-2-2);
+}
+
+.tt-route-panel {
+  display: grid;
+  gap: var(--game-rem-0-42);
+}
+
+.tt-bend-row-picker {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: var(--game-rem-0-22);
+}
+
+.tt-bend-row-btn {
+  appearance: none;
+  padding: var(--game-rem-0-22);
+  min-height: var(--game-rem-1-6);
+  border-radius: var(--game-rem-0-36);
+  border: var(--game-px-1) solid var(--game-white-08);
+  background: var(--game-white-03);
+  color: inherit;
+  font-size: var(--game-rem-0-58);
+  cursor: pointer;
+  text-align: center;
+}
+
+.tt-bend-row-btn[data-selected="true"] {
+  border-color: var(--game-accent-42);
+  background: var(--game-accent-16);
+}
+
+.tt-turn-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--game-rem-0-36);
+  padding: var(--game-rem-0-18) var(--game-px-0);
+}
+
+.tt-turn-indicator__dot {
+  width: var(--game-rem-0-5);
+  height: var(--game-rem-0-5);
+  border-radius: 50%;
+  background: var(--game-white-16);
+  flex-shrink: 0;
+}
+
+.tt-turn-indicator[data-active="true"] .tt-turn-indicator__dot {
+  background: var(--game-accent-92);
+  box-shadow: var(--game-px-0) var(--game-px-0) var(--game-px-6) var(--game-accent-48);
+  animation: tt-pulse var(--game-rem-1-6) ease-in-out infinite;
+}
+
+.tt-turn-indicator__text {
+  font-size: var(--game-rem-0-78);
+  font-weight: 600;
+}
+
+@keyframes tt-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.42;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tt-toggle,
+  .tt-prep-btn,
+  .tt-route-btn,
+  .tt-bend-row-btn {
+    transition: none;
+  }
+
+  .tt-toggle:hover {
+    transform: none;
+  }
+
+  .tt-turn-indicator[data-active="true"] .tt-turn-indicator__dot {
+    animation: none;
+  }
+}

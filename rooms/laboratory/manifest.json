@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 2,
+  "id": "laboratory",
+  "name": "Laboratory",
+  "version": "1.0.0",
+  "menu": {
+    "label": "Laboratory",
+    "icon": "LB",
+    "iconSrc": "assets/nav-icon.svg",
+    "order": 90
+  },
+  "runtime": {
+    "uiEntry": "ui/index.html",
+    "hostEntry": "host/index.js"
+  },
+  "defaultFeatureId": "media-analysis",
+  "features": [
+    {
+      "id": "media-analysis",
+      "name": "Analysis Workbench",
+      "description": "The unified Laboratory entry point for project intake, readiness review, processing, and reporting across all analysis modules.",
+      "icon": "MA",
+      "scene": {
+        "hotspot": {
+          "id": "laboratory-media-analysis",
+          "rect": {
+            "leftPx": 934,
+            "topPx": 176,
+            "widthPx": 508,
+            "heightPx": 320
+          },
+          "label": {
+            "text": "Analysis Workbench"
+          }
+        },
+        "view": {
+          "id": "media-analysis-console",
+          "backgroundSrc": "features/media-analysis/assets/media-analysis-view.webp",
+          "transparentWindow": {
+            "leftPct": 2.4,
+            "topPct": 10.8,
+            "widthPct": 95.2,
+            "heightPct": 79.4
+          }
+        }
+      }
+    },
+    {
+      "id": "audio-analysis",
+      "name": "Audio Analysis",
+      "description": "An audio-first analysis desk that reuses the laboratory tool room for source prep, signal checks, speech tooling, and reporting.",
+      "icon": "AU"
+    }
+  ],
+  "workbench": {
+    "experienceId": "analysis-workbench",
+    "label": "Laboratory Workbench",
+    "description": "A guided desktop workbench that unifies media and audio analysis into one room flow.",
+    "mode": "guided",
+    "primaryFeatureId": "media-analysis",
+    "availableFeatureIds": ["media-analysis", "audio-analysis"]
+  },
+  "description": "An obsidian analysis room with a guided workbench for intake, readiness, processing, and reporting across media and audio modules.",
+  "scene": {
+    "referenceSize": {
+      "width": 1600,
+      "height": 900
+    },
+    "roomBackgroundSrc": "assets/room-background.webp",
+    "roomsHotspot": {
+      "id": "laboratory-door",
+      "rect": {
+        "leftPx": 352,
+        "topPx": 284,
+        "widthPx": 200,
+        "heightPx": 530
+      },
+      "label": {
+        "text": "Laboratory"
+      }
+    },
+    "backHotspot": {
+      "id": "laboratory-back",
+      "rect": {
+        "leftPx": 54,
+        "topPx": 150,
+        "widthPx": 168,
+        "heightPx": 256
+      },
+      "label": {
+        "text": "Corridor"
+      }
+    },
+    "chrome": {
+      "pageShellVariant": "immersive-stage"
+    }
+  },
+  "i18n": {
+    "baseDir": "i18n"
+  }
+}

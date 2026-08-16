@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 2,
+  "id": "repair-room",
+  "name": "Repair Room",
+  "version": "0.1.0",
+  "menu": {
+    "label": "Repair Room",
+    "icon": "RR",
+    "iconSrc": "shared/assets/nav-icon.svg",
+    "order": 90
+  },
+  "runtime": {
+    "uiEntry": "ui/index.html",
+    "hostEntry": "host/index.js"
+  },
+  "defaultFeatureId": "repair-workbench",
+  "features": [
+    {
+      "id": "repair-workbench",
+      "name": "Repair Workbench",
+      "description": "A live electronics repair bench combining PCB camera, AI overlay highlights, measurement panel, knowledge pack viewer, and operator profile awareness.",
+      "icon": "RW",
+      "commandSpecs": [
+        {
+          "name": "RepairRoomUiReady",
+          "description": "Signal that the Repair Room UI is attached and ready.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomActivateSession",
+          "description": "Switch the active repair session in the workbench.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomCreateSession",
+          "description": "Create a new repair session draft from the session wizard.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdateSession",
+          "description": "Patch active session fields (device info, symptoms, risk level).",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomArchiveSession",
+          "description": "Move a session into the archive group.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomDeleteSession",
+          "description": "Delete a saved repair session and its room-local stored data.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAdvanceWizard",
+          "description": "Move the new-session wizard to the next or named step.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStartKnowledgeResearch",
+          "description": "Start Assistant AI evidence research for the current wizard draft.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSkipKnowledgeResearch",
+          "description": "Continue the repair intake without Assistant AI evidence research.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdateEvidenceSelection",
+          "description": "Update the evidence resources, failures, and test points selected for the session archive.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAddKnowledgeResource",
+          "description": "Add an operator-provided schematic, board image, datasheet, thread, or note to the current knowledge pack.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAddKnowledgeFailure",
+          "description": "Stage an operator-provided common failure in the wizard evidence review.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAddKnowledgeTestPoint",
+          "description": "Stage an operator-provided rail or probe point in the wizard evidence review.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAddKnowledgeNote",
+          "description": "Stage an operator-provided repair note in the wizard evidence review.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomRemoveKnowledgeEvidence",
+          "description": "Stage removal of a resource, failure, test point, or note from the wizard evidence review.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAttachKnowledgePack",
+          "description": "Attach a generated knowledge pack to the active session.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetActiveTool",
+          "description": "Select the active workbench tool (annotation, measurement, freeze-frame, etc.).",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomToggleFreezeFrame",
+          "description": "Toggle the workbench live/freeze-frame state.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomToggleOverlayLayer",
+          "description": "Toggle visibility of an overlay layer (grid, AI marks, annotations, pins).",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAddTimelineEvent",
+          "description": "Append a structured timeline event (annotation, measurement, note, AI mark, risk flag).",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomJumpToEvent",
+          "description": "Select and focus a timeline event in the workbench and feed.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomScrubTimeline",
+          "description": "Move the visual timeline playhead to a specific session time.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomAddMeasurement",
+          "description": "Record a measurement reading and attach it to the active session.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomDismissAiMark",
+          "description": "Acknowledge or dismiss an Assistant AI feed event or overlay mark.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetAiTargetSlot",
+          "description": "Select the AI slot used for project-bound repair assistant messages.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSendChatTurn",
+          "description": "Append an operator turn to the Assistant AI session chat and request a response.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetChatComposer",
+          "description": "Persist the Repair Room chat composer draft for typed or dictated text.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdateOperatorProfile",
+          "description": "Patch the operator profile (tools, skills, preferences).",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdateViewport",
+          "description": "Update workbench viewport zoom and pan without changing panel layout.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdateTimeline",
+          "description": "Update visual timeline zoom and range controls.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdatePanelLayout",
+          "description": "Persist a single panel collapse or pin state change.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdatePanelTab",
+          "description": "Switch a Repair Room panel tab or instrument tab.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomUpdateFocus",
+          "description": "Toggle Repair Room focus mode independently from other layout state.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetOperationalProfile",
+          "description": "Switch Repair Room between novice and advanced operational density profiles.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetVoiceGuidance",
+          "description": "Update ambient listening and hands-busy spoken guidance preferences.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetInteractionSettings",
+          "description": "Update Repair Room hands-free route preferences for dictation, TTS, camera feed, and companion access.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetSettingsOverlay",
+          "description": "Open, close, or switch the Repair Room settings overlay tab.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStartDictation",
+          "description": "Start Repair Room dictation through the central capture runtime.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStopDictation",
+          "description": "Stop the Repair Room dictation request owned by this room.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStartAmbientListener",
+          "description": "Start ambient listening through the central capture runtime for hands-free repair.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStopAmbientListener",
+          "description": "Stop the Repair Room ambient listener request owned by this room.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStartCameraFeed",
+          "description": "Start the Android camera feed for the Repair Room workbench.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStopCameraFeed",
+          "description": "Stop the Repair Room camera feed request owned by this room.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomCapturePhoto",
+          "description": "Capture the current Android camera frame and attach it as the active board image.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetCameraTorch",
+          "description": "Toggle the Android companion torch for the Repair Room workbench camera.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSpeakGuidance",
+          "description": "Read the current Repair Room guidance line through the central TTS runtime.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomStopSpeech",
+          "description": "Stop the Repair Room TTS request owned by this room.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSetAttentionBudget",
+          "description": "Update AI interruption budget limits for calm guidance.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomToggleInvestigationMode",
+          "description": "Toggle the projection-driven spatial investigation overlay mode.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomSelectOverlayEntities",
+          "description": "Select command-addressable overlay entities by semantic refs.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomFocusOverlayEntity",
+          "description": "Focus a command-addressable overlay entity and reveal its spatial context.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomFocusInvestigationRegion",
+          "description": "Focus an event-backed investigation region by stable region id.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomFocusKnowledgeSpatialRef",
+          "description": "Focus a knowledge-pack spatial reference and expose temporary overlay context.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomPromoteKnowledgeRegion",
+          "description": "Promote a knowledge-pack spatial reference into a canonical investigation region event.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "RepairRoomFocusLiveEdge",
+          "description": "Return overlay focus and replay state to the live edge.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        }
+      ],
+      "protocolSpecs": [
+        {
+          "key": "repair-room-assistant-evidence",
+          "room": "repair-room",
+          "scenario": "repair-workbench-assistant-evidence",
+          "title": "[REPAIR][ASSISTANT][EVIDENCE]",
+          "editable": true,
+          "path": "main-functions/repair-workbench/protocols/repair-room-assistant-evidence.md"
+        },
+        {
+          "key": "repair-room-assistant-observation",
+          "room": "repair-room",
+          "scenario": "repair-workbench-assistant-observation",
+          "title": "[REPAIR][ASSISTANT][OBSERVATION]",
+          "editable": true,
+          "path": "main-functions/repair-workbench/protocols/repair-room-assistant-observation.md"
+        },
+        {
+          "key": "repair-room-assistant-chat",
+          "room": "repair-room",
+          "scenario": "repair-workbench-assistant-chat",
+          "title": "[REPAIR][ASSISTANT][CHAT]",
+          "editable": true,
+          "path": "main-functions/repair-workbench/protocols/repair-room-assistant-chat.md"
+        },
+        {
+          "key": "repair-room-assistant-risk-scan",
+          "room": "repair-room",
+          "scenario": "repair-workbench-assistant-risk-scan",
+          "title": "[REPAIR][ASSISTANT][RISK-SCAN]",
+          "editable": true,
+          "path": "main-functions/repair-workbench/protocols/repair-room-assistant-risk-scan.md"
+        }
+      ],
+      "scene": {
+        "hotspot": {
+          "id": "repair-room-workbench",
+          "rect": {
+            "leftPx": 930,
+            "topPx": 178,
+            "widthPx": 508,
+            "heightPx": 320
+          },
+          "label": {
+            "text": "Repair Workbench",
+            "textKey": "rooms.repair-room.workbench.title"
+          }
+        },
+        "view": {
+          "id": "repair-room-console",
+          "backgroundSrc": "main-functions/repair-workbench/assets/repair-workbench-view.svg",
+          "transparentWindow": {
+            "leftPct": 2.8,
+            "topPct": 11.4,
+            "widthPct": 94.4,
+            "heightPct": 78.8
+          }
+        }
+      }
+    }
+  ],
+  "workbench": {
+    "experienceId": "repair-workbench",
+    "label": "Repair Workbench",
+    "description": "Live PCB stage with overlay annotations, Assistant AI flow, measurement panel, knowledge pack viewer, and operator profile awareness.",
+    "mode": "guided",
+    "primaryFeatureId": "repair-workbench",
+    "availableFeatureIds": ["repair-workbench"]
+  },
+  "description": "An electronics repair workstation that combines a live PCB workbench, Assistant AI flow, knowledge pack research, and operator-aware diagnostic guidance.",
+  "scene": {
+    "referenceSize": {
+      "width": 1600,
+      "height": 900
+    },
+    "roomBackgroundSrc": "shared/assets/room-background.svg",
+    "roomsHotspot": {
+      "id": "repair-room-door",
+      "rect": {
+        "leftPx": 1236,
+        "topPx": 372,
+        "widthPx": 170,
+        "heightPx": 332
+      },
+      "label": {
+        "text": "Repair Room",
+        "textKey": "rooms.repair-room.title"
+      }
+    },
+    "backHotspot": {
+      "id": "repair-room-back",
+      "rect": {
+        "leftPx": 56,
+        "topPx": 154,
+        "widthPx": 168,
+        "heightPx": 252
+      },
+      "label": {
+        "text": "Corridor"
+      }
+    },
+    "chrome": {
+      "pageShellVariant": "immersive-stage"
+    }
+  },
+  "i18n": {
+    "baseDir": "i18n"
+  }
+}

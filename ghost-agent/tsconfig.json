@@ -1,0 +1,65 @@
+{
+  "compilerOptions": {
+    // === Temel Ayarlar ===
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+    // === Tip Kontrolü ===
+    "noEmit": true,
+
+    // === Strict Ayarları (Maximum) ===
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+
+    // === Additional Strictness ===
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "allowUnreachableCode": false,
+
+    // === Import/Export ===
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+
+    // === Path Alias ===
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@ghost/*": ["src/renderer/*"],
+      "@timeouts": ["../shared/timeouts.ts"],
+      "@limits": ["../shared/limits.ts"],
+      "@slots": ["../shared/slots.ts"],
+      "@ui-constants": ["../shared/ui-constants.ts"]
+    },
+
+    // === Diğer ===
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noErrorTruncation": true
+  },
+
+  // === Ghost-Agent Renderer + Shared ===
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".vite"
+  ]
+}

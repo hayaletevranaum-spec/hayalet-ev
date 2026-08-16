@@ -1,0 +1,35 @@
+/* ── Tabs (shared by knowledge-pack, operator-profile, measurement) */
+.repair-tabs {
+  display: flex;
+  gap: var(--repair-px-4);
+  padding-bottom: var(--repair-px-4);
+  border-bottom: var(--repair-px-1) solid var(--repair-border-muted);
+}
+
+.repair-tab {
+  padding: var(--repair-px-6) var(--repair-px-10);
+  border: var(--repair-px-1) solid transparent;
+  border-radius: var(--repair-radius-sm);
+  color: var(--repair-text-dim);
+  cursor: pointer;
+  font-size: var(--repair-px-11);
+  transition: all var(--repair-dur-hover) var(--repair-ease);
+}
+
+.repair-tab:hover {
+  border-color: var(--repair-border-muted);
+  background: var(--repair-surface-control);
+  color: var(--repair-text-muted);
+}
+
+.repair-tab--active {
+  border-color: var(--repair-cyan-half);
+  background: var(--repair-cyan-panel);
+  color: var(--repair-text);
+}
+
+.repair-panel-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--repair-sp-3);
+}

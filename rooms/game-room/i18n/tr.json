@@ -1,0 +1,231 @@
+{
+  "title": "Oyun Odasi",
+  "subtitle": "Canli AI slotlari veya bagli US1 uzak kullanicisi ile dogrudan maclar icin odakli masa oyunu odasi.",
+  "features": {
+    "backgammon": "Tavla",
+    "team-tetris": "Takim Tetris"
+  },
+  "backgammon": {
+    "heroBadge": "Oyun Odasi",
+    "heroTitle": "Tavla Mac Masasi",
+    "heroSubtitle": "AI1, AI2 veya US1'i sec, kimin baslayacagini belirle ve legal hamle komutlariyla sirali bir Tavla maci oyna.",
+    "topbar": {
+      "featureLabel": "Ana Fonksiyon",
+      "opponentLabel": "Rakip",
+      "starterLabel": "Baslangic",
+      "starterUser": "Kullanici Baslar",
+      "starterAi": "AI Baslar",
+      "starterRemote": "Uzak Kullanici Baslar",
+      "start": "Maci Baslat",
+      "sendInvite": "Davet Gonder",
+      "reset": "Maci Sifirla",
+      "inviteMessageLabel": "Davet Mesaji",
+      "inviteMessagePlaceholder": "Protokol veya uzak davet maili icin opsiyonel bir not ekle.",
+      "inviteMessageHintAi": "AI1 veya AI2 seciliyken bu not yalnizca ilk protokol mesajinin basina eklenir.",
+      "inviteMessageHintUs1": "US1 seciliyken bu not yalnizca davet mailinde gonderilir."
+    },
+    "board": {
+      "title": "Tahta",
+      "statusLabel": "Mac Durumu",
+      "turnLabel": "Sira",
+      "resultLabel": "Sonuc",
+      "diceLabel": "Zar",
+      "barLabel": "Bar",
+      "offLabel": "Toplanan",
+      "legalMovesLabel": "Legal Hamleler",
+      "fallbackMovesLabel": "Yedek Hamleler",
+      "fallbackMovesHint": "Pullari tahtada surukle; bu dugmeler kompakt yedek akis olarak kalir.",
+      "moreMoves": "hamle daha",
+      "noMoves": "Bu tur icin legal hamle yok.",
+      "dragHint": "Bir pulu vurgulanan noktaya surukle.",
+      "dragActiveHint": "Hazirlanan hamleyi tamamla.",
+      "opponentThinking": "Rakip hamlesini seciyor.",
+      "stageIdle": "Tahtayi acmak icin mac baslat.",
+      "stageFallback": "Gorsel tahta motoru yukleniyor.",
+      "passMove": "Pas",
+      "undoStage": "Geri Al",
+      "targetCount": "hedef",
+      "noTargetCount": "hedef yok"
+    },
+    "side": {
+      "title": "Canli Rakipler",
+      "protocolTitle": "Protokol Kurallari",
+      "controlsTitle": "Nasil Isler",
+      "commandHint": "AI cevap formati: ++cmd:SlotBridge({\"action\":\"room.command\",\"payload\":{\"commandName\":\"GameRoomBackgammonAiMove\",\"legalMoveId\":\"move_id\",\"turnToken\":\"token\"}})",
+      "latestMessageHint": "Komutlar yalnizca son assistant mesajindan yakalanir.",
+      "help1": "1. Bagli bir AI slotu sec ve kimin acilis yapacagini belirle.",
+      "help2": "2. Sira sendeyken legal hamlelerden birini sec.",
+      "help3": "3. Her AI turunda zar, tahta durumu, token ve legal hamle id'leri iletilir."
+    },
+    "status": {
+      "roomApiUnavailable": "Room API koprusu bagli degil.",
+      "commandSendFailed": "Komut oda host'una gonderilemedi.",
+      "idle": "Hazir bir rakip sec veya gelen bir davete yanit ver."
+    },
+    "results": {
+      "idle": "Hazir",
+      "pending": "Devam Ediyor",
+      "blocked": "Bloke",
+      "user-win": "Kullanici Kazandi",
+      "ai-win": "AI Kazandi",
+      "draw": "Berabere"
+    },
+    "turns": {
+      "user": "Kullanici",
+      "ai": "Rakip",
+      "idle": "Bekliyor"
+    },
+    "slotState": {
+      "ready": "Hazir",
+      "disconnected": "Bagli Degil",
+      "assigned": "Atanmis",
+      "empty": "Hesap Yok"
+    },
+    "invites": {
+      "title": "Davetler",
+      "incomingTab": "Gelen",
+      "outgoingTab": "Giden",
+      "empty": "Henuz gelen uzak davet yok.",
+      "outgoingEmpty": "Giden aktif davet yok.",
+      "accept": "Kabul Et",
+      "reject": "Reddet",
+      "cancel": "Daveti Iptal Et",
+      "pendingOutgoing": "Davet gonderildi. Yanit bekleniyor.",
+      "messageFallback": "Davet mesaji eklenmedi.",
+      "starterUser": "Sen baslarsin",
+      "starterRemote": "Uzak kullanici baslar"
+    },
+    "history": {
+      "title": "Mac Gecmisi",
+      "empty": "Henuz tamamlanan mac yok.",
+      "win": "Kazandin",
+      "loss": "Kaybettin",
+      "draw": "Berabere"
+    },
+    "matchup": {
+      "vs": "VS",
+      "turnYours": "Sira sende",
+      "turnTheirs": "Rakip oynuyor"
+    }
+  },
+  "teamTetris": {
+    "heroBadge": "Oyun Odasi",
+    "heroTitle": "Takim Tetris Masasi",
+    "heroSubtitle": "Kullanici, AI1, AI2 ve bagli US1 uzak kullanicisi icin dort kisilik, sirali ve tahmin odakli Tetris maci.",
+    "controls": {
+      "featureLabel": "Ana Fonksiyon",
+      "requirementsLabel": "Baslangic Kapisi",
+      "hiddenPairsLabel": "Gizli Esler",
+      "hiddenPairsOn": "Esler oyun sonuna kadar gizli",
+      "hiddenPairsOff": "Esleri belirle",
+      "partnerLabel": "Yerel es sec",
+      "partnerPreviewTitle": "Eslesme Onizlemesi",
+      "partnerPending": "Mac baslamadan once bir takim arkadasi sec.",
+      "partnerHint": "Secilen koltuk USER ile ayni takima gecer. Kalan iki koltuk diger takim olur.",
+      "start": "Maci Baslat",
+      "reset": "Maci Sifirla",
+      "startHint": "Mac ancak AI1, AI2 ve US1 hazir oldugunda baslar. Esler bastan acik olacaksa once yerel es secilmelidir.",
+      "requirementReady": "Hazir",
+      "requirementWaiting": "Bekleniyor",
+      "awaitingTurn": "Yerel kullanicinin tur paketi bekleniyor.",
+      "pathHint": "Parcayi dondur, sonra gorecegini dusundugun dusus ve kayis yolunu ciz.",
+      "pathReady": "Gorunen tahtaya gore yol hazir. Son belirledigin noktadan sonra parca kendi kendine duz asagi iner.",
+      "rotate": "Saat Yonunde Dondur",
+      "clearPath": "Yolu Temizle",
+      "submitMove": "Hamleyi Gonder",
+      "rotationLabel": "Siradaki Parca",
+      "rotationShort": "Rot",
+      "pathEmpty": "Henuz yol yok",
+      "pathLegend": "Yol Kurali",
+      "pathRule": "Her asagi adimda sola 1, sabit ya da saga 1 kayilabilir. Yol erken bloke olursa parca orada kalir; yol biter ve alti bossa duz asagi dusmeye devam eder."
+    },
+    "boards": {
+      "teamA": "Takim A Tahtasi",
+      "teamB": "Takim B Tahtasi",
+      "privateBoard": "Kendi Takim Gorunumu",
+      "publicBoard": "Rakibin Acik Gorunumu",
+      "empty": "Tahta bos",
+      "seedLabel": "Deterministik kurulum",
+      "beforePartner": "Es Parcasindan Onceki Tahta",
+      "partnerPiece": "Esin Son Parcasi",
+      "currentPiece": "Senin Siradaki Parcan",
+      "emptyPiece": "Gosterilecek parca yok.",
+      "noPartnerPiece": "Henuz kilitlenen bir es parcasi yok.",
+      "publicSummary": "Rakip Ozeti",
+      "publicHint": "Karsi takim tahtasi sadece son acik durumu gosterir."
+    },
+    "status": {
+      "roomApiUnavailable": "Room API koprusu bagli degil.",
+      "commandSendFailed": "Komut oda host'una gonderilemedi.",
+      "idle": "Takim Tetris baslamadan once AI1, AI2 ve US1 bekleniyor.",
+      "ready": "Gerekli tum koltuklar hazir. Takim Tetris acilis turu tohumlanabilir.",
+      "activeFeatureReset": "Takim Tetris ozelliginden cikmak aktif Takim Tetris macini sifirlar.",
+      "blocked": "Bu Takim Tetris maci bloke oldu. Toparlamak icin sifirla.",
+      "yourTurn": "Sira sende. Parcayi dondur, tahmin ettigin yolu ciz ve hamleyi gonder.",
+      "partnerTurnHidden": "Takim arkadasin oynuyor, ama gizli es modu kimligini simdilik sakliyor.",
+      "partnerTurn": "Takim arkadasin kendi tahtanda hamle yapiyor.",
+      "opponentTurn": "Karsi takim su anda hamle yapiyor.",
+      "team-a-win": "Takim A daha uzun dayandi ve maci kazandi.",
+      "team-b-win": "Takim B daha uzun dayandi ve maci kazandi.",
+      "draw": "Iki takim da ayni anda tikandi. Mac berabere bitti."
+    },
+    "results": {
+      "idle": "Beklemede",
+      "pending": "Canli",
+      "blocked": "Bloke",
+      "team-a-win": "Takim A Kazandi",
+      "team-b-win": "Takim B Kazandi",
+      "draw": "Berabere"
+    },
+    "turns": {
+      "idle": "Aktif tur yok",
+      "you": "Sen",
+      "opponent": "Rakip Eslesme"
+    },
+    "roles": {
+      "opener": "Acilis",
+      "followup": "Takip"
+    },
+    "roster": {
+      "title": "Koltuk Gorunumu",
+      "youLabel": "Yerel Koltuk",
+      "partnerLabel": "Es",
+      "partnerUnknown": "Es gizli",
+      "partnerOpener": "Gizli acilis oyuncusu",
+      "partnerFollowup": "Gizli takip oyuncusu",
+      "pairStatusTitle": "Es Durumu",
+      "hiddenHint": "Es kimlikleri mac bitene kadar gizli kalir.",
+      "revealedHint": "Es kimlikleri artik iki takim icin de gorunur."
+    },
+    "metrics": {
+      "turnLabel": "Hamle Sirasi",
+      "resultLabel": "Mac Durumu",
+      "roleLabel": "Yerel Rol",
+      "draftLabel": "Taslak Kaymalar"
+    },
+    "stage": {
+      "positioningLabel": "Asama 1: Konum",
+      "routeLabel": "Asama 2: Rota",
+      "noPiece": "Siraniz bekleniyor...",
+      "moveLeft": "Sol",
+      "moveRight": "Sag",
+      "rotateCw": "SD",
+      "rotateCcw": "STD",
+      "confirmPosition": "Konumu Onayla",
+      "backToPosition": "Konuma Don",
+      "routeTitle": "Rota Modu",
+      "routeStraight": "Duz",
+      "routeBendLeft": "Sola Kiril",
+      "routeBendRight": "Saga Kiril",
+      "bendRowLabel": "Kirilma Satiri"
+    },
+    "validation": {
+      "invalidRotation": "Bu donus siradaki parca icin gecerli degil.",
+      "invalidRowShifts": "Cizilen yol gecersiz bir yatay kayma iceriyor.",
+      "spawnCollision": "Parca mevcut tahtada dogamiyor.",
+      "horizontalCollision": "Cizilen yol gorunen tahtada yana kayarken dolu bir hucreye carpisiyor.",
+      "downwardCollision": "Cizilen yol gorunen tahtada asagi inerken dolu bir hucreye carpisiyor.",
+      "incompletePath": "Yol burada biterse parca kalan mesafeyi duz asagi kendi tamamlar."
+    }
+  }
+}

@@ -1,0 +1,1080 @@
+@custom-media --lab-bp-max-840 (max-width: 840px);
+@custom-media --lab-bp-max-860 (max-width: 860px);
+@custom-media --lab-bp-max-960 (max-width: 960px);
+@custom-media --lab-bp-max-1180 (max-width: 1180px);
+/* Laboratory UI design tokens.
+ *
+ * Tokens cover color, typography, spacing, radius, shadow, z-layer, motion, and layout.
+ * The --labx-* aliases remain for compatibility while older selectors migrate.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Surface color scale. */
+  --lab-surface-0: #050b14;
+  --lab-surface-1: #07111c;
+  --lab-surface-2: #0a1626;
+  --lab-surface-3: #0e1c30;
+  --lab-surface-4: #11243a;
+  --lab-surface-5: #16314f;
+
+  /* Border scale */
+  --lab-border-subtle: rgba(116, 155, 193, 0.08);
+  --lab-border-default: rgba(116, 155, 193, 0.16);
+  --lab-border-strong: rgba(117, 183, 222, 0.32);
+  --lab-border-accent: rgba(92, 215, 223, 0.32);
+
+  /* Text scale */
+  --lab-text-strong: #f4f9fc;
+  --lab-text-default: #ecf4ff;
+  --lab-text-soft: #9db3ca;
+  --lab-text-dim: #6d8197;
+  --lab-text-mute: #4a5e75;
+  --lab-text-on-accent: #042026;
+
+  /* Accent color with RGB tuple support. */
+  --lab-accent-rgb: 92, 215, 223;
+  --lab-accent: rgb(var(--lab-accent-rgb));
+  --lab-accent-strong: #7be3ea;
+  --lab-accent-soft: rgba(var(--lab-accent-rgb), 0.14);
+  --lab-accent-bg: rgba(var(--lab-accent-rgb), 0.06);
+  --lab-accent-bg-strong: rgba(var(--lab-accent-rgb), 0.18);
+
+  /* Status colors. */
+  --lab-success-rgb: 130, 227, 177;
+  --lab-success: rgb(var(--lab-success-rgb));
+  --lab-success-soft: rgba(var(--lab-success-rgb), 0.14);
+
+  --lab-warning-rgb: 255, 178, 101;
+  --lab-warning: rgb(var(--lab-warning-rgb));
+  --lab-warning-soft: rgba(var(--lab-warning-rgb), 0.14);
+
+  --lab-error-rgb: 255, 127, 136;
+  --lab-error: rgb(var(--lab-error-rgb));
+  --lab-error-soft: rgba(var(--lab-error-rgb), 0.14);
+
+  /* Drawing / annotation default color (iOS red). */
+  --lab-drawing-rgb: 255, 59, 48;
+  --lab-drawing: rgb(var(--lab-drawing-rgb));
+  --lab-drawing-soft: rgba(var(--lab-drawing-rgb), 0.14);
+
+  --lab-info-rgb: 106, 166, 235;
+  --lab-info: rgb(var(--lab-info-rgb));
+  --lab-info-soft: rgba(var(--lab-info-rgb), 0.14);
+
+  /* Typography. */
+  --lab-font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --lab-font-mono: "IBM Plex Mono", "SF Mono", "JetBrains Mono", monospace;
+
+  /* Compact type scale. */
+  --lab-text-xs: 0.66rem;
+  --lab-text-sm: 0.74rem;
+  --lab-text-base: 0.82rem;
+  --lab-text-md: 0.92rem;
+  --lab-text-lg: 1.05rem;
+  --lab-text-xl: 1.2rem;
+
+  /* Line heights */
+  --lab-leading-tight: 1.2;
+  --lab-leading-snug: 1.35;
+  --lab-leading-normal: 1.5;
+
+  /* Font weights */
+  --lab-weight-regular: 400;
+  --lab-weight-medium: 500;
+  --lab-weight-semibold: 600;
+  --lab-weight-bold: 700;
+
+  /* Letter spacing */
+  --lab-tracking-tight: -0.01em;
+  --lab-tracking-normal: 0;
+  --lab-tracking-wide: 0.04em;
+  --lab-tracking-eyebrow: 0.12em;
+
+  /* Spacing scale. */
+  --lab-space-0: 0;
+  --lab-space-px: 1px;
+  --lab-space-0_5: 0.125rem; /* 2px */
+  --lab-space-1: 0.25rem; /* 4px */
+  --lab-space-1_5: 0.375rem; /* 6px */
+  --lab-space-2: 0.5rem; /* 8px */
+  --lab-space-2_5: 0.625rem; /* 10px */
+  --lab-space-3: 0.75rem; /* 12px */
+  --lab-space-4: 1rem; /* 16px */
+  --lab-space-5: 1.25rem; /* 20px */
+  --lab-space-6: 1.5rem; /* 24px */
+  --lab-space-8: 2rem; /* 32px */
+  --lab-space-10: 2.5rem; /* 40px */
+  --lab-space-12: 3rem; /* 48px */
+
+  /* Radius scale. */
+  --lab-radius-none: 0;
+  --lab-radius-xs: 3px;
+  --lab-radius-sm: 6px; /* button */
+  --lab-radius-md: 8px; /* tight card */
+  --lab-radius-lg: 10px; /* card */
+  --lab-radius-xl: 12px; /* primary card */
+  --lab-radius-2xl: 16px;
+  --lab-radius-pill: 999px;
+
+  /* Elevation shadows. */
+  --lab-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.18);
+  --lab-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.22);
+  --lab-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.28);
+  --lab-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.34);
+  --lab-shadow-xl: 0 16px 36px rgba(0, 0, 0, 0.42);
+  --lab-shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.5);
+
+  --lab-shadow-inset-soft: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --lab-shadow-inset-divider: inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+
+  --lab-glow-accent: 0 0 18px rgba(var(--lab-accent-rgb), 0.18);
+  --lab-glow-accent-strong: 0 0 24px rgba(var(--lab-accent-rgb), 0.32);
+
+  /* Z-layer scale. */
+  --lab-z-base: 0;
+  --lab-z-raised: 1;
+  --lab-z-dropdown: 50;
+  --lab-z-sticky: 100;
+  --lab-z-popover: 200;
+  --lab-z-modal: 400;
+  --lab-z-overlay: 500;
+  --lab-z-toast: 600;
+
+  /* Motion tokens. */
+  --lab-duration-fast: 80ms;
+  --lab-duration-base: 120ms;
+  --lab-duration-slow: 220ms;
+  --lab-duration-emphasis: 320ms;
+
+  --lab-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --lab-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --lab-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --lab-ease-emphasis: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Layout sizing. */
+  --lab-topbar-height: 48px;
+  --lab-strip-height: 36px;
+  --lab-rail-width: 52px;
+  --lab-rail-width-pinned: 18rem;
+
+  /* Legacy aliases for --labx-* compatibility. */
+  --labx-bg: var(--lab-surface-1);
+  --labx-bg-soft: var(--lab-surface-2);
+  --labx-bg-main: var(--lab-surface-1);
+  --labx-bg-elevated: var(--lab-surface-2);
+  --labx-surface: rgba(11, 22, 37, 0.9);
+  --labx-surface-strong: rgba(14, 27, 44, 0.96);
+  --labx-surface-highlight: rgba(17, 37, 59, 0.98);
+
+  --labx-border: var(--lab-border-default);
+  --labx-border-strong: var(--lab-border-strong);
+
+  --labx-text: var(--lab-text-default);
+  --labx-text-primary: var(--lab-text-strong);
+  --labx-text-soft: var(--lab-text-soft);
+  --labx-text-dim: var(--lab-text-dim);
+  --labx-text-muted: var(--lab-text-dim);
+
+  --labx-accent: var(--lab-accent);
+  --labx-accent-alt: var(--lab-info);
+  --labx-accent-soft: var(--lab-accent-soft);
+
+  --labx-warning: var(--lab-warning);
+  --labx-error: var(--lab-error);
+  --labx-danger: var(--lab-error);
+  --labx-success: var(--lab-success);
+
+  --labx-shadow: var(--lab-shadow-lg);
+  --labx-shadow-primary: var(--lab-shadow-lg);
+  --labx-shadow-secondary: var(--lab-shadow-md);
+
+  --labx-radius: var(--lab-radius-xl);
+  --labx-radius-tight: var(--lab-radius-md);
+  --labx-radius-card: var(--lab-radius-lg);
+  --labx-radius-button: var(--lab-radius-sm);
+  --labx-radius-pill: var(--lab-radius-pill);
+
+  --labx-font-heading: var(--lab-text-lg);
+  --labx-font-body: var(--lab-text-base);
+  --labx-font-label: var(--lab-text-sm);
+  --labx-font-meta: var(--lab-text-xs);
+
+  --labx-mono: var(--lab-font-mono);
+
+  --labx-topbar-height: var(--lab-topbar-height);
+  --labx-rail-width: var(--lab-rail-width);
+  --labx-strip-height: var(--lab-strip-height);
+
+  --labx-z-popover: var(--lab-z-popover);
+  --labx-z-overlay: var(--lab-z-overlay);
+
+  /* Base layout literal tokens. */
+  --lab-base-gradient-01: radial-gradient(
+    circle at top right,
+    rgba(var(--lab-accent-rgb), 0.04),
+    transparent 24%
+  );
+  --lab-base-gradient-02: radial-gradient(
+    circle at bottom left,
+    rgba(67, 118, 176, 0.05),
+    transparent 28%
+  );
+  --lab-base-gradient-03: linear-gradient(
+    180deg,
+    #09111c 0%,
+    var(--lab-surface-1) 45%,
+    var(--lab-surface-0) 100%
+  );
+
+  /* Report overlays literal tokens. */
+  --lab-report-overlays-color-01: rgba(255, 255, 255, 0.04);
+  --lab-report-overlays-color-02: rgba(255, 255, 255, 0.02);
+  --lab-report-overlays-color-03: rgba(var(--lab-warning-rgb), 0.24);
+  --lab-report-overlays-color-04: rgba(var(--lab-warning-rgb), 0.32);
+  --lab-report-overlays-color-05: rgba(var(--lab-error-rgb), 0.32);
+  --lab-report-overlays-color-06: rgba(255, 255, 255, 0.035);
+  --lab-report-overlays-gradient-01: linear-gradient(
+    180deg,
+    var(--lab-surface-3),
+    var(--lab-surface-1)
+  );
+  --lab-report-overlays-px-1: 1px;
+  --lab-report-overlays-rem-0-1: 0.1rem;
+  --lab-report-overlays-rem-1-2: 1.2rem;
+  --lab-report-overlays-rem-12: 12rem;
+  --lab-report-overlays-rem-2: 2rem;
+  --lab-report-overlays-rem-28: 28rem;
+  --lab-report-overlays-rem-3: 3rem;
+  --lab-report-overlays-rem-4-5: 4.5rem;
+  --lab-report-overlays-rem-46: 46rem;
+  --lab-report-overlays-rem-5-5: 5.5rem;
+  --lab-report-overlays-rem-72: 72rem;
+  --lab-report-overlays-rem-84: 84rem;
+  /* Shell source intake literal tokens. */
+  --lab-shell-source-intake-color-01: rgba(255, 255, 255, 0.04);
+  --lab-shell-source-intake-color-02: rgba(var(--lab-success-rgb), 0.32);
+  --lab-shell-source-intake-color-03: rgba(var(--lab-warning-rgb), 0.32);
+  --lab-shell-source-intake-color-04: rgba(var(--lab-error-rgb), 0.32);
+  --lab-shell-source-intake-color-05: rgba(255, 255, 255, 0.015);
+  --lab-shell-source-intake-gradient-01: linear-gradient(
+    180deg,
+    var(--lab-surface-3),
+    var(--lab-surface-2)
+  );
+  --lab-shell-source-intake-px-1: 1px;
+  --lab-shell-source-intake-px-1180: 1180px;
+  --lab-shell-source-intake-px-200: 200px;
+  --lab-shell-source-intake-px-36: 36px;
+  --lab-shell-source-intake-px-48: 48px;
+  --lab-shell-source-intake-px-860: 860px;
+  --lab-shell-source-intake-rem-1-6: 1.6rem;
+  --lab-shell-source-intake-rem-12: 12rem;
+  --lab-shell-source-intake-rem-15: 15rem;
+  --lab-shell-source-intake-rem-16: 16rem;
+  --lab-shell-source-intake-rem-2-25: 2.25rem;
+  --lab-shell-source-intake-rem-20: 20rem;
+  /* Source import literal tokens. */
+  --lab-source-import-color-01: rgba(255, 255, 255, 0.05);
+  --lab-source-import-color-02: rgba(255, 255, 255, 0.015);
+  --lab-source-import-color-03: rgba(255, 255, 255, 0.03);
+  --lab-source-import-color-04: rgba(var(--lab-success-rgb), 0.45);
+  --lab-source-import-px-1: 1px;
+  --lab-source-import-px-3: 3px;
+  --lab-source-import-rem-1-85: 1.85rem;
+  --lab-source-import-rem-5-5: 5.5rem;
+  --lab-source-import-rem-7-5: 7.5rem;
+  /* Source panel literal tokens. */
+  --lab-source-panel-color-01: rgba(var(--lab-error-rgb), 0.4);
+  --lab-source-panel-color-02: rgba(var(--lab-accent-rgb), 0.5);
+  --lab-source-panel-color-03: rgba(255, 255, 255, 0.04);
+  --lab-source-panel-color-04: rgba(255, 255, 255, 0.08);
+  --lab-source-panel-color-05: rgba(var(--lab-accent-rgb), 0.26);
+  --lab-source-panel-color-06: rgba(255, 255, 255, 0.06);
+  --lab-source-panel-color-07: rgba(255, 255, 255, 0.035);
+  --lab-source-panel-color-08: rgba(255, 255, 255, 0.05);
+  --lab-source-panel-color-09: rgba(0, 0, 0, 0.35);
+  --lab-source-panel-color-10: rgba(var(--lab-accent-rgb), 0.82);
+  --lab-source-panel-color-11: rgba(var(--lab-error-rgb), 0.88);
+  --lab-source-panel-color-12: rgba(255, 255, 255, 0.03);
+  --lab-source-panel-px-1: 1px;
+  --lab-source-panel-px-2: 2px;
+  --lab-source-panel-px-3: 3px;
+  --lab-source-panel-rem-1-2: 1.2rem;
+  --lab-source-panel-rem-1-6: 1.6rem;
+  --lab-source-panel-rem-1-65: 1.65rem;
+  --lab-source-panel-rem-1-85: 1.85rem;
+  --lab-source-panel-rem-10: 10rem;
+  --lab-source-panel-rem-18: 18rem;
+  --lab-source-panel-rem-2: 2rem;
+  --lab-source-panel-rem-3-4: 3.4rem;
+  --lab-source-panel-rem-32: 32rem;
+  --lab-source-panel-rem-4-8: 4.8rem;
+  --lab-source-panel-rem-40: 40rem;
+  --lab-source-panel-rem-7: 7rem;
+  /* Primitives literal tokens. */
+  --lab-primitives-color-01: rgba(var(--lab-accent-rgb), 0.26);
+  --lab-primitives-color-02: rgba(var(--lab-accent-rgb), 0.5);
+  --lab-primitives-color-03: rgba(255, 255, 255, 0.04);
+  --lab-primitives-color-04: rgba(255, 255, 255, 0.08);
+  --lab-primitives-color-05: rgba(255, 255, 255, 0.05);
+  --lab-primitives-color-06: rgba(255, 255, 255, 0.06);
+  --lab-primitives-color-07: rgba(var(--lab-error-rgb), 0.32);
+  --lab-primitives-color-08: rgba(var(--lab-error-rgb), 0.22);
+  --lab-primitives-color-09: rgba(var(--lab-error-rgb), 0.5);
+  --lab-primitives-color-10: rgba(var(--lab-accent-rgb), 0.05);
+  --lab-primitives-color-11: rgba(var(--lab-success-rgb), 0.32);
+  --lab-primitives-color-12: rgba(var(--lab-warning-rgb), 0.32);
+  --lab-primitives-color-13: rgba(var(--lab-info-rgb), 0.32);
+  --lab-primitives-color-14: rgba(255, 255, 255, 0.16);
+  --lab-primitives-px-1: 1px;
+  --lab-primitives-px-2: 2px;
+  --lab-primitives-px-3: 3px;
+  --lab-primitives-px-8: 8px;
+  --lab-primitives-rem-0-5: 0.5rem;
+  --lab-primitives-rem-1-2: 1.2rem;
+  --lab-primitives-rem-1-4: 1.4rem;
+  --lab-primitives-rem-1-5: 1.5rem;
+  --lab-primitives-rem-1-7: 1.7rem;
+  --lab-primitives-rem-1-85: 1.85rem;
+  --lab-primitives-rem-2-25: 2.25rem;
+  --lab-primitives-rem-5: 5rem;
+  /* Rail processing literal tokens. */
+  --lab-rail-processing-color-01: rgba(255, 255, 255, 0.06);
+  --lab-rail-processing-color-02: rgba(var(--lab-warning-rgb), 0.32);
+  --lab-rail-processing-color-03: rgba(255, 255, 255, 0.08);
+  --lab-rail-processing-color-04: rgba(7, 17, 28, 0.82);
+  --lab-rail-processing-color-05: rgba(var(--lab-error-rgb), 0.32);
+  --lab-rail-processing-color-06: rgba(var(--lab-error-rgb), 0.16);
+  --lab-rail-processing-color-07: rgba(var(--lab-error-rgb), 0.42);
+  --lab-rail-processing-color-08: rgba(255, 127, 136, 0.22);
+  --lab-rail-processing-color-09: rgba(255, 127, 136, 0.3);
+  --lab-rail-processing-color-10: rgba(255, 127, 136, 0.07);
+  --lab-rail-processing-color-11: rgba(255, 127, 136, 0.2);
+  --lab-rail-processing-color-12: rgba(255, 255, 255, 0.05);
+  --lab-rail-processing-color-13: rgba(92, 215, 223, 0.32);
+  --lab-rail-processing-color-14: rgba(92, 215, 223, 0.12);
+  --lab-rail-processing-color-15: rgba(92, 215, 223, 0.5);
+  --lab-rail-processing-color-16: rgba(92, 215, 223, 0.2);
+  --lab-rail-processing-color-17: rgba(255, 255, 255, 0.12);
+  --lab-rail-processing-color-18: rgba(6, 22, 34, 0.42);
+  --lab-rail-processing-color-19: rgba(255, 255, 255, 0.2);
+  --lab-rail-processing-color-20: rgba(92, 215, 223, 0.18);
+  --lab-rail-processing-color-21: rgba(255, 255, 255, 0.04);
+  --lab-rail-processing-em-0-08: 0.08em;
+  --lab-rail-processing-em-0-12: 0.12em;
+  --lab-rail-processing-px-1: 1px;
+  --lab-rail-processing-px-2: 2px;
+  --lab-rail-processing-px-24: 24px;
+  --lab-rail-processing-px-3: 3px;
+  --lab-rail-processing-px-36: 36px;
+  --lab-rail-processing-px-4: 4px;
+  --lab-rail-processing-px-52: 52px;
+  --lab-rail-processing-px-8: 8px;
+  --lab-rail-processing-px-neg-1: -1px;
+  --lab-rail-processing-rem-0-05: 0.05rem;
+  --lab-rail-processing-rem-0-25: 0.25rem;
+  --lab-rail-processing-rem-0-28: 0.28rem;
+  --lab-rail-processing-rem-0-3: 0.3rem;
+  --lab-rail-processing-rem-0-32: 0.32rem;
+  --lab-rail-processing-rem-0-38: 0.38rem;
+  --lab-rail-processing-rem-0-4: 0.4rem;
+  --lab-rail-processing-rem-0-5: 0.5rem;
+  --lab-rail-processing-rem-0-52: 0.52rem;
+  --lab-rail-processing-rem-0-55: 0.55rem;
+  --lab-rail-processing-rem-0-64: 0.64rem;
+  --lab-rail-processing-rem-0-67: 0.67rem;
+  --lab-rail-processing-rem-0-7: 0.7rem;
+  --lab-rail-processing-rem-0-71: 0.71rem;
+  --lab-rail-processing-rem-0-72: 0.72rem;
+  --lab-rail-processing-rem-0-75: 0.75rem;
+  --lab-rail-processing-rem-0-78: 0.78rem;
+  --lab-rail-processing-rem-0-9: 0.9rem;
+  --lab-rail-processing-rem-1: 1rem;
+  --lab-rail-processing-rem-1-65: 1.65rem;
+  --lab-rail-processing-rem-16: 16rem;
+  --lab-rail-processing-rem-2: 2rem;
+  --lab-rail-processing-rem-2-5: 2.5rem;
+  --lab-rail-processing-rem-26: 26rem;
+  --lab-rail-processing-rem-3: 3rem;
+  --lab-rail-processing-rem-neg-0-2: -0.2rem;
+  --lab-rail-processing-rem-neg-0-25: -0.25rem;
+  /* Status shell literal tokens. */
+  --lab-status-shell-color-01: rgba(var(--lab-accent-rgb), 0.95);
+  --lab-status-shell-color-02: rgba(255, 255, 255, 0.06);
+  --lab-status-shell-color-03: rgba(255, 255, 255, 0.015);
+  --lab-status-shell-color-04: rgba(255, 255, 255, 0.05);
+  --lab-status-shell-color-05: rgba(134, 187, 214, 0.14);
+  --lab-status-shell-color-06: rgba(4, 11, 19, 0.88);
+  --lab-status-shell-color-07: rgba(134, 187, 214, 0.08);
+  --lab-status-shell-color-08: rgba(14, 28, 43, 0.92);
+  --lab-status-shell-gradient-01: linear-gradient(
+    180deg,
+    var(--lab-surface-3),
+    var(--lab-surface-1)
+  );
+  --lab-status-shell-px-1: 1px;
+  --lab-status-shell-px-1-5: 1.5px;
+  --lab-status-shell-px-12: 12px;
+  --lab-status-shell-px-2: 2px;
+  --lab-status-shell-px-3: 3px;
+  --lab-status-shell-px-300: 300px;
+  --lab-status-shell-px-4: 4px;
+  --lab-status-shell-px-5: 5px;
+  --lab-status-shell-px-6: 6px;
+  --lab-status-shell-px-8: 8px;
+  --lab-status-shell-px-80: 80px;
+  --lab-status-shell-px-840: 840px;
+  --lab-status-shell-rem-0-1: 0.1rem;
+  --lab-status-shell-rem-0-12: 0.12rem;
+  --lab-status-shell-rem-0-15: 0.15rem;
+  --lab-status-shell-rem-0-25: 0.25rem;
+  --lab-status-shell-rem-0-3: 0.3rem;
+  --lab-status-shell-rem-0-35: 0.35rem;
+  --lab-status-shell-rem-0-4: 0.4rem;
+  --lab-status-shell-rem-0-45: 0.45rem;
+  --lab-status-shell-rem-0-5: 0.5rem;
+  --lab-status-shell-rem-0-6: 0.6rem;
+  --lab-status-shell-rem-0-65: 0.65rem;
+  --lab-status-shell-rem-0-75: 0.75rem;
+  --lab-status-shell-rem-0-85: 0.85rem;
+  --lab-status-shell-rem-1: 1rem;
+  --lab-status-shell-rem-1-85: 1.85rem;
+  --lab-status-shell-rem-1-9: 1.9rem;
+  --lab-status-shell-rem-14: 14rem;
+  --lab-status-shell-rem-2: 2rem;
+  --lab-status-shell-rem-2-4: 2.4rem;
+  --lab-status-shell-rem-26: 26rem;
+  /* Drawer literal tokens. */
+  --lab-drawer-color-01: rgba(255, 255, 255, 0.012);
+  --lab-drawer-color-02: rgba(255, 255, 255, 0.04);
+  --lab-drawer-color-03: rgba(var(--lab-success-rgb), 0.32);
+  --lab-drawer-color-04: rgba(var(--lab-warning-rgb), 0.32);
+  --lab-drawer-color-05: rgba(var(--lab-error-rgb), 0.32);
+  --lab-drawer-color-06: rgba(92, 215, 223, 0.5);
+  --lab-drawer-color-07: rgba(105, 220, 230, 0.1);
+  --lab-drawer-color-08: rgba(4, 18, 28, 0.22);
+  --lab-drawer-color-09: rgba(78, 221, 221, 0.22);
+  --lab-drawer-color-10: rgba(78, 221, 221, 0.16);
+  --lab-drawer-color-11: rgba(4, 18, 28, 0.28);
+  --lab-drawer-color-12: rgba(78, 221, 221, 0.34);
+  --lab-drawer-color-13: rgba(78, 221, 221, 0.045);
+  --lab-drawer-color-14: rgba(255, 210, 115, 0.36);
+  --lab-drawer-color-15: rgba(210, 252, 252, 0.72);
+  --lab-drawer-color-16: rgba(210, 252, 252, 0.98);
+  --lab-drawer-color-17: rgba(78, 221, 221, 0.24);
+  --lab-drawer-color-18: rgba(78, 221, 221, 0.08);
+  --lab-drawer-color-19: rgba(210, 252, 252, 0.94);
+  --lab-drawer-color-20: rgba(78, 221, 221, 0.42);
+  --lab-drawer-color-21: rgba(78, 221, 221, 0.14);
+  --lab-drawer-color-22: rgba(105, 220, 230, 0.14);
+  --lab-drawer-color-23: rgba(4, 18, 28, 0.38);
+  --lab-drawer-color-24: rgba(255, 224, 151, 0.98);
+  --lab-drawer-color-25: rgba(88, 214, 229, 0.35);
+  --lab-drawer-color-26: rgba(130, 227, 177, 0.2);
+  --lab-drawer-color-27: rgba(255, 194, 102, 0.25);
+  --lab-drawer-color-28: rgba(255, 77, 94, 0.25);
+  --lab-drawer-color-29: rgba(130, 227, 177, 0.9);
+  --lab-drawer-color-30: rgba(255, 194, 102, 0.85);
+  --lab-drawer-color-31: rgba(134, 187, 214, 0.08);
+  --lab-drawer-color-32: rgba(8, 24, 35, 0.24);
+  --lab-drawer-color-33: rgba(134, 187, 214, 0.42);
+  --lab-drawer-color-34: rgba(255, 210, 115, 0.34);
+  --lab-drawer-color-35: rgba(255, 210, 115, 0.08);
+  --lab-drawer-color-36: rgba(255, 210, 115, 0.95);
+  --lab-drawer-color-37: rgba(134, 187, 214, 0.1);
+  --lab-drawer-color-38: rgba(92, 215, 223, 0.72);
+  --lab-drawer-color-39: rgba(255, 210, 115, 0.78);
+  --lab-drawer-color-40: rgba(78, 221, 221, 0.2);
+  --lab-drawer-color-41: rgba(4, 18, 28, 0.32);
+  --lab-drawer-color-42: rgba(255, 210, 115, 0.46);
+  --lab-drawer-color-43: rgba(255, 210, 115, 0.1);
+  --lab-drawer-color-44: rgba(4, 18, 28, 0.24);
+  --lab-drawer-color-45: rgba(8, 24, 35, 0.34);
+  --lab-drawer-color-46: rgba(255, 194, 102, 0.12);
+  --lab-drawer-color-47: rgba(255, 194, 102, 0.9);
+  --lab-drawer-color-48: rgba(92, 215, 223, 0.32);
+  --lab-drawer-color-49: rgba(92, 215, 223, 0.16);
+  --lab-drawer-color-50: rgba(92, 215, 223, 0.08);
+  --lab-drawer-color-51: rgba(220, 252, 255, 0.96);
+  --lab-drawer-color-52: rgba(92, 215, 223, 0.48);
+  --lab-drawer-color-53: rgba(92, 215, 223, 0.22);
+  --lab-drawer-color-54: rgba(92, 215, 223, 0.12);
+  --lab-drawer-color-55: rgba(255, 127, 136, 0.3);
+  --lab-drawer-color-56: rgba(255, 127, 136, 0.14);
+  --lab-drawer-color-57: rgba(255, 127, 136, 0.06);
+  --lab-drawer-color-58: rgba(255, 200, 205, 0.96);
+  --lab-drawer-color-59: rgba(255, 127, 136, 0.48);
+  --lab-drawer-color-60: rgba(255, 127, 136, 0.2);
+  --lab-drawer-color-61: rgba(255, 127, 136, 0.1);
+  --lab-drawer-em-0-02: 0.02em;
+  --lab-drawer-px-1: 1px;
+  --lab-drawer-px-100: 100px;
+  --lab-drawer-px-16: 16px;
+  --lab-drawer-px-2: 2px;
+  --lab-drawer-px-3: 3px;
+  --lab-drawer-px-6: 6px;
+  --lab-drawer-rem-0-08: 0.08rem;
+  --lab-drawer-rem-0-1: 0.1rem;
+  --lab-drawer-rem-0-15: 0.15rem;
+  --lab-drawer-rem-0-16: 0.16rem;
+  --lab-drawer-rem-0-2: 0.2rem;
+  --lab-drawer-rem-0-22: 0.22rem;
+  --lab-drawer-rem-0-25: 0.25rem;
+  --lab-drawer-rem-0-28: 0.28rem;
+  --lab-drawer-rem-0-3: 0.3rem;
+  --lab-drawer-rem-0-32: 0.32rem;
+  --lab-drawer-rem-0-34: 0.34rem;
+  --lab-drawer-rem-0-35: 0.35rem;
+  --lab-drawer-rem-0-36: 0.36rem;
+  --lab-drawer-rem-0-4: 0.4rem;
+  --lab-drawer-rem-0-42: 0.42rem;
+  --lab-drawer-rem-0-45: 0.45rem;
+  --lab-drawer-rem-0-48: 0.48rem;
+  --lab-drawer-rem-0-5: 0.5rem;
+  --lab-drawer-rem-0-55: 0.55rem;
+  --lab-drawer-rem-0-6: 0.6rem;
+  --lab-drawer-rem-0-62: 0.62rem;
+  --lab-drawer-rem-0-66: 0.66rem;
+  --lab-drawer-rem-0-68: 0.68rem;
+  --lab-drawer-rem-0-7: 0.7rem;
+  --lab-drawer-rem-0-72: 0.72rem;
+  --lab-drawer-rem-0-76: 0.76rem;
+  --lab-drawer-rem-0-84: 0.84rem;
+  --lab-drawer-rem-0-92: 0.92rem;
+  --lab-drawer-rem-1: 1rem;
+  --lab-drawer-rem-1-2: 1.2rem;
+  --lab-drawer-rem-1-4: 1.4rem;
+  --lab-drawer-rem-1-7: 1.7rem;
+  --lab-drawer-rem-1-72: 1.72rem;
+  --lab-drawer-rem-1-9: 1.9rem;
+  --lab-drawer-rem-2: 2rem;
+  --lab-drawer-rem-2-6: 2.6rem;
+  --lab-drawer-rem-5: 5rem;
+  /* Timeline ROI literal tokens. */
+  --lab-timeline-roi-color-01: rgba(var(--lab-selection-accent-rgb), 0.96);
+  --lab-timeline-roi-color-02: rgba(0, 0, 0, 0.6);
+  --lab-timeline-roi-color-03: rgba(92, 215, 223, 0.3);
+  --lab-timeline-roi-color-04: rgba(92, 215, 223, 0.5);
+  --lab-timeline-roi-color-05: rgba(92, 215, 223, 0.6);
+  --lab-timeline-roi-color-06: rgba(0, 0, 0, 0.3);
+  --lab-timeline-roi-color-07: rgba(255, 214, 102, 0.18);
+  --lab-timeline-roi-color-08: rgba(255, 214, 102, 0.24);
+  --lab-timeline-roi-color-09: rgba(3, 12, 20, 0.96);
+  --lab-timeline-roi-color-10: rgba(0, 0, 0, 0.42);
+  --lab-timeline-roi-color-11: #ffe7a6;
+  --lab-timeline-roi-color-12: rgba(255, 102, 128, 0.3);
+  --lab-timeline-roi-color-13: rgba(255, 102, 128, 0.08);
+  --lab-timeline-roi-color-14: rgba(255, 180, 190, 0.95);
+  --lab-timeline-roi-color-15: rgba(255, 102, 128, 0.58);
+  --lab-timeline-roi-color-16: rgba(255, 102, 128, 0.16);
+  --lab-timeline-roi-color-17: #ffd3da;
+  --lab-timeline-roi-color-18: rgba(255, 214, 102, 0.96);
+  --lab-timeline-roi-color-19: rgba(255, 214, 102, 0.22);
+  --lab-timeline-roi-color-20: rgba(255, 214, 102, 0.34);
+  --lab-timeline-roi-color-21: rgba(255, 214, 102, 0.12);
+  --lab-timeline-roi-color-22: rgba(255, 214, 102, 0.28);
+  --lab-timeline-roi-color-23: rgba(255, 214, 102, 0.2);
+  --lab-timeline-roi-color-24: rgba(255, 214, 102, 0.44);
+  --lab-timeline-roi-color-25: #fff1bd;
+  --lab-timeline-roi-color-26: rgba(255, 255, 255, 0.04);
+  --lab-timeline-roi-color-27: rgba(255, 255, 255, 0.02);
+  --lab-timeline-roi-color-28: rgba(var(--lab-accent-rgb), 0.5);
+  --lab-timeline-roi-color-29: rgba(var(--lab-error-rgb), 0.4);
+  --lab-timeline-roi-color-30: rgba(2, 7, 12, 0.38);
+  --lab-timeline-roi-color-31: rgba(255, 221, 112, 0.76);
+  --lab-timeline-roi-color-32: rgba(255, 236, 168, 0.09);
+  --lab-timeline-roi-color-33: rgba(255, 211, 95, 0.04);
+  --lab-timeline-roi-color-34: rgba(255, 222, 122, 0.04);
+  --lab-timeline-roi-color-35: rgba(255, 221, 112, 0.12);
+  --lab-timeline-roi-color-36: rgba(255, 221, 112, 0.14);
+  --lab-timeline-roi-color-37: rgba(255, 221, 112, 0.2);
+  --lab-timeline-roi-color-38: rgba(255, 221, 112, 0.22);
+  --lab-timeline-roi-color-39: rgba(9, 16, 28, 0.9);
+  --lab-timeline-roi-color-40: rgba(255, 228, 133, 0.96);
+  --lab-timeline-roi-color-41: rgba(255, 221, 112, 0.42);
+  --lab-timeline-roi-color-42: rgba(8, 14, 24, 0.94);
+  --lab-timeline-roi-color-43: rgba(255, 236, 168, 0.96);
+  --lab-timeline-roi-color-44: rgba(48, 34, 20, 0.96);
+  --lab-timeline-roi-color-45: #fff2bd;
+  --lab-timeline-roi-color-46: rgba(255, 221, 112, 0.8);
+  --lab-timeline-roi-color-47: rgba(8, 14, 24, 0.92);
+  --lab-timeline-roi-color-48: rgba(255, 221, 112, 0.08);
+  --lab-timeline-roi-color-49: rgba(255, 221, 112, 0.98);
+  --lab-timeline-roi-color-50: rgba(8, 14, 24, 0.74);
+  --lab-timeline-roi-color-51: rgba(255, 221, 112, 0.3);
+  --lab-timeline-roi-color-52: rgba(157, 179, 202, 0.35);
+  --lab-timeline-roi-color-53: rgba(157, 179, 202, 0.04);
+  --lab-timeline-roi-color-54: rgba(6, 12, 20, 0.88);
+  --lab-timeline-roi-color-55: rgba(6, 12, 20, 0.85);
+  --lab-timeline-roi-color-56: rgba(6, 12, 20, 0.82);
+  --lab-timeline-roi-px-1: 1px;
+  --lab-timeline-roi-px-10: 10px;
+  --lab-timeline-roi-px-12: 12px;
+  --lab-timeline-roi-px-16: 16px;
+  --lab-timeline-roi-px-18: 18px;
+  --lab-timeline-roi-px-2: 2px;
+  --lab-timeline-roi-px-28: 28px;
+  --lab-timeline-roi-px-3: 3px;
+  --lab-timeline-roi-px-34: 34px;
+  --lab-timeline-roi-px-4: 4px;
+  --lab-timeline-roi-px-6: 6px;
+  --lab-timeline-roi-px-8: 8px;
+  --lab-timeline-roi-px-999: 999px;
+  --lab-timeline-roi-px-neg-1: -1px;
+  --lab-timeline-roi-px-neg-4: -4px;
+  --lab-timeline-roi-px-neg-6: -6px;
+  --lab-timeline-roi-rem-0-18: 0.18rem;
+  --lab-timeline-roi-rem-0-2: 0.2rem;
+  --lab-timeline-roi-rem-0-35: 0.35rem;
+  --lab-timeline-roi-rem-0-36: 0.36rem;
+  --lab-timeline-roi-rem-0-4: 0.4rem;
+  --lab-timeline-roi-rem-0-42: 0.42rem;
+  --lab-timeline-roi-rem-0-5: 0.5rem;
+  --lab-timeline-roi-rem-0-66: 0.66rem;
+  --lab-timeline-roi-rem-0-68: 0.68rem;
+  --lab-timeline-roi-rem-0-72: 0.72rem;
+  --lab-timeline-roi-rem-0-76: 0.76rem;
+  --lab-timeline-roi-rem-0-85: 0.85rem;
+  --lab-timeline-roi-rem-0-86: 0.86rem;
+  --lab-timeline-roi-rem-1-2: 1.2rem;
+  --lab-timeline-roi-rem-1-3: 1.3rem;
+  --lab-timeline-roi-rem-1-35: 1.35rem;
+  --lab-timeline-roi-rem-1-5: 1.5rem;
+  --lab-timeline-roi-rem-1-6: 1.6rem;
+  --lab-timeline-roi-rem-1-9: 1.9rem;
+  --lab-timeline-roi-rem-12: 12rem;
+  --lab-timeline-roi-rem-13: 13rem;
+  --lab-timeline-roi-rem-18: 18rem;
+  --lab-timeline-roi-rem-2: 2rem;
+  --lab-timeline-roi-rem-2-4: 2.4rem;
+  --lab-timeline-roi-rem-5-4: 5.4rem;
+  --lab-timeline-roi-rem-5-5: 5.5rem;
+  --lab-timeline-roi-rem-6-5: 6.5rem;
+  --lab-timeline-roi-rem-7: 7rem;
+  --lab-timeline-roi-rem-8-5: 8.5rem;
+  --lab-timeline-roi-rem-9-2: 9.2rem;
+  --lab-timeline-roi-rem-neg-0-2: -0.2rem;
+  --lab-timeline-roi-rem-neg-0-36: -0.36rem;
+  --lab-timeline-roi-rem-neg-0-7: -0.7rem;
+  --lab-timeline-roi-rem-neg-1-4: -1.4rem;
+  --lab-timeline-roi-rem-neg-1-55: -1.55rem;
+  /* Inspector controls literal tokens. */
+  --lab-inspector-color-01: rgba(255, 255, 255, 0.035);
+  --lab-inspector-color-02: rgba(105, 220, 230, 0.18);
+  --lab-inspector-color-03: rgba(4, 18, 28, 0.48);
+  --lab-inspector-color-04: rgba(78, 221, 221, 0.32);
+  --lab-inspector-color-05: rgba(255, 210, 115, 0.42);
+  --lab-inspector-color-06: rgba(255, 210, 115, 0.14);
+  --lab-inspector-color-07: rgba(78, 221, 221, 0.42);
+  --lab-inspector-color-08: rgba(5, 28, 38, 0.58);
+  --lab-inspector-color-09: rgba(255, 133, 133, 0.28);
+  --lab-inspector-color-10: rgba(130, 227, 177, 0.26);
+  --lab-inspector-color-11: rgba(255, 255, 255, 0.12);
+  --lab-inspector-color-12: rgba(78, 221, 221, 0.34);
+  --lab-inspector-color-13: rgba(143, 246, 246, 0.96);
+  --lab-inspector-color-14: rgba(78, 221, 221, 0.2);
+  --lab-inspector-color-15: rgba(78, 221, 221, 0.07);
+  --lab-inspector-color-16: rgba(78, 221, 221, 0.16);
+  --lab-inspector-color-17: rgba(78, 221, 221, 0.06);
+  --lab-inspector-color-18: rgba(78, 221, 221, 0.1);
+  --lab-inspector-color-19: rgba(230, 255, 255, 0.94);
+  --lab-inspector-color-20: rgba(255, 255, 255, 0.04);
+  --lab-inspector-color-21: rgba(255, 133, 133, 0.48);
+  --lab-inspector-color-22: rgba(255, 133, 133, 0.13);
+  --lab-inspector-color-23: rgba(255, 238, 238, 0.96);
+  --lab-inspector-color-24: rgba(255, 163, 163, 0.7);
+  --lab-inspector-color-25: rgba(255, 133, 133, 0.2);
+  --lab-inspector-color-26: rgba(255, 255, 255, 0.1);
+  --lab-inspector-color-27: rgba(255, 255, 255, 0.16);
+  --lab-inspector-color-28: rgba(255, 255, 255, 0.05);
+  --lab-inspector-color-29: rgba(255, 255, 255, 0.14);
+  --lab-inspector-color-30: rgba(4, 10, 18, 0.62);
+  --lab-inspector-color-31: rgba(var(--lab-accent-rgb), 0.5);
+  --lab-inspector-color-32: rgba(6, 12, 20, 0.88);
+  --lab-inspector-color-33: rgba(6, 12, 20, 0.6);
+  --lab-inspector-color-34: rgba(92, 215, 223, 0.14);
+  --lab-inspector-color-35: rgba(8, 15, 24, 0.96);
+  --lab-inspector-color-36: rgba(4, 10, 18, 0.98);
+  --lab-inspector-color-37: rgba(5, 10, 18, 0.94);
+  --lab-inspector-color-38: rgba(244, 249, 252, 0.94);
+  --lab-inspector-color-39: rgba(92, 215, 223, 0.12);
+  --lab-inspector-color-40: rgba(92, 215, 223, 0.05);
+  --lab-inspector-color-41: rgba(106, 166, 235, 0.02);
+  --lab-inspector-color-42: rgba(255, 255, 255, 0.025);
+  --lab-inspector-color-43: rgba(92, 215, 223, 0.18);
+  --lab-inspector-color-44: rgba(130, 227, 177, 0.18);
+  --lab-inspector-px-1: 1px;
+  --lab-inspector-px-14: 14px;
+  --lab-inspector-px-2: 2px;
+  --lab-inspector-px-4: 4px;
+  --lab-inspector-px-80: 80px;
+  --lab-inspector-rem-0-12: 0.12rem;
+  --lab-inspector-rem-0-14: 0.14rem;
+  --lab-inspector-rem-0-15: 0.15rem;
+  --lab-inspector-rem-0-16: 0.16rem;
+  --lab-inspector-rem-0-18: 0.18rem;
+  --lab-inspector-rem-0-22: 0.22rem;
+  --lab-inspector-rem-0-24: 0.24rem;
+  --lab-inspector-rem-0-25: 0.25rem;
+  --lab-inspector-rem-0-28: 0.28rem;
+  --lab-inspector-rem-0-3: 0.3rem;
+  --lab-inspector-rem-0-32: 0.32rem;
+  --lab-inspector-rem-0-34: 0.34rem;
+  --lab-inspector-rem-0-35: 0.35rem;
+  --lab-inspector-rem-0-36: 0.36rem;
+  --lab-inspector-rem-0-38: 0.38rem;
+  --lab-inspector-rem-0-4: 0.4rem;
+  --lab-inspector-rem-0-42: 0.42rem;
+  --lab-inspector-rem-0-45: 0.45rem;
+  --lab-inspector-rem-0-48: 0.48rem;
+  --lab-inspector-rem-0-5: 0.5rem;
+  --lab-inspector-rem-0-55: 0.55rem;
+  --lab-inspector-rem-0-58: 0.58rem;
+  --lab-inspector-rem-0-6: 0.6rem;
+  --lab-inspector-rem-0-62: 0.62rem;
+  --lab-inspector-rem-0-64: 0.64rem;
+  --lab-inspector-rem-0-65: 0.65rem;
+  --lab-inspector-rem-0-66: 0.66rem;
+  --lab-inspector-rem-0-68: 0.68rem;
+  --lab-inspector-rem-0-7: 0.7rem;
+  --lab-inspector-rem-0-72: 0.72rem;
+  --lab-inspector-rem-0-74: 0.74rem;
+  --lab-inspector-rem-0-75: 0.75rem;
+  --lab-inspector-rem-0-78: 0.78rem;
+  --lab-inspector-rem-0-82: 0.82rem;
+  --lab-inspector-rem-0-85: 0.85rem;
+  --lab-inspector-rem-1: 1rem;
+  --lab-inspector-rem-1-35: 1.35rem;
+  --lab-inspector-rem-1-4: 1.4rem;
+  --lab-inspector-rem-1-6: 1.6rem;
+  --lab-inspector-rem-1-75: 1.75rem;
+  --lab-inspector-rem-2: 2rem;
+  --lab-inspector-rem-2-35: 2.35rem;
+  --lab-inspector-rem-2-8: 2.8rem;
+  --lab-inspector-rem-3: 3rem;
+  --lab-inspector-rem-3-5: 3.5rem;
+  --lab-inspector-rem-3-8: 3.8rem;
+  --lab-inspector-rem-4: 4rem;
+  --lab-inspector-rem-4-2: 4.2rem;
+  --lab-inspector-rem-4-35: 4.35rem;
+  --lab-inspector-rem-4-7: 4.7rem;
+  --lab-inspector-rem-5: 5rem;
+  --lab-inspector-rem-5-1: 5.1rem;
+  --lab-inspector-rem-5-8: 5.8rem;
+  /* Shell layout literal tokens. */
+  --lab-shell-color-01: rgba(255, 255, 255, 0.06);
+  --lab-shell-color-02: rgba(0, 255, 0, 0.15);
+  --lab-shell-color-03: rgba(255, 255, 255, 0.14);
+  --lab-shell-color-04: rgba(92, 215, 223, 0.14);
+  --lab-shell-color-05: rgba(0, 128, 255, 0.15);
+  --lab-shell-color-06: rgba(255, 128, 0, 0.15);
+  --lab-shell-color-07: rgba(255, 0, 128, 0.15);
+  --lab-shell-color-08: rgba(255, 255, 0, 0.14);
+  --lab-shell-color-09: rgba(0, 255, 255, 0.12);
+  --lab-shell-color-10: rgba(255, 255, 255, 0.1);
+  --lab-shell-color-11: rgba(0, 255, 200, 0.2);
+  --lab-shell-color-12: rgba(0, 0, 0, 0.52);
+  --lab-shell-color-13: rgba(255, 255, 255, 0.78);
+  --lab-shell-color-14: rgba(10, 18, 30, 0.8);
+  --lab-shell-color-15: rgba(15, 28, 45, 0.96);
+  --lab-shell-color-16: rgba(11, 21, 34, 0.92);
+  --lab-shell-color-17: rgba(255, 178, 101, 0.42);
+  --lab-shell-color-18: rgba(255, 127, 136, 0.42);
+  --lab-shell-color-19: rgba(136, 170, 204, 0.16);
+  --lab-shell-color-20: rgba(6, 12, 20, 0.92);
+  --lab-shell-color-21: rgba(92, 215, 223, 0.18);
+  --lab-shell-color-22: rgba(92, 215, 223, 0.08);
+  --lab-shell-color-23: rgba(255, 255, 255, 0.07);
+  --lab-shell-color-24: rgba(5, 11, 18, 0.78);
+  --lab-shell-color-25: rgba(92, 215, 223, 0.22);
+  --lab-shell-color-26: rgba(92, 215, 223, 0.34);
+  --lab-shell-color-27: rgba(18, 34, 53, 0.94);
+  --lab-shell-color-28: rgba(8, 16, 27, 0.92);
+  --lab-shell-color-29: rgba(255, 255, 255, 0.05);
+  --lab-shell-color-30: rgba(255, 255, 255, 0.08);
+  --lab-shell-color-31: rgba(255, 255, 255, 0.04);
+  --lab-shell-color-32: rgba(130, 227, 177, 0.26);
+  --lab-shell-color-33: rgba(255, 178, 101, 0.26);
+  --lab-shell-color-34: rgba(255, 127, 136, 0.26);
+  --lab-shell-color-35: rgba(92, 215, 223, 0.32);
+  --lab-shell-color-36: rgba(6, 12, 20, 0.55);
+  --lab-shell-color-37: rgba(var(--lab-error-rgb), 0.32);
+  --lab-shell-color-38: rgba(var(--lab-accent-rgb), 0.18);
+  --lab-shell-color-39: rgba(0, 0, 0, 0.24);
+  --lab-shell-color-40: rgba(4, 8, 14, 0.72);
+  --lab-shell-color-41: rgba(3, 8, 15, 0.74);
+  --lab-shell-color-42: rgba(14, 29, 45, 0.98);
+  --lab-shell-color-43: rgba(7, 17, 28, 0.98);
+  --lab-shell-color-44: rgba(0, 0, 0, 0.38);
+  --lab-shell-color-45: rgba(10, 24, 39, 0.82);
+  --lab-shell-color-46: rgba(92, 215, 223, 0.7);
+  --lab-shell-color-47: rgba(14, 40, 58, 0.92);
+  --lab-shell-color-48: rgba(14, 27, 44, 0.98);
+  --lab-shell-color-49: rgba(8, 16, 28, 0.96);
+  --lab-shell-color-50: rgba(121, 211, 224, 0.14);
+  --lab-shell-color-51: rgba(4, 9, 15, 0.78);
+  --lab-shell-color-52: rgba(8, 16, 27, 0.72);
+  --lab-shell-color-53: rgba(255, 127, 136, 0.22);
+  --lab-shell-color-54: rgba(130, 227, 177, 0.2);
+  --lab-shell-color-55: rgba(0, 0, 0, 0.18);
+  --lab-shell-color-56: rgba(255, 127, 136, 0.32);
+  --lab-shell-color-57: rgba(255, 127, 136, 0.08);
+  --lab-shell-color-58: rgba(255, 127, 136, 0.16);
+  --lab-shell-color-59: rgba(130, 227, 177, 0.88);
+  --lab-shell-color-60: rgba(4, 8, 14, 0.62);
+  --lab-shell-color-61: rgba(8, 16, 28, 0.98);
+  --lab-shell-color-62: rgba(4, 9, 15, 0.72);
+  --lab-shell-color-63: rgba(4, 9, 15, 0.88);
+  --lab-shell-color-64: rgba(255, 255, 255, 0.96);
+  --lab-shell-color-65: rgba(2, 6, 11, 0.56);
+  --lab-shell-color-66: rgba(92, 215, 223, 0.9);
+  --lab-shell-color-67: rgba(106, 166, 235, 0.82);
+  --lab-shell-em-0-04: 0.04em;
+  --lab-shell-em-0-08: 0.08em;
+  --lab-shell-em-0-16: 0.16em;
+  --lab-shell-px-1: 1px;
+  --lab-shell-px-10: 10px;
+  --lab-shell-px-18: 18px;
+  --lab-shell-px-200: 200px;
+  --lab-shell-px-30: 30px;
+  --lab-shell-px-4: 4px;
+  --lab-shell-px-48: 48px;
+  --lab-shell-px-8: 8px;
+  --lab-shell-rem-0-1: 0.1rem;
+  --lab-shell-rem-0-2: 0.2rem;
+  --lab-shell-rem-0-22: 0.22rem;
+  --lab-shell-rem-0-25: 0.25rem;
+  --lab-shell-rem-0-28: 0.28rem;
+  --lab-shell-rem-0-3: 0.3rem;
+  --lab-shell-rem-0-32: 0.32rem;
+  --lab-shell-rem-0-35: 0.35rem;
+  --lab-shell-rem-0-38: 0.38rem;
+  --lab-shell-rem-0-4: 0.4rem;
+  --lab-shell-rem-0-45: 0.45rem;
+  --lab-shell-rem-0-5: 0.5rem;
+  --lab-shell-rem-0-55: 0.55rem;
+  --lab-shell-rem-0-6: 0.6rem;
+  --lab-shell-rem-0-62: 0.62rem;
+  --lab-shell-rem-0-64: 0.64rem;
+  --lab-shell-rem-0-65: 0.65rem;
+  --lab-shell-rem-0-68: 0.68rem;
+  --lab-shell-rem-0-7: 0.7rem;
+  --lab-shell-rem-0-72: 0.72rem;
+  --lab-shell-rem-0-74: 0.74rem;
+  --lab-shell-rem-0-75: 0.75rem;
+  --lab-shell-rem-0-76: 0.76rem;
+  --lab-shell-rem-0-78: 0.78rem;
+  --lab-shell-rem-0-8: 0.8rem;
+  --lab-shell-rem-0-82: 0.82rem;
+  --lab-shell-rem-0-84: 0.84rem;
+  --lab-shell-rem-0-85: 0.85rem;
+  --lab-shell-rem-0-86: 0.86rem;
+  --lab-shell-rem-0-9: 0.9rem;
+  --lab-shell-rem-0-92: 0.92rem;
+  --lab-shell-rem-0-95: 0.95rem;
+  --lab-shell-rem-1: 1rem;
+  --lab-shell-rem-1-04: 1.04rem;
+  --lab-shell-rem-1-08: 1.08rem;
+  --lab-shell-rem-1-1: 1.1rem;
+  --lab-shell-rem-1-2: 1.2rem;
+  --lab-shell-rem-1-8: 1.8rem;
+  --lab-shell-rem-1-85: 1.85rem;
+  --lab-shell-rem-1-9: 1.9rem;
+  --lab-shell-rem-14: 14rem;
+  --lab-shell-rem-16: 16rem;
+  --lab-shell-rem-18: 18rem;
+  --lab-shell-rem-2: 2rem;
+  --lab-shell-rem-20: 20rem;
+  --lab-shell-rem-22: 22rem;
+  --lab-shell-rem-24: 24rem;
+  --lab-shell-rem-30: 30rem;
+  --lab-shell-rem-34: 34rem;
+  --lab-shell-rem-4-35: 4.35rem;
+  --lab-shell-rem-42: 42rem;
+  --lab-shell-rem-44: 44rem;
+  --lab-shell-rem-5: 5rem;
+  --lab-shell-rem-68: 68rem;
+  --lab-shell-rem-96: 96rem;
+  /* Workspace selection literal tokens. */
+  --lab-workspace-gradient-01: linear-gradient(180deg, var(--lab-surface-1), var(--lab-surface-0));
+  --lab-workspace-gradient-02: linear-gradient(
+    180deg,
+    rgba(10, 19, 30, 0.96),
+    rgba(7, 14, 22, 0.92)
+  );
+  --lab-workspace-gradient-03: linear-gradient(
+    180deg,
+    rgba(92, 215, 223, 0.05),
+    rgba(106, 166, 235, 0.02)
+  );
+  --lab-workspace-gradient-04: linear-gradient(
+    180deg,
+    rgba(92, 215, 223, 0.12),
+    rgba(106, 166, 235, 0.04)
+  );
+  --lab-workspace-gradient-05: linear-gradient(
+    180deg,
+    rgba(92, 215, 223, 0.08),
+    rgba(122, 162, 255, 0.04)
+  );
+  --lab-workspace-gradient-06: linear-gradient(
+    180deg,
+    rgba(92, 215, 223, 0.18),
+    rgba(122, 162, 255, 0.08)
+  );
+  --lab-workspace-gradient-07: linear-gradient(
+    180deg,
+    rgba(11, 20, 31, 0.98),
+    rgba(8, 15, 25, 0.95)
+  );
+  --lab-workspace-gradient-08: linear-gradient(180deg, rgba(6, 11, 19, 0.96), rgba(3, 8, 15, 0.98));
+  --lab-workspace-color-01: rgba(var(--lab-accent-rgb), 0.03);
+  --lab-workspace-color-02: rgba(231, 98, 106, 0.18);
+  --lab-workspace-color-03: rgba(0, 0, 0, 0.32);
+  --lab-workspace-color-04: rgba(134, 187, 214, 0.16);
+  --lab-workspace-color-05: rgba(6, 12, 20, 0.72);
+  --lab-workspace-color-06: rgba(255, 255, 255, 0.06);
+  --lab-workspace-color-07: rgba(255, 255, 255, 0.025);
+  --lab-workspace-color-08: rgba(92, 215, 223, 0.16);
+  --lab-workspace-color-09: rgba(255, 255, 255, 0.035);
+  --lab-workspace-color-10: rgba(10, 18, 27, 0.78);
+  --lab-workspace-color-11: rgba(92, 215, 223, 0.08);
+  --lab-workspace-color-12: rgba(0, 0, 0, 0.18);
+  --lab-workspace-color-13: rgba(10, 18, 27, 0.88);
+  --lab-workspace-color-14: rgba(92, 215, 223, 0.18);
+  --lab-workspace-color-15: rgba(0, 0, 0, 0.22);
+  --lab-workspace-color-16: rgba(var(--lab-selection-accent-rgb), 0.22);
+  --lab-workspace-color-17: rgba(var(--lab-selection-accent-rgb), 0.12);
+  --lab-workspace-color-18: rgba(var(--lab-selection-accent-rgb), 0.38);
+  --lab-workspace-color-19: rgba(255, 178, 101, 0.44);
+  --lab-workspace-color-20: rgba(255, 178, 101, 0.12);
+  --lab-workspace-color-21: rgba(255, 178, 101, 0.1);
+  --lab-workspace-color-22: rgba(var(--lab-selection-accent-rgb), 0.18);
+  --lab-workspace-color-23: rgba(var(--lab-selection-accent-rgb), 0.15);
+  --lab-workspace-color-24: rgba(var(--lab-selection-accent-rgb), 0.28);
+  --lab-workspace-color-25: rgba(9, 17, 27, 0.94);
+  --lab-workspace-color-26: rgba(0, 0, 0, 0.28);
+  --lab-workspace-color-27: rgba(var(--lab-selection-accent-rgb), 0.06);
+  --lab-workspace-color-28: rgba(var(--lab-selection-accent-rgb), 0.96);
+  --lab-workspace-color-29: rgba(var(--lab-selection-accent-rgb), 0.32);
+  --lab-workspace-color-30: rgba(var(--lab-selection-accent-rgb), 0.42);
+  --lab-workspace-color-31: rgba(255, 255, 255, 0.94);
+  --lab-workspace-color-32: rgba(var(--lab-selection-accent-rgb), 0.8);
+  --lab-workspace-color-33: rgba(var(--lab-selection-accent-rgb), 0.08);
+  --lab-workspace-color-34: rgba(var(--lab-selection-accent-rgb), 0.76);
+  --lab-workspace-color-35: rgba(243, 248, 252, 0.94);
+  --lab-workspace-color-36: rgba(255, 255, 255, 0.1);
+  --lab-workspace-color-37: rgba(255, 255, 255, 0.03);
+  --lab-workspace-color-38: rgba(var(--lab-selection-accent-rgb), 0.1);
+  --lab-workspace-color-39: rgba(163, 185, 206, 0.84);
+  --lab-workspace-color-40: rgba(var(--lab-selection-accent-rgb), 0.9);
+  --lab-workspace-color-41: rgba(var(--lab-selection-accent-rgb), 0.2);
+  --lab-workspace-color-42: rgba(var(--lab-selection-accent-rgb), 0.34);
+  --lab-workspace-color-43: rgba(var(--lab-selection-accent-rgb), 0.84);
+  --lab-workspace-color-44: rgba(var(--lab-selection-accent-rgb), 0.05);
+  --lab-workspace-color-45: rgba(228, 238, 248, 0.88);
+  --lab-workspace-color-46: rgba(var(--lab-selection-accent-rgb), 0.14);
+  --lab-workspace-color-47: rgba(255, 255, 255, 0.96);
+  --lab-workspace-color-48: rgba(255, 255, 255, 0.04);
+  --lab-workspace-color-49: rgba(255, 255, 255, 0.92);
+  --lab-workspace-color-50: rgba(var(--lab-selection-accent-rgb), 0.16);
+  --lab-workspace-color-51: rgba(var(--lab-selection-accent-rgb), 0.48);
+  --lab-workspace-color-52: rgba(var(--lab-selection-accent-rgb), 0.24);
+  --lab-workspace-color-53: rgba(214, 227, 240, 0.76);
+  --lab-workspace-color-54: rgba(236, 244, 250, 0.88);
+  --lab-workspace-color-55: rgba(4, 10, 18, 0.96);
+  --lab-workspace-color-56: rgba(255, 255, 255, 0.02);
+  --lab-workspace-color-57: rgba(244, 249, 252, 0.96);
+  --lab-workspace-color-58: rgba(var(--lab-selection-accent-rgb), 0.82);
+  --lab-workspace-color-59: rgba(218, 230, 240, 0.88);
+  --lab-workspace-color-60: rgba(226, 236, 246, 0.9);
+  --lab-workspace-color-61: rgba(var(--lab-selection-accent-rgb), 0.3);
+  --lab-workspace-color-62: rgba(var(--lab-selection-accent-rgb), 0.44);
+  --lab-workspace-color-63: rgba(255, 255, 255, 0.98);
+  --lab-workspace-em-0-03: 0.03em;
+  --lab-workspace-em-0-04: 0.04em;
+  --lab-workspace-em-0-08: 0.08em;
+  --lab-workspace-em-0-1: 0.1em;
+  --lab-workspace-em-0-12: 0.12em;
+  --lab-workspace-em-0-14: 0.14em;
+  --lab-workspace-px-1: 1px;
+  --lab-workspace-px-10: 10px;
+  --lab-workspace-px-12: 12px;
+  --lab-workspace-px-18: 18px;
+  --lab-workspace-px-2: 2px;
+  --lab-workspace-px-22: 22px;
+  --lab-workspace-px-24: 24px;
+  --lab-workspace-px-neg-1: -1px;
+  --lab-workspace-px-neg-10: -10px;
+  --lab-workspace-rem-0-05: 0.05rem;
+  --lab-workspace-rem-0-1: 0.1rem;
+  --lab-workspace-rem-0-15: 0.15rem;
+  --lab-workspace-rem-0-16: 0.16rem;
+  --lab-workspace-rem-0-18: 0.18rem;
+  --lab-workspace-rem-0-2: 0.2rem;
+  --lab-workspace-rem-0-22: 0.22rem;
+  --lab-workspace-rem-0-24: 0.24rem;
+  --lab-workspace-rem-0-25: 0.25rem;
+  --lab-workspace-rem-0-26: 0.26rem;
+  --lab-workspace-rem-0-28: 0.28rem;
+  --lab-workspace-rem-0-3: 0.3rem;
+  --lab-workspace-rem-0-32: 0.32rem;
+  --lab-workspace-rem-0-35: 0.35rem;
+  --lab-workspace-rem-0-4: 0.4rem;
+  --lab-workspace-rem-0-42: 0.42rem;
+  --lab-workspace-rem-0-45: 0.45rem;
+  --lab-workspace-rem-0-5: 0.5rem;
+  --lab-workspace-rem-0-55: 0.55rem;
+  --lab-workspace-rem-0-56: 0.56rem;
+  --lab-workspace-rem-0-58: 0.58rem;
+  --lab-workspace-rem-0-59: 0.59rem;
+  --lab-workspace-rem-0-6: 0.6rem;
+  --lab-workspace-rem-0-62: 0.62rem;
+  --lab-workspace-rem-0-64: 0.64rem;
+  --lab-workspace-rem-0-65: 0.65rem;
+  --lab-workspace-rem-0-66: 0.66rem;
+  --lab-workspace-rem-0-67: 0.67rem;
+  --lab-workspace-rem-0-68: 0.68rem;
+  --lab-workspace-rem-0-7: 0.7rem;
+  --lab-workspace-rem-0-71: 0.71rem;
+  --lab-workspace-rem-0-72: 0.72rem;
+  --lab-workspace-rem-0-78: 0.78rem;
+  --lab-workspace-rem-0-85: 0.85rem;
+  --lab-workspace-rem-1: 1rem;
+  --lab-workspace-rem-1-8: 1.8rem;
+  --lab-workspace-rem-1-85: 1.85rem;
+  --lab-workspace-rem-13-5: 13.5rem;
+  --lab-workspace-rem-18: 18rem;
+  --lab-workspace-rem-2: 2rem;
+  --lab-workspace-rem-28: 28rem;
+  --lab-workspace-rem-3-5: 3.5rem;
+  --lab-workspace-rem-42: 42rem;
+  --lab-workspace-rem-5-6: 5.6rem;
+  --lab-workspace-rem-neg-0-55: -0.55rem;
+  --lab-workspace-rem-2-2: 2.2rem;
+  --lab-workspace-rem-2-6: 2.6rem;
+  --lab-workspace-rem-2-7: 2.7rem;
+  --lab-workspace-rem-5-2: 5.2rem;
+  --lab-workspace-rem-6-5: 6.5rem;
+  --lab-workspace-rem-7: 7rem;
+  --lab-workspace-rem-8: 8rem;
+  --lab-workspace-rem-10: 10rem;
+  --lab-workspace-rem-12: 12rem;
+  --lab-workspace-rem-13: 13rem;
+  --lab-workspace-rem-20: 20rem;
+  --lab-comparison-split: 50%;
+  --lab-comparison-primary-transform: none;
+  --lab-comparison-reference-transform: none;
+}
+
+/* Honor reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --lab-duration-fast: 0ms;
+    --lab-duration-base: 0ms;
+    --lab-duration-slow: 0ms;
+    --lab-duration-emphasis: 0ms;
+  }
+}

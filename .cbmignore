@@ -1,0 +1,22 @@
+# Hayalet Ev runtime/generated surfaces that should stay out of codebase-memory indexes.
+data/**
+tmp/**
+dist/**
+node_modules/**
+logs/**
+release/**
+screenshots/**
+.rovo/_metadata/**
+rooms/.build/**
+android-companion/.gradle/**
+android-companion/app/build/**
+android-companion/app/.cxx/**
+android-companion/app/intermediates/**
+assets/processed/**
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.tsbuildinfo

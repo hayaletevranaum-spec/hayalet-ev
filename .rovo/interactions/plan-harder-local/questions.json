@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "scope",
+      "kind": "single-choice",
+      "label": "Bu turda hangi kapsamı hedefleyelim?",
+      "required": true,
+      "options": [
+        {
+          "value": "v1-core",
+          "label": "Sadece V1 iskeleti",
+          "description": "Aktivasyon, payload ve ilk render seam'i",
+          "recommended": true
+        },
+        {
+          "value": "v1-plus-flow",
+          "label": "V1 + temel akışlar",
+          "description": "V1 iskeletiyle birlikte approval ve planning kartları"
+        },
+        {
+          "value": "research-only",
+          "label": "Sadece araştırma/plan",
+          "description": "Kod değil, risk ve mimari netleştirme"
+        }
+      ]
+    },
+    {
+      "id": "constraints",
+      "kind": "long-text",
+      "label": "Korunması gereken kısıtlar neler?",
+      "placeholder": "Örn: opencode-ui dışına taşmasın, mevcut evet akışı bozulmasın..."
+    },
+    {
+      "id": "success",
+      "kind": "long-text",
+      "label": "Bu sprint bittiğinde başarıyı nasıl ölçeceğiz?",
+      "required": true,
+      "placeholder": "Örn: approval kartı çalışsın, gate kapalıyken plain text devam etsin..."
+    },
+    {
+      "id": "validation",
+      "kind": "short-text",
+      "label": "Özellikle görmek istediğin doğrulama ne?",
+      "placeholder": "Örn: reload sonrası replay, exact evet, draft restore..."
+    }
+  ]
+}

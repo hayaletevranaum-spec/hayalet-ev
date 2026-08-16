@@ -1,0 +1,128 @@
+/* ── Phase 2 Forensic Interaction Layer ─────────────────────────── */
+.repair-viewport[data-mode="replay"] {
+  box-shadow: inset 0 0 0 var(--repair-px-1) var(--repair-amber-border);
+}
+
+.repair-viewport[data-mode="freeze"] {
+  box-shadow: inset 0 0 0 var(--repair-px-1) var(--repair-risk);
+}
+
+.repair-viewport[data-mode="investigation"] {
+  box-shadow:
+    inset 0 0 0 var(--repair-px-1) var(--repair-border-strong),
+    inset 0 0 var(--repair-px-44) var(--repair-scrim-inset);
+}
+
+.repair-viewport[data-cursor="pan"] {
+  cursor: grab;
+}
+
+.repair-viewport[data-cursor="measurement"],
+.repair-viewport[data-cursor="annotate"] {
+  cursor: crosshair;
+}
+
+.repair-viewport[data-cursor="replay-scrub-lock"] {
+  cursor: not-allowed;
+}
+
+.repair-annotation-inspector {
+  position: absolute;
+  left: calc(var(--repair-sp-3) + var(--repair-px-80));
+  top: var(--repair-sp-3);
+  width: min(var(--repair-px-280), calc(100% - var(--repair-px-104)));
+  padding: var(--repair-sp-3);
+  border: var(--repair-px-1) solid var(--repair-border-strong);
+  border-radius: var(--repair-radius-inner);
+  background: var(--repair-popover-bg);
+  backdrop-filter: blur(var(--repair-px-8));
+  pointer-events: none;
+  z-index: 6;
+}
+
+@media (--repair-bp-max-680) {
+  .repair-annotation-inspector {
+    left: var(--repair-sp-2);
+    right: var(--repair-sp-2);
+    top: calc(var(--repair-sp-2) + var(--repair-px-56));
+    width: auto;
+  }
+}
+
+.repair-annotation-inspector__title {
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-10);
+  color: var(--repair-cyan);
+  text-transform: uppercase;
+}
+
+.repair-annotation-inspector__detail {
+  margin-top: var(--repair-px-6);
+  color: var(--repair-text);
+  font-size: var(--repair-px-12);
+}
+
+.repair-annotation-inspector__meta {
+  margin-top: var(--repair-px-8);
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-10);
+  color: var(--repair-text-dim);
+}
+
+.repair-annotation-inspector__links,
+.repair-annotation-inspector__selection {
+  margin-top: var(--repair-px-6);
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-10);
+  line-height: 1.35;
+  color: var(--repair-text-muted);
+}
+
+.repair-annotation-inspector__selection {
+  color: var(--repair-cyan);
+}
+
+.repair-section-label {
+  padding: var(--repair-sp-2) 0 var(--repair-sp-1);
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-10);
+  text-transform: uppercase;
+  letter-spacing: var(--repair-em-0-08);
+  color: var(--repair-text-dim);
+}
+
+.repair-knowledge-spatial-list {
+  display: grid;
+  gap: var(--repair-px-6);
+}
+
+.repair-knowledge-spatial {
+  display: grid;
+  gap: var(--repair-px-4);
+  width: 100%;
+  padding: var(--repair-sp-2);
+  border: var(--repair-px-1) solid var(--repair-border-muted);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-control);
+  color: var(--repair-text-muted);
+  text-align: left;
+  cursor: pointer;
+}
+
+.repair-knowledge-spatial:hover,
+.repair-knowledge-spatial--active {
+  border-color: var(--repair-border-strong);
+  color: var(--repair-text);
+  background: var(--repair-cyan-wash);
+}
+
+.repair-knowledge-spatial {
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-10);
+}
+
+.repair-knowledge-spatial--promote {
+  border-color: var(--repair-amber-border);
+  color: var(--repair-amber);
+  background: var(--repair-amber-wash);
+}

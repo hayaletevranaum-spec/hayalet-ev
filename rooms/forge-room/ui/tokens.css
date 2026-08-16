@@ -1,0 +1,222 @@
+@custom-media --forge-bp-max-1420 (max-width: 1420px);
+@custom-media --forge-bp-max-1260 (max-width: 1260px);
+@custom-media --forge-bp-max-1040 (max-width: 1040px);
+@custom-media --forge-bp-max-720 (max-width: 720px);
+
+:root {
+  color-scheme: dark;
+  --forge-stage-panel-height: calc(100vh - 178px);
+  --forge-bg: #090c10;
+  --forge-bg-strong: #05070a;
+  --forge-panel: linear-gradient(180deg, rgba(17, 21, 27, 0.98), rgba(11, 14, 19, 0.98));
+  --forge-panel-alt: linear-gradient(180deg, rgba(19, 23, 30, 0.98), rgba(12, 15, 21, 0.98));
+  --forge-panel-output: linear-gradient(180deg, rgba(17, 24, 28, 0.98), rgba(11, 16, 20, 0.98));
+  --forge-border: rgba(196, 205, 221, 0.12);
+  --forge-border-strong: rgba(243, 170, 79, 0.34);
+  --forge-text: #e7edf6;
+  --forge-text-muted: #95a0b3;
+  --forge-accent: #f3aa4f;
+  --forge-accent-strong: #ffd39a;
+  --forge-success: #65c9a8;
+  --forge-danger: #d47e7e;
+  --forge-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+  --forge-display-font: "Iowan Old Style", "Palatino Linotype", serif;
+  --forge-body-font: "Avenir Next", "Segoe UI Variable Text", sans-serif;
+  --forge-mono-font: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
+
+:root {
+  /* Generated from forge-room style literals so the room stylesheet consumes tokens only. */
+  --forge-gradient-01: radial-gradient(
+    circle at top left,
+    rgba(243, 170, 79, 0.08),
+    transparent 28%
+  );
+  --forge-gradient-02: radial-gradient(
+    circle at top right,
+    rgba(89, 123, 255, 0.08),
+    transparent 24%
+  );
+  --forge-gradient-03: linear-gradient(
+    180deg,
+    #10141a 0%,
+    var(--forge-bg) 36%,
+    var(--forge-bg-strong) 100%
+  );
+  --forge-gradient-04: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.015) 0,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  --forge-gradient-05: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02),
+    transparent 24%,
+    rgba(255, 255, 255, 0.02)
+  );
+  --forge-gradient-06: linear-gradient(180deg, rgba(15, 20, 27, 0.98), rgba(8, 11, 15, 0.98));
+  --forge-gradient-07: linear-gradient(90deg, rgba(243, 170, 79, 0.04), transparent);
+  --forge-gradient-08: linear-gradient(180deg, rgba(12, 16, 22, 0.96), rgba(8, 10, 15, 0.96));
+  --forge-gradient-09: linear-gradient(180deg, rgba(10, 14, 19, 0.92), rgba(7, 10, 14, 0.92));
+  --forge-gradient-10: linear-gradient(180deg, rgba(243, 170, 79, 0.12), rgba(243, 170, 79, 0.05));
+  --forge-gradient-11: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 26%);
+  --forge-gradient-12: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.035),
+    rgba(255, 255, 255, 0.02)
+  );
+  --forge-gradient-13: linear-gradient(
+    180deg,
+    rgba(101, 201, 168, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  --forge-gradient-14: linear-gradient(180deg, rgba(243, 170, 79, 0.08), rgba(243, 170, 79, 0.03));
+  --forge-gradient-15: radial-gradient(circle at top, rgba(243, 170, 79, 0.28), transparent 55%);
+  --forge-gradient-16: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 58%);
+  --forge-gradient-17: linear-gradient(180deg, rgba(243, 170, 79, 0.24), rgba(243, 170, 79, 0.14));
+  --forge-gradient-18: linear-gradient(180deg, rgba(243, 170, 79, 0.07), rgba(243, 170, 79, 0.03));
+  --forge-gradient-19: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+  --forge-gradient-20: linear-gradient(
+    180deg,
+    rgba(212, 126, 126, 0.18),
+    rgba(212, 126, 126, 0.08)
+  );
+  --forge-gradient-21: linear-gradient(180deg, rgba(243, 170, 79, 0.12), rgba(243, 170, 79, 0.04));
+  --forge-gradient-22: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.025)
+  );
+  --forge-color-c7f0e1: #c7f0e1;
+  --forge-color-ffc7c7: #ffc7c7;
+  --forge-color-ffd0d0: #ffd0d0;
+  --forge-color-fff3e1: #fff3e1;
+  --forge-color-rgba-0-0-0-0-12: rgba(0, 0, 0, 0.12);
+  --forge-color-rgba-0-0-0-0-18: rgba(0, 0, 0, 0.18);
+  --forge-color-rgba-0-0-0-0-2: rgba(0, 0, 0, 0.2);
+  --forge-color-rgba-0-0-0-0-22: rgba(0, 0, 0, 0.22);
+  --forge-color-rgba-0-0-0-0-46: rgba(0, 0, 0, 0.46);
+  --forge-color-rgba-101-201-168-0-08: rgba(101, 201, 168, 0.08);
+  --forge-color-rgba-101-201-168-0-18: rgba(101, 201, 168, 0.18);
+  --forge-color-rgba-101-201-168-0-24: rgba(101, 201, 168, 0.24);
+  --forge-color-rgba-212-126-126-0-08: rgba(212, 126, 126, 0.08);
+  --forge-color-rgba-212-126-126-0-16: rgba(212, 126, 126, 0.16);
+  --forge-color-rgba-212-126-126-0-24: rgba(212, 126, 126, 0.24);
+  --forge-color-rgba-212-126-126-0-28: rgba(212, 126, 126, 0.28);
+  --forge-color-rgba-231-237-246-0-34: rgba(231, 237, 246, 0.34);
+  --forge-color-rgba-231-237-246-0-58: rgba(231, 237, 246, 0.58);
+  --forge-color-rgba-231-237-246-0-76: rgba(231, 237, 246, 0.76);
+  --forge-color-rgba-231-237-246-0-82: rgba(231, 237, 246, 0.82);
+  --forge-color-rgba-243-170-79-0-06: rgba(243, 170, 79, 0.06);
+  --forge-color-rgba-243-170-79-0-08: rgba(243, 170, 79, 0.08);
+  --forge-color-rgba-243-170-79-0-1: rgba(243, 170, 79, 0.1);
+  --forge-color-rgba-243-170-79-0-12: rgba(243, 170, 79, 0.12);
+  --forge-color-rgba-243-170-79-0-16: rgba(243, 170, 79, 0.16);
+  --forge-color-rgba-243-170-79-0-18: rgba(243, 170, 79, 0.18);
+  --forge-color-rgba-243-170-79-0-2: rgba(243, 170, 79, 0.2);
+  --forge-color-rgba-243-170-79-0-22: rgba(243, 170, 79, 0.22);
+  --forge-color-rgba-243-170-79-0-24: rgba(243, 170, 79, 0.24);
+  --forge-color-rgba-243-170-79-0-26: rgba(243, 170, 79, 0.26);
+  --forge-color-rgba-243-170-79-0-3: rgba(243, 170, 79, 0.3);
+  --forge-color-rgba-243-170-79-0-34: rgba(243, 170, 79, 0.34);
+  --forge-color-rgba-243-170-79-0-38: rgba(243, 170, 79, 0.38);
+  --forge-color-rgba-243-170-79-0-4: rgba(243, 170, 79, 0.4);
+  --forge-color-rgba-243-170-79-0-42: rgba(243, 170, 79, 0.42);
+  --forge-color-rgba-255-211-154-0-86: rgba(255, 211, 154, 0.86);
+  --forge-color-rgba-255-255-255-0-02: rgba(255, 255, 255, 0.02);
+  --forge-color-rgba-255-255-255-0-025: rgba(255, 255, 255, 0.025);
+  --forge-color-rgba-255-255-255-0-03: rgba(255, 255, 255, 0.03);
+  --forge-color-rgba-255-255-255-0-04: rgba(255, 255, 255, 0.04);
+  --forge-color-rgba-255-255-255-0-05: rgba(255, 255, 255, 0.05);
+  --forge-color-rgba-255-255-255-0-06: rgba(255, 255, 255, 0.06);
+  --forge-color-rgba-255-255-255-0-07: rgba(255, 255, 255, 0.07);
+  --forge-color-rgba-255-255-255-0-08: rgba(255, 255, 255, 0.08);
+  --forge-color-rgba-255-255-255-0-1: rgba(255, 255, 255, 0.1);
+  --forge-color-rgba-255-255-255-0-12: rgba(255, 255, 255, 0.12);
+  --forge-color-rgba-255-255-255-0-16: rgba(255, 255, 255, 0.16);
+  --forge-color-rgba-255-255-255-0-46: rgba(255, 255, 255, 0.46);
+  --forge-color-rgba-255-255-255-0-5: rgba(255, 255, 255, 0.5);
+  --forge-color-rgba-255-255-255-0-58: rgba(255, 255, 255, 0.58);
+  --forge-color-rgba-255-255-255-0-6: rgba(255, 255, 255, 0.6);
+  --forge-color-rgba-255-255-255-0-62: rgba(255, 255, 255, 0.62);
+  --forge-color-rgba-255-255-255-0-66: rgba(255, 255, 255, 0.66);
+  --forge-color-rgba-255-255-255-0-7: rgba(255, 255, 255, 0.7);
+  --forge-color-rgba-255-255-255-0-84: rgba(255, 255, 255, 0.84);
+  --forge-color-rgba-3-5-8-0-62: rgba(3, 5, 8, 0.62);
+  --forge-color-rgba-3-6-10-0-58: rgba(3, 6, 10, 0.58);
+  --forge-color-rgba-8-12-18-0-82: rgba(8, 12, 18, 0.82);
+  --forge-em-0-01: 0.01em;
+  --forge-em-0-03: 0.03em;
+  --forge-em-0-04: 0.04em;
+  --forge-em-0-06: 0.06em;
+  --forge-em-0-08: 0.08em;
+  --forge-em-0-09: 0.09em;
+  --forge-em-0-1: 0.1em;
+  --forge-em-0-12: 0.12em;
+  --forge-px-1: 1px;
+  --forge-px-10: 10px;
+  --forge-px-1040: 1040px;
+  --forge-px-11: 11px;
+  --forge-px-12: 12px;
+  --forge-px-13: 13px;
+  --forge-px-14: 14px;
+  --forge-px-16: 16px;
+  --forge-px-160: 160px;
+  --forge-px-168: 168px;
+  --forge-px-1700: 1700px;
+  --forge-px-18: 18px;
+  --forge-px-180: 180px;
+  --forge-px-2: 2px;
+  --forge-px-20: 20px;
+  --forge-px-22: 22px;
+  --forge-px-24: 24px;
+  --forge-px-28: 28px;
+  --forge-px-3: 3px;
+  --forge-px-30: 30px;
+  --forge-px-300: 300px;
+  --forge-px-320: 320px;
+  --forge-px-34: 34px;
+  --forge-px-340: 340px;
+  --forge-px-38: 38px;
+  --forge-px-4: 4px;
+  --forge-px-40: 40px;
+  --forge-px-42: 42px;
+  --forge-px-44: 44px;
+  --forge-px-48: 48px;
+  --forge-px-5: 5px;
+  --forge-px-54: 54px;
+  --forge-px-6: 6px;
+  --forge-px-60: 60px;
+  --forge-px-7: 7px;
+  --forge-px-700: 700px;
+  --forge-px-720: 720px;
+  --forge-px-760: 760px;
+  --forge-px-8: 8px;
+  --forge-px-80: 80px;
+  --forge-px-82: 82px;
+  --forge-px-9: 9px;
+  --forge-px-999: 999px;
+  --forge-px-neg-1: -1px;
+  --forge-rem-0-62: 0.62rem;
+  --forge-rem-0-64: 0.64rem;
+  --forge-rem-0-68: 0.68rem;
+  --forge-rem-0-7: 0.7rem;
+  --forge-rem-0-72: 0.72rem;
+  --forge-rem-0-74: 0.74rem;
+  --forge-rem-0-76: 0.76rem;
+  --forge-rem-0-78: 0.78rem;
+  --forge-rem-0-8: 0.8rem;
+  --forge-rem-0-82: 0.82rem;
+  --forge-rem-0-86: 0.86rem;
+  --forge-rem-0-88: 0.88rem;
+  --forge-rem-0-92: 0.92rem;
+  --forge-rem-0-96: 0.96rem;
+  --forge-rem-1: 1rem;
+  --forge-rem-1-2: 1.2rem;
+}

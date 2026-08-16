@@ -1,0 +1,245 @@
+/* ── Panel (generic card) ────────────────────────────────────────── */
+.repair-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  border: var(--repair-px-1) solid var(--repair-border-panel);
+  background: var(--repair-panel);
+  box-shadow: inset 0 var(--repair-px-1) 0 var(--repair-surface-control);
+  transition:
+    border-color var(--repair-dur-panel) var(--repair-ease),
+    background var(--repair-dur-panel) var(--repair-ease),
+    box-shadow var(--repair-dur-panel) var(--repair-ease),
+    opacity var(--repair-dur-panel) var(--repair-ease);
+}
+
+.repair-panel:hover,
+.repair-panel:focus-within {
+  border-color: var(--repair-border-panel-hover);
+  background: var(--repair-panel-alt);
+}
+
+.repair-panel__header {
+  display: flex;
+  align-items: center;
+  gap: var(--repair-sp-2);
+  min-height: var(--repair-px-38);
+  padding: var(--repair-sp-2) var(--repair-sp-4);
+  border-bottom: var(--repair-px-1) solid var(--repair-border-muted);
+  background: var(--repair-surface-trace);
+  user-select: none;
+}
+
+.repair-panel__header-spacer {
+  flex: 1;
+}
+
+.repair-panel__icon-btn {
+  height: var(--repair-px-20);
+  min-width: var(--repair-px-28);
+  border: var(--repair-px-1) solid var(--repair-border);
+  border-radius: var(--repair-radius-sm);
+  background: var(--repair-surface-control);
+  color: var(--repair-text-dim);
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-8);
+  cursor: pointer;
+}
+
+.repair-panel__icon-btn:hover,
+.repair-panel__icon-btn--active {
+  border-color: var(--repair-border-strong);
+  color: var(--repair-cyan);
+}
+
+.repair-panel__status-dot {
+  width: var(--repair-px-6);
+  height: var(--repair-px-6);
+  border-radius: 50%;
+  background: var(--repair-text-dim);
+  flex-shrink: 0;
+}
+
+.repair-panel__status-dot--live {
+  background: var(--repair-cyan);
+}
+.repair-panel__status-dot--risk {
+  background: var(--repair-risk);
+}
+.repair-panel__status-dot--amber {
+  background: var(--repair-amber);
+}
+.repair-panel__status-dot--idle {
+  background: var(--repair-text-dim);
+}
+
+.repair-panel__eyebrow {
+  font-family: var(--repair-mono);
+  font-size: var(--repair-px-9);
+  text-transform: uppercase;
+  letter-spacing: var(--repair-em-0-08);
+  color: var(--repair-text-dim);
+}
+
+.repair-panel__title {
+  font-family: var(--repair-display);
+  font-size: var(--repair-px-13);
+  font-weight: 650;
+  color: var(--repair-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repair-panel__body--no-padding {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.repair-panel__body--column {
+  display: flex;
+  flex-direction: column;
+}
+
+.repair-panel__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--repair-sp-4);
+}
+
+.repair-panel__body--session-locked {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.repair-panel__body--session-locked :is(button, input, select, textarea, [data-repair-action]) {
+  cursor: not-allowed;
+}
+
+.repair-panel__body::-webkit-scrollbar {
+  width: var(--repair-px-4);
+}
+.repair-panel__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.repair-panel__body::-webkit-scrollbar-thumb {
+  background: var(--repair-border-strong);
+  border-radius: var(--repair-px-2);
+}
+
+.repair-panel--dominant > .repair-panel__header {
+  border-bottom-color: var(--repair-border-strong);
+}
+
+.repair-panel--hidden-policy {
+  display: none;
+}
+
+.repair-panel--compact-policy .repair-panel__body {
+  opacity: 0.82;
+}
+
+.repair-shell--profile-novice .repair-panel__icon-btn,
+.repair-shell--profile-novice .repair-toolbar__btn:not(.repair-toolbar__btn--active),
+.repair-shell--profile-novice
+  .repair-timeline__control-btn:not(.repair-timeline__control-btn--active) {
+  opacity: 0.48;
+}
+
+.repair-shell--profile-novice .repair-panel:hover .repair-panel__icon-btn,
+.repair-shell--profile-novice .repair-panel:focus-within .repair-panel__icon-btn,
+.repair-shell--profile-novice .repair-toolbar:hover .repair-toolbar__btn,
+.repair-shell--profile-novice .repair-timeline__controls:hover .repair-timeline__control-btn {
+  opacity: 1;
+}
+
+/* Workbench panel header: title centered with panel toggles on both sides */
+.repair-panel--workbench-stage > .repair-panel__header {
+  position: relative;
+  justify-content: center;
+  padding-inline: max(var(--repair-sp-3), var(--repair-px-96));
+}
+
+.repair-panel--workbench-stage > .repair-panel__header .repair-panel__header-spacer {
+  display: none;
+}
+
+.repair-workbench-panel-toggles {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--repair-sp-1);
+  max-width: min(36%, var(--repair-px-180));
+  overflow-x: auto;
+  scrollbar-width: none;
+  transform: translateY(-50%);
+}
+
+.repair-workbench-panel-toggles::-webkit-scrollbar {
+  display: none;
+}
+
+.repair-workbench-panel-toggles--left {
+  left: var(--repair-sp-3);
+  justify-content: flex-start;
+}
+
+.repair-workbench-panel-toggles--right {
+  right: var(--repair-sp-3);
+  justify-content: flex-end;
+}
+
+.repair-workbench-panel-toggles .repair-panel-chip {
+  flex: 0 0 auto;
+}
+
+/* Active panel emphasis */
+.repair-panel--active {
+  border-color: var(--repair-border-active);
+  background: var(--repair-panel-focus);
+  box-shadow:
+    inset 0 0 0 var(--repair-px-1) var(--repair-amber-active-inset),
+    0 var(--repair-px-8) var(--repair-px-32) var(--repair-shadow-panel);
+}
+
+.repair-panel--active > .repair-panel__header {
+  border-bottom-color: var(--repair-amber-border);
+  box-shadow: inset 0 calc(var(--repair-px-1) * -1) 0 var(--repair-amber-border);
+}
+
+.repair-panel--workbench-stage.repair-panel--active {
+  border-color: var(--repair-border-panel);
+  box-shadow: inset 0 var(--repair-px-1) 0 var(--repair-surface-control);
+}
+
+.repair-panel--workbench-stage.repair-panel--active:hover,
+.repair-panel--workbench-stage.repair-panel--active:focus-within {
+  border-color: var(--repair-border-panel-hover);
+}
+
+.repair-panel--workbench-stage.repair-panel--active > .repair-panel__header {
+  border-bottom-color: var(--repair-border-muted);
+  box-shadow: none;
+}
+
+.repair-panel--active > .repair-panel__header .repair-panel__title {
+  color: var(--repair-text);
+}
+
+/* Collapsed panel stub */
+.repair-panel--collapsed {
+  max-height: var(--repair-px-34);
+  min-height: var(--repair-px-34);
+}
+.repair-panel--collapsed > .repair-panel__body {
+  display: none;
+}
+
+.repair-panel[hidden] {
+  display: none;
+}

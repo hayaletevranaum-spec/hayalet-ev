@@ -1,0 +1,338 @@
+/* Pattern Room report hierarchy revision.
+ * Loaded after the shared shell and focused review revisions.
+ */
+
+.pattern-room-report-workspace {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+}
+
+.pattern-room-report-document {
+  width: 100%;
+  min-width: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+.pattern-room-workspace-inspector-content > .pattern-room-report-outline {
+  width: 100%;
+  min-width: 0;
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pattern-room-report-inspector-summary {
+  display: grid;
+  gap: var(--pattern-px-10);
+  margin-bottom: var(--pattern-px-16);
+  padding-bottom: var(--pattern-px-16);
+  border-bottom: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+}
+
+.pattern-room-report-inspector-summary h2 {
+  margin: 0;
+  font-size: var(--pattern-rem-1-2);
+  line-height: 1.25;
+}
+
+.pattern-room-report-inspector-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pattern-px-6);
+}
+
+.pattern-room-report-status-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--pattern-px-26);
+  padding: var(--pattern-px-4) var(--pattern-px-8);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-34);
+  border-radius: var(--pattern-px-999);
+  background: var(--pattern-accent-amber-alpha-08);
+  color: var(--pattern-accent-amber-light);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 800;
+  letter-spacing: var(--pattern-em-0-04);
+  text-transform: uppercase;
+}
+
+.pattern-room-report-status-chip.secondary {
+  border-color: var(--pattern-text-alpha-14);
+  background: var(--pattern-white-alpha-04);
+  color: var(--pattern-text-subtle);
+}
+
+.pattern-room-report-inspector-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--pattern-px-6);
+}
+
+.pattern-room-report-inspector-metric {
+  display: grid;
+  gap: var(--pattern-px-4);
+  min-width: 0;
+  padding: var(--pattern-px-8);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-14);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-report-inspector-metric span {
+  overflow: hidden;
+  color: var(--pattern-text-subtle);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pattern-room-report-inspector-metric strong {
+  color: var(--pattern-text-warm);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-1);
+}
+
+.pattern-room-report-inspector-disclaimer {
+  margin: 0;
+  color: var(--pattern-text-muted);
+  font-size: var(--pattern-rem-0-82);
+  line-height: 1.5;
+}
+
+.pattern-room-workspace-inspector-content
+  > .pattern-room-report-outline
+  > .pattern-room-context-inspector-label {
+  margin-bottom: var(--pattern-px-8);
+}
+
+.pattern-room-report-outline-navigation {
+  gap: var(--pattern-px-8);
+}
+
+.pattern-room-report-outline-button {
+  grid-template-columns: var(--pattern-px-28) minmax(0, 1fr);
+  gap: var(--pattern-px-4) var(--pattern-px-8);
+  min-height: var(--pattern-px-54);
+  padding: var(--pattern-px-8) var(--pattern-px-10);
+  border-color: var(--pattern-text-alpha-12);
+  background: var(--pattern-white-alpha-03);
+}
+
+.pattern-room-report-outline-button > small {
+  grid-column: 2;
+  overflow: hidden;
+  color: var(--pattern-text-subtle);
+  font-size: var(--pattern-rem-0-72);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pattern-room-report-outline-button.active {
+  box-shadow: inset var(--pattern-px-3) 0 0 var(--pattern-accent-amber);
+}
+
+.pattern-room-report-document-header {
+  display: grid;
+  gap: var(--pattern-px-8);
+  padding: var(--pattern-px-20);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-18);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-gradient-report-sheen), var(--pattern-surface-panel-alpha-84);
+}
+
+.pattern-room-report-document-header > h2,
+.pattern-room-report-document-header > p {
+  margin: 0;
+}
+
+.pattern-room-report-document-header > h2 {
+  font-size: var(--pattern-rem-1-35);
+  line-height: 1.2;
+}
+
+.pattern-room-report-document-header > p {
+  max-width: var(--pattern-px-720);
+  color: var(--pattern-text-muted);
+  line-height: 1.55;
+}
+
+.pattern-room-report-priority-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--pattern-px-8);
+  margin-top: var(--pattern-px-8);
+}
+
+.pattern-room-report-priority-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--pattern-px-4) var(--pattern-px-8);
+  align-items: end;
+  min-width: 0;
+  padding: var(--pattern-px-10);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-report-priority-summary > span {
+  overflow: hidden;
+  color: var(--pattern-text-muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-76);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pattern-room-report-priority-summary > strong {
+  grid-row: span 2;
+  color: var(--pattern-text-warm);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-1-35);
+}
+
+.pattern-room-report-priority-summary > small {
+  color: var(--pattern-text-subtle);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+}
+
+.pattern-room-report-priority-summary.primary {
+  border-color: var(--pattern-success-alpha-46);
+  background: var(--pattern-success-alpha-05);
+}
+
+.pattern-room-report-priority-summary.supporting {
+  border-color: var(--pattern-accent-amber-alpha-22);
+  background: var(--pattern-accent-amber-alpha-06);
+}
+
+.pattern-room-report-priority-summary.next {
+  border-color: var(--pattern-accent-cyan-alpha-22);
+  background: var(--pattern-accent-cyan-alpha-05);
+}
+
+.pattern-room-report-list {
+  display: grid;
+  gap: var(--pattern-px-16);
+  margin-top: var(--pattern-px-16);
+}
+
+.pattern-room-report-priority-group {
+  display: grid;
+  gap: var(--pattern-px-10);
+  padding: var(--pattern-px-14);
+  border: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-surface-panel-alpha-82);
+}
+
+.pattern-room-report-priority-group.primary {
+  border-color: var(--pattern-success-alpha-46);
+}
+
+.pattern-room-report-priority-group.supporting {
+  border-color: var(--pattern-accent-amber-alpha-22);
+}
+
+.pattern-room-report-priority-group.next {
+  border-color: var(--pattern-accent-cyan-alpha-22);
+}
+
+.pattern-room-report-priority-header {
+  display: grid;
+  gap: var(--pattern-px-4);
+  padding-bottom: var(--pattern-px-10);
+  border-bottom: var(--pattern-px-1) solid var(--pattern-text-alpha-12);
+}
+
+.pattern-room-report-priority-header > h3,
+.pattern-room-report-priority-header > p {
+  margin: 0;
+}
+
+.pattern-room-report-priority-header > h3 {
+  font-size: var(--pattern-rem-1-2);
+}
+
+.pattern-room-report-priority-header > p {
+  max-width: var(--pattern-px-720);
+  color: var(--pattern-text-muted);
+  line-height: 1.5;
+}
+
+.pattern-room-report-priority-body {
+  display: grid;
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-report-card {
+  scroll-margin-top: var(--pattern-px-84);
+}
+
+.pattern-room-report-card:focus-visible {
+  outline: none;
+  box-shadow: var(--pattern-glow-amber-focus);
+}
+
+@media (--pattern-bp-max-960) {
+  .pattern-room-report-inspector-summary {
+    grid-template-columns: minmax(0, 1fr) minmax(var(--pattern-px-260), 0.8fr);
+    gap: var(--pattern-px-8) var(--pattern-px-14);
+  }
+
+  .pattern-room-report-inspector-status,
+  .pattern-room-report-inspector-summary > h2 {
+    grid-column: 1;
+  }
+
+  .pattern-room-report-inspector-metrics {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .pattern-room-report-inspector-disclaimer {
+    grid-column: 1 / -1;
+  }
+
+  .pattern-room-report-outline-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (--pattern-bp-max-820) {
+  .pattern-room-report-document {
+    padding: var(--pattern-px-12);
+  }
+
+  .pattern-room-report-document-header {
+    padding: var(--pattern-px-14);
+  }
+
+  .pattern-room-report-priority-overview,
+  .pattern-room-report-inspector-metrics,
+  .pattern-room-report-outline-navigation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pattern-room-report-inspector-summary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pattern-room-report-inspector-metrics {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .pattern-room-report-priority-group {
+    padding: var(--pattern-px-10);
+  }
+}

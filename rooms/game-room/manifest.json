@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 2,
+  "id": "game-room",
+  "name": "Game Room",
+  "version": "2.5.0",
+  "menu": {
+    "label": "Game Room",
+    "icon": "🎮",
+    "iconSrc": "shared/assets/nav-icon.svg",
+    "order": 80
+  },
+  "runtime": {
+    "uiEntry": "ui/index.html",
+    "hostEntry": "host/index.js"
+  },
+  "defaultFeatureId": "backgammon",
+  "features": [
+    {
+      "id": "backgammon",
+      "name": "Tavla",
+      "description": "Classic Tavla matches against AI1, AI2, or the connected US1 remote user.",
+      "icon": "TV",
+      "commandSpecs": [
+        {
+          "name": "GameRoomBackgammonStart",
+          "description": "Start a new Tavla match from the room UI.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomBackgammonReset",
+          "description": "Reset the active Tavla match state.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomBackgammonUserMove",
+          "description": "Apply the user's Tavla legal move from the room UI.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomBackgammonAiMove",
+          "description": "Apply the AI Tavla move returned by the selected opponent slot.",
+          "scope": "ai-slots",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomBackgammonRemoteMove",
+          "description": "Apply the remote US1 Tavla move delivered over room mail transport.",
+          "scope": "us1",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomBackgammonAcceptInvite",
+          "description": "Accept an incoming US1 Tavla invite from the room UI.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomBackgammonRejectInvite",
+          "description": "Reject an incoming US1 Tavla invite from the room UI.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        }
+      ],
+      "protocolSpecs": [
+        {
+          "key": "game-room-backgammon-user-start",
+          "room": "game-room",
+          "scenario": "backgammon-user-start",
+          "title": "[START][GAME-ROOM][TAVLA][USER-FIRST]",
+          "editable": true,
+          "path": "main-functions/backgammon/protocols/game-room-backgammon-user-start.md"
+        },
+        {
+          "key": "game-room-backgammon-ai-start",
+          "room": "game-room",
+          "scenario": "backgammon-ai-start",
+          "title": "[START][GAME-ROOM][TAVLA][AI-FIRST]",
+          "editable": true,
+          "path": "main-functions/backgammon/protocols/game-room-backgammon-ai-start.md"
+        },
+        {
+          "key": "game-room-backgammon-us1-transport",
+          "room": "game-room",
+          "scenario": "backgammon-us1-transport",
+          "title": "[INFO][GAME-ROOM][TAVLA][US1-TRANSPORT]",
+          "editable": false,
+          "path": "main-functions/backgammon/protocols/game-room-backgammon-us1-transport.md"
+        }
+      ],
+      "scene": {
+        "hotspot": {
+          "id": "game-room-backgammon",
+          "rect": {
+            "leftPx": 188,
+            "topPx": 362,
+            "widthPx": 446,
+            "heightPx": 258
+          },
+          "label": {
+            "text": "Tavla"
+          }
+        },
+        "view": {
+          "id": "backgammon-closeup",
+          "backgroundSrc": "main-functions/backgammon/assets/backgammon-view.webp",
+          "transparentWindow": {
+            "leftPct": 28.28,
+            "topPct": 18.8,
+            "widthPct": 43.59,
+            "heightPct": 54.17
+          }
+        }
+      }
+    },
+    {
+      "id": "team-tetris",
+      "name": "Team Tetris",
+      "description": "A four-seat, turn-based team Tetris mode for the local user, AI1, AI2, and the connected US1 remote user.",
+      "icon": "TT",
+      "commandSpecs": [
+        {
+          "name": "GameRoomTeamTetrisStart",
+          "description": "Start a new Team Tetris match from the room UI.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomTeamTetrisReset",
+          "description": "Reset the active Team Tetris match state.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomTeamTetrisUserMove",
+          "description": "Apply the local user's Team Tetris path selection from the room UI.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomTeamTetrisAiMove",
+          "description": "Apply the Team Tetris move returned by AI1 or AI2.",
+          "scope": "ai-slots",
+          "exposure": "internal"
+        },
+        {
+          "name": "GameRoomTeamTetrisRemoteMove",
+          "description": "Apply the Team Tetris move delivered over the connected US1 transport.",
+          "scope": "us1",
+          "exposure": "internal"
+        }
+      ],
+      "protocolSpecs": [
+        {
+          "key": "game-room-team-tetris-ai-opening",
+          "room": "game-room",
+          "scenario": "team-tetris-ai-opening",
+          "title": "[TURN][GAME-ROOM][TEAM-TETRIS][AI][OPENING]",
+          "editable": true,
+          "path": "main-functions/team-tetris/protocols/game-room-team-tetris-ai-opening.md"
+        },
+        {
+          "key": "game-room-team-tetris-ai-followup",
+          "room": "game-room",
+          "scenario": "team-tetris-ai-followup",
+          "title": "[TURN][GAME-ROOM][TEAM-TETRIS][AI][FOLLOWUP]",
+          "editable": true,
+          "path": "main-functions/team-tetris/protocols/game-room-team-tetris-ai-followup.md"
+        },
+        {
+          "key": "game-room-team-tetris-us1-transport",
+          "room": "game-room",
+          "scenario": "team-tetris-us1-transport",
+          "title": "[INFO][GAME-ROOM][TEAM-TETRIS][US1-TRANSPORT]",
+          "editable": false,
+          "path": "main-functions/team-tetris/protocols/game-room-team-tetris-us1-transport.md"
+        }
+      ],
+      "scene": {
+        "hotspot": {
+          "id": "game-room-team-tetris",
+          "rect": {
+            "leftPx": 958,
+            "topPx": 346,
+            "widthPx": 428,
+            "heightPx": 272
+          },
+          "label": {
+            "text": "Team Tetris"
+          }
+        },
+        "view": {
+          "id": "team-tetris-closeup",
+          "backgroundSrc": "main-functions/team-tetris/assets/team-tetris-view.webp",
+          "transparentWindow": {
+            "leftPct": 12.4,
+            "topPct": 16.4,
+            "widthPct": 75.2,
+            "heightPct": 63.8
+          }
+        }
+      }
+    }
+  ],
+  "description": "A focused board-game room for Tavla matches and four-seat Team Tetris matches.",
+  "scene": {
+    "referenceSize": {
+      "width": 1600,
+      "height": 900
+    },
+    "roomBackgroundSrc": "shared/assets/room-background.webp",
+    "roomsHotspot": {
+      "id": "game-room-door",
+      "rect": {
+        "leftPx": 986,
+        "topPx": 454,
+        "widthPx": 164,
+        "heightPx": 168
+      },
+      "label": {
+        "text": "Game Room"
+      }
+    },
+    "backHotspot": {
+      "id": "game-room-back",
+      "rect": {
+        "leftPx": 52,
+        "topPx": 152,
+        "widthPx": 156,
+        "heightPx": 248
+      },
+      "label": {
+        "text": "Corridor"
+      }
+    },
+    "characterRosterPreset": "connected-plus-user",
+    "characters": [
+      {
+        "id": "anchor-ai1-primary",
+        "characterKind": "ai",
+        "preferredSlot": "ai1",
+        "leftPx": 948,
+        "bottomPx": -12,
+        "scale": 0.74,
+        "depth": 3
+      },
+      {
+        "id": "anchor-user",
+        "characterKind": "user",
+        "leftPx": 1208,
+        "bottomPx": -64,
+        "scale": 0.84,
+        "depth": 4
+      },
+      {
+        "id": "anchor-ai2-primary",
+        "characterKind": "ai",
+        "preferredSlot": "ai2",
+        "leftPx": 1432,
+        "bottomPx": -8,
+        "scale": 0.74,
+        "depth": 5
+      }
+    ],
+    "chrome": {
+      "pageShellVariant": "immersive-stage"
+    }
+  },
+  "i18n": {
+    "baseDir": "i18n"
+  }
+}

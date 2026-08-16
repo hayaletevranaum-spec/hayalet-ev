@@ -1,0 +1,167 @@
+body[data-presentation-mode="scene-view"] .backgammon-shell {
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-surface {
+  min-height: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-surface--bootstrap {
+  min-height: 100%;
+  padding: var(--game-rem-0-75);
+  border-radius: var(--game-rem-1);
+  background: var(--game-gradient-25), var(--game-bg-deep-3);
+  border: var(--game-px-1) solid var(--game-border-teal-strong);
+  box-shadow: 0 var(--game-px-16) var(--game-px-36) var(--game-black-28);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-arena {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--game-rem-0-45);
+  min-height: 0;
+  overflow: hidden;
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-rail {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  gap: var(--game-rem-0-42);
+  overflow: hidden;
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-panel,
+body[data-presentation-mode="scene-view"] .backgammon-stage,
+body[data-presentation-mode="scene-view"] .backgammon-stat,
+body[data-presentation-mode="scene-view"] .backgammon-seat,
+body[data-presentation-mode="scene-view"] .backgammon-context-card {
+  border-radius: var(--game-rem-1);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-panel {
+  padding: var(--game-rem-0-52);
+  gap: var(--game-rem-0-4);
+  background: var(--game-gradient-55), var(--game-bg-deep-6);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-panel__label {
+  font-size: var(--game-rem-0-62);
+  letter-spacing: var(--game-em-0-12);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-choice-grid,
+body[data-presentation-mode="scene-view"] .backgammon-toggle-row {
+  gap: var(--game-rem-0-4);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-choice-button {
+  padding: var(--game-rem-0-55) var(--game-rem-0-65);
+  border-radius: var(--game-rem-0-9);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-choice-button__meta {
+  font-size: var(--game-rem-0-72);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-feature-pill {
+  display: none;
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-actions {
+  gap: var(--game-rem-0-4);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-button {
+  min-height: var(--game-rem-2-3);
+  padding: 0 var(--game-rem-0-8);
+  border-radius: var(--game-rem-0-85);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-stage {
+  min-height: 0;
+  height: 100%;
+  padding: var(--game-rem-0-58);
+  gap: var(--game-rem-0-5);
+  overflow: hidden;
+  background: var(--game-gradient-13), var(--game-gradient-50), var(--game-bg-dark-overlay-3);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-stage-main,
+body[data-presentation-mode="scene-view"] .backgammon-context-card--board {
+  grid-template-columns: 1fr;
+  gap: var(--game-rem-0-45);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-board-deck,
+body[data-presentation-mode="scene-view"] .backgammon-support-stack {
+  gap: var(--game-rem-0-45);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-player-strip,
+body[data-presentation-mode="scene-view"] .backgammon-stage-stats {
+  gap: var(--game-rem-0-42);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-stat,
+body[data-presentation-mode="scene-view"] .backgammon-context-card {
+  padding: var(--game-rem-0-52) var(--game-rem-0-6);
+  gap: var(--game-rem-0-3);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-stat__label,
+body[data-presentation-mode="scene-view"] .backgammon-context-card__label,
+body[data-presentation-mode="scene-view"] .backgammon-seat__label {
+  font-size: var(--game-rem-0-62);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-seat {
+  padding: var(--game-rem-0-52) var(--game-rem-0-62);
+  gap: var(--game-rem-0-16) var(--game-rem-0-45);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-seat__name {
+  font-size: var(--game-rem-0-84);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-seat__symbol {
+  font-size: clamp(var(--game-rem-1-65), 3.8vw, var(--game-rem-2-2));
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-context-card__lead {
+  font-size: var(--game-rem-0-82);
+  line-height: 1.34;
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-context-card__meta,
+body[data-presentation-mode="scene-view"] .backgammon-stat__value {
+  font-size: var(--game-rem-0-72);
+  line-height: 1.28;
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-board-shell {
+  width: min(100%, var(--game-rem-15-5));
+  padding: var(--game-rem-0-5);
+  border-radius: var(--game-rem-1-15);
+  box-shadow:
+    inset 0 0 0 var(--game-px-1) var(--game-white-04),
+    0 var(--game-px-14) var(--game-px-32) var(--game-black-28);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-board-shell::before {
+  inset: var(--game-rem-0-42);
+  border-radius: var(--game-rem-0-8);
+}
+
+body[data-presentation-mode="scene-view"] .backgammon-board {
+  gap: var(--game-rem-0-4);
+}

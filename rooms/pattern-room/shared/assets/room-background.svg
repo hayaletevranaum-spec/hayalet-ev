@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Pattern Room investigation office">
+  <rect width="1600" height="900" fill="#0d1012" />
+  <path d="M0 0h1600v900H0z" fill="#141514" />
+  <path d="M108 112h1384v522H108z" fill="#121719" stroke="#2c3836" stroke-width="5" />
+  <path d="M0 650h1600v250H0z" fill="#11100e" />
+  <path d="M88 650h1424l-118 250H206z" fill="#17130f" opacity=".82" />
+  <path d="M185 164h470v326H185z" fill="#281f17" stroke="#8c7042" stroke-width="4" />
+  <path d="M258 226h310M258 296h248M258 366h280M258 436h216" stroke="#f2c76e" stroke-width="8" stroke-linecap="round" opacity=".74" />
+  <path d="M244 226l276 140M540 226 286 436" stroke="#8ff8ee" stroke-width="3" opacity=".48" />
+  <circle cx="258" cy="226" r="12" fill="#9ad877" />
+  <circle cx="540" cy="226" r="12" fill="#8ff8ee" />
+  <circle cx="286" cy="436" r="12" fill="#ef6f6c" />
+  <path d="M1168 184h184v330h-184z" fill="#202622" stroke="#63705f" stroke-width="4" />
+  <path d="M1260 184v330M1188 260h144M1188 342h144M1188 424h144" stroke="#39423b" stroke-width="5" />
+  <path d="M760 674c92-76 378-76 470 0 42 35 24 88-74 116-106 30-312 30-418 0-98-28-116-81-74-116Z" fill="#102024" stroke="#19d8cd" stroke-width="5" opacity=".9" />
+  <path d="M812 676c86-34 292-34 378 0M792 724c112 42 326 42 438 0" fill="none" stroke="#8ff8ee" stroke-width="4" opacity=".68" />
+  <path d="M278 704h166v116H278z" fill="#141719" stroke="#ef6f6c" stroke-width="4" />
+  <path d="M327 752h68" stroke="#ef6f6c" stroke-width="8" stroke-linecap="round" />
+  <path d="M1148 730h210v96h-210z" fill="#171719" stroke="#f2c76e" stroke-width="4" />
+  <path d="M1188 764h128M1188 794h84" stroke="#f2c76e" stroke-width="6" stroke-linecap="round" />
+</svg>

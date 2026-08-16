@@ -1,0 +1,52 @@
+.page-rooms {
+  height: var(--layout-page-height);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.rooms-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-app);
+  --rooms-space-0-2: calc(var(--space-4) * 0.2);
+  --rooms-space-0-25: var(--space-1);
+  --rooms-space-0-5: var(--space-2);
+  --rooms-space-0-55: calc(var(--space-4) * 0.55);
+  --rooms-space-0-6: calc(var(--space-4) * 0.6);
+  --rooms-space-0-7: calc(var(--space-4) * 0.7);
+  --rooms-space-0-75: calc(var(--space-4) * 0.75);
+  --rooms-space-0-85: calc(var(--space-4) * 0.85);
+  --rooms-space-0-86: calc(var(--space-4) * 0.86);
+  --rooms-space-0-9: calc(var(--space-4) * 0.9);
+  --rooms-space-1: var(--space-4);
+  --rooms-space-1-05: calc(var(--space-4) * 1.05);
+  --rooms-space-1-1: calc(var(--space-4) * 1.1);
+  --rooms-space-1-2: calc(var(--space-4) * 1.2);
+  --rooms-space-1-25: calc(var(--space-4) * 1.25);
+  --rooms-space-1-35: calc(var(--space-4) * 1.35);
+  --rooms-space-1-5: calc(var(--space-4) * 1.5);
+  --rooms-space-1-75: calc(var(--space-4) * 1.75);
+  --rooms-space-2: var(--space-8);
+  --rooms-space-5-8: calc(var(--space-4) * 5.8);
+  --rooms-space-8-5: calc(var(--space-4) * 8.5);
+  --rooms-width-feature-min: calc(var(--space-4) * 15);
+  --rooms-width-feature-card: calc(var(--space-4) * 16);
+  --rooms-width-runtime: calc(var(--space-4) * 18);
+  --rooms-width-event-max: calc(var(--space-4) * 42);
+  --rooms-shadow-stage-y: calc(var(--space-4) * 1.625);
+  --rooms-shadow-stage-blur: calc(var(--space-4) * 3.25);
+}
+
+.rooms-page .room-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+}

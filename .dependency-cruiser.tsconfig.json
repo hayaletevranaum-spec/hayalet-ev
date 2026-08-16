@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@electron/*": ["electron/*"],
+      "@electron/types": ["electron/types/index.ts"],
+      "@mcp/*": ["mcp-server/*"],
+      "@shared/*": ["src/types/*"],
+      "@ghost/*": ["ghost-agent/src/renderer/*"],
+      "@theme-source/*": ["shared/themes/*"],
+      "@timeouts": ["shared/timeouts.ts"],
+      "@limits": ["shared/limits.ts"],
+      "@slots": ["shared/slots.ts"],
+      "@ui-constants": ["shared/ui-constants.ts"]
+    }
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.ts",
+    "electron/**/*.js",
+    "electron/**/*.ts",
+    "ghost-agent/**/*.ts",
+    "shared/**/*.ts"
+  ]
+}

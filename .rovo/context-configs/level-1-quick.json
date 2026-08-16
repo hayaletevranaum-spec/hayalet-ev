@@ -1,0 +1,19 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "output": {
+    "style": "plain",
+    "filePath": ".rovo/context/L1-quick.txt",
+    "headerText": "# Hayalet-ev Context - Level 1 (Quick)\n# Sadece kritik referanslar\n",
+    "showLineNumbers": false,
+    "removeComments": true,
+    "removeEmptyLines": true
+  },
+  "include": [
+    "AGENTS.md",
+    ".rovo/context.md",
+    "package.json"
+  ],
+  "ignore": {
+    "useDefaultPatterns": true
+  }
+}

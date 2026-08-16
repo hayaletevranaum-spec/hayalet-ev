@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Repair Room workbench view">
+  <defs>
+    <linearGradient id="repair-view" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a0e" />
+      <stop offset="100%" stop-color="#10171f" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#repair-view)" />
+  <rect x="58" y="70" width="1484" height="760" rx="18" fill="rgba(6,10,14,0.74)" stroke="rgba(86,200,222,0.18)" stroke-width="2" />
+  <rect x="104" y="124" width="220" height="640" rx="12" fill="rgba(255,255,255,0.03)" />
+  <rect x="344" y="124" width="700" height="510" rx="12" fill="rgba(255,255,255,0.04)" />
+  <rect x="1064" y="124" width="430" height="270" rx="12" fill="rgba(255,255,255,0.04)" />
+  <rect x="1064" y="414" width="430" height="220" rx="12" fill="rgba(255,255,255,0.04)" />
+  <rect x="344" y="654" width="1150" height="110" rx="12" fill="rgba(255,255,255,0.04)" />
+  <text x="122" y="108" fill="#cfd9e8" font-family="'Inter','Segoe UI',sans-serif" font-size="22" letter-spacing="2">REPAIR WORKBENCH</text>
+</svg>

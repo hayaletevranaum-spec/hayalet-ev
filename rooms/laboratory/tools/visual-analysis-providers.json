@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "sharedSettingsOverlay": true,
+  "providers": [
+    {
+      "id": "ffmpeg-visual-structure",
+      "status": "ready",
+      "toolId": "ffmpeg",
+      "moduleIds": [
+        "frame-consistency",
+        "lighting-consistency",
+        "background-consistency",
+        "occlusion-inconsistency",
+        "object-insert-remove-anomaly",
+        "temporal-noise-pattern",
+        "motion-anomaly"
+      ],
+      "providerType": "binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["frame-probe-json", "structure-preview"],
+      "titleKey": "visualAnalysis.providers.ffmpeg-visual-structure.title",
+      "summaryKey": "visualAnalysis.providers.ffmpeg-visual-structure.summary"
+    },
+    {
+      "id": "ffmpeg-visual-reveal",
+      "status": "ready",
+      "toolId": "ffmpeg",
+      "moduleIds": [
+        "visual-signal-amplification",
+        "color-channel-isolation",
+        "gamma-scan",
+        "contrast-scan",
+        "edge-enhancement",
+        "histogram-equalization",
+        "hidden-detail-reveal"
+      ],
+      "providerType": "binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["frame-preview", "transform-preview", "reveal-summary"],
+      "titleKey": "visualAnalysis.providers.ffmpeg-visual-reveal.title",
+      "summaryKey": "visualAnalysis.providers.ffmpeg-visual-reveal.summary"
+    },
+    {
+      "id": "ffmpeg-visual-forensics",
+      "status": "ready",
+      "toolId": "ffmpeg",
+      "moduleIds": [
+        "perceptual-duplicate-frame",
+        "optical-flow-tracking",
+        "compression-signature-mapping",
+        "metadata-provenance-audit",
+        "reference-quality-check"
+      ],
+      "providerType": "binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["frame-probe-json", "triage-decision", "counter-evidence-ledger"],
+      "titleKey": "visualAnalysis.providers.ffmpeg-visual-forensics.title",
+      "summaryKey": "visualAnalysis.providers.ffmpeg-visual-forensics.summary"
+    },
+    {
+      "id": "opencv-visual-forensics",
+      "status": "ready",
+      "toolId": "visual-forensics-py",
+      "moduleIds": [
+        "perceptual-duplicate-frame",
+        "optical-flow-tracking",
+        "reference-quality-check"
+      ],
+      "providerType": "system-command",
+      "installStrategy": "python-venv-pip",
+      "expectedArtifacts": ["near-duplicate-json", "ssim-quality-json"],
+      "titleKey": "visualAnalysis.providers.opencv-visual-forensics.title",
+      "summaryKey": "visualAnalysis.providers.opencv-visual-forensics.summary"
+    },
+    {
+      "id": "metadata-provenance-system",
+      "status": "ready",
+      "toolId": "exiftool",
+      "moduleIds": ["metadata-provenance-audit"],
+      "fallbackProviderIds": ["ffmpeg-visual-forensics"],
+      "providerType": "system-command",
+      "installStrategy": "automatic",
+      "expectedArtifacts": ["metadata-provenance-json"],
+      "titleKey": "visualAnalysis.providers.metadata-provenance-system.title",
+      "summaryKey": "visualAnalysis.providers.metadata-provenance-system.summary"
+    },
+    {
+      "id": "raft-optical-flow-provider",
+      "status": "ready",
+      "toolId": "raft-optical-flow",
+      "moduleIds": ["optical-flow-tracking"],
+      "providerType": "system-command",
+      "installStrategy": "python-venv-pip",
+      "expectedArtifacts": ["dense-flow-json", "subject-background-flow-map"],
+      "titleKey": "visualAnalysis.providers.raft-optical-flow-provider.title",
+      "summaryKey": "visualAnalysis.providers.raft-optical-flow-provider.summary"
+    },
+    {
+      "id": "synthetic-visual-forensics",
+      "status": "planned",
+      "moduleIds": ["ai-artifact-detection"],
+      "providerType": "planned",
+      "installStrategy": "external-model-runtime",
+      "expectedArtifacts": ["artifact-heatmap", "ai-forensics-summary"],
+      "titleKey": "visualAnalysis.providers.synthetic-visual-forensics.title",
+      "summaryKey": "visualAnalysis.providers.synthetic-visual-forensics.summary"
+    }
+  ]
+}

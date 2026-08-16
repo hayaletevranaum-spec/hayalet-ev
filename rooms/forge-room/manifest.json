@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 2,
+  "id": "forge-room",
+  "name": "Forge Room",
+  "version": "0.1.0",
+  "menu": {
+    "label": "Forge Room",
+    "icon": "FG",
+    "iconSrc": "shared/assets/nav-icon.svg",
+    "order": 95
+  },
+  "runtime": {
+    "uiEntry": "ui/index.html",
+    "hostEntry": "host/index.js"
+  },
+  "defaultFeatureId": "forge-workbench",
+  "features": [
+    {
+      "id": "forge-workbench",
+      "name": "Forge Workbench",
+      "description": "A coordinator-first planning surface for task drafting, response review, conflict visibility, and synthesis preparation.",
+      "icon": "FW",
+      "commandSpecs": [
+        {
+          "name": "ForgeRoomUiReady",
+          "description": "Signal that the Forge Room UI is attached and ready.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomCreateSession",
+          "description": "Create a new local Forge session.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomUpdateGoal",
+          "description": "Update the active goal draft for the current Forge session.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomUpdateOperatorProfile",
+          "description": "Persist the Forge operator profile for future runs.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomUpdateSessionContext",
+          "description": "Store the run-local selection of operator truths that should influence this Forge run.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomUpdateRunOverride",
+          "description": "Store run-local override values without mutating the persistent operator profile.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomRunPreflight",
+          "description": "Build or refresh the run-local preflight bundle.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomClearPreflight",
+          "description": "Remove the current run-local preflight result without changing run settings.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomGenerateDraft",
+          "description": "Generate a real draft breakdown from the active goal through the Architect seat.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomApplyDraftText",
+          "description": "Apply a manually edited draft breakdown payload to the active session.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomUpsertDraftTask",
+          "description": "Create or update a structured draft task without editing the raw JSON payload directly.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomRemoveDraftTask",
+          "description": "Remove a structured draft task and its checklist children from the current draft.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomApproveDraft",
+          "description": "Promote the current draft tasks into the approved task rail.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomUpdateApprovedTask",
+          "description": "Adjust dispatch settings for an approved task before queued assignments are sent.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomUpdateContextCapsule",
+          "description": "Update an approved task's advanced context capsule before dispatch starts.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomDispatchAssignments",
+          "description": "Dispatch queued approved tasks to their assigned seats and capture responses.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomGenerateSynthesis",
+          "description": "Generate a synthesis candidate from captured responses and grouped conflicts.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomSelectSynthesis",
+          "description": "Mark a synthesis as the selected export candidate.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomSaveSession",
+          "description": "Persist the active Forge session to room-local storage.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomLoadSession",
+          "description": "Load a selected Forge session from room-local storage.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomLoadLatestSession",
+          "description": "Load the most recently updated Forge session from room-local storage.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomDeleteSession",
+          "description": "Delete a saved Forge session from room-local storage.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomExportHandoffCheck",
+          "description": "Run the handoff export guard for the active Forge session.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        },
+        {
+          "name": "ForgeRoomExportHandoff",
+          "description": "Export the selected synthesis into a target-room handoff package.",
+          "scope": "room-ui",
+          "exposure": "internal"
+        }
+      ],
+      "protocolSpecs": [
+        {
+          "key": "forge-room-breakdown-architect",
+          "room": "forge-room",
+          "scenario": "forge-workbench-breakdown-architect",
+          "title": "[FORGE][BREAKDOWN][ARCHITECT]",
+          "editable": true,
+          "path": "main-functions/forge-workbench/protocols/forge-room-breakdown-architect.md"
+        },
+        {
+          "key": "forge-room-preflight-pre-analysis",
+          "room": "forge-room",
+          "scenario": "forge-workbench-preflight-pre-analysis",
+          "title": "[FORGE][PREFLIGHT][PRE-ANALYSIS]",
+          "editable": true,
+          "path": "main-functions/forge-workbench/protocols/forge-room-preflight-pre-analysis.md"
+        },
+        {
+          "key": "forge-room-task-response",
+          "room": "forge-room",
+          "scenario": "forge-workbench-task-response",
+          "title": "[FORGE][TASK][RESPONSE]",
+          "editable": true,
+          "path": "main-functions/forge-workbench/protocols/forge-room-task-response.md"
+        },
+        {
+          "key": "forge-room-synthesis",
+          "room": "forge-room",
+          "scenario": "forge-workbench-synthesis",
+          "title": "[FORGE][SYNTHESIS]",
+          "editable": true,
+          "path": "main-functions/forge-workbench/protocols/forge-room-synthesis.md"
+        }
+      ],
+      "scene": {
+        "hotspot": {
+          "id": "forge-room-workbench",
+          "rect": {
+            "leftPx": 930,
+            "topPx": 178,
+            "widthPx": 508,
+            "heightPx": 320
+          },
+          "label": {
+            "text": "Forge Workbench"
+          }
+        },
+        "view": {
+          "id": "forge-room-console",
+          "backgroundSrc": "main-functions/forge-workbench/assets/forge-workbench-view.svg",
+          "transparentWindow": {
+            "leftPct": 2.8,
+            "topPct": 11.4,
+            "widthPct": 94.4,
+            "heightPct": 78.8
+          }
+        }
+      }
+    }
+  ],
+  "workbench": {
+    "experienceId": "forge-workbench",
+    "label": "Forge Workbench",
+    "description": "A room-local orchestration workbench for goal planning, review, synthesis, and handoff.",
+    "mode": "guided",
+    "primaryFeatureId": "forge-workbench",
+    "availableFeatureIds": ["forge-workbench"]
+  },
+  "description": "A guided production workbench where goals are shaped into tasks, compared across AI roles, and prepared for downstream handoff.",
+  "scene": {
+    "referenceSize": {
+      "width": 1600,
+      "height": 900
+    },
+    "roomBackgroundSrc": "shared/assets/room-background.svg",
+    "roomsHotspot": {
+      "id": "forge-room-door",
+      "rect": {
+        "leftPx": 736,
+        "topPx": 402,
+        "widthPx": 170,
+        "heightPx": 332
+      },
+      "label": {
+        "text": "Forge Room"
+      }
+    },
+    "backHotspot": {
+      "id": "forge-room-back",
+      "rect": {
+        "leftPx": 56,
+        "topPx": 154,
+        "widthPx": 168,
+        "heightPx": 252
+      },
+      "label": {
+        "text": "Corridor"
+      }
+    },
+    "chrome": {
+      "pageShellVariant": "immersive-stage"
+    }
+  },
+  "i18n": {
+    "baseDir": "i18n"
+  }
+}

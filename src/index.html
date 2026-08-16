@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="und" data-theme="obsidian" data-ui-mode="classic">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/entrance.css" />
+    <link rel="stylesheet" href="/styles/analyze.css" />
+    <link rel="stylesheet" href="/styles/server.css" />
+    <link rel="stylesheet" href="/styles/rooms.css" />
+    <link rel="stylesheet" href="/styles/assistant.css" />
+    <script>
+      (() => {
+        try {
+          const uiMode =
+            window.electronAPI?.getStartupFlags?.()?.uiMode === "scene" ? "scene" : "classic";
+          document.documentElement.setAttribute("data-ui-mode", uiMode);
+        } catch {
+          document.documentElement.setAttribute("data-ui-mode", "classic");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <script>
+      (() => {
+        const uiMode =
+          document.documentElement.getAttribute("data-ui-mode") === "scene" ? "scene" : "classic";
+        const splash = document.createElement("div");
+        splash.id = "splash-screen";
+        splash.className = "splash";
+        splash.dataset.uiMode = uiMode;
+
+        const classicMarkup = `
+          <div class="splash-content">
+            <div class="splash-logo-container">
+              <img
+                src="./logo.jpg"
+                alt=""
+                class="splash-logo"
+                id="splash-logo"
+                data-shell-i18n-alt="app.documentTitle"
+              />
+              <div class="splash-logo-glow"></div>
+            </div>
+            <h1 class="splash-title" data-shell-i18n-text="app.documentTitle"></h1>
+            <p class="splash-version" data-shell-i18n-text="app.splash.version"></p>
+            <div class="splash-loader">
+              <div class="splash-progress" id="splash-progress"></div>
+            </div>
+            <p class="splash-status" id="splash-status" data-shell-i18n-text="app.startup.starting"></p>
+          </div>
+        `;
+
+        const sceneMarkup = `
+          <div class="splash-content splash-content--scene">
+            <div class="splash-scene-stage" id="splash-logo">
+              <div class="splash-scene-door"></div>
+            </div>
+            <div class="splash-scene-copy">
+              <div class="splash-loader">
+                <div class="splash-progress" id="splash-progress"></div>
+              </div>
+              <p class="splash-status" id="splash-status" data-shell-i18n-text="app.startup.starting"></p>
+            </div>
+          </div>
+        `;
+
+        splash.innerHTML = uiMode === "scene" ? sceneMarkup : classicMarkup;
+        document.body.insertBefore(splash, document.body.firstChild);
+      })();
+    </script>
+
+    <div id="global-webview-container" class="app-offscreen-webviews">
+      <webview
+        id="ai0-webview"
+        class="app-offscreen-webview"
+        partition="persist:ai0"
+        allowpopups
+        spellcheck="false"
+        webpreferences="spellcheck=false, backgroundThrottling=false, contextIsolation=true, nodeIntegration=false"
+      ></webview>
+      <webview
+        id="ai1-webview"
+        class="app-offscreen-webview"
+        partition="persist:main"
+        allowpopups
+        spellcheck="false"
+        webpreferences="spellcheck=false, backgroundThrottling=false, contextIsolation=true, nodeIntegration=false"
+      ></webview>
+      <webview
+        id="ai2-webview"
+        class="app-offscreen-webview"
+        partition="persist:main"
+        allowpopups
+        spellcheck="false"
+        webpreferences="spellcheck=false, backgroundThrottling=false, contextIsolation=true, nodeIntegration=false"
+      ></webview>
+    </div>
+
+    <div class="side-nav-overlay" id="side-nav-overlay">
+      <div class="side-nav-trigger"></div>
+      <nav class="side-nav-menu">
+        <button
+          class="side-nav-btn is-active"
+          data-page="entrance"
+          title=""
+          data-shell-i18n-title="sideNav.entranceTitle"
+        >
+          <span class="side-nav-icon" data-side-nav-icon-fallback="🏠">🏠</span>
+          <span class="side-nav-label" data-shell-i18n-text="sideNav.entranceLabel"></span>
+        </button>
+        <button
+          class="side-nav-btn"
+          data-page="analyze"
+          title=""
+          data-shell-i18n-title="sideNav.analyzeTitle"
+        >
+          <span class="side-nav-icon" data-side-nav-icon-fallback="🔍">🔍</span>
+          <span class="side-nav-label" data-shell-i18n-text="sideNav.analyzeLabel"></span>
+        </button>
+        <button
+          class="side-nav-btn"
+          data-page="assistant"
+          title=""
+          data-shell-i18n-title="sideNav.assistantTitle"
+        >
+          <span class="side-nav-icon" data-side-nav-icon-fallback="🤖">🤖</span>
+          <span class="side-nav-label" data-shell-i18n-text="sideNav.assistantLabel"></span>
+        </button>
+        <button
+          class="side-nav-btn"
+          data-page="server"
+          title=""
+          data-shell-i18n-title="sideNav.serverTitle"
+        >
+          <span class="side-nav-icon" data-side-nav-icon-fallback="🖥️">🖥️</span>
+          <span class="side-nav-label" data-shell-i18n-text="sideNav.serverLabel"></span>
+        </button>
+      </nav>
+    </div>
+
+    <div id="app">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <div class="logo">
+            <img src="./logo.jpg" class="app-logo" alt="" data-shell-i18n-alt="app.documentTitle" />
+            <span class="logo-text" data-shell-i18n-text="app.documentTitle"></span>
+          </div>
+        </div>
+
+        <div class="top-bar-center">
+          <div class="indicators topbar-indicators">
+            <div class="topbar-slot-lane">
+              <div class="indicators-group indicators-group--topbar">
+                <div class="indicators-row">
+                  <div
+                    class="indicator-cluster indicator-cluster-wide indicator-cluster-relay indicator-cluster-relay--end"
+                    id="cluster-ai1"
+                  >
+                    <div
+                      class="indicator-avatar indicator-avatar-lg"
+                      id="indicator-avatar-ai1"
+                    ></div>
+                    <div class="indicator-content">
+                      <div class="indicator-dots-row">
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.loading"
+                          ></span>
+                          <div
+                            class="indicator-dot loading"
+                            id="ai1-loading-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.loading"
+                          ></div>
+                        </div>
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.sending"
+                          ></span>
+                          <div
+                            class="indicator-dot"
+                            id="ai1-send-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.sending"
+                          ></div>
+                        </div>
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.thinking"
+                          ></span>
+                          <div
+                            class="indicator-dot"
+                            id="ai1-thinking-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.thinking"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="indicator-select-row">
+                        <select id="conversation-ai1" class="select-compact indicator"></select>
+                        <button
+                          id="conversation-refresh-ai1"
+                          class="conv-refresh"
+                          title=""
+                          aria-label=""
+                          data-shell-i18n-title="indicators.refreshTitle"
+                          data-shell-i18n-aria-label="indicators.refreshTitle"
+                        >
+                          ⟳
+                        </button>
+                      </div>
+                    </div>
+                    <div class="indicator-relay-stack indicator-relay-stack--end">
+                      <button
+                        class="relay-toggle-btn relay-toggle-btn--embedded"
+                        id="relay-btn-ai1-ai0"
+                        title=""
+                        aria-label=""
+                        data-shell-i18n-title="relay.toggle.ai1Assistant"
+                        data-shell-i18n-aria-label="relay.toggle.ai1Assistant"
+                      >
+                        <span class="relay-btn-icon icon-play">▶</span>
+                        <span class="relay-btn-icon icon-stop">⏹</span>
+                      </button>
+                      <button
+                        class="relay-toggle-btn relay-toggle-btn--embedded"
+                        id="relay-btn-ai1-ai2-left"
+                        title=""
+                        aria-label=""
+                        data-shell-i18n-title="relay.toggle.ai1Ai2"
+                        data-shell-i18n-aria-label="relay.toggle.ai1Ai2"
+                      >
+                        <span class="relay-btn-icon icon-play">▶</span>
+                        <span class="relay-btn-icon icon-stop">⏹</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="relay-flow-wrapper">
+                    <div
+                      class="relay-flow-line"
+                      id="relay-flow-ai1-ai0"
+                      title=""
+                      data-shell-i18n-title="relay.flow.ai1Assistant"
+                    >
+                      <div class="flow-track">
+                        <div class="flow-particle"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="indicator-cluster indicator-cluster-assistant" id="cluster-ai0">
+                    <div
+                      class="indicator-avatar indicator-avatar-md"
+                      id="indicator-avatar-ai0"
+                    ></div>
+                    <div class="indicator-content">
+                      <div class="indicator-dots-row">
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.loading"
+                          ></span>
+                          <div
+                            class="indicator-dot"
+                            id="ai0-loading-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.loading"
+                          ></div>
+                        </div>
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.sending"
+                          ></span>
+                          <div
+                            class="indicator-dot"
+                            id="ai0-send-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.sending"
+                          ></div>
+                        </div>
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.thinking"
+                          ></span>
+                          <div
+                            class="indicator-dot"
+                            id="ai0-thinking-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.thinking"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="indicator-select-row">
+                        <select id="conversation-ai0" class="select-compact indicator"></select>
+                        <button
+                          id="conversation-refresh-ai0"
+                          class="conv-refresh"
+                          title=""
+                          aria-label=""
+                          data-shell-i18n-title="indicators.refreshTitle"
+                          data-shell-i18n-aria-label="indicators.refreshTitle"
+                        >
+                          ⟳
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relay-flow-wrapper relay-flow-wrapper-rtl">
+                    <div
+                      class="relay-flow-line"
+                      id="relay-flow-ai0-ai2"
+                      title=""
+                      data-shell-i18n-title="relay.flow.assistantAi2"
+                    >
+                      <div class="flow-track">
+                        <div class="flow-particle"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="indicator-cluster indicator-cluster-wide indicator-cluster-relay indicator-cluster-relay--start"
+                    id="cluster-ai2"
+                  >
+                    <div class="indicator-relay-stack indicator-relay-stack--start">
+                      <button
+                        class="relay-toggle-btn relay-toggle-btn--embedded"
+                        id="relay-btn-ai0-ai2"
+                        title=""
+                        aria-label=""
+                        data-shell-i18n-title="relay.toggle.assistantAi2"
+                        data-shell-i18n-aria-label="relay.toggle.assistantAi2"
+                      >
+                        <span class="relay-btn-icon icon-play">◀</span>
+                        <span class="relay-btn-icon icon-stop">⏹</span>
+                      </button>
+                      <button
+                        class="relay-toggle-btn relay-toggle-btn--embedded"
+                        id="relay-btn-ai1-ai2-right"
+                        title=""
+                        aria-label=""
+                        data-shell-i18n-title="relay.toggle.ai2Ai1"
+                        data-shell-i18n-aria-label="relay.toggle.ai2Ai1"
+                      >
+                        <span class="relay-btn-icon icon-play">◀</span>
+                        <span class="relay-btn-icon icon-stop">⏹</span>
+                      </button>
+                    </div>
+                    <div
+                      class="indicator-avatar indicator-avatar-lg"
+                      id="indicator-avatar-ai2"
+                    ></div>
+                    <div class="indicator-content">
+                      <div class="indicator-dots-row">
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.loading"
+                          ></span>
+                          <div
+                            class="indicator-dot loading"
+                            id="ai2-loading-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.loading"
+                          ></div>
+                        </div>
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.sending"
+                          ></span>
+                          <div
+                            class="indicator-dot"
+                            id="ai2-send-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.sending"
+                          ></div>
+                        </div>
+                        <div class="indicator-dot-item">
+                          <span
+                            class="indicator-dot-label"
+                            data-shell-i18n-text="indicators.thinking"
+                          ></span>
+                          <div
+                            class="indicator-dot"
+                            id="ai2-thinking-indicator"
+                            title=""
+                            data-shell-i18n-title="indicators.thinking"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="indicator-select-row">
+                        <select id="conversation-ai2" class="select-compact indicator"></select>
+                        <button
+                          id="conversation-refresh-ai2"
+                          class="conv-refresh"
+                          title=""
+                          aria-label=""
+                          data-shell-i18n-title="indicators.refreshTitle"
+                          data-shell-i18n-aria-label="indicators.refreshTitle"
+                        >
+                          ⟳
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="relay-flow-bottom-row">
+                  <div
+                    class="relay-flow-line-bottom"
+                    id="relay-flow-ai1-ai2"
+                    title=""
+                    data-shell-i18n-title="relay.flow.ai1Ai2"
+                  >
+                    <div class="flow-track-horizontal">
+                      <div class="flow-particle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="indicator-cluster indicator-cluster-wide indicator-cluster-relay indicator-cluster-relay--start is-empty"
+                id="cluster-us1"
+              >
+                <div class="indicator-relay-stack indicator-relay-stack--start">
+                  <button
+                    class="relay-toggle-btn relay-toggle-btn--embedded"
+                    id="relay-btn-ai0-us1"
+                    title=""
+                    aria-label=""
+                    data-shell-i18n-title="relay.toggle.assistantUs1"
+                    data-shell-i18n-aria-label="relay.toggle.assistantUs1"
+                  >
+                    <span class="relay-btn-icon icon-play">◀</span>
+                    <span class="relay-btn-icon icon-stop">⏹</span>
+                  </button>
+                </div>
+                <div class="indicator-avatar indicator-avatar-lg" id="indicator-avatar-us1">US</div>
+                <div class="indicator-content">
+                  <div class="indicator-dots-row">
+                    <div class="indicator-dot-item">
+                      <span
+                        class="indicator-dot-label"
+                        data-shell-i18n-text="indicators.loading"
+                      ></span>
+                      <div
+                        class="indicator-dot loading"
+                        id="us1-loading-indicator"
+                        title=""
+                        data-shell-i18n-title="indicators.loading"
+                      ></div>
+                    </div>
+                    <div class="indicator-dot-item">
+                      <span
+                        class="indicator-dot-label"
+                        data-shell-i18n-text="indicators.sending"
+                      ></span>
+                      <div
+                        class="indicator-dot"
+                        id="us1-send-indicator"
+                        title=""
+                        data-shell-i18n-title="indicators.sending"
+                      ></div>
+                    </div>
+                    <div class="indicator-dot-item">
+                      <span
+                        class="indicator-dot-label"
+                        data-shell-i18n-text="indicators.thinking"
+                      ></span>
+                      <div
+                        class="indicator-dot"
+                        id="us1-thinking-indicator"
+                        title=""
+                        data-shell-i18n-title="indicators.thinking"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="indicator-select-row">
+                    <select id="conversation-us1" class="select-compact indicator"></select>
+                    <button
+                      id="conversation-refresh-us1"
+                      class="conv-refresh"
+                      title=""
+                      aria-label=""
+                      data-shell-i18n-title="indicators.refreshTitle"
+                      data-shell-i18n-aria-label="indicators.refreshTitle"
+                    >
+                      ⟳
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-bar-right">
+          <div class="window-controls">
+            <button
+              class="icon-btn"
+              id="window-minimize-to-tray"
+              data-window-action="minimize-to-tray"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="window.minimizeToTray"
+              data-shell-i18n-aria-label="window.minimizeToTray"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 11L3 6h10l-5 5z" />
+              </svg>
+            </button>
+            <button
+              class="icon-btn"
+              id="window-minimize"
+              data-window-action="minimize"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="window.minimize"
+              data-shell-i18n-aria-label="window.minimize"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <rect x="3" y="7" width="10" height="2" rx="0.5" />
+              </svg>
+            </button>
+            <button
+              class="icon-btn"
+              id="window-fullscreen"
+              data-window-action="fullscreen"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="window.fullscreen"
+              data-shell-i18n-aria-label="window.fullscreen"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M3 3h4v2H5v2H3V3zm6 0h4v4h-2V5H9V3zM3 9h2v2h2v2H3V9zm8 2h2v2h-4v-2h2z" />
+              </svg>
+            </button>
+            <button
+              class="icon-btn"
+              id="window-close"
+              data-window-action="close"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="common.close"
+              data-shell-i18n-aria-label="common.closeAriaLabel"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="top-bar-actions">
+            <div class="ui-mode-dropdown theme-dropdown" data-ui-mode-dropdown="true">
+              <button
+                class="icon-btn ui-mode-toggle ui-mode-dropdown-btn"
+                id="topbar-ui-mode-toggle"
+                type="button"
+                title=""
+                aria-label=""
+                aria-expanded="false"
+                data-shell-i18n-title="uiMode.toggle"
+                data-shell-i18n-aria-label="uiMode.toggle"
+                data-ui-mode-trigger="true"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M2.5 2.5h6v6h-6zM7.5 7.5h6v6h-6z" />
+                </svg>
+              </button>
+              <div class="ui-mode-dropdown-menu theme-dropdown-menu" role="menu">
+                <button
+                  class="theme-dropdown-item ui-mode-option"
+                  type="button"
+                  role="menuitem"
+                  data-ui-mode-option="classic"
+                >
+                  <span class="theme-dropdown-icon">C</span>
+                  <span class="theme-dropdown-copy">
+                    <strong data-shell-i18n-text="uiMode.options.classic"></strong>
+                  </span>
+                </button>
+                <button
+                  class="theme-dropdown-item ui-mode-option"
+                  type="button"
+                  role="menuitem"
+                  data-ui-mode-option="scene"
+                >
+                  <span class="theme-dropdown-icon">S</span>
+                  <span class="theme-dropdown-copy">
+                    <strong data-shell-i18n-text="uiMode.options.scene"></strong>
+                  </span>
+                </button>
+                <button
+                  class="theme-dropdown-item ui-mode-option"
+                  type="button"
+                  role="menuitem"
+                  data-ui-mode-option="scene-editor"
+                >
+                  <span class="theme-dropdown-icon">D</span>
+                  <span class="theme-dropdown-copy">
+                    <strong data-shell-i18n-text="uiMode.options.sceneEditor"></strong>
+                  </span>
+                </button>
+                <button
+                  class="theme-dropdown-item ui-mode-option"
+                  type="button"
+                  role="menuitem"
+                  data-ui-mode-option="ghost-agent"
+                >
+                  <span class="theme-dropdown-icon">G</span>
+                  <span class="theme-dropdown-copy">
+                    <strong data-shell-i18n-text="assistant.page.ghostAgentButton"></strong>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <button
+              class="icon-btn"
+              id="topbar-whisper-open"
+              type="button"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="entrance.panels.whisper"
+              data-shell-i18n-aria-label="entrance.panels.whisper"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 2.5A1.5 1.5 0 0 0 1.5 4v6A1.5 1.5 0 0 0 3 11.5h1v2a.5.5 0 0 0 .854.354L7.207 11.5H13A1.5 1.5 0 0 0 14.5 10V4A1.5 1.5 0 0 0 13 2.5H3Zm0 1h10a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H6.793a.5.5 0 0 0-.353.146L5 12.086V11a.5.5 0 0 0-.5-.5H3a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5Z"
+                />
+              </svg>
+            </button>
+            <button
+              class="icon-btn"
+              id="archives-page-open-btn"
+              type="button"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="app.archives.page.pageTitle"
+              data-shell-i18n-aria-label="app.archives.page.pageTitle"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.5 3A1.5 1.5 0 0 1 4 1.5h8A1.5 1.5 0 0 1 13.5 3v2A1.5 1.5 0 0 1 12 6.5v5A2.5 2.5 0 0 1 9.5 14h-3A2.5 2.5 0 0 1 4 11.5v-5A1.5 1.5 0 0 1 2.5 5V3Zm1 0v2a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H4a.5.5 0 0 0-.5.5Zm1.5 3.5v5A1.5 1.5 0 0 0 6.5 13h3A1.5 1.5 0 0 0 11 11.5v-5H5Zm2 1a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .5-.5Zm2.5.5a.5.5 0 0 0-1 0v3a.5.5 0 0 0 1 0V8Z"
+                />
+              </svg>
+            </button>
+            <button
+              class="icon-btn"
+              id="topbar-settings-open"
+              type="button"
+              title=""
+              aria-label=""
+              data-shell-i18n-title="settingsHub.openTitle"
+              data-shell-i18n-aria-label="settingsHub.openTitle"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.5 3A1.5 1.5 0 0 1 4 1.5h8A1.5 1.5 0 0 1 13.5 3v1a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 4V3Zm2 0v1a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H5a.5.5 0 0 0-.5.5ZM1.5 8A1.5 1.5 0 0 1 3 6.5h4A1.5 1.5 0 0 1 8.5 8v1A1.5 1.5 0 0 1 7 10.5H3A1.5 1.5 0 0 1 1.5 9V8Zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5H3Zm6.5.5A1.5 1.5 0 0 1 11 6.5h2A1.5 1.5 0 0 1 14.5 8v4a1.5 1.5 0 0 1-1.5 1.5h-2A1.5 1.5 0 0 1 9.5 12V8Zm1.5-.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5h-2Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="operations-strip-bar">
+        <div class="operations-strip-bar__inner">
+          <div
+            class="operations-strip"
+            id="topbar-operations-strip"
+            aria-label="Operations"
+            data-active-count="0"
+          >
+            <div class="operations-strip__item" id="operation-indicator-android">
+              <span class="operations-strip__label">Android</span>
+              <span
+                class="indicator-dot operations-strip__dot"
+                id="operation-indicator-android-dot"
+              ></span>
+            </div>
+            <div class="operations-strip__item" id="operation-indicator-mic">
+              <span class="operations-strip__label">Mic</span>
+              <span
+                class="indicator-dot operations-strip__dot"
+                id="operation-indicator-mic-dot"
+              ></span>
+            </div>
+            <div class="operations-strip__item" id="operation-indicator-camera">
+              <span class="operations-strip__label">Camera</span>
+              <span
+                class="indicator-dot operations-strip__dot"
+                id="operation-indicator-camera-dot"
+              ></span>
+            </div>
+            <div class="operations-strip__item" id="operation-indicator-tts">
+              <span class="operations-strip__label">TTS</span>
+              <span
+                class="indicator-dot operations-strip__dot"
+                id="operation-indicator-tts-dot"
+              ></span>
+            </div>
+            <div class="operations-strip__item" id="operation-indicator-ambient">
+              <span class="operations-strip__label">Ambient</span>
+              <span
+                class="indicator-dot operations-strip__dot"
+                id="operation-indicator-ambient-dot"
+              ></span>
+            </div>
+            <div class="operations-strip__item" id="operation-indicator-live">
+              <span class="operations-strip__label">Live</span>
+              <span
+                class="indicator-dot operations-strip__dot"
+                id="operation-indicator-live-dot"
+              ></span>
+            </div>
+            <div class="operations-strip__item" id="operation-indicator-torch">
+              <span class="operations-strip__label">Torch</span>
+              <span
+                class="indicator-dot operations-strip__dot"
+                id="operation-indicator-torch-dot"
+              ></span>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="operations-strip__settings-btn"
+            id="topbar-companion-settings-btn"
+            title=""
+            aria-label=""
+            aria-expanded="false"
+            data-shell-i18n-title="indicators.companionSettingsTitle"
+            data-shell-i18n-aria-label="indicators.companionSettingsTitle"
+          >
+            <span class="operations-strip__settings-icon" aria-hidden="true"></span>
+            <span
+              class="operations-strip__settings-label"
+              data-shell-i18n-text="indicators.companionSettingsLabel"
+            ></span>
+          </button>
+        </div>
+      </div>
+
+      <main class="main-content" id="main-content">
+        <div id="pages-container"></div>
+      </main>
+      <div class="app-overlay-host" id="app-overlay-host" aria-hidden="true">
+        <div
+          class="app-overlay-host__layer"
+          data-overlay-layer="workspace-tool"
+          data-overlay-layer-open="false"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="app-overlay-host__layer"
+          data-overlay-layer="assistant-tool"
+          data-overlay-layer-open="false"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="app-overlay-host__layer"
+          data-overlay-layer="modal"
+          data-overlay-layer-open="false"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="app-overlay-host__layer"
+          data-overlay-layer="status"
+          data-overlay-layer-open="false"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="app-overlay-host__layer"
+          data-overlay-layer="scenario"
+          data-overlay-layer-open="false"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="app-overlay-host__layer"
+          data-overlay-layer="loading"
+          data-overlay-layer-open="false"
+          aria-hidden="true"
+        ></div>
+      </div>
+    </div>
+    <div
+      class="toast-container"
+      id="toast-container"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <script type="module" src="/js/app/index.ts"></script>
+  </body>
+</html>

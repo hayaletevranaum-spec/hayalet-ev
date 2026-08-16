@@ -1,0 +1,26 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "output": {
+    "style": "plain",
+    "filePath": ".rovo/context/L2-standard.txt",
+    "headerText": "# Hayalet-ev Context - Level 2 (Standard)\n# Orchestrator'lar ve type tanımları\n",
+    "showLineNumbers": true,
+    "removeComments": false,
+    "removeEmptyLines": false
+  },
+  "include": [
+    "AGENTS.md",
+    "package.json",
+    "src/js/modules/core-engine.ts",
+    "src/js/modules/slot-controller.ts",
+    "src/js/modules/webview-manager.ts",
+    "src/js/modules/traffic-manager.ts",
+    "src/js/modules/ipc-client.ts",
+    "src/js/types/*.ts",
+    "electron/main.ts",
+    "electron/preload.cjs"
+  ],
+  "ignore": {
+    "useDefaultPatterns": true
+  }
+}

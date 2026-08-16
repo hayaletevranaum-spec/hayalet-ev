@@ -1,0 +1,59 @@
+/* Structural rules only — tokens are defined in ui/tokens.css */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--shell-ink);
+  background: transparent;
+  overflow: hidden;
+}
+
+body[data-presentation-mode="classic"] {
+  background: var(--shell-bg);
+}
+
+button {
+  font: inherit;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  zoom: var(--shell-runtime-ui-scale-factor, 1);
+}
+
+.game-room-close-button {
+  position: absolute;
+  top: var(--game-px-12);
+  right: var(--game-px-12);
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  width: var(--game-px-34);
+  height: var(--game-px-34);
+  border: var(--game-px-1) solid var(--game-white-14);
+  border-radius: var(--game-px-999);
+  background: var(--game-black-46);
+  color: var(--game-text-1);
+  box-shadow: var(--shell-shadow);
+  cursor: pointer;
+}
+
+.game-room-close-button:hover {
+  border-color: var(--game-orange-1);
+  color: var(--game-orange-1);
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "id": "pattern-room",
+  "name": "Pattern Room",
+  "version": "0.1.0",
+  "menu": {
+    "label": "Pattern Room",
+    "icon": "PR",
+    "iconSrc": "shared/assets/nav-icon.svg",
+    "order": 100
+  },
+  "runtime": {
+    "uiEntry": "ui/index.html",
+    "hostEntry": "host/index.js"
+  },
+  "defaultFeatureId": "pattern-workbench",
+  "features": [
+    {
+      "id": "pattern-workbench",
+      "name": "Pattern Workbench",
+      "description": "A phase-one dummy surface with local-only overview, board, desk, archive, tenth-man, and report views.",
+      "icon": "PW",
+      "scene": {
+        "hotspot": {
+          "id": "pattern-room-workbench",
+          "rect": {
+            "leftPx": 274,
+            "topPx": 316,
+            "widthPx": 1052,
+            "heightPx": 408
+          },
+          "label": {
+            "text": "Pattern Workbench"
+          }
+        },
+        "view": {
+          "id": "pattern-workbench-closeup",
+          "backgroundSrc": "shared/assets/workbench-view.svg",
+          "transparentWindow": {
+            "leftPct": 13,
+            "topPct": 9,
+            "widthPct": 74,
+            "heightPct": 75
+          }
+        }
+      }
+    }
+  ],
+  "workbench": {
+    "experienceId": "pattern-workbench",
+    "label": "Pattern Workbench",
+    "description": "A local dummy workbench for visual research patterns, source cards, dissent prompts, and report summaries.",
+    "mode": "guided",
+    "primaryFeatureId": "pattern-workbench",
+    "availableFeatureIds": ["pattern-workbench"]
+  },
+  "description": "A dummy near-future investigation office for arranging claims, sources, contradictions, dissent, and report notes around a visible research pattern.",
+  "scene": {
+    "referenceSize": {
+      "width": 1600,
+      "height": 900
+    },
+    "roomBackgroundSrc": "shared/assets/room-background.svg",
+    "roomsHotspot": {
+      "id": "pattern-room-door",
+      "rect": {
+        "leftPx": 1608,
+        "topPx": 329,
+        "widthPx": 169,
+        "heightPx": 482
+      },
+      "label": {
+        "text": "Pattern Room"
+      }
+    },
+    "backHotspot": {
+      "id": "pattern-room-back",
+      "rect": {
+        "leftPx": 54,
+        "topPx": 150,
+        "widthPx": 166,
+        "heightPx": 256
+      },
+      "label": {
+        "text": "Corridor"
+      }
+    },
+    "chrome": {
+      "pageShellVariant": "immersive-stage"
+    }
+  },
+  "i18n": {
+    "baseDir": "i18n"
+  },
+  "protocolSpecs": [
+    {
+      "key": "pattern-room-case-review",
+      "room": "pattern-room",
+      "scenario": "case-review",
+      "title": "[START][PATTERN-ROOM][CASE-REVIEW]",
+      "editable": true,
+      "path": "protocols/pattern-room-case-review.md"
+    }
+  ]
+}

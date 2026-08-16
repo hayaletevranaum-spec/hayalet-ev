@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "stages": {
+    "profile": {
+      "requiredTools": ["ffmpeg"],
+      "optionalTools": ["transcript-runtime"]
+    }
+  },
+  "depthModes": {
+    "quick": {
+      "labelKey": "mediaAnalysis.profile.depth.quick",
+      "sampleWindowSeconds": 35,
+      "artifactBudget": 3
+    },
+    "balanced": {
+      "labelKey": "mediaAnalysis.profile.depth.balanced",
+      "sampleWindowSeconds": 75,
+      "artifactBudget": 5
+    },
+    "deep": {
+      "labelKey": "mediaAnalysis.profile.depth.deep",
+      "sampleWindowSeconds": 150,
+      "artifactBudget": 7
+    }
+  },
+  "artifactPreferences": {
+    "metadata": {
+      "labelKey": "mediaAnalysis.profile.artifactTypes.metadata",
+      "mediaKinds": ["video", "audio", "image"],
+      "defaultEnabled": true
+    },
+    "frame-strip": {
+      "labelKey": "mediaAnalysis.profile.artifactTypes.frame-strip",
+      "mediaKinds": ["video", "image"],
+      "defaultEnabled": true
+    },
+    "spectrogram": {
+      "labelKey": "mediaAnalysis.profile.artifactTypes.spectrogram",
+      "mediaKinds": ["video", "audio"],
+      "defaultEnabled": true
+    },
+    "transcript": {
+      "labelKey": "mediaAnalysis.profile.artifactTypes.transcript",
+      "mediaKinds": ["video", "audio"],
+      "defaultEnabled": true
+    }
+  },
+  "sampling": {
+    "frameDensityModes": {
+      "sparse": {
+        "labelKey": "mediaAnalysis.profile.frameDensity.sparse",
+        "tileCount": 3
+      },
+      "balanced": {
+        "labelKey": "mediaAnalysis.profile.frameDensity.balanced",
+        "tileCount": 4
+      },
+      "dense": {
+        "labelKey": "mediaAnalysis.profile.frameDensity.dense",
+        "tileCount": 6
+      }
+    },
+    "transcriptSampleSeconds": {
+      "labelKey": "mediaAnalysis.profile.transcriptSampleLabel",
+      "min": 15,
+      "max": 90,
+      "step": 15,
+      "defaultValue": 45
+    }
+  },
+  "workspace": {
+    "video": {
+      "beginnerControls": ["targetAssetMode", "preset", "depth", "sensitivity"],
+      "advancedControls": [
+        "targetAssetMode",
+        "targetOutputId",
+        "depth",
+        "sensitivity",
+        "frameSampleDensity",
+        "transcriptSampleSeconds",
+        "artifactPreferences",
+        "laneSelection",
+        "modelId"
+      ]
+    },
+    "audio": {
+      "beginnerControls": ["targetAssetMode", "preset", "depth", "sensitivity"],
+      "advancedControls": [
+        "targetAssetMode",
+        "targetOutputId",
+        "depth",
+        "sensitivity",
+        "frameSampleDensity",
+        "transcriptSampleSeconds",
+        "artifactPreferences",
+        "laneSelection",
+        "modelId"
+      ]
+    },
+    "image": {
+      "beginnerControls": ["targetAssetMode", "preset", "depth", "sensitivity"],
+      "advancedControls": [
+        "targetAssetMode",
+        "targetOutputId",
+        "depth",
+        "sensitivity",
+        "frameSampleDensity",
+        "artifactPreferences",
+        "laneSelection"
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+@import "./tokens.css";
+@import "../shared/styles/base.css";
+@import "../main-functions/backgammon/styles.css";
+@import "../main-functions/team-tetris/styles.css";

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "stages": {
+    "source": {
+      "requiredTools": ["yt-dlp", "ffmpeg"],
+      "optionalTools": []
+    },
+    "edit": {
+      "requiredTools": ["ffmpeg"],
+      "optionalTools": []
+    }
+  },
+  "workspace": {
+    "video": {
+      "beginnerControls": [
+        "focusRegionId",
+        "trimWindow",
+        "resizePreset",
+        "fpsLimit",
+        "includeAudio",
+        "blurFocusOutside"
+      ],
+      "advancedControls": [
+        "cropNormalized",
+        "trimStartSeconds",
+        "trimEndSeconds",
+        "customWidth",
+        "customHeight",
+        "frameGrabCount"
+      ]
+    },
+    "audio": {
+      "beginnerControls": ["trimWindow", "normalize", "normalizeTargetDb", "silenceTrim", "mono"],
+      "advancedControls": ["trimStartSeconds", "trimEndSeconds", "highpassHz", "lowpassHz"]
+    },
+    "image": {
+      "beginnerControls": [
+        "focusRegionId",
+        "resizePreset",
+        "brightness",
+        "contrast",
+        "blurStrength"
+      ],
+      "advancedControls": [
+        "cropNormalized",
+        "customWidth",
+        "customHeight",
+        "rotateDegrees",
+        "sharpen"
+      ]
+    }
+  }
+}

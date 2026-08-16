@@ -1,0 +1,28 @@
+{
+  "extends": "../src/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "electron"],
+    "noEmit": true,
+    "tsBuildInfoFile": "./tsconfig.scripts.tsbuildinfo"
+  },
+  "include": [
+    "**/*.ts",
+    "../src/js/global.d.ts",
+    "../src/js/vite-env.d.ts",
+    "../rooms/global.d.ts"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../dist",
+    "../build",
+    "../data",
+    "../config",
+    "../logs",
+    "../screenshots",
+    "../tmp",
+    "../temp",
+    "../.vite",
+    "../rooms/.build",
+    "../rooms/**/shared/vendor"
+  ]
+}

@@ -1,0 +1,687 @@
+/* Game Room Design Tokens
+ *
+ * Tokens cover color, typography, spacing, radius, shadow, gradient,
+ * and custom media breakpoints for game-room main-functions.
+ */
+
+@custom-media --game-bp-max-1380 (max-width: 1380px);
+@custom-media --game-bp-max-1320 (max-width: 1320px);
+@custom-media --game-bp-max-1180 (max-width: 1180px);
+@custom-media --game-bp-max-1040 (max-width: 1040px);
+@custom-media --game-bp-max-880 (max-width: 880px);
+@custom-media --game-bp-max-860 (max-width: 860px);
+@custom-media --game-bp-max-760 (max-width: 760px);
+@custom-media --game-bp-max-680 (max-width: 680px);
+@custom-media --game-bp-max-640 (max-width: 640px);
+
+:root {
+  color-scheme: dark;
+
+  /* === Shell Tokens (from shared/styles/base.css) === */
+  --shell-bg:
+    radial-gradient(circle at top left, rgb(19 166 144 / 0.16), transparent 32%),
+    radial-gradient(circle at bottom right, rgb(235 154 58 / 0.14), transparent 28%),
+    linear-gradient(180deg, rgb(6 15 26 / 0.98), rgb(4 10 18 / 1));
+  --shell-surface-bg: linear-gradient(145deg, rgb(12 25 40 / 0.96), rgb(7 16 28 / 0.98));
+  --shell-panel-bg: rgb(11 23 39 / 0.74);
+  --shell-panel-border: rgb(132 196 181 / 0.18);
+  --shell-line: rgb(223 184 102 / 0.18);
+  --shell-ink: #edf3f6;
+  --shell-muted: #96a9b4;
+  --shell-accent: #79d1c2;
+  --shell-accent-strong: #0fb59e;
+  --shell-accent-soft: rgb(121 209 194 / 0.16);
+  --shell-x: #ff8f5a;
+  --shell-o: #72d7cb;
+  --shell-shadow: 0 28px 80px rgb(0 0 0 / 0.42);
+  --shell-runtime-ui-scale-factor: 1;
+  background: transparent;
+  font-family: "Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+}
+
+:root {
+  /* === Semantic Colors === */
+  --game-bg-dark-1: #041117;
+  --game-bg-dark-2: #06141d;
+  --game-bg-dark-3: #070605;
+  --game-bg-dark-4: #12100d;
+  --game-bg-dark-5: #173b4a;
+  --game-bg-dark-6: #1a1207;
+  --game-bg-dark-7: #1a1713;
+
+  --game-teal-1: #0d8d7e;
+  --game-teal-2: #0fb59e;
+  --game-teal-3: #18c0a7;
+  --game-teal-4: #3fb9a8;
+  --game-teal-5: #79d1c2;
+  --game-teal-6: #79d96d;
+
+  --game-green-1: #4ade80;
+  --game-green-2: #86efac;
+
+  --game-blue-1: #65d8ff;
+  --game-blue-2: #7fa6ff;
+  --game-blue-3: #79d1c2;
+
+  --game-purple-1: #cb85ff;
+
+  --game-amber-1: #f5d65c;
+  --game-amber-2: #facc15;
+  --game-amber-3: #d9a84f;
+  --game-amber-4: #f0c87a;
+
+  --game-orange-1: #ff8f5a;
+  --game-orange-2: #ffb46a;
+
+  --game-red-1: #f87171;
+  --game-red-2: #ff8f8a;
+  --game-red-3: #fca5a5;
+  --game-red-4: #fecaca;
+  --game-red-5: #ffe0de;
+
+  --game-parchment-1: #f7ead1;
+  --game-parchment-2: #f8e8c4;
+  --game-parchment-3: #fff2dc;
+  --game-parchment-4: #fff3da;
+  --game-parchment-5: #f5e5c6;
+  --game-parchment-6: #efe0c1;
+  --game-parchment-7: #e6d4af;
+  --game-parchment-8: #ead8b8;
+  --game-parchment-9: #d3bc94;
+  --game-parchment-10: #f0d7b8;
+  --game-parchment-11: #f2dfbd;
+  --game-parchment-12: #f3ce92;
+  --game-parchment-13: #d8e4c7;
+  --game-parchment-14: #d7cfbf;
+  --game-parchment-15: #cec1ac;
+  --game-parchment-16: #c7b189;
+  --game-parchment-17: #9d8d74;
+  --game-parchment-18: #f0c98d;
+
+  --game-fate-obsidian: #070605;
+  --game-fate-night: #12100d;
+  --game-fate-parchment: #e6d4af;
+  --game-fate-metal: #7a5b35;
+  --game-fate-ember: #c4623f;
+  --game-fate-moss: #6d7c67;
+
+  --game-tetris-I: #65d8ff;
+  --game-tetris-O: #f5d65c;
+  --game-tetris-T: #cb85ff;
+  --game-tetris-S: #79d96d;
+  --game-tetris-Z: #ff8f8a;
+  --game-tetris-J: #7fa6ff;
+  --game-tetris-L: #ffb46a;
+
+  /* === Backgammon Canvas Colors === */
+  --game-bg-backgammon-user-fill: #f5dfaa;
+  --game-bg-backgammon-user-edge: #9d6f2f;
+  --game-bg-backgammon-ai-fill: #14384a;
+  --game-bg-backgammon-ai-edge: #78d3c4;
+  --game-bg-backgammon-checker-user-highlight: #fff4d9;
+  --game-bg-backgammon-checker-ai-highlight: #2a7070;
+  --game-bg-backgammon-checker-user-shadow: #8a5a1e;
+  --game-bg-backgammon-checker-ai-shadow: #0a1e28;
+  --game-bg-backgammon-board-base: #5d3924;
+  --game-bg-backgammon-board-inner-dark: #1e2f31;
+  --game-bg-backgammon-board-inner-mid: #2c403a;
+  --game-bg-backgammon-board-inner-light: #39513f;
+  --game-bg-backgammon-point-even: #d8b066;
+  --game-bg-backgammon-point-odd: #2f9587;
+  --game-bg-backgammon-off-ai: #1a1207;
+  --game-bg-backgammon-die-face: #f7ead0;
+  --game-bg-backgammon-die-stroke: #9d6f2f;
+  --game-bg-backgammon-die-pip: #2b1b10;
+  --game-bg-backgammon-die-highlight: #fcf4e0;
+  --game-bg-backgammon-die-shadow: #d9c9a4;
+  --game-bg-backgammon-pass-label: #79d1c2;
+  --game-bg-backgammon-undo-label: #f5dfaa;
+  --game-bg-backgammon-hint-active: #dffbf4;
+  --game-bg-backgammon-invite-incoming: rgba(62, 42, 24, 0.35);
+  --game-bg-backgammon-invite-outgoing: rgba(70, 48, 28, 0.35);
+  --game-bg-backgammon-surface-warm: rgba(62, 42, 24, 0.38);
+  --game-bg-backgammon-surface-smoke: rgba(36, 24, 14, 0.52);
+  --game-bg-backgammon-surface-depth: rgba(40, 28, 18, 0.85);
+  --game-bg-backgammon-surface-deep: rgba(26, 18, 12, 0.92);
+  --game-bg-backgammon-surface-highlight: rgba(245, 223, 170, 0.08);
+  --game-bg-backgammon-panel-warm: rgba(50, 34, 20, 0.6);
+  --game-bg-backgammon-panel-deep: rgba(32, 22, 14, 0.72);
+  --game-bg-backgammon-panel-base: rgba(28, 20, 14, 0.65);
+  --game-bg-backgammon-control: rgba(50, 34, 20, 0.45);
+  --game-bg-backgammon-control-muted: rgba(50, 34, 20, 0.4);
+  --game-bg-backgammon-control-selected: rgba(93, 57, 36, 0.45);
+  --game-bg-backgammon-slot-selected: rgba(93, 57, 36, 0.5);
+  --game-bg-backgammon-primary-from: #8b5e2f;
+  --game-bg-backgammon-primary-shadow: rgba(93, 57, 36, 0.35);
+  --game-bg-backgammon-avatar-from: rgba(93, 57, 36, 0.6);
+  --game-bg-backgammon-avatar-to: rgba(62, 42, 24, 0.7);
+
+  --game-white: #ffffff;
+  --game-black: #000000;
+  --game-gray-1: #b4b4b4;
+  --game-text-1: #edf3f6;
+  --game-text-muted: #96a9b4;
+
+  --game-border-teal: rgb(132 196 181 / 0.18);
+  --game-border-teal-strong: rgb(132 196 181 / 0.2);
+
+  /* === RGBA Variants: White === */
+  --game-white-01: rgb(255 255 255 / 0.01);
+  --game-white-015: rgb(255 255 255 / 0.015);
+  --game-white-02: rgb(255 255 255 / 0.02);
+  --game-white-025: rgb(255 255 255 / 0.025);
+  --game-white-03: rgb(255 255 255 / 0.03);
+  --game-white-04: rgb(255 255 255 / 0.04);
+  --game-white-045: rgb(255 255 255 / 0.045);
+  --game-white-05: rgb(255 255 255 / 0.05);
+  --game-white-06: rgb(255 255 255 / 0.06);
+  --game-white-07: rgb(255 255 255 / 0.07);
+  --game-white-08: rgb(255 255 255 / 0.08);
+  --game-white-1: rgb(255 255 255 / 0.1);
+  --game-white-12: rgb(255 255 255 / 0.12);
+  --game-white-14: rgb(255 255 255 / 0.14);
+  --game-white-16: rgb(255 255 255 / 0.16);
+  --game-white-2: rgb(255 255 255 / 0.2);
+  --game-white-25: rgb(255 255 255 / 0.25);
+  --game-white-32: rgb(255 255 255 / 0.32);
+
+  /* === RGBA Variants: Black === */
+  --game-black-06: rgb(0 0 0 / 0.06);
+  --game-black-08: rgb(0 0 0 / 0.08);
+  --game-black-16: rgb(0 0 0 / 0.16);
+  --game-black-18: rgb(0 0 0 / 0.18);
+  --game-black-2: rgb(0 0 0 / 0.2);
+  --game-black-22: rgb(0 0 0 / 0.22);
+  --game-black-24: rgb(0 0 0 / 0.24);
+  --game-black-28: rgb(0 0 0 / 0.28);
+  --game-black-34: rgb(0 0 0 / 0.34);
+  --game-black-36: rgb(0 0 0 / 0.36);
+  --game-black-38: rgb(0 0 0 / 0.38);
+  --game-black-42: rgb(0 0 0 / 0.42);
+  --game-black-46: rgb(0 0 0 / 0.46);
+
+  /* === RGBA Variants: Teal/Accent (121 209 194) === */
+  --game-accent-08: rgb(121 209 194 / 0.08);
+  --game-accent-1: rgb(121 209 194 / 0.1);
+  --game-accent-12: rgb(121 209 194 / 0.12);
+  --game-accent-16: rgb(121 209 194 / 0.16);
+  --game-accent-18: rgb(121 209 194 / 0.18);
+  --game-accent-2: rgb(121 209 194 / 0.2);
+  --game-accent-22: rgb(121 209 194 / 0.22);
+  --game-accent-24: rgb(121 209 194 / 0.24);
+  --game-accent-28: rgb(121 209 194 / 0.28);
+  --game-accent-3: rgb(121 209 194 / 0.3);
+  --game-accent-32: rgb(121 209 194 / 0.32);
+  --game-accent-34: rgb(121 209 194 / 0.34);
+  --game-accent-36: rgb(121 209 194 / 0.36);
+  --game-accent-38: rgb(121 209 194 / 0.38);
+  --game-accent-42: rgb(121 209 194 / 0.42);
+  --game-accent-44: rgb(121 209 194 / 0.44);
+  --game-accent-48: rgb(121 209 194 / 0.48);
+  --game-accent-5: rgb(121 209 194 / 0.5);
+  --game-accent-9: rgb(121 209 194 / 0.9);
+  --game-accent-92: rgb(121 209 194 / 0.92);
+
+  /* === RGBA Variants: Gold (223 184 102) === */
+  --game-gold-0: rgb(223 184 102 / 0);
+  --game-gold-08: rgb(223 184 102 / 0.08);
+  --game-gold-1: rgb(223 184 102 / 0.1);
+  --game-gold-12: rgb(223 184 102 / 0.12);
+  --game-gold-16: rgb(223 184 102 / 0.16);
+  --game-gold-18: rgb(223 184 102 / 0.18);
+  --game-gold-22: rgb(223 184 102 / 0.22);
+  --game-gold-24: rgb(223 184 102 / 0.24);
+  --game-gold-32: rgb(223 184 102 / 0.32);
+  --game-gold-55: rgb(223 184 102 / 0.55);
+  --game-gold-7: rgb(223 184 102 / 0.7);
+  --game-gold-85: rgb(223 184 102 / 0.85);
+
+  /* === RGBA Variants: Green (74 222 128 / 18 192 167) === */
+  --game-green-4a-06: rgb(74 222 128 / 0.06);
+  --game-green-4a-18: rgb(74 222 128 / 0.18);
+  --game-green-4a-22: rgb(74 222 128 / 0.22);
+  --game-green-4a-28: rgb(74 222 128 / 0.28);
+  --game-green-4a-42: rgb(74 222 128 / 0.42);
+  --game-green-12-08: rgb(18 192 167 / 0.08);
+  --game-green-12-16: rgb(18 192 167 / 0.16);
+  --game-green-12-18: rgb(18 192 167 / 0.18);
+  --game-green-12-28: rgb(18 192 167 / 0.28);
+  --game-green-12-32: rgb(18 192 167 / 0.32);
+  --game-green-teal-16: rgb(11 192 167 / 0.2);
+
+  /* === RGBA Variants: Red (248 113 113) === */
+  --game-red-f8-05: rgb(248 113 113 / 0.05);
+  --game-red-f8-14: rgb(248 113 113 / 0.14);
+  --game-red-f8-16: rgb(248 113 113 / 0.16);
+  --game-red-f8-22: rgb(248 113 113 / 0.22);
+  --game-red-f8-28: rgb(248 113 113 / 0.28);
+  --game-red-f8-42: rgb(248 113 113 / 0.42);
+
+  /* === RGBA Variants: Gray (180 180 180) === */
+  --game-gray-14: rgb(180 180 180 / 0.14);
+  --game-gray-22: rgb(180 180 180 / 0.22);
+  --game-gray-35: rgb(180 180 180 / 0.35);
+
+  /* === RGBA Variants: Parchment/Background === */
+  --game-bg-parchment-02: rgb(248 232 196 / 0.02);
+  --game-bg-parchment-12: rgb(248 232 196 / 0.12);
+  --game-bg-parchment-16: rgb(248 232 196 / 0.16);
+  --game-bg-parchment-18: rgb(248 232 196 / 0.18);
+
+  /* === RGBA Variants: Deep Dark BGs === */
+  --game-bg-shell-1: rgb(6 15 26 / 0.98);
+  --game-bg-shell-2: rgb(4 10 18 / 1);
+  --game-bg-panel-1: rgb(11 23 39 / 0.74);
+  --game-bg-surface-1: rgb(12 25 40 / 0.96);
+  --game-bg-surface-2: rgb(7 16 28 / 0.98);
+  --game-bg-dark-overlay-1: rgb(6 18 31 / 0.55);
+  --game-bg-dark-overlay-2: rgb(6 18 31 / 0.72);
+  --game-bg-dark-overlay-3: rgb(6 18 31 / 0.74);
+  --game-bg-dark-overlay-4: rgb(6 18 31 / 0.82);
+  --game-bg-dark-overlay-5: rgb(6 26 37 / 0.84);
+  --game-bg-dark-overlay-6: rgb(5 14 21 / 0.58);
+  --game-bg-board-1: rgb(17 39 64 / 0.96);
+  --game-bg-board-2: rgb(8 18 30 / 0.98);
+  --game-bg-board-3: rgb(19 45 55 / 0.96);
+  --game-bg-board-4: rgb(7 19 28 / 0.98);
+  --game-bg-fate-1: rgb(26 21 17 / 0.92);
+  --game-bg-fate-2: rgb(18 14 11 / 0.8);
+  --game-bg-fate-3: rgb(18 14 11 / 0.95);
+  --game-bg-fate-4: rgb(17 13 10 / 0.84);
+  --game-bg-fate-5: rgb(20 15 11 / 0.94);
+  --game-bg-fate-6: rgb(21 16 13 / 0.82);
+  --game-bg-fate-7: rgb(14 11 9 / 0.86);
+  --game-bg-fate-8: rgb(15 11 8 / 0.88);
+  --game-bg-fate-9: rgb(11 9 8 / 0.92);
+  --game-bg-fate-10: rgb(5 4 3 / 0.98);
+  --game-bg-fade-1: rgb(8 6 5 / 0.6);
+  --game-bg-fade-2: rgb(7 5 4 / 0.76);
+  --game-bg-wood-1: rgb(10 8 6 / 0.32);
+  --game-bg-wood-2: rgb(10 8 6 / 0.52);
+  --game-bg-warm-1: rgb(40 30 20 / 0.7);
+  --game-bg-warm-2: rgb(91 54 31 / 0.42);
+  --game-bg-warm-3: rgb(95 54 31 / 0.52);
+  --game-bg-warm-4: rgb(164 107 56 / 0.32);
+  --game-bg-deep-1: rgb(9 21 34 / 0.96);
+  --game-bg-deep-2: rgb(10 18 28 / 0.82);
+  --game-bg-deep-3: rgb(6 12 20 / 0.66);
+  --game-bg-deep-4: rgb(6 12 20 / 0.74);
+  --game-bg-deep-5: rgb(14 29 34 / 0.84);
+  --game-bg-deep-6: rgb(8 18 29 / 0.8);
+  --game-bg-teal-dark-1: rgb(13 30 38 / 0.62);
+  --game-bg-teal-dark-2: rgb(9 43 56 / 0.56);
+  --game-bg-teal-dark-3: rgb(9 43 56 / 0.58);
+  --game-bg-ghost-1: rgb(245 248 250 / 0.92);
+  --game-bg-teal-light-1: rgb(180 240 228 / 0.96);
+  --game-bg-blue-light-1: rgb(214 230 255 / 0.96);
+
+  /* === RGBA Variants: Bronze/Brown tones === */
+  --game-bronze-1: rgb(152 118 72 / 0.16);
+  --game-bronze-2: rgb(152 118 72 / 0.18);
+  --game-bronze-3: rgb(153 118 72 / 0.16);
+  --game-bronze-4: rgb(159 124 74 / 0.22);
+  --game-bronze-5: rgb(163 126 77 / 0.2);
+  --game-bronze-6: rgb(164 108 54 / 0.08);
+  --game-bronze-7: rgb(164 108 54 / 0.12);
+  --game-bronze-8: rgb(164 142 97 / 0.24);
+  --game-bronze-9: rgb(166 128 79 / 0.18);
+  --game-bronze-10: rgb(169 131 83 / 0.35);
+  --game-bronze-11: rgb(196 157 101 / 0.26);
+  --game-bronze-12: rgb(198 157 97 / 0.34);
+  --game-bronze-13: rgb(208 158 88 / 0.28);
+  --game-bronze-14: rgb(211 130 101 / 0.16);
+  --game-bronze-15: rgb(212 157 94 / 0.18);
+  --game-bronze-16: rgb(212 163 91 / 0.28);
+  --game-bronze-17: rgb(182 144 91 / 0.28);
+  --game-bronze-18: rgb(132 99 60 / 0.2);
+  --game-bronze-19: rgb(148 111 67 / 0.16);
+  --game-bronze-20: rgb(76 56 33 / 0.18);
+  --game-bronze-21: rgb(60 45 27 / 0.22);
+  --game-bronze-22: rgb(90 68 38 / 0.14);
+  --game-bronze-23: rgb(33 25 20 / 0.78);
+  --game-bronze-24: rgb(34 24 19 / 0.78);
+
+  /* === RGBA Variants: Accent extras === */
+  --game-teal-13-1: rgb(13 139 123 / 0.1);
+  --game-teal-13-2: rgb(13 139 123 / 0.14);
+  --game-teal-glow-1: rgb(121 217 109 / 0.14);
+  --game-teal-glow-2: rgb(121 217 109 / 0.28);
+  --game-teal-glow-3: rgb(121 217 109 / 0.88);
+  --game-blue-glow-1: rgb(101 216 255 / 0.14);
+  --game-blue-glow-2: rgb(101 216 255 / 0.28);
+  --game-blue-glow-3: rgb(101 216 255 / 0.88);
+  --game-purple-glow-1: rgb(203 133 255 / 0.14);
+  --game-purple-glow-2: rgb(203 133 255 / 0.28);
+  --game-purple-glow-3: rgb(203 133 255 / 0.88);
+  --game-amber-glow-1: rgb(245 214 92 / 0.14);
+  --game-amber-glow-2: rgb(245 214 92 / 0.28);
+  --game-amber-glow-3: rgb(245 214 92 / 0.88);
+  --game-orange-glow-1: rgb(255 180 106 / 0.14);
+  --game-orange-glow-2: rgb(255 180 106 / 0.28);
+  --game-orange-glow-3: rgb(255 180 106 / 0.88);
+  --game-red-glow-1: rgb(255 143 138 / 0.14);
+  --game-red-glow-2: rgb(255 143 138 / 0.28);
+  --game-red-glow-3: rgb(255 143 138 / 0.88);
+  --game-blue-127-1: rgb(127 166 255 / 0.12);
+  --game-blue-127-2: rgb(127 166 255 / 0.14);
+  --game-blue-127-3: rgb(127 166 255 / 0.24);
+  --game-blue-127-4: rgb(127 166 255 / 0.28);
+  --game-blue-127-5: rgb(127 166 255 / 0.88);
+  --game-orange-255-1: rgb(255 176 120 / 0.08);
+  --game-orange-255-2: rgb(255 176 120 / 0.18);
+  --game-orange-255-3: rgb(255 176 120 / 0.24);
+  --game-orange-255-4: rgb(255 176 120 / 0.62);
+  --game-orange-255-5: rgb(255 176 120 / 0.7);
+  --game-gold-light-1: rgb(255 224 176 / 0.08);
+  --game-gold-light-2: rgb(255 233 190 / 0.03);
+  --game-gold-light-3: rgb(255 235 195 / 0.04);
+  --game-gold-light-4: rgb(255 237 201 / 0.05);
+  --game-gold-dust-1: rgb(214 190 138 / 0.08);
+  --game-gold-dust-2: rgb(233 207 154 / 0.08);
+  --game-amber-14: rgb(250 204 21 / 0.14);
+  --game-fate-border-1: rgb(202 124 95 / 0.52);
+  --game-fate-panel-1: rgb(196 98 63 / 0.22);
+  --game-ink-light-1: rgb(237 243 246 / 0.58);
+  --game-ink-light-2: rgb(237 243 246 / 0.78);
+  --game-highlight-1: rgb(15 181 158 / 0.1);
+
+  /* === Gradients === */
+  --game-gradient-01: radial-gradient(circle at 50% 110%, rgb(13 139 123 / 0.14), transparent 55%);
+  --game-gradient-02: radial-gradient(circle at 12% 0%, rgb(223 184 102 / 0.08), transparent 48%);
+  --game-gradient-03: radial-gradient(circle at 50% 8%, rgb(255 224 176 / 0.08), transparent 28%);
+  --game-gradient-04: radial-gradient(circle at top left, rgb(15 181 158 / 0.18), transparent 52%);
+  --game-gradient-05: radial-gradient(circle at top left, rgb(19 166 144 / 0.16), transparent 32%);
+  --game-gradient-06: radial-gradient(
+    circle at bottom right,
+    rgb(235 154 58 / 0.14),
+    transparent 28%
+  );
+  --game-gradient-07: radial-gradient(circle at 50% 0%, rgb(164 108 54 / 0.08), transparent 30%);
+  --game-gradient-08: radial-gradient(circle at 50% 0%, rgb(164 108 54 / 0.12), transparent 30%);
+  --game-gradient-09: radial-gradient(
+    circle at top center,
+    rgb(121 209 194 / 0.12),
+    transparent 28%
+  );
+  --game-gradient-10: radial-gradient(circle at top center, rgb(15 181 158 / 0.1), transparent 48%);
+  --game-gradient-11: radial-gradient(circle at 50% 50%, rgb(121 209 194 / 0.08), transparent 56%);
+  --game-gradient-12: radial-gradient(circle at center, rgb(13 139 123 / 0.14), transparent 44%);
+  --game-gradient-13: radial-gradient(circle at center, rgb(13 139 123 / 0.1), transparent 42%);
+  --game-gradient-14: radial-gradient(circle at 0% 100%, rgb(60 45 27 / 0.22), transparent 36%);
+  --game-gradient-15: radial-gradient(circle at 100% 100%, rgb(76 56 33 / 0.18), transparent 30%);
+  --game-gradient-16: radial-gradient(
+    circle at bottom right,
+    rgb(76 56 33 / 0.18),
+    transparent 30%
+  );
+  --game-gradient-17: radial-gradient(circle at top left, rgb(243 210 150 / 0.06), transparent 24%);
+  --game-gradient-18: linear-gradient(180deg, rgb(6 15 26 / 0.98), rgb(4 10 18 / 1));
+  --game-gradient-19: linear-gradient(145deg, rgb(12 25 40 / 0.96), rgb(7 16 28 / 0.98));
+  --game-gradient-20: linear-gradient(145deg, rgb(17 39 64 / 0.96), rgb(8 18 30 / 0.98));
+  --game-gradient-21: linear-gradient(145deg, rgb(19 45 55 / 0.96), rgb(7 19 28 / 0.98));
+  --game-gradient-22: linear-gradient(145deg, rgb(6 26 37 / 0.84), rgb(255 255 255 / 0.03));
+  --game-gradient-23: linear-gradient(145deg, rgb(91 54 31 / 0.42), rgb(14 29 34 / 0.84));
+  --game-gradient-24: linear-gradient(158deg, rgb(7 16 28 / 0.98), rgb(9 21 34 / 0.96));
+  --game-gradient-25: linear-gradient(180deg, rgb(10 18 28 / 0.82), rgb(6 12 20 / 0.74));
+  --game-gradient-26: linear-gradient(180deg, rgb(10 8 6 / 0.32), rgb(10 8 6 / 0.52));
+  --game-gradient-27: linear-gradient(180deg, rgb(11 9 8 / 0.92), rgb(5 4 3 / 0.98));
+  --game-gradient-28: linear-gradient(180deg, rgb(40 30 20 / 0.7), rgb(17 13 10 / 0.84));
+  --game-gradient-29: linear-gradient(180deg, rgb(8 6 5 / 0.6), rgb(7 5 4 / 0.76));
+  --game-gradient-30: linear-gradient(180deg, rgb(248 232 196 / 0.18), rgb(248 232 196 / 0.02));
+  --game-gradient-31: linear-gradient(135deg, rgb(15 181 158 / 0.16), rgb(255 255 255 / 0.04));
+  --game-gradient-32: linear-gradient(135deg, rgb(15 181 158 / 0.18), rgb(255 255 255 / 0.04));
+  --game-gradient-33: linear-gradient(135deg, rgb(18 192 167 / 0.08), rgb(255 255 255 / 0.02));
+  --game-gradient-34: linear-gradient(135deg, rgb(18 192 167 / 0.16), rgb(255 255 255 / 0.04));
+  --game-gradient-35: linear-gradient(135deg, rgb(18 192 167 / 0.28), rgb(223 184 102 / 0.22));
+  --game-gradient-36: linear-gradient(135deg, rgb(223 184 102 / 0.16), rgb(255 255 255 / 0.04));
+  --game-gradient-37: linear-gradient(135deg, rgb(223 184 102 / 0.1), rgb(255 255 255 / 0.02));
+  --game-gradient-38: linear-gradient(135deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.015));
+  --game-gradient-39: linear-gradient(135deg, #18c0a7, #0d8d7e);
+  --game-gradient-40: linear-gradient(145deg, #173b4a, #06141d);
+  --game-gradient-41: linear-gradient(145deg, #f8e8c4, #d9a84f);
+  --game-gradient-42: linear-gradient(
+    90deg,
+    rgb(95 54 31 / 0.52),
+    rgb(164 107 56 / 0.32) 50%,
+    rgb(95 54 31 / 0.52)
+  );
+  --game-gradient-43: linear-gradient(180deg, rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.36));
+  --game-gradient-44: linear-gradient(180deg, rgb(255 255 255 / 0.03), transparent 20%);
+  --game-gradient-45: linear-gradient(180deg, rgb(255 255 255 / 0.03), transparent 22%);
+  --game-gradient-46: linear-gradient(180deg, rgb(255 255 255 / 0.03), transparent 26%);
+  --game-gradient-47: linear-gradient(180deg, rgb(255 255 255 / 0.04), rgb(255 255 255 / 0.01));
+  --game-gradient-48: linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 24%);
+  --game-gradient-49: linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 32%);
+  --game-gradient-50: linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 34%);
+  --game-gradient-51: linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 40%);
+  --game-gradient-52: linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 50%);
+  --game-gradient-53: linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 52%);
+  --game-gradient-54: linear-gradient(180deg, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.02));
+  --game-gradient-55: linear-gradient(180deg, rgb(255 255 255 / 0.05), transparent 34%);
+  --game-gradient-56: linear-gradient(180deg, rgb(255 255 255 / 0.05), transparent 48%);
+  --game-gradient-57: linear-gradient(140deg, rgb(180 180 180 / 0.14), rgb(255 255 255 / 0.03));
+  --game-gradient-58: linear-gradient(140deg, rgb(18 192 167 / 0.18), rgb(255 255 255 / 0.03));
+  --game-gradient-59: linear-gradient(140deg, rgb(223 184 102 / 0.12), rgb(255 255 255 / 0.03));
+  --game-gradient-60: linear-gradient(140deg, rgb(248 113 113 / 0.14), rgb(255 255 255 / 0.03));
+  --game-gradient-61: linear-gradient(140deg, rgb(74 222 128 / 0.18), rgb(255 255 255 / 0.03));
+  --game-gradient-62: linear-gradient(140deg, rgb(9 43 56 / 0.56), rgb(255 255 255 / 0.03));
+  --game-gradient-63: linear-gradient(140deg, rgb(9 43 56 / 0.58), rgb(255 255 255 / 0.03));
+
+  /* === Fate-knots scoped tokens on .fk-shell === */
+}
+
+.fk-shell {
+  --fk-obsidian: #070605;
+  --fk-night: #12100d;
+  --fk-panel: rgb(26 21 17 / 0.92);
+  --fk-parchment: #e6d4af;
+  --fk-metal: #7a5b35;
+  --fk-ember: #c4623f;
+  --fk-moss: #6d7c67;
+  --fk-parchment-light: #f7ead1;
+  --fk-wood-dark: rgb(10 8 6 / 0.32);
+  --fk-wood-medium: rgb(10 8 6 / 0.52);
+  --fk-panel-alt: rgb(18 14 11 / 0.8);
+  --fk-panel-deep: rgb(18 14 11 / 0.95);
+  --fk-border-metal: rgb(169 131 83 / 0.35);
+  --fk-border-ember: rgb(202 124 95 / 0.52);
+  --fk-text-default: rgb(245 248 250 / 0.92);
+  --fk-text-muted: rgb(152 118 72 / 0.16);
+  --fk-glow-ember: rgb(245 214 92 / 0.28);
+}
+
+/* === Px Tokens === */
+:root {
+  --game-px-0: 0px;
+  --game-px-1: 1px;
+  --game-px-neg-1: -1px;
+  --game-px-2: 2px;
+  --game-px-3: 3px;
+  --game-px-4: 4px;
+  --game-px-6: 6px;
+  --game-px-8: 8px;
+  --game-px-9: 9px;
+  --game-px-10: 10px;
+  --game-px-12: 12px;
+  --game-px-14: 14px;
+  --game-px-16: 16px;
+  --game-px-18: 18px;
+  --game-px-22: 22px;
+  --game-px-24: 24px;
+  --game-px-26: 26px;
+  --game-px-28: 28px;
+  --game-px-30: 30px;
+  --game-px-32: 32px;
+  --game-px-34: 34px;
+  --game-px-36: 36px;
+  --game-px-42: 42px;
+  --game-px-70: 70px;
+  --game-px-72: 72px;
+  --game-px-80: 80px;
+  --game-px-640: 640px;
+  --game-px-680: 680px;
+  --game-px-760: 760px;
+  --game-px-860: 860px;
+  --game-px-880: 880px;
+  --game-px-999: 999px;
+  --game-px-1040: 1040px;
+  --game-px-1180: 1180px;
+  --game-px-1320: 1320px;
+  --game-px-1380: 1380px;
+}
+
+/* === Rem Tokens === */
+:root {
+  --game-rem-0-08: 0.08rem;
+  --game-rem-0-1: 0.1rem;
+  --game-rem-0-12: 0.12rem;
+  --game-rem-0-14: 0.14rem;
+  --game-rem-0-15: 0.15rem;
+  --game-rem-0-16: 0.16rem;
+  --game-rem-0-18: 0.18rem;
+  --game-rem-0-2: 0.2rem;
+  --game-rem-0-22: 0.22rem;
+  --game-rem-0-24: 0.24rem;
+  --game-rem-0-25: 0.25rem;
+  --game-rem-0-26: 0.26rem;
+  --game-rem-0-28: 0.28rem;
+  --game-rem-0-3: 0.3rem;
+  --game-rem-0-32: 0.32rem;
+  --game-rem-0-34: 0.34rem;
+  --game-rem-0-35: 0.35rem;
+  --game-rem-0-36: 0.36rem;
+  --game-rem-0-38: 0.38rem;
+  --game-rem-0-4: 0.4rem;
+  --game-rem-0-42: 0.42rem;
+  --game-rem-0-45: 0.45rem;
+  --game-rem-0-46: 0.46rem;
+  --game-rem-0-48: 0.48rem;
+  --game-rem-0-5: 0.5rem;
+  --game-rem-0-52: 0.52rem;
+  --game-rem-0-54: 0.54rem;
+  --game-rem-0-55: 0.55rem;
+  --game-rem-0-56: 0.56rem;
+  --game-rem-0-58: 0.58rem;
+  --game-rem-0-6: 0.6rem;
+  --game-rem-0-62: 0.62rem;
+  --game-rem-0-64: 0.64rem;
+  --game-rem-0-65: 0.65rem;
+  --game-rem-0-66: 0.66rem;
+  --game-rem-0-68: 0.68rem;
+  --game-rem-0-7: 0.7rem;
+  --game-rem-0-72: 0.72rem;
+  --game-rem-0-74: 0.74rem;
+  --game-rem-0-75: 0.75rem;
+  --game-rem-0-76: 0.76rem;
+  --game-rem-0-78: 0.78rem;
+  --game-rem-0-8: 0.8rem;
+  --game-rem-0-82: 0.82rem;
+  --game-rem-0-84: 0.84rem;
+  --game-rem-0-85: 0.85rem;
+  --game-rem-0-86: 0.86rem;
+  --game-rem-0-88: 0.88rem;
+  --game-rem-0-9: 0.9rem;
+  --game-rem-0-92: 0.92rem;
+  --game-rem-0-94: 0.94rem;
+  --game-rem-0-95: 0.95rem;
+  --game-rem-0-96: 0.96rem;
+  --game-rem-0-98: 0.98rem;
+  --game-rem-1: 1rem;
+  --game-rem-1-05: 1.05rem;
+  --game-rem-1-08: 1.08rem;
+  --game-rem-1-1: 1.1rem;
+  --game-rem-1-15: 1.15rem;
+  --game-rem-1-18: 1.18rem;
+  --game-rem-1-2: 1.2rem;
+  --game-rem-1-22: 1.22rem;
+  --game-rem-1-25: 1.25rem;
+  --game-rem-1-3: 1.3rem;
+  --game-rem-1-35: 1.35rem;
+  --game-rem-1-4: 1.4rem;
+  --game-rem-1-45: 1.45rem;
+  --game-rem-1-5: 1.5rem;
+  --game-rem-1-55: 1.55rem;
+  --game-rem-1-6: 1.6rem;
+  --game-rem-1-65: 1.65rem;
+  --game-rem-1-8: 1.8rem;
+  --game-rem-1-9: 1.9rem;
+  --game-rem-2: 2rem;
+  --game-rem-2-1: 2.1rem;
+  --game-rem-2-15: 2.15rem;
+  --game-rem-2-2: 2.2rem;
+  --game-rem-2-3: 2.3rem;
+  --game-rem-2-35: 2.35rem;
+  --game-rem-2-4: 2.4rem;
+  --game-rem-2-5: 2.5rem;
+  --game-rem-2-55: 2.55rem;
+  --game-rem-2-6: 2.6rem;
+  --game-rem-3-1: 3.1rem;
+  --game-rem-3-2: 3.2rem;
+  --game-rem-3-25: 3.25rem;
+  --game-rem-3-35: 3.35rem;
+  --game-rem-3-4: 3.4rem;
+  --game-rem-3-6: 3.6rem;
+  --game-rem-3-8: 3.8rem;
+  --game-rem-4: 4rem;
+  --game-rem-4-25: 4.25rem;
+  --game-rem-4-45: 4.45rem;
+  --game-rem-4-5: 4.5rem;
+  --game-rem-4-7: 4.7rem;
+  --game-rem-4-8: 4.8rem;
+  --game-rem-5-3: 5.3rem;
+  --game-rem-5-5: 5.5rem;
+  --game-rem-5-8: 5.8rem;
+  --game-rem-6: 6rem;
+  --game-rem-6-5: 6.5rem;
+  --game-rem-8-5: 8.5rem;
+  --game-rem-9: 9rem;
+  --game-rem-14: 14rem;
+  --game-rem-15: 15rem;
+  --game-rem-16: 16rem;
+  --game-rem-17: 17rem;
+  --game-rem-18: 18rem;
+  --game-rem-20: 20rem;
+  --game-rem-22: 22rem;
+  --game-rem-24: 24rem;
+  --game-rem-29: 29rem;
+  --game-rem-30: 30rem;
+  --game-rem-34: 34rem;
+  --game-rem-44: 44rem;
+  --game-rem-62: 62rem;
+  --game-rem-11-5: 11.5rem;
+  --game-rem-13-5: 13.5rem;
+  --game-rem-14-5: 14.5rem;
+  --game-rem-15-5: 15.5rem;
+  --game-rem-15-6: 15.6rem;
+}
+
+/* === Duration Tokens === */
+:root {
+  --game-ms-140: 140ms;
+  --game-ms-160: 160ms;
+  --game-ms-170: 170ms;
+  --game-ms-180: 180ms;
+  --game-ms-200: 200ms;
+  --game-ms-220: 220ms;
+  --game-ms-250: 250ms;
+  --game-ms-280: 280ms;
+  --game-ms-300: 300ms;
+  --game-ms-320: 320ms;
+  --game-ms-350: 350ms;
+  --game-ms-400: 400ms;
+  --game-ms-500: 500ms;
+}
+
+/* === Em Tokens === */
+:root {
+  --game-em-0-04: 0.04em;
+  --game-em-0-05: 0.05em;
+  --game-em-0-06: 0.06em;
+  --game-em-0-08: 0.08em;
+  --game-em-0-1: 0.1em;
+  --game-em-0-12: 0.12em;
+  --game-em-0-14: 0.14em;
+  --game-em-0-16: 0.16em;
+  --game-em-0-18: 0.18em;
+  --game-em-0-22: 0.22em;
+}

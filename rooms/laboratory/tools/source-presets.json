@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "defaultSourceType": "video",
+  "sourceTypes": {
+    "video": {
+      "defaultMode": "local",
+      "modes": ["youtube", "local", "url"],
+      "supportedMimeTypes": [
+        "video/mp4",
+        "video/webm",
+        "video/quicktime",
+        "video/x-msvideo",
+        "video/x-matroska",
+        "video/mpeg",
+        "video/x-m4v"
+      ],
+      "fileDialogFilters": [
+        { "name": "Video", "extensions": ["mp4", "mov", "mkv", "webm", "avi", "m4v"] }
+      ]
+    },
+    "audio": {
+      "defaultMode": "local",
+      "modes": ["local", "url"],
+      "supportedMimeTypes": [
+        "audio/mpeg",
+        "audio/mp4",
+        "audio/wav",
+        "audio/x-wav",
+        "audio/flac",
+        "audio/ogg",
+        "audio/aac"
+      ],
+      "fileDialogFilters": [
+        { "name": "Audio", "extensions": ["mp3", "wav", "m4a", "flac", "ogg", "aac"] }
+      ]
+    },
+    "image": {
+      "defaultMode": "local",
+      "modes": ["local", "url"],
+      "supportedMimeTypes": ["image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp"],
+      "fileDialogFilters": [
+        { "name": "Image", "extensions": ["png", "jpg", "jpeg", "webp", "gif", "bmp"] }
+      ]
+    }
+  },
+  "youtubePresets": {
+    "low": {
+      "defaultCustomValues": {
+        "captureMode": "video+audio",
+        "format": "best[height<=360][ext=mp4]/best[height<=360]/worst[ext=mp4]/worst",
+        "mergeOutputFormat": "mp4",
+        "recodeVideo": "none",
+        "audioFormat": "none",
+        "audioQuality": "5",
+        "limitRate": "",
+        "retries": 10
+      }
+    },
+    "medium": {
+      "defaultCustomValues": {
+        "captureMode": "video+audio",
+        "format": "best[height<=720][ext=mp4]/best[height<=720]/best",
+        "mergeOutputFormat": "mp4",
+        "recodeVideo": "none",
+        "audioFormat": "none",
+        "audioQuality": "5",
+        "limitRate": "",
+        "retries": 10
+      }
+    },
+    "best": {
+      "defaultCustomValues": {
+        "captureMode": "video+audio",
+        "format": "bestvideo*+bestaudio/best",
+        "mergeOutputFormat": "mkv",
+        "recodeVideo": "none",
+        "audioFormat": "none",
+        "audioQuality": "0",
+        "limitRate": "",
+        "retries": 10
+      }
+    },
+    "custom": {
+      "defaultCustomValues": {
+        "captureMode": "video+audio",
+        "format": "bestvideo*+bestaudio/best",
+        "mergeOutputFormat": "mkv",
+        "recodeVideo": "none",
+        "audioFormat": "none",
+        "audioQuality": "5",
+        "limitRate": "",
+        "retries": 10
+      }
+    }
+  }
+}

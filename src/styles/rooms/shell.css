@@ -1,0 +1,142 @@
+.room-page-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.room-page-shell--immersive,
+.room-page-shell--immersive .room-shell--immersive {
+  min-height: 0;
+  height: 100%;
+}
+
+.room-shell--immersive {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--rooms-space-0-6);
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  padding: var(--rooms-space-0-55);
+  overflow: hidden;
+}
+
+.room-shell-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rooms-space-0-7);
+  flex-wrap: wrap;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.room-feature-strip--inline {
+  flex: 1 1 var(--rooms-width-feature-min);
+  align-items: flex-start;
+}
+
+.rooms-page .room-shell:not(.room-shell--immersive) {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--rooms-space-0-6);
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  padding: var(--rooms-space-0-55);
+  overflow: hidden;
+}
+
+.room-shell--immersive .room-feature-chip {
+  min-width: auto;
+}
+
+.room-shell-stage {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.room-shell-stage--immersive {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--rooms-space-1-75);
+  background:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--color-success) 14%, transparent),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      color-mix(in srgb, var(--color-warning) 12%, transparent),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-elevated) 94%, black),
+      color-mix(in srgb, var(--bg-app) 98%, black)
+    );
+}
+
+.room-shell--immersive .room-runtime-mount {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+.room-shell-panel--runtime {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.room-runtime-mount--stage {
+  border: 0;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--bg-elevated) 80%, black);
+  box-shadow:
+    0 var(--rooms-shadow-stage-y) var(--rooms-shadow-stage-blur)
+      color-mix(in srgb, black 34%, transparent),
+    inset 0 0 0 var(--border-1) color-mix(in srgb, var(--text-inverse) 6%, transparent);
+}
+
+.room-shell--immersive .room-runtime-webview,
+.room-shell--immersive .room-runtime-mount {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.room-shell-panel--runtime .room-runtime-mount,
+.room-shell-panel--runtime .room-runtime-webview {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+@media (--breakpoint-max-980) {
+  .room-shell-topline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .room-shell-stage--immersive {
+    min-height: 0;
+  }
+}

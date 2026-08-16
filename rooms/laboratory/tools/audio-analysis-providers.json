@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "sharedSettingsOverlay": true,
+  "providers": [
+    {
+      "id": "ffmpeg-signal",
+      "status": "ready",
+      "toolId": "ffmpeg",
+      "moduleIds": ["signal-health", "spectral-artifacts"],
+      "providerType": "binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["waveform-json", "spectrogram-image", "signal-report"],
+      "titleKey": "audioAnalysis.providers.ffmpeg-signal.title",
+      "summaryKey": "audioAnalysis.providers.ffmpeg-signal.summary"
+    },
+    {
+      "id": "ffmpeg-signal-recovery",
+      "status": "ready",
+      "toolId": "ffmpeg",
+      "moduleIds": [
+        "signal-recovery",
+        "band-pass-exploration",
+        "spectrogram-guided-recovery",
+        "hidden-pattern-extraction"
+      ],
+      "providerType": "binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["recovered-audio", "spectrogram-image", "recovery-manifest"],
+      "titleKey": "audioAnalysis.providers.ffmpeg-signal-recovery.title",
+      "summaryKey": "audioAnalysis.providers.ffmpeg-signal-recovery.summary"
+    },
+    {
+      "id": "ffmpeg-frequency-recovery",
+      "status": "ready",
+      "toolId": "ffmpeg",
+      "moduleIds": ["frequency-shift-reversal"],
+      "providerType": "binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["recovered-audio", "spectrogram-image", "recovery-manifest"],
+      "fallbackProviderIds": ["ffmpeg-signal-recovery"],
+      "titleKey": "audioAnalysis.providers.ffmpeg-frequency-recovery.title",
+      "summaryKey": "audioAnalysis.providers.ffmpeg-frequency-recovery.summary"
+    },
+    {
+      "id": "ffmpeg-phase-lab",
+      "status": "ready",
+      "toolId": "ffmpeg",
+      "moduleIds": ["phase-recovery-experiment"],
+      "providerType": "binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["recovered-audio", "spectrogram-image", "recovery-manifest"],
+      "fallbackProviderIds": ["ffmpeg-signal-recovery"],
+      "titleKey": "audioAnalysis.providers.ffmpeg-phase-lab.title",
+      "summaryKey": "audioAnalysis.providers.ffmpeg-phase-lab.summary"
+    },
+    {
+      "id": "speech-runtime-transcript",
+      "status": "ready",
+      "toolId": "transcript-runtime",
+      "moduleIds": ["transcription"],
+      "providerType": "central-transcript-runtime",
+      "installStrategy": "central-speech-runtime",
+      "expectedArtifacts": ["transcript-json", "transcript-txt"],
+      "titleKey": "audioAnalysis.providers.speech-runtime-transcript.title",
+      "summaryKey": "audioAnalysis.providers.speech-runtime-transcript.summary"
+    },
+    {
+      "id": "speaker-timeline",
+      "status": "ready",
+      "toolId": "pyaudioanalysis",
+      "moduleIds": ["speaker-diarization"],
+      "providerType": "model-backed-runtime",
+      "installStrategy": "shared-room-tool-manual",
+      "expectedArtifacts": ["speaker-segments-json"],
+      "titleKey": "audioAnalysis.providers.speaker-timeline.title",
+      "summaryKey": "audioAnalysis.providers.speaker-timeline.summary"
+    },
+    {
+      "id": "prosody-open-smile",
+      "status": "ready",
+      "toolId": "opensmile",
+      "moduleIds": ["prosody"],
+      "providerType": "script-or-binary",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["prosody-summary-json", "contour-csv"],
+      "fallbackProviderIds": [],
+      "titleKey": "audioAnalysis.providers.prosody-open-smile.title",
+      "summaryKey": "audioAnalysis.providers.prosody-open-smile.summary"
+    },
+    {
+      "id": "emotion-heuristic",
+      "status": "ready",
+      "toolId": "opensmile",
+      "moduleIds": ["emotion"],
+      "providerType": "heuristic-model",
+      "installStrategy": "shared-room-tool",
+      "expectedArtifacts": ["emotion-summary-json"],
+      "fallbackProviderIds": [],
+      "titleKey": "audioAnalysis.providers.emotion-heuristic.title",
+      "summaryKey": "audioAnalysis.providers.emotion-heuristic.summary"
+    },
+    {
+      "id": "sound-event-classifier",
+      "status": "ready",
+      "toolId": "yamnet",
+      "moduleIds": ["sound-events"],
+      "providerType": "model-backed-runtime",
+      "installStrategy": "shared-room-tool-manual",
+      "expectedArtifacts": ["sound-events-json"],
+      "fallbackProviderIds": [],
+      "titleKey": "audioAnalysis.providers.sound-event-classifier.title",
+      "summaryKey": "audioAnalysis.providers.sound-event-classifier.summary"
+    },
+    {
+      "id": "source-separation-runner",
+      "status": "ready",
+      "toolId": "demucs",
+      "moduleIds": ["source-separation"],
+      "providerType": "model-backed-runtime",
+      "installStrategy": "shared-room-tool-manual",
+      "expectedArtifacts": ["stems-manifest-json", "isolated-track"],
+      "fallbackProviderIds": [],
+      "titleKey": "audioAnalysis.providers.source-separation-runner.title",
+      "summaryKey": "audioAnalysis.providers.source-separation-runner.summary"
+    },
+    {
+      "id": "music-rhythm-engine",
+      "status": "ready",
+      "toolId": "librosa",
+      "moduleIds": ["music-rhythm-tonal"],
+      "providerType": "descriptor-engine",
+      "installStrategy": "shared-room-tool-manual",
+      "expectedArtifacts": ["music-analysis-json"],
+      "fallbackProviderIds": ["music-rhythm-essentia"],
+      "titleKey": "audioAnalysis.providers.music-rhythm-engine.title",
+      "summaryKey": "audioAnalysis.providers.music-rhythm-engine.summary"
+    },
+    {
+      "id": "music-rhythm-essentia",
+      "status": "planned",
+      "toolId": "essentia",
+      "moduleIds": ["music-rhythm-tonal"],
+      "providerType": "descriptor-engine",
+      "installStrategy": "shared-room-tool-manual",
+      "expectedArtifacts": ["music-analysis-json"],
+      "fallbackProviderIds": [],
+      "titleKey": "audioAnalysis.providers.music-rhythm-essentia.title",
+      "summaryKey": "audioAnalysis.providers.music-rhythm-essentia.summary"
+    }
+  ]
+}

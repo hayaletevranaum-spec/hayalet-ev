@@ -1,0 +1,87 @@
+{
+  "compilerOptions": {
+    // === Temel Ayarlar ===
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+    // === Tip Kontrolü ===
+    "checkJs": false,
+    "allowJs": true,
+    "noEmit": true,
+
+    // === Strict Ayarları (Maximum) ===
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+
+    // === Additional Strictness ===
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true, // ✅ Enabled for safety (AI-assisted migration)
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true, // Enforces ['property'] syntax for index signatures
+    "allowUnreachableCode": false,
+
+    // === Import/Export ===
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    // "isolatedModules": true, // verbatimModuleSyntax zaten isolatedModules'u implicitly enable eder (TS 5.0+)
+
+    // === Path Alias ===
+    "baseUrl": "..",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@/*": ["src/*"],
+      "@electron/*": ["electron/*"],
+      "@mcp/*": ["mcp-server/*"],
+      "@shared/*": ["src/types/*"],
+      "@theme-source/*": ["shared/themes/*"],
+      "@timeouts": ["shared/timeouts.ts"],
+      "@limits": ["shared/limits.ts"],
+      "@slots": ["shared/slots.ts"],
+      "@ui-constants": ["shared/ui-constants.ts"]
+    },
+
+    // === Diğer ===
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // === AI-Optimized Settings ===
+    "noErrorTruncation": true, // Full error messages for AI analysis
+    "verbatimModuleSyntax": true, // Strict type import/export clarity
+    "incremental": true, // Faster rebuilds (cache-based)
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo"
+  },
+
+  // === Renderer Process (src/js) + Shared Types ===
+  "include": ["js/**/*.js", "js/**/*.ts", "js/**/*.d.ts", "types/**/*.ts", "../shared/**/*.ts"],
+
+  "exclude": [
+    "../node_modules",
+    "../dist",
+    "../build",
+    "../.rovo",
+    "../logs",
+    "../commands",
+    "../data",
+    "../config",
+    "../screenshots",
+    "../tmp",
+    "../temp",
+    "../.vite",
+    "../scripts"
+  ]
+}

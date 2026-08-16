@@ -1,0 +1,148 @@
+.is-hidden {
+  display: none !important;
+}
+
+.is-invisible {
+  visibility: hidden;
+}
+
+.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.is-inactive {
+  opacity: 0.6;
+}
+
+.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.is-busy {
+  cursor: progress;
+}
+
+.is-interactive-locked {
+  pointer-events: none;
+}
+
+.is-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.is-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  border-radius: inherit;
+}
+
+.is-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.is-warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.is-error {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.is-info {
+  background: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+.is-connected {
+  background: var(--color-success);
+  box-shadow: var(--glow-success);
+}
+
+.is-active {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 var(--size-focus-ring) var(--color-accent-muted);
+}
+
+.is-selected {
+  background: var(--bg-elevated);
+  border-color: var(--color-accent);
+}
+
+.has-error {
+  border-color: var(--color-error) !important;
+}
+
+.has-success {
+  border-color: var(--color-success) !important;
+}
+
+.ds-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  border: var(--app-shell-empty-state-border);
+  border-radius: var(--app-shell-empty-state-radius);
+  background: var(--app-shell-empty-state-bg);
+  box-shadow: var(--app-shell-empty-state-shadow);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.ds-log-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--space-24);
+  height: 100%;
+  padding: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-style: italic;
+  text-align: center;
+  opacity: 0.72;
+}
+
+.ds-status-msg {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--duration-normal) var(--ease-out);
+  opacity: 0;
+}
+
+.ds-status-msg.is-success,
+.ds-status-msg.is-error,
+.ds-status-msg.is-info,
+.ds-status-msg.is-warning {
+  background: transparent;
+}
+
+.ds-status-msg.is-success {
+  color: var(--color-success);
+}
+
+.ds-status-msg.is-error {
+  color: var(--color-error);
+}
+
+.ds-status-msg.is-info {
+  color: var(--color-info);
+}
+
+.ds-status-msg.is-warning {
+  color: var(--color-warning);
+}

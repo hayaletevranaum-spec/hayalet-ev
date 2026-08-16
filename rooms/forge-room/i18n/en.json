@@ -1,0 +1,748 @@
+{
+  "title": "Forge Room",
+  "subtitle": "A guided production workbench where goals are shaped into tasks, compared across AI roles, and prepared for downstream handoff.",
+  "workbench": {
+    "title": "Forge Workbench",
+    "subtitle": "Shape a goal, review the task draft, and prepare a downstream handoff.",
+    "badges": {
+      "locked": "Locked",
+      "monitor": "Monitor"
+    },
+    "tabs": {
+      "flow": "Flow",
+      "responses": "Responses",
+      "output": "Output",
+      "states": {
+        "active": "Now",
+        "monitor": "Watch",
+        "locked": "Locked"
+      }
+    },
+    "flow": {
+      "idle": "Idle",
+      "goalDefined": "Goal Defined",
+      "sessionCreated": "Session Created",
+      "draftReady": "Draft Ready",
+      "approved": "Approved",
+      "dispatched": "Dispatched",
+      "responsesReady": "Responses Ready",
+      "conflict": "Conflict",
+      "synthesisReady": "Synthesis Ready",
+      "exported": "Exported"
+    },
+    "columns": {
+      "planEyebrow": "Left",
+      "planTitle": "Control Surface",
+      "responsesEyebrow": "Center",
+      "responsesTitle": "Responses / Decision",
+      "outputEyebrow": "Right",
+      "outputTitle": "Output"
+    },
+    "statusBar": {
+      "requiredAction": "Required action",
+      "startGoal": "Define the goal to start this run.",
+      "stage": "State {label}",
+      "closeRoom": "Return home",
+      "stats": {
+        "queue": "QUEUE {count}",
+        "answers": "ANS {count}",
+        "decisions": "CF {count}",
+        "synthesisOpen": "SYN OPEN",
+        "synthesisLocked": "SYN LOCKED",
+        "exportSent": "EXP SENT",
+        "exportReady": "EXP READY",
+        "exportLocked": "EXP LOCKED"
+      }
+    },
+    "guards": {
+      "requiresSavedGoal": "REQUIRES: GOAL",
+      "requiresDraftTasks": "REQUIRES: DRAFT TASKS",
+      "blockerDraftIssues": "BLOCKER: DRAFT ISSUES",
+      "requiresApprovedPlan": "REQUIRES: APPROVED PLAN",
+      "blockerNoQueuedWork": "BLOCKER: NO QUEUED WORK",
+      "requiresResponses": "REQUIRES: RESPONSES",
+      "blockerOpenDecision": "BLOCKER: OPEN DECISION",
+      "blockerOpenDecisions": "BLOCKER: OPEN DECISIONS",
+      "stateExportReady": "STATE: EXPORT READY",
+      "requiresTargetRoom": "REQUIRES: TARGET ROOM",
+      "requiresSelectedSynthesis": "REQUIRES: SELECTED SYNTHESIS",
+      "requiresAcceptanceCriteria": "REQUIRES: ACCEPTANCE CRITERIA",
+      "blockerHandoffCheck": "BLOCKER: HANDOFF CHECK"
+    },
+    "primaryAction": {
+      "saveGoal": "SAVE GOAL -> START",
+      "saveGoalLocked": "REQUIRES: GOAL",
+      "saveGoalRequired": "REQUIRES: GOAL",
+      "generateDraft": "Generate draft",
+      "generateDraftRequired": "NEXT: GENERATE DRAFT",
+      "finishDraft": "Finish draft",
+      "approveDraft": "Approve draft",
+      "approveDraftRequired": "NEXT: APPROVE DRAFT",
+      "dispatchAssignments": "Dispatch assignments",
+      "dispatchAssignmentsRequired": "NEXT: DISPATCH",
+      "reviewResponseLane": "Review response lane",
+      "waitForResponses": "REQUIRES: RESPONSES",
+      "generateSynthesis": "Generate synthesis",
+      "generateSynthesisRequired": "NEXT: GENERATE SYNTHESIS",
+      "resolveDecision": "Resolve decision",
+      "resolveDecisionBlocked": "BLOCKER: OPEN DECISION",
+      "chooseSynthesis": "Choose synthesis",
+      "chooseSynthesisRequired": "REQUIRES: SELECTED SYNTHESIS",
+      "exportHandoff": "Export handoff",
+      "exportHandoffReady": "NEXT: EXPORT HANDOFF",
+      "checkHandoff": "Check handoff",
+      "reviewExport": "Review export",
+      "exportComplete": "EXPORT COMPLETE: {label}.",
+      "working": "Working on this step",
+      "workingLocked": "SYSTEM LOCKED UNTIL STEP COMPLETES."
+    },
+    "stageTower": {
+      "panelTitle": "Forge stage flow",
+      "previous": "Previous",
+      "next": "Next",
+      "savedSessions": "Saved sessions",
+      "loadSelected": "Load selected",
+      "deleteSelected": "Delete selected",
+      "saveGoal": "Save goal",
+      "sessionLeadSaved": "Create a new shell or load one of the saved sessions below.",
+      "sessionLeadEmpty": "Forge starts here. Create the first session to unlock the rest of the flow.",
+      "operatorLead": "Choose which saved truths should shape this run. Profile editing stays in the top bar.",
+      "trackingLeadDraft": "Preflight is done. Generate the first draft from this stage.",
+      "trackingLeadReady": "Draft artifacts are active. Continue to the next stage.",
+      "trackingLeadMonitor": "This stage keeps the live workflow visible without turning Forge into a dashboard.",
+      "draftLeadLocked": "Draft tools open after the previous stage generates the first draft.",
+      "primaryAction": {
+        "session": "STEP 1: CREATE OR LOAD A SESSION",
+        "preflight": "STEP 4: RUN PREFLIGHT",
+        "draft": "STEP 5: GENERATE THE FIRST DRAFT"
+      },
+      "status": {
+        "active": "Active",
+        "available": "Ready",
+        "complete": "Complete",
+        "locked": "Locked"
+      },
+      "stages": {
+        "session": {
+          "eyebrow": "SESSION",
+          "title": "Registration",
+          "complete": "Active session attached",
+          "available": "Saved sessions are available",
+          "locked": "Create a session to begin"
+        },
+        "goal": {
+          "eyebrow": "GOAL",
+          "title": "Run target",
+          "complete": "Goal saved for this run",
+          "locked": "Save the target after session setup"
+        },
+        "operator": {
+          "eyebrow": "OPERATOR",
+          "title": "Operator",
+          "selected": "{count} context items selected",
+          "preferences": "Mode or risk is tuned",
+          "optional": "Optional run context and mode/risk"
+        },
+        "preflight": {
+          "eyebrow": "RUN SETTINGS",
+          "title": "Preflight",
+          "complete": "Preflight is ready for progression",
+          "locked": "Run preflight before draft work"
+        },
+        "tracking": {
+          "eyebrow": "TRACKING",
+          "title": "Process tracking",
+          "complete": "Draft artifacts are active",
+          "locked": "Generate the draft from here"
+        },
+        "draft": {
+          "eyebrow": "DRAFT",
+          "title": "Draft",
+          "complete": "Draft tools are unlocked",
+          "locked": "Draft opens after generation"
+        }
+      },
+      "registrationPanels": {
+        "session": "Session + goal",
+        "operator": "Operator"
+      }
+    },
+    "panels": {
+      "goal": "Control Surface",
+      "draft": "Draft Breakdown",
+      "approved": "Dispatch Plan",
+      "responses": "Responses & Decisions",
+      "conflicts": "Conflict Summary",
+      "synthesis": "Synthesis & Export",
+      "coordinator": "Coordinator"
+    },
+    "actions": {
+      "createSession": "Create session",
+      "saveSession": "Save session",
+      "loadLatestSession": "Load latest",
+      "approveDraft": "Approve draft",
+      "checkHandoff": "Check handoff",
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "markResolved": "Mark resolved",
+      "leaveOpen": "Leave open",
+      "select": "Select",
+      "selected": "Selected",
+      "preferSeat": "Prefer {seatId}"
+    },
+    "states": {
+      "emptyGoal": "No goal draft yet.",
+      "emptyDraft": "Draft tasks will appear here.",
+      "emptyApproved": "Approved tasks will appear here.",
+      "emptyResponses": "Responses will appear here.",
+      "emptyConflicts": "Conflict groups will appear here.",
+      "emptySynthesis": "Synthesis outputs will appear here.",
+      "emptySessions": "No saved sessions yet."
+    },
+    "common": {
+      "none": "none"
+    },
+    "defaults": {
+      "newTaskTitle": "New task",
+      "newTaskSummary": "Describe the next top-level Forge task."
+    },
+    "dispatchModes": {
+      "singleOwner": "Single owner",
+      "compare": "Compare"
+    },
+    "roles": {
+      "architect": "Architect",
+      "challenger": "Challenger",
+      "external-perspective": "External Perspective",
+      "coordinator": "Coordinator"
+    },
+    "goalPanel": {
+      "guide": {
+        "idle": {
+          "title": "PLAN OPEN",
+          "summary": "NEXT ACTION: SAVE GOAL"
+        },
+        "sessionCreated": {
+          "title": "PLAN OPEN",
+          "summary": "NEXT ACTION: SAVE GOAL"
+        },
+        "goalDefined": {
+          "title": "PLAN READY",
+          "summary": "NEXT ACTION: GENERATE DRAFT"
+        },
+        "draftReady": {
+          "title": "PLAN ACTIVE",
+          "summary": "NEXT ACTION: APPROVE DRAFT"
+        },
+        "locked": {
+          "title": "PLAN LOCKED",
+          "summary": "UPSTREAM EDITS DISABLED"
+        }
+      },
+      "placeholders": {
+        "goal": "Goal",
+        "brief": "Brief",
+        "constraints": "One constraint per line",
+        "targetRoom": "target-room-id"
+      },
+      "goalBlock": {
+        "eyebrow": "Goal",
+        "title": "Set the run target",
+        "savedHint": "Saved target will drive the first draft generation and downstream handoff.",
+        "draftHint": "This target is still local. Save it before preflight or draft generation.",
+        "emptyHint": "Set the problem, target room, and constraints before the room starts producing work."
+      },
+      "launchChecklist": {
+        "eyebrow": "START LANE",
+        "title": "Prepare this Forge run",
+        "summary": "Before the first draft, lock the target, choose a session, reconcile operator truths, and run preflight.",
+        "goalTitle": "Goal details",
+        "goalReady": "Saved target is ready for draft generation.",
+        "goalActive": "Draft is in progress. Save the target before preflight.",
+        "goalIdle": "Define the target room, brief, and constraints for this run.",
+        "sessionTitle": "Session selection",
+        "sessionReady": "Active session is attached to this run.",
+        "sessionActive": "Saved sessions are available. Open one or create a new run shell.",
+        "sessionIdle": "Create a session to keep run-local decisions together.",
+        "operatorTitle": "Operator details",
+        "operatorReady": "{selected} run truths selected from {total} saved records.",
+        "operatorActive": "{total} saved records are available. Pick the truths that should affect this run.",
+        "operatorIdle": "Operator profile is blank. AI will assume no saved tools or skills.",
+        "preflightTitle": "Preflight gate",
+        "preflightReady": "Run context is validated and ready for draft generation.",
+        "preflightWarning": "Preflight found warnings. Review them before you continue.",
+        "preflightStale": "Goal, context, or run settings changed. Refresh preflight before launch.",
+        "preflightIdle": "Preflight unlocks after an active session and a saved goal exist.",
+        "statuses": {
+          "ready": "Ready",
+          "active": "In progress",
+          "idle": "Pending",
+          "warning": "Needs review"
+        }
+      },
+      "actions": {
+        "showDetails": "Goal details",
+        "hideDetails": "Hide details"
+      },
+      "summary": {
+        "targetLabel": "Target",
+        "stateLabel": "State",
+        "sessionLabel": "Session",
+        "draftLabel": "Draft",
+        "preflightLabel": "PRE-FLIGHT",
+        "signatureLabel": "Signature",
+        "briefLabel": "Brief",
+        "constraintsLabel": "Constraints",
+        "filled": "filled",
+        "notStarted": "not started",
+        "waiting": "waiting",
+        "constraintCountOne": "{count} item",
+        "constraintCountOther": "{count} items",
+        "draftCountOne": "{count} task",
+        "draftCountOther": "{count} tasks"
+      },
+      "fields": {
+        "goal": "Goal",
+        "targetRoom": "Target room",
+        "brief": "Brief",
+        "constraints": "Constraints"
+      },
+      "operatorProfile": {
+        "eyebrow": "Operator profile",
+        "label": "Operator",
+        "manage": "Open Operator Profile",
+        "drawerEyebrow": "PROFILE",
+        "drawerTitle": "OPERATOR PROFILE",
+        "empty": "No operator profile defined. AI will assume no prior capability.",
+        "emptyShort": "Profile blank",
+        "prepTitle": "Operator details",
+        "readyHint": "{count} selected truths will shape this run.",
+        "selectHint": "Saved records exist, but this run still uses zero assumptions until you select context.",
+        "noSessionHint": "Saved operator records are ready. Open a session to choose which truths affect this run.",
+        "selectedLabel": "Selected",
+        "selectedTruthHint": "Only selected items can influence this run.",
+        "topbarAction": "Operator Profile",
+        "managerHint": "Persistent operator records live here. Session selection stays on the main run screen.",
+        "addSkill": "Add skill",
+        "addEquipment": "Add equipment",
+        "editInline": "Edit",
+        "remove": "Remove",
+        "close": "Close",
+        "saved": "Saved",
+        "autosavePending": "Autosave on close",
+        "unsaved": "Unsaved",
+        "commit": "Apply",
+        "cancel": "Cancel",
+        "notesPlaceholder": "Optional notes",
+        "skillLabelPlaceholder": "Skill label",
+        "equipmentLabelPlaceholder": "Equipment label",
+        "brandModelPlaceholder": "Brand / model",
+        "emptySkills": "No saved skill records yet.",
+        "emptyEquipment": "No saved equipment records yet.",
+        "skillLevels": {
+          "none": "none",
+          "basic": "basic",
+          "intermediate": "intermediate",
+          "advanced": "advanced"
+        },
+        "equipmentStatus": {
+          "unavailable": "unavailable",
+          "available": "available",
+          "planned": "planned"
+        },
+        "modeValues": {
+          "learn_first": "learn first",
+          "result_first": "result first"
+        },
+        "riskValues": {
+          "low": "low",
+          "medium": "medium",
+          "high": "high"
+        }
+      },
+      "catalog": {
+        "groups": {
+          "skills": "Skills",
+          "equipment": "Equipment",
+          "general": "General"
+        },
+        "details": {
+          "level": "Level",
+          "status": "Status",
+          "value": "Value"
+        },
+        "items": {
+          "skillLevel": "Skill level",
+          "mode": "Mode",
+          "risk": "Risk"
+        }
+      },
+      "sessionManager": {
+        "eyebrow": "SESSION MANAGEMENT",
+        "title": "Manage session",
+        "newSession": "New session",
+        "saveSession": "Save session",
+        "deleteSession": "Delete session",
+        "openSavedSession": "Open",
+        "loadLatest": "Load latest",
+        "savedCount": "Saved",
+        "active": "active",
+        "inactive": "not open",
+        "activeHint": "This active session stores the goal, run context, and preflight output for the current pass.",
+        "savedHint": "Open a saved session or start a fresh shell before selecting run-local context.",
+        "emptyHint": "Create the first session so Forge can persist your preparation state."
+      },
+      "sessionContext": {
+        "eyebrow": "CONTEXT FOR THIS RUN",
+        "title": "Select context",
+        "selectedCount": "{count} active",
+        "noneSelected": "0 active",
+        "zeroAssumptions": "0 active",
+        "requiresSession": "Create or open a session to edit this run context.",
+        "emptySkills": "No saved skills yet. Use Operator Profile from the top bar.",
+        "emptyEquipment": "No saved equipment yet. Use Operator Profile from the top bar.",
+        "emptyPreferences": "No saved general preferences. Use Operator Profile from the top bar."
+      },
+      "preflight": {
+        "eyebrow": "PRE-FLIGHT",
+        "title": "Validate run context",
+        "label": "Preflight",
+        "action": "Run Preflight",
+        "updateAction": "Refresh",
+        "clearAction": "Clear",
+        "idle": "idle",
+        "running": "running",
+        "ready": "ready",
+        "warning": "needs review",
+        "stale": "stale",
+        "aiOffline": "AI0 is offline",
+        "aiReconnect": "AI0 will reconnect during preflight.",
+        "agentTitle": "AI0",
+        "agentSlot": "AI0",
+        "todoTitle": "Process flow",
+        "resultTitle": "Result preview",
+        "resultIdle": "No preflight result yet. Draft can still start without a preflight report.",
+        "resultRunning": "Preflight is running.",
+        "resultReady": "Preflight context is ready.",
+        "summaryTitle": "Compatibility summary",
+        "warningsTitle": "Warnings",
+        "missingInfoTitle": "Missing info",
+        "signatureLabel": "Run signature",
+        "promptSizeLabel": "Prompt",
+        "todoStatus": {
+          "pending": "pending",
+          "active": "running",
+          "complete": "complete",
+          "warning": "warning"
+        },
+        "steps": {
+          "operatorContext": "Package operator context",
+          "constraints": "Derive run constraints",
+          "ai0Analysis": "Collect AI0 software pre-analysis",
+          "runSignature": "Generate run signature",
+          "sessionSave": "Persist session"
+        },
+        "requiresSession": "REQUIRES: ACTIVE SESSION",
+        "requiresSessionHint": "Create or open a session before running preflight.",
+        "requiresGoalHint": "Save the target before preflight can validate this run.",
+        "warningHint": "Preflight completed with warnings. Review the notes before you move forward.",
+        "staleHint": "Context changed after the last preflight run. Refresh before launch.",
+        "readyHint": "Run-local settings are aligned. Use preflight as the last gate before draft generation.",
+        "stepReady": "Context ready",
+        "stepComplete": "Preflight complete",
+        "stepWarning": "Preflight flagged warnings"
+      },
+      "runOverrides": {
+        "eyebrow": "SESSION-SPECIFIC",
+        "title": "Run settings",
+        "meta": "Run-local only",
+        "requiresSession": "Create or open a session to edit run-local settings.",
+        "architectTitle": "Draft architect",
+        "architectField": "Draft lane",
+        "architectHint": "Choose which AI receives the first draft breakdown after preflight.",
+        "mode": "Mode",
+        "risk": "Risk tolerance",
+        "preAnalysis": "Pre-analysis",
+        "notes": "Run notes",
+        "notesPlaceholder": "Temporary condition for this run",
+        "notesPlaceholderLong": "Optional run note for this session",
+        "save": "Save run overrides",
+        "active": "active",
+        "inactive": "inactive",
+        "selected": "selected",
+        "connected": "connected",
+        "disconnected": "disconnected",
+        "unassigned": "no account",
+        "addCondition": "+ Add condition",
+        "commitCondition": "Add",
+        "cancelCondition": "Cancel"
+      }
+    },
+    "draftPanel": {
+      "guide": {
+        "idle": {
+          "title": "REQUIRES: GOAL",
+          "summary": "SAVE GOAL -> START"
+        },
+        "sessionCreated": {
+          "title": "REQUIRES: GOAL",
+          "summary": "SAVE GOAL -> START"
+        },
+        "goalDefined": {
+          "title": "NEXT: GENERATE DRAFT",
+          "summary": "DRAFT OPENS AFTER GENERATION"
+        },
+        "draftReadyBlocked": {
+          "title": "BLOCKER: DRAFT ISSUES",
+          "summary": "FIX THE TASKS BELOW"
+        },
+        "draftReadyOpen": {
+          "title": "NEXT: APPROVE DRAFT",
+          "summary": "REFINE, THEN APPROVE"
+        },
+        "locked": {
+          "title": "STATE: REFERENCE ONLY",
+          "summary": "DRAFT IS LOCKED"
+        }
+      },
+      "toolbar": {
+        "countOne": "{count} task in draft",
+        "countOther": "{count} tasks in draft",
+        "empty": "No draft yet"
+      },
+      "empty": {
+        "goalDefined": "No draft yet. Save goal to generate the first structure.",
+        "locked": "No draft yet. Save goal to generate the first structure."
+      },
+      "fields": {
+        "summary": "Summary",
+        "seat": "Seat",
+        "role": "Role",
+        "mode": "Mode",
+        "compareSeat": "Compare seat",
+        "persona": "Persona",
+        "checklist": "Checklist"
+      },
+      "placeholders": {
+        "taskTitle": "Task title",
+        "taskSummary": "Task summary",
+        "checklist": "Checklist",
+        "rawEditor": "{\"tasks\":[{\"title\":\"Task title\"}]}"
+      },
+      "actions": {
+        "addTask": "Add task",
+        "toggleRaw": "Advanced / raw",
+        "saveTask": "Save task",
+        "remove": "Remove",
+        "applyRawDraft": "Apply raw draft"
+      },
+      "rawTitle": "Advanced / raw draft edit"
+    },
+    "approvedPanel": {
+      "guide": {
+        "approved": {
+          "title": "DISPATCH READY",
+          "summary": "NEXT ACTION: DISPATCH ASSIGNMENTS"
+        },
+        "dispatched": {
+          "title": "DISPATCH LOCKED",
+          "summary": "STATE: WORK IN FLIGHT"
+        },
+        "referenceOnly": {
+          "title": "DISPATCH LOCKED",
+          "summary": "STATE: REFERENCE ONLY"
+        },
+        "locked": {
+          "title": "DISPATCH LOCKED",
+          "summary": "REQUIRES: APPROVED DRAFT"
+        }
+      },
+      "toolbar": {
+        "countOne": "{count} approved task",
+        "countOther": "{count} approved tasks",
+        "empty": "No approved tasks"
+      },
+      "fields": {
+        "mode": "Mode",
+        "seat": "Seat",
+        "role": "Role",
+        "compareSeat": "Compare seat",
+        "persona": "Persona",
+        "capsuleSummary": "Capsule summary",
+        "capsuleModules": "Capsule modules",
+        "capsuleConstraints": "Capsule constraints"
+      },
+      "meta": {
+        "queuedOne": "{count} queued",
+        "queuedOther": "{count} queued",
+        "doneOne": "{count} done",
+        "doneOther": "{count} done"
+      },
+      "capsuleHint": {
+        "open": "Advanced capsule is session-local prompt context. It supplements preflight for this task only and is not exported.",
+        "closed": "Advanced capsule is hidden by default. Open it only when a task needs extra prompt context."
+      },
+      "actions": {
+        "saveDispatchSettings": "Save dispatch settings",
+        "saveCapsule": "Save capsule"
+      }
+    },
+    "responsesPanel": {
+      "guide": {
+        "savedGoalLocked": {
+          "title": "RESPONSE LANE LOCKED",
+          "summary": "REQUIRES: SAVED GOAL"
+        },
+        "approvedDraftLocked": {
+          "title": "RESPONSE LANE LOCKED",
+          "summary": "REQUIRES: APPROVED DRAFT"
+        },
+        "dispatchLocked": {
+          "title": "CENTER GATE LOCKED",
+          "summary": "REQUIRES: DISPATCH"
+        },
+        "responseInbound": {
+          "title": "RESPONSE LANE ACTIVE",
+          "summary": "STATE: RESPONSE INBOUND"
+        },
+        "awaitingResponses": {
+          "title": "RESPONSE LANE ACTIVE",
+          "summary": "STATE: AWAITING RESPONSES"
+        },
+        "reviewResponses": {
+          "title": "RESPONSE LANE ACTIVE",
+          "summary": "STATE: REVIEW RESPONSES"
+        },
+        "conflictBlocked": {
+          "title": "RESPONSE LANE BLOCKED",
+          "summary": "REQUIRES: CONFLICT RESOLUTION"
+        },
+        "readOnly": {
+          "title": "RESPONSE LANE MONITOR",
+          "summary": "STATE: READ ONLY"
+        },
+        "exportInputs": {
+          "title": "RESPONSE LANE ARCHIVE",
+          "summary": "STATE: EXPORT INPUTS"
+        }
+      },
+      "chips": {
+        "tasksOne": "{count} task",
+        "tasksOther": "{count} tasks",
+        "answersOne": "{count} answer",
+        "answersOther": "{count} answers",
+        "decisionsLeftOne": "{count} decision left",
+        "decisionsLeftOther": "{count} decisions left",
+        "responsesOne": "{count} response",
+        "responsesOther": "{count} responses",
+        "queuedOne": "{count} queued",
+        "queuedOther": "{count} queued",
+        "artifactsOne": "{count} artifact",
+        "artifactsOther": "{count} artifacts"
+      },
+      "statuses": {
+        "selected": "chosen",
+        "rejected": "set aside",
+        "captured": "received",
+        "decisionMade": "decision made",
+        "decisionNeeded": "decision needed",
+        "traceSaved": "trace saved"
+      },
+      "empty": {
+        "approved": "Send this task from Plan to start collecting answers.",
+        "waiting": "Waiting for the assigned seat to answer this task.",
+        "unsent": "This task will start showing answers as soon as it is sent."
+      },
+      "conflict": {
+        "recordedTitle": "DECISION RECORDED",
+        "selectTitle": "SELECT ONE RESPONSE",
+        "blockedTitle": "DECISION HOLDS RUN",
+        "recordedSummary": "STATE: PREFERENCE SAVED",
+        "blockedSummary": "USE NEXT STEP TO RETURN HERE.",
+        "currentPick": "Current pick: {seatId}"
+      }
+    },
+    "synthesisPanel": {
+      "guide": {
+        "locked": {
+          "title": "OUTPUT GATE LOCKED",
+          "summary": "REQUIRES: RESPONSES"
+        },
+        "ready": {
+          "title": "OUTPUT GATE READY",
+          "summary": "NEXT ACTION: GENERATE SYNTHESIS"
+        },
+        "blocked": {
+          "title": "OUTPUT GATE BLOCKED",
+          "summary": "REQUIRES: CONFLICT RESOLUTION"
+        },
+        "open": {
+          "title": "OUTPUT GATE OPEN",
+          "summary": "NEXT ACTION: SELECT SYNTHESIS"
+        },
+        "archive": {
+          "title": "OUTPUT GATE ARCHIVE",
+          "summary": "STATE: EXPORT COMPLETE"
+        }
+      },
+      "outputStatus": {
+        "shipped": "shipped",
+        "ready": "ready",
+        "needsSelection": "needs selection",
+        "needsDecision": "needs decision",
+        "needsCriteria": "needs criteria",
+        "blocked": "blocked"
+      },
+      "chips": {
+        "answersOne": "{count} answer",
+        "answersOther": "{count} answers",
+        "decisionsLeftOne": "{count} decision left",
+        "decisionsLeftOther": "{count} decisions left",
+        "synthesesOne": "{count} synthesis",
+        "synthesesOther": "{count} syntheses",
+        "criteriaOne": "{count} criterion",
+        "criteriaOther": "{count} criteria",
+        "tasksOne": "{count} task",
+        "tasksOther": "{count} tasks"
+      },
+      "readiness": {
+        "ready": "STATE: HANDOFF READY",
+        "blocked": "BLOCKER: HANDOFF CHECK",
+        "requiresSelected": "REQUIRES: SELECTED SYNTHESIS"
+      },
+      "context": {
+        "title": "Run context",
+        "pending": "Run signature pending"
+      },
+      "badges": {
+        "selected": "selected"
+      }
+    },
+    "coordinator": {
+      "pending": "Forge is finishing the current step.",
+      "stats": {
+        "state": "State {label}",
+        "waiting": "waiting {count}",
+        "answers": "answers {count}",
+        "decisions": "decisions {count}",
+        "handoff": "handoff {label}"
+      },
+      "activityTitle": "Activity",
+      "latestPackage": "Latest package: {path}",
+      "handoffStatuses": {
+        "sent": "sent",
+        "ready": "ready",
+        "locked": "locked"
+      }
+    },
+    "validation": {
+      "taskRange": "Draft breakdown must contain {min} to {max} top-level tasks.",
+      "taskMissingTitle": "Task {index} is missing a title.",
+      "taskMissingSummary": "Task {index} is missing a summary.",
+      "duplicateTitle": "Task title \"{title}\" is duplicated.",
+      "compareSeatRequired": "Compare task \"{title}\" must define at least one comparison seat.",
+      "unknownDependency": "Task \"{task}\" depends on unknown task \"{dependency}\".",
+      "selfDependency": "Task \"{task}\" cannot depend on itself."
+    }
+  }
+}

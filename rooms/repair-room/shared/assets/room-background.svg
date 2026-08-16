@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Repair Room background">
+  <defs>
+    <linearGradient id="repair-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e14" />
+      <stop offset="55%" stop-color="#0d141b" />
+      <stop offset="100%" stop-color="#10171f" />
+    </linearGradient>
+    <linearGradient id="repair-floor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#12181f" />
+      <stop offset="100%" stop-color="#070a0e" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#repair-bg)" />
+  <rect y="540" width="1600" height="360" fill="url(#repair-floor)" />
+  <rect x="190" y="170" width="1220" height="390" rx="18" fill="rgba(86,200,222,0.05)" stroke="rgba(86,200,222,0.22)" stroke-width="2" />
+  <rect x="280" y="246" width="1040" height="220" rx="14" fill="rgba(8,12,17,0.78)" stroke="rgba(86,200,222,0.14)" stroke-width="1.5" />
+  <circle cx="800" cy="356" r="64" fill="rgba(232,168,87,0.10)" stroke="rgba(232,168,87,0.32)" stroke-width="2" />
+  <text x="800" y="368" fill="#cfd9e8" font-family="'Inter','Segoe UI',sans-serif" font-size="34" letter-spacing="4" text-anchor="middle">REPAIR ROOM</text>
+  <g stroke="rgba(86,200,222,0.10)" stroke-width="1">
+    <line x1="280" y1="306" x2="1320" y2="306" />
+    <line x1="280" y1="406" x2="1320" y2="406" />
+  </g>
+</svg>

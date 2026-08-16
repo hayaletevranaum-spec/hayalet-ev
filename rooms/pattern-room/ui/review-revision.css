@@ -1,0 +1,301 @@
+/* Pattern Room V2 review workspace revision.
+ * Keeps the AI review and local Tenth Man workflows functionally intact while
+ * presenting one task at a time with progressive disclosure.
+ */
+
+.pattern-room-review-panel {
+  gap: var(--pattern-px-14);
+}
+
+.pattern-room-review-task-switcher {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(var(--pattern-px-320), 0.72fr);
+  gap: var(--pattern-px-16);
+  align-items: center;
+  padding: var(--pattern-px-14) var(--pattern-px-16);
+  border: var(--pattern-px-1) solid var(--pattern-accent-amber-alpha-22);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-review-task-switcher-copy {
+  display: grid;
+  gap: var(--pattern-px-4);
+  min-width: 0;
+}
+
+.pattern-room-review-task-switcher-copy > p {
+  max-width: 72ch;
+  margin: 0;
+  color: var(--pattern-text-muted);
+}
+
+.pattern-room-review-task-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--pattern-px-8);
+}
+
+.pattern-room-review-task-button {
+  display: grid;
+  gap: var(--pattern-px-4);
+  min-width: 0;
+  padding: var(--pattern-px-10) var(--pattern-px-12);
+  border: var(--pattern-px-1) solid var(--pattern-border);
+  border-radius: var(--pattern-px-6);
+  background: transparent;
+  color: var(--pattern-text-muted);
+  text-align: left;
+  cursor: pointer;
+}
+
+.pattern-room-review-task-button > strong {
+  color: var(--pattern-text);
+}
+
+.pattern-room-review-task-button > span {
+  font-size: var(--pattern-rem-0-72);
+  line-height: 1.35;
+}
+
+.pattern-room-review-task-button[data-pattern-review-task-active="true"] {
+  border-color: var(--pattern-accent-amber-alpha-28);
+  background: var(--pattern-accent-amber-alpha-06);
+  color: var(--pattern-accent-amber);
+  box-shadow: inset var(--pattern-px-3) 0 0 var(--pattern-accent-amber);
+}
+
+.pattern-room-review-workspace {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+}
+
+.pattern-room-review-surface,
+.pattern-room-review-inspector {
+  position: static;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+}
+
+.pattern-room-review-surface[hidden],
+.pattern-room-review-inspector[hidden] {
+  display: none;
+}
+
+.pattern-room-review-inspector {
+  padding: var(--pattern-px-16);
+}
+
+.pattern-room-review-disclosure,
+.pattern-room-case-review-disclosure,
+.pattern-room-case-review-result-group {
+  min-width: 0;
+  border: var(--pattern-px-1) solid var(--pattern-border);
+  border-radius: var(--pattern-px-8);
+  background: var(--pattern-surface-inset-alpha-62);
+  overflow: clip;
+}
+
+.pattern-room-review-disclosure + .pattern-room-review-disclosure,
+.pattern-room-case-review-disclosure + .pattern-room-case-review-disclosure,
+.pattern-room-case-review-result-group + .pattern-room-case-review-result-group {
+  margin-top: var(--pattern-px-10);
+}
+
+.pattern-room-review-disclosure-summary,
+.pattern-room-case-review-disclosure-summary,
+.pattern-room-case-review-result-group-summary {
+  display: flex;
+  gap: var(--pattern-px-12);
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--pattern-px-44);
+  padding: var(--pattern-px-10) var(--pattern-px-12);
+  color: var(--pattern-text);
+  cursor: pointer;
+  list-style: none;
+}
+
+.pattern-room-review-disclosure-summary::-webkit-details-marker,
+.pattern-room-case-review-disclosure-summary::-webkit-details-marker,
+.pattern-room-case-review-result-group-summary::-webkit-details-marker {
+  display: none;
+}
+
+.pattern-room-review-disclosure-summary::before,
+.pattern-room-case-review-disclosure-summary::before,
+.pattern-room-case-review-result-group-summary::before {
+  content: "+";
+  flex: 0 0 auto;
+  color: var(--pattern-accent-amber);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+}
+
+.pattern-room-review-disclosure[open] > .pattern-room-review-disclosure-summary::before,
+.pattern-room-case-review-disclosure[open] > .pattern-room-case-review-disclosure-summary::before,
+.pattern-room-case-review-result-group[open]
+  > .pattern-room-case-review-result-group-summary::before {
+  content: "−";
+}
+
+.pattern-room-review-disclosure-summary > span,
+.pattern-room-case-review-disclosure-summary > span,
+.pattern-room-case-review-result-group-summary > span {
+  margin-left: auto;
+  color: var(--pattern-text-subtle);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--pattern-rem-0-72);
+}
+
+.pattern-room-review-disclosure-body,
+.pattern-room-case-review-disclosure-body,
+.pattern-room-case-review-result-group-body {
+  display: grid;
+  gap: var(--pattern-px-10);
+  min-width: 0;
+  padding: 0 var(--pattern-px-12) var(--pattern-px-12);
+}
+
+.pattern-room-review-disclosure-body > .pattern-room-case-review-workspace-card,
+.pattern-room-case-review-disclosure-body > .pattern-room-case-review-workspace-card {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.pattern-room-review-disclosure-body
+  > .pattern-room-case-review-request
+  > .pattern-room-context-inspector-label,
+.pattern-room-case-review-disclosure-body
+  > .pattern-room-case-review-workspace-card
+  > .pattern-room-context-inspector-label {
+  display: none;
+}
+
+.pattern-room-review-disclosure-content {
+  display: grid;
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-review-disclosure-content > section {
+  margin: 0;
+}
+
+.pattern-room-review-inspector > .pattern-room-device-status-row,
+.pattern-room-review-inspector > h2,
+.pattern-room-review-inspector > p,
+.pattern-room-review-inspector > .pattern-room-debate-actions {
+  max-width: 72ch;
+}
+
+.pattern-room-review-inspector .pattern-room-device-slots {
+  grid-template-columns: repeat(auto-fit, minmax(var(--pattern-px-188), 1fr));
+}
+
+.pattern-room-case-review-preview {
+  display: grid;
+  gap: var(--pattern-px-12);
+}
+
+.pattern-room-case-review-controls {
+  align-items: end;
+}
+
+.pattern-room-case-review-workspace,
+.pattern-room-case-review-runtime-workspace {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--pattern-px-12);
+}
+
+.pattern-room-case-review-runtime {
+  min-width: 0;
+}
+
+.pattern-room-case-review-runtime-status {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.pattern-room-case-review-parsed {
+  border-color: var(--pattern-accent-green-alpha-22);
+  background: var(--pattern-accent-green-alpha-10);
+}
+
+.pattern-room-case-review-result {
+  display: grid;
+  gap: var(--pattern-px-12);
+}
+
+.pattern-room-case-review-result-summary {
+  padding: var(--pattern-px-14);
+  border-left: var(--pattern-px-3) solid var(--pattern-accent-green);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-case-review-result-summary > h3,
+.pattern-room-case-review-result-summary > p {
+  margin: 0;
+}
+
+.pattern-room-case-review-result-summary > p {
+  margin-top: var(--pattern-px-8);
+}
+
+.pattern-room-case-review-result-group[data-pattern-case-review-result-group="evaluation"] {
+  border-color: var(--pattern-accent-green-alpha-22);
+}
+
+.pattern-room-case-review-result-group[data-pattern-case-review-result-group="gaps"] {
+  border-color: var(--pattern-accent-amber-alpha-28);
+}
+
+.pattern-room-case-review-result-group[data-pattern-case-review-result-group="confidence"] {
+  border-color: var(--pattern-accent-cyan-alpha-22);
+}
+
+.pattern-room-case-review-result-group-body .pattern-room-case-review-section,
+.pattern-room-case-review-result-meta > article {
+  padding: var(--pattern-px-12);
+  border: var(--pattern-px-1) solid var(--pattern-border);
+  border-radius: var(--pattern-px-6);
+  background: var(--pattern-surface-inset-alpha-62);
+}
+
+.pattern-room-case-review-result-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--pattern-px-210), 1fr));
+  gap: var(--pattern-px-10);
+}
+
+.pattern-room-case-review-response-text,
+.pattern-room-case-review-preview-text {
+  max-height: 42dvh;
+  overflow: auto;
+}
+
+@media (--pattern-bp-max-1180) {
+  .pattern-room-review-task-switcher {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (--pattern-bp-max-820) {
+  .pattern-room-review-task-switcher {
+    padding: var(--pattern-px-12);
+  }
+
+  .pattern-room-review-task-buttons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pattern-room-case-review-controls {
+    align-items: stretch;
+  }
+}

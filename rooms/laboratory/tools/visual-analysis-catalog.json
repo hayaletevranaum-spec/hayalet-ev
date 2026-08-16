@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "sharedTooling": true,
+  "modules": [
+    {
+      "id": "frame-consistency",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-structure"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video"],
+      "titleKey": "visualAnalysis.catalog.modules.frame-consistency.title",
+      "summaryKey": "visualAnalysis.catalog.modules.frame-consistency.summary"
+    },
+    {
+      "id": "lighting-consistency",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-structure"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.lighting-consistency.title",
+      "summaryKey": "visualAnalysis.catalog.modules.lighting-consistency.summary"
+    },
+    {
+      "id": "background-consistency",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-structure"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.background-consistency.title",
+      "summaryKey": "visualAnalysis.catalog.modules.background-consistency.summary"
+    },
+    {
+      "id": "occlusion-inconsistency",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-structure"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.occlusion-inconsistency.title",
+      "summaryKey": "visualAnalysis.catalog.modules.occlusion-inconsistency.summary"
+    },
+    {
+      "id": "object-insert-remove-anomaly",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-structure"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.object-insert-remove-anomaly.title",
+      "summaryKey": "visualAnalysis.catalog.modules.object-insert-remove-anomaly.summary"
+    },
+    {
+      "id": "ai-artifact-detection",
+      "status": "gated",
+      "phase": "v2",
+      "providerIds": ["synthetic-visual-forensics"],
+      "toolIds": [],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.ai-artifact-detection.title",
+      "summaryKey": "visualAnalysis.catalog.modules.ai-artifact-detection.summary"
+    },
+    {
+      "id": "temporal-noise-pattern",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-structure"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video"],
+      "titleKey": "visualAnalysis.catalog.modules.temporal-noise-pattern.title",
+      "summaryKey": "visualAnalysis.catalog.modules.temporal-noise-pattern.summary"
+    },
+    {
+      "id": "motion-anomaly",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-structure"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video"],
+      "titleKey": "visualAnalysis.catalog.modules.motion-anomaly.title",
+      "summaryKey": "visualAnalysis.catalog.modules.motion-anomaly.summary"
+    },
+    {
+      "id": "perceptual-duplicate-frame",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-forensics", "opencv-visual-forensics"],
+      "toolIds": ["ffmpeg"],
+      "requiredToolIds": ["ffmpeg"],
+      "optionalToolIds": ["visual-forensics-py"],
+      "sourceKinds": ["video"],
+      "readiness": "ready",
+      "reportSection": "Visual forensics",
+      "titleKey": "visualAnalysis.catalog.modules.perceptual-duplicate-frame.title",
+      "summaryKey": "visualAnalysis.catalog.modules.perceptual-duplicate-frame.summary"
+    },
+    {
+      "id": "optical-flow-tracking",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": [
+        "ffmpeg-visual-forensics",
+        "opencv-visual-forensics",
+        "raft-optical-flow-provider"
+      ],
+      "toolIds": ["ffmpeg"],
+      "requiredToolIds": ["ffmpeg"],
+      "optionalToolIds": ["visual-forensics-py", "raft-optical-flow"],
+      "sourceKinds": ["video"],
+      "readiness": "ready",
+      "reportSection": "Visual forensics",
+      "titleKey": "visualAnalysis.catalog.modules.optical-flow-tracking.title",
+      "summaryKey": "visualAnalysis.catalog.modules.optical-flow-tracking.summary"
+    },
+    {
+      "id": "compression-signature-mapping",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-forensics"],
+      "toolIds": ["ffmpeg"],
+      "requiredToolIds": ["ffmpeg"],
+      "optionalToolIds": ["mediainfo"],
+      "sourceKinds": ["video"],
+      "readiness": "ready",
+      "reportSection": "Visual forensics",
+      "titleKey": "visualAnalysis.catalog.modules.compression-signature-mapping.title",
+      "summaryKey": "visualAnalysis.catalog.modules.compression-signature-mapping.summary"
+    },
+    {
+      "id": "metadata-provenance-audit",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-forensics", "metadata-provenance-system"],
+      "toolIds": ["ffmpeg"],
+      "requiredToolIds": ["ffmpeg"],
+      "optionalToolIds": ["exiftool", "mediainfo"],
+      "sourceKinds": ["video", "image"],
+      "readiness": "ready",
+      "reportSection": "Visual forensics",
+      "titleKey": "visualAnalysis.catalog.modules.metadata-provenance-audit.title",
+      "summaryKey": "visualAnalysis.catalog.modules.metadata-provenance-audit.summary"
+    },
+    {
+      "id": "reference-quality-check",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-forensics", "opencv-visual-forensics"],
+      "toolIds": ["ffmpeg"],
+      "requiredToolIds": ["ffmpeg"],
+      "optionalToolIds": ["visual-forensics-py", "ffmpeg-libvmaf"],
+      "sourceKinds": ["video", "image"],
+      "readiness": "ready",
+      "reportSection": "Visual forensics",
+      "titleKey": "visualAnalysis.catalog.modules.reference-quality-check.title",
+      "summaryKey": "visualAnalysis.catalog.modules.reference-quality-check.summary"
+    },
+    {
+      "id": "visual-signal-amplification",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-reveal"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.visual-signal-amplification.title",
+      "summaryKey": "visualAnalysis.catalog.modules.visual-signal-amplification.summary"
+    },
+    {
+      "id": "color-channel-isolation",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-reveal"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.color-channel-isolation.title",
+      "summaryKey": "visualAnalysis.catalog.modules.color-channel-isolation.summary"
+    },
+    {
+      "id": "gamma-scan",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-reveal"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.gamma-scan.title",
+      "summaryKey": "visualAnalysis.catalog.modules.gamma-scan.summary"
+    },
+    {
+      "id": "contrast-scan",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-reveal"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.contrast-scan.title",
+      "summaryKey": "visualAnalysis.catalog.modules.contrast-scan.summary"
+    },
+    {
+      "id": "edge-enhancement",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-reveal"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.edge-enhancement.title",
+      "summaryKey": "visualAnalysis.catalog.modules.edge-enhancement.summary"
+    },
+    {
+      "id": "histogram-equalization",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-reveal"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.histogram-equalization.title",
+      "summaryKey": "visualAnalysis.catalog.modules.histogram-equalization.summary"
+    },
+    {
+      "id": "hidden-detail-reveal",
+      "status": "implemented",
+      "phase": "v2",
+      "providerIds": ["ffmpeg-visual-reveal"],
+      "toolIds": ["ffmpeg"],
+      "sourceKinds": ["video", "image"],
+      "titleKey": "visualAnalysis.catalog.modules.hidden-detail-reveal.title",
+      "summaryKey": "visualAnalysis.catalog.modules.hidden-detail-reveal.summary"
+    }
+  ]
+}

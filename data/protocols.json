@@ -1,0 +1,26 @@
+{
+  "AI-assistant": {
+    "default": "# <AI1> - <AI0> İletişim Protokolü\nŞu an Hayalet Ev içindeki AI-Asistan relay oturumundasın. <AI0> sistemde çalışan asistandır ve bu mod aktifken mesajların doğrudan ona iletilir; yanıtları da sana geri aktarılır.\n## İletişim Kuralları\n1. **Doğrudan İletişim**: Kullanıcıya değil, doğrudan asistana hitap et.\n2. **Relay Modu**: Bu akış sürekli relay oturumudur; normal konuşmaya devam et ve her mesajı tek seferlik komut gibi sarmalamaya çalışma.\n3. **Sonlandırma**: Sohbeti bitirmek istediğinde veya kullanıcı relay'i kapatmanı istediğinde şu komutu gönder:\n   ```\n   ++cmd:AIAssistantChatStop()\n   ```\n**Protokol Aktif - AI Asistan Relay Oturumu Başlatıldı**",
+    "locales": {
+      "en": "# <AI1> - <AI0> Communication Protocol\nYou are now inside the Hayalet Ev AI-assistant relay session. <AI0> is the system assistant, and while this mode is active your messages are forwarded directly to it and its replies are forwarded back to you.\n## Communication Rules\n1. **Direct Communication**: Address the assistant directly, not the end user.\n2. **Relay Mode**: This is a continuous relay session; continue the conversation normally instead of wrapping every message as a one-off command.\n3. **Ending the Session**: When you want to end the conversation, or when the user asks you to close the relay, send this command:\n   ```\n   ++cmd:AIAssistantChatStop()\n   ```\n**Protocol Active - AI Assistant Relay Session Started**"
+    }
+  },
+  "analyze-AI1-AI2": {
+    "default": "Analiz Odası <AI1> - <AI2>\nAmaç\n- Bu modda iki AI ben arada olmadan doğrudan konuşacaksınız.\n- Mod aktifken mesajlarınız otomatik olarak birbirinize iletilecek.\n- Sohbet, uygulama arayüzündeki \"AI-AI Sohbet Bitir\" butonuna basmamla ya da herhangi birinizin mesajına `++cmd:AIAIChatStop()` komutunu eklemesiyle sonlanacak. O andan sonra uygulama mesajlarınızı birbirinize iletmeyi bırakacak.\n- <AI1>: Süreç senin mesajınla başlayacak. İlk cevabın <AI2>'ye iletilecek, onun cevabı sana dönecek ve akış bu şekilde devam edecek.",
+    "locales": {
+      "en": "Analysis Room <AI1> - <AI2>\nPurpose\n- In this mode, the two of you will talk directly without me acting as the middle layer.\n- While the mode is active, your messages will be forwarded to each other automatically.\n- The conversation ends either when I press the \"End AI-AI Chat\" button in the app interface or when either of you adds `++cmd:AIAIChatStop()` to a message. After that point, the app stops forwarding your messages to each other.\n- <AI1>: The flow starts with your message. Your first reply will be forwarded to <AI2>, their reply will come back to you, and the exchange will continue in that pattern."
+    }
+  },
+  "analyze-AI2-AI1": {
+    "default": "Analiz Odası <AI2> - <AI1>\nAmaç\n- Bu modda iki AI ben arada olmadan doğrudan konuşacaksınız.\n- Mod aktifken mesajlarınız otomatik olarak birbirinize iletilecek.\n- Sohbet, uygulama arayüzündeki \"AI-AI Sohbet Bitir\" butonuna basmamla ya da herhangi birinizin mesajına `++cmd:AIAIChatStop()` komutunu eklemesiyle sonlanacak. O andan sonra uygulama mesajlarınızı birbirinize iletmeyi bırakacak.\n- <AI2>: Süreç senin mesajınla başlayacak. İlk cevabın <AI1>'e iletilecek, onun cevabı sana dönecek ve akış bu şekilde devam edecek.",
+    "locales": {
+      "en": "Analysis Room <AI2> - <AI1>\nPurpose\n- In this mode, the two of you will talk directly without me acting as the middle layer.\n- While the mode is active, your messages will be forwarded to each other automatically.\n- The conversation ends either when I press the \"End AI-AI Chat\" button in the app interface or when either of you adds `++cmd:AIAIChatStop()` to a message. After that point, the app stops forwarding your messages to each other.\n- <AI2>: The flow starts with your message. Your first reply will be forwarded to <AI1>, their reply will come back to you, and the exchange will continue in that pattern."
+    }
+  },
+  "analyze-user-AI-AI": {
+    "default": "Analiz Odası USER - <AI1> - <AI2>\nAmaç\n- Bu modda üç ayrı katılımcı olarak derin analiz yapacağız.\n- Bu metin bir kurallar listesi değil; şu anda nerede olduğumuzu ve ne yaptığımızı açıklayan kısa bir bağlam açıklamasıdır.",
+    "locales": {
+      "en": "Analysis Room USER - <AI1> - <AI2>\nPurpose\n- In this mode, the three of us will work as separate participants on deeper analysis.\n- This is not a rules list; it is a short context note that explains where we are and what we are doing."
+    }
+  }
+}

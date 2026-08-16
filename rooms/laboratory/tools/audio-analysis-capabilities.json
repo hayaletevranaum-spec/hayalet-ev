@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "sharedSettingsOverlay": true,
+  "sharedToolRegistry": true,
+  "defaultFeatureStage": "source",
+  "allowedSourceKinds": ["audio", "video"],
+  "plannedStatusLabels": ["gated", "planned"]
+}
